@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.suppers.finger.dao.BzwtxDao">
+    <resultMap id="BzwtxResultMap" type="awd.cloud.suppers.finger.entity.BzwtxEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="jsbh" column="jsbh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="zwtxxh11" column="zwtxxh11" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="zwtx11" column="zwtx11" javaType="[B" jdbcType="LONGVARBINARY"/>
+		
+		<result property="zwtxxh12" column="zwtxxh12" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="zwtx12" column="zwtx12" javaType="[B" jdbcType="LONGVARBINARY"/>
+		
+		<result property="zwtxxh13" column="zwtxxh13" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="zwtx13" column="zwtx13" javaType="[B" jdbcType="LONGVARBINARY"/>
+		
+		<result property="zwtxxh21" column="zwtxxh21" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="zwtx21" column="zwtx21" javaType="[B" jdbcType="LONGVARBINARY"/>
+		
+		<result property="zwtxxh22" column="zwtxxh22" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="zwtx22" column="zwtx22" javaType="[B" jdbcType="LONGVARBINARY"/>
+		
+		<result property="zwtxxh23" column="zwtxxh23" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="zwtx23" column="zwtx23" javaType="[B" jdbcType="LONGVARBINARY"/>
+		
+		<result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		
+		<result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		
+		<result property="operator" column="operator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="updateoperator" column="updateoperator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="state" column="state" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="scbz" column="scbz" javaType="java.lang.String" jdbcType="CHAR"/>
+		
+		<result property="rybh" column="rybh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'BzwtxResultMap'"/>
+        <bind name="tableName" value="'b_zwtx'"/>
+    </sql>
+
+    <insert id="insert" parameterType="awd.cloud.suppers.finger.entity.BzwtxEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from app where id =#{id}
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="BzwtxResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>  
+    
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select>  
+    
+    <select id="selectZwCode" parameterType="String" resultMap="BzwtxResultMap">
+		select x.ZWTXXH11 ZWTXXH11,x.ZWTXXH21 ZWTXXH21 from b_zwtx x left join b_zwtzm z 
+		 on x.RYBH=z.RYBH where x.RYBH=#{rybh} and x.state=#{state1} and z.state=#{state2}
+    </select>
+    
+    <!-- <select id="selectCount" parameterType="String" resultType="int">
+		SELECT COUNT(rybh) from b_zwtx WHERE rybh = #{rybh} and state=#{state}
+    </select> -->
+    
+    <select id="selectCount" parameterType="String" resultType="int">
+		SELECT COUNT(rybh) from b_zwtx WHERE rybh = #{rybh} and state="R2"
+    </select>
+    
+    <select id="selectYcsCount" parameterType="String" resultType="int">
+		SELECT COUNT(rybh) from b_zwtx WHERE rybh = #{rybh} and state="R3"
+    </select>
+</mapper>

@@ -1,0 +1,80 @@
+<div class="section-item qa-query section-item-padding">
+    <!-- 简项查询 -->
+    <!-- <div class="section-header">
+        <div class="section-title"></div>
+    </div> -->
+    <div class="section-content" >
+        <div style="display: flex;width: 100%;">
+            <table class="easyui-datagrid " data-options="url:'/mock/jds/datagrid/list',method:'GET',
+      pagination:true, rownumbers:true,fitColumns:true," style="width:40%;">
+        <thead>
+            <tr style="width:20%;">
+                <th data-options="field:'ck',checkbox:true,width:'50'"></th>
+                <th data-options="field:'name',width: '90'">谈话开始时间</th>
+                <th data-options="field:'age', width: '80'">谈话地点</th>
+                <th data-options="field:'firstTalkingTime', width: '60'">谈话民警</th>
+                <th data-options="field:'personInCharge', width: '90'">谈话类型</th>
+                <th data-options="field:'title', width: '80'">谈话内容</th>
+            </tr>
+        </thead>
+        </table>
+        <div class="section-content" style="width:40%;height:400px;margin-left:0px;margin-top: 0px;">
+            
+                <div>
+                  <label style="font-size: 16px;">谈话开始时间</label><input style="width:20%" class="easyui-datetimebox" ></input>
+                  <label style="font-size: 16px;">谈话结束时间</label><input style="width:20%" class="easyui-datetimebox" ></input>
+                </div>
+                <div style="margin-top: 3%">
+                  <label style="font-size: 16px;margin-left:7.4%;">谈话民警</label><input style="width:20%;margin-left: 10%;" class="easyui-textbox" ></input>
+                  <label style="font-size: 16px;margin-left:7.4%;">谈话类型</label><input style="width:20%;margin-left: 10%;" class="easyui-textbox" ></input>
+                </div>
+                <div style="margin-top: 3%">
+                  <label style="font-size: 16px;margin-left:7.4%;">谈话地点</label><input style="width:20%" class="easyui-textbox" ></input>
+                  <label style="font-size: 16px;margin-left:7.4%;">监督民警</label><input style="width:20%" class="easyui-textbox" ></input>
+                </div>
+                <div style="margin-top: 3%">
+                  <label style="font-size: 16px;margin-left:14.8%;">提问</label><input style="width:63.2%" class="easyui-textbox" ></input>
+                </div>
+                <div style="margin-top: 3%">
+                  <label style="font-size: 16px;margin-left:14.8%;">回答</label><input style="width:63.2%" class="easyui-textbox" ></input>
+                </div>
+                <div style="height:20%;margin-top: 3%">
+                  <label style="font-size: 16px;margin-left:7.4%;">谈话内容</label><input  data-options="multiline:true" style="border-color:#297aff;width:63.2%;height:100%" class="easyui-textbox" ></input>
+                </div>
+                <div style="margin-top: 3%">
+                  <label style="font-size: 16px;margin-left:14.8%;">备注</label><input style="width:63.2%" class="easyui-textbox" ></input>
+                </div>
+                <div style="margin-top: 3%">
+                  <label style="font-size: 16px;margin-left:7.4%;">情绪状况</label><input style="width:30%" class="easyui-textbox" ></input>
+                </div>
+               <div style="margin-top: 5%;margin-top: 3%;text-align: center">
+                <button style="width: 5rem;margin-left: 40px;
+                height: 1.7rem;
+                background: #297aff;
+                border: 1px solid #0eb2ff;
+                border-radius: 5px;
+                color: whitesmoke;
+                font-size: 16px;
+                letter-spacing: 1px;">保存</button>
+                
+               </div>
+                
+        </div>
+        <div>
+          <div style="height:25%;margin-bottom: 4%;margin-top: 5%">
+              <span style="font-size: 16px;">谈话模板</span>
+              <textarea style="width: 100%;height: 80%;border-color:#297aff;margin-top: 2%" ></textarea>
+          </div>
+          <div style="height:25%;margin-bottom: 4%;">
+              <span style="font-size: 16px;">谈话问题</span>
+              <textarea style="width: 100%;height: 80%;border-color:#297aff;margin-top: 2%" ></textarea>
+          </div>
+          <div style="height:25%;margin-bottom: 4%;">
+              <span style="font-size: 16px;">谈话答案</span>
+              <textarea style="width: 100%;height: 80%;border-color:#297aff;margin-top: 2%" ></textarea>
+          </div>
+        </div>
+        </div>
+        
+    </div>
+</div>

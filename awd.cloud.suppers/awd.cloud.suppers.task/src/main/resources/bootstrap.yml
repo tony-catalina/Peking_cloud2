@@ -1,0 +1,173 @@
+spring:
+  application:
+    name: ${hostname:awd-mis-task-web}
+  cloud:
+    inetutils:
+      preferred-networks: ${hostip:192.168.4.24}
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true   
+    multipart:
+      maxFileSize: 20MB
+      maxRequestSize: 20MB    
+  jta:
+    status: true
+    enabled: true
+    service: com.atomikos.icatch.standalone.UserTransactionServiceFactory
+    max-actives: 200
+    enable-logging: false
+    atomikos:
+      datasource:
+        min-pool-size: 5
+        max-life-time: 60 
+        max-idle-time: 60 
+        maintenance-interval: 60 
+        reap-timeout: 0
+        xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
+        xa-properties:
+          url : ${maurl:jdbc:mysql://192.168.4.103:3307/soa_tasks?useUnicode=true&amp;characterEncoding=utf8}
+          username: ${maUser:root}
+          password: ${maPass:root}
+          initialSize: 5
+          minIdle: 5
+          maxActive: 20        
+          # 打开PSCache，并且指定每个连接上PSCache的大小 
+          poolPreparedStatements: true
+          maxPoolPreparedStatementPerConnectionSize: 20
+          filters: stat,wall
+          # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+          connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+          # 合并多个DruidDataSource的监控数据
+          useGlobalDataSourceStat: true 
+        max-pool-size: 200
+        borrow-connection-timeout: 1000
+      connectionfactory:
+        max-pool-size: 200
+        local-transaction-mode: true
+#ribbon的超时时间
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000
+awd:
+  mis:
+    name: 监管云平台-定时任务服务
+    version: 1.0.0
+    dynamic:
+        datasource:
+           read_ds:
+                min-pool-size: 5
+                max-life-time: 20000 
+                max-idle-time: 60 
+                maintenance-interval: 60 
+                reap-timeout: 0                
+                xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
+                xa-properties:
+                  url: ${lgurl:jdbc:mysql://192.168.4.103:3307/soa_tasks?useUnicode=true&amp;characterEncoding=utf8}
+                  username: ${lgUser:root}
+                  password: ${lgPass:root}
+                  initialSize: 5
+                  minIdle: 5
+                  maxActive: 20                
+                  # 打开PSCache，并且指定每个连接上PSCache的大小 
+                  poolPreparedStatements: true
+                  maxPoolPreparedStatementPerConnectionSize: 20
+                  filters: stat,wall
+                  # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+                  connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+                  # 合并多个DruidDataSource的监控数据
+                  useGlobalDataSourceStat: true 
+                max-pool-size: 200
+                borrow-connection-timeout: 1000  
+           write_ds:
+                min-pool-size: 5
+                max-life-time: 20000 
+                max-idle-time: 60 
+                maintenance-interval: 60 
+                reap-timeout: 0                
+                xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
+                xa-properties:
+                  url: ${ksurl:jdbc:mysql://192.168.4.103:3307/soa_tasks?useUnicode=true&amp;characterEncoding=utf8}
+                  username: ${ksUser:root}
+                  password: ${ksPass:root}
+                  initialSize: 5
+                  minIdle: 5
+                  maxActive: 20                
+                  # 打开PSCache，并且指定每个连接上PSCache的大小 
+                  poolPreparedStatements: true
+                  maxPoolPreparedStatementPerConnectionSize: 20
+                  filters: stat,wall
+                  # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+                  connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+                  # 合并多个DruidDataSource的监控数据
+                  useGlobalDataSourceStat: true 
+                max-pool-size: 200
+                borrow-connection-timeout: 1000                   
+                     
+mybatis:
+  dynamicDatasource: true                
+swagger2:
+  package:  awd.cloud.sh.api.jds.controller
+  show: 
+    dev: ${apidev:false}
+    pro: ${apipro:true}
+    
+eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 30 
+    lease-renewal-interval-in-seconds: 10 
+    prefer-ip-address: true 
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    register-with-eureka: true 
+    fetch-registry: true  
+    serviceUrl:
+      defaultZone: ${eureka.serviceUrl:http://192.168.4.50:3001/eureka/,http://192.168.4.50:3002/eureka/,http://192.168.4.50:3003/eureka/}
+feign:
+  hystrix:
+      enabled: true
+hystrix:  
+  command:  
+      default:  
+        execution:  
+          isolation:  
+            thread:  
+              timeoutInMilliseconds: ${hystrixtime:30000}
+logging:
+  level:
+    root: ${loglevel:INFO}
+  file: log.log
+  pattern:
+    file: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+    console: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+  file.max-size: 200MB 
+server:
+  max-http-header-size: 10000000 
+  port: ${port:9000}
+  tomcat:
+    max-http-post-size: 4048576
+  session:
+    timeout: ${session.timeout:3600}
+    cookie:
+      name: session_task
+  compression:
+    enabled: true
+    mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain    
+    
+#CAS服务地址
+cas: 
+  server: 
+    host: 
+      url: ${cas.host:http://192.168.4.50:8899/cas}
+      login_url: ${cas.server.host.url}/login #CAS服务登录地址
+      logout_url: ${cas.server.host.url}/logout?service=${app.server.host.url} #CAS服务登出地址
+app: 
+  server: 
+    host: 
+      url: ${app.host:http://192.168.4.24:9000}
+  login: 
+    url: /login
+  logout: 
+    url: /logout
+##################################################################              

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>第三方队列添加</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="/css/public.css" media="all"/>
+</head>
+<body class="childrenBody">
+<form class="layui-form" id="queuefm" action="">
+    <div class="layui-form-item">
+        <label class="layui-form-label">APPID</label>
+        <div class="layui-input-block">
+	        <div class="layui-form" lay-filter="appid_id">
+	        	<textarea lay-verify="required" 
+	        		placeholder="请输入APPID" autocomplete="off" name="appid" id="appid_id" class="layui-textarea" ></textarea>
+	        </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">应用名称</label>
+        <div class="layui-input-block">
+            <input type="text" placeholder="请输入应用名称"  autocomplete="off" name="appname" id="appname_id" class="layui-input" lay-verify="required">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户名</label>
+        <div class="layui-input-block">
+           <input type="text" placeholder="请输入用户名" autocomplete="off" name="username"  class="layui-input" lay-verify="required">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-block">
+           <input type="text" placeholder="请输入密码" autocomplete="off" name="password"  class="layui-input" lay-verify="required">
+        </div>
+    </div>
+     <div class="layui-form-item">
+        <label class="layui-form-label">消息队列名</label>
+        <div class="layui-input-block">
+           <input type="text" placeholder="请输入队列名" autocomplete="off" name="queuename" id="queuename_id" class="layui-input" lay-verify="required">
+        </div>
+    </div>
+    <div class="layui-form-item" style="display: none;">
+        <label class="layui-form-label">类型</label>
+        <div class="layui-input-block">
+            <select name="type" id="type_id" lay-filter="type_id">
+            	<option value="classic">classic</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">临时队列</label>
+        <div class="layui-input-block">
+            <input type="radio" name="istemp" value="1" title="是">
+			<input type="radio" name="istemp" value="0" title="否" checked>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">自动删除</label>
+        <div class="layui-input-block">
+            <input type="radio" name="autodelete" value="1" title="是">
+			<input type="radio" name="autodelete" value="0" title="否" checked>
+        </div>
+    </div>
+    <div class="layui-form-item skinBtn">
+        <div class="layui-input-block" style="margin-left: 35%;">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="addform">添加</button>
+            <button type="submit" class="layui-btn layui-btn-primary" lay-filter="reset">重置</button>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript" src="/layui/layui.js"></script>
+<script type="text/javascript" src="/page/rabbitUsers/addUserAndQueue.js"></script>
+<script>
+</script>
+</body>
+</html>

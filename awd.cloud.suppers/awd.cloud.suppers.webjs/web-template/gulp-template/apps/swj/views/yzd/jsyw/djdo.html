@@ -1,0 +1,92 @@
+<!-- partial:../../partials/_easyui_head.html -->
+<!-- partial -->
+<link rel="stylesheet" href="../../../static/css/kssmain.css" type="text/css">
+
+<body scroll="no" class="body-pd10 ">
+    <div class="dataView-container">
+        <div class="table-container">
+            <div class="tabs-wrapper">
+                <div class="jxcx">
+                    <div style="margin-left: 10px;"><i style="margin-right: 10px;" class="fa fa-search"></i>简项查询</div>
+                </div>
+                <div class="comp-search-box" style="margin-top: 7px;border: 0;">
+                    <div class="screen-top">
+                        <div class="colRow">
+                            监所编号<font color="red">*</font>:
+                            <input id="txtNewPass" type="text" class="easyui-textbox" name="name"
+                                data-options="required:true" />
+                        </div>
+                        <div class="colRow">
+                            办理日期:
+                            <input id="selest-item" name="" class="easyui-datetimebox" name="language"/>
+                        </div>
+                        <div class="colRow">
+                            至
+                            <input style='margin-left:10px;' id="selest-item" name="" class="easyui-datetimebox" name="language"/>
+                        </div>
+                        <div class="colRow">
+                            <button class="easyui-linkbutton btnDefault">
+                                <i class="fa fa-search"></i>查询
+                            </button>
+                            <span class="more" id="click_event"><em class="open"></em>高级查询</span>
+                        </div>
+                    </div>
+
+                    <div class="screen-term" id="hidden_enent">
+                        <div class="colRow">
+                            监所名称:
+                            <input type="text" id="faren" class="easyui-textbox" name="name"/>
+                        </div>
+                        <!-- <div class="colRow">
+                            <input type="text" id="selest-item2" name="" class="easyui-combobox" name="language"
+                                label="供应商:" />
+                        </div> -->
+                    </div>
+                </div>
+                <div class="btnbar-tools" id="toolbar">
+                    <a href="javascript:;" class="add" id="newData"><i class="fa fa-plus-square success"></i>添加</a>
+                    <a href="javascript:;" class="edit"><i class="fa fa-pencil-square info"></i>编辑</a>
+                    <a href="javascript:;" class="del"><i class="fa fa-times-rectangle danger"></i>删除</a>
+                    <a href="javascript:;" class="count"><i class="fa fa-pie-chart purple"></i>统计</a>
+                    <a href="javascript:;" class="check"><i class="fa fa-sign-out yellow"></i>导出</a>
+                </div>
+                <table id="test_table"></table>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- partial:../../partials/form/_test_form.html -->
+    <!-- partial -->
+    <!-- partial:../../partials/laywin.html -->
+    <!-- partial -->
+
+    <script src="/apps/swj/static/lib/require.js" data-main="/apps/swj/static/js/controller/yzd.jsyw.djdo.js"></script>
+    <script src="/apps/swj/static/js/require.config.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script> -->
+    <style>
+        *{
+            font-size: 16px !important;
+        }
+        .jxcx{
+            height:40px;
+            background:#0342c3;
+            color:white;
+            line-height: 40px;
+            font-size: 18px !important;
+        }
+        #toolbar{
+            margin-top: 5px;
+            margin-left: 10px;
+            border: 0;
+        }
+        .panel{
+            margin-top: 5px;
+        }
+        .combo{
+            margin-left: 10px ;
+        }
+    </style>
+</body>
+<!-- partial:../../partials/_easyui_foot.html -->
+<!-- partial -->

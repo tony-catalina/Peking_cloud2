@@ -1,0 +1,81 @@
+@import "../../lib/dper/dperSass/_dper.utils.common";
+
+body {
+    background-color: #EBF2FF;
+}
+.fl_left {
+    float: left;
+}
+.fr_right {
+    float: right;
+}
+
+
+  
+.btn {
+    height: 31px;
+}
+.add:hover {
+    cursor: pointer;
+}
+// .datagrid-header-row, .datagrid-row {
+//     height: 40px;
+// }
+.qa-container {
+    .section-item {
+      .section-content {
+        padding: 18px 18px 18px 18px;
+        height: 596px;
+      }
+    }
+  }
+  
+// 中间表格相
+.table_middle {
+    margin-left: 8px;
+    margin-top: 4px;
+    height: 500px;
+   .search-form {
+        margin-top: -4px;
+        margin-left: 10px;
+    }
+   .panel,.datagrid,.panel-htop {
+       margin-left: 9px;
+   }
+}
+// 增加的对话框
+    // .addInfo_table {
+    //     font-size: 16px;
+    //     margin-left: 30px;
+    //     & tr {
+    //         height: 50px;
+    //         & td:nth-child(odd) {
+    //             text-align: right;
+    //             padding-right: 20px;
+    //             padding-left: 20px;
+    //         }
+    //     }
+    //     .cz_tr {
+    //         height: 100px !important;
+    //         .cz_td {
+    //             text-align: center !important;
+    //         }
+    //         .save,
+    //         .cancel {
+    //             font-size: 16px;
+    //             background-color: #4289FF;
+    //             color: #fff;
+    //             border-radius: 5px;
+    //             padding: 7px 17px;
+    //             margin-left: 60px;
+    //         }
+    //     }
+    // }
+
+
+
+
+
+#add_dialog+div .panel-title {
+    color: #4289FF;
+}

@@ -1,0 +1,21 @@
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title th:insert="::title">CAS - 南京安威德科技有限公司登录系统</title>
+
+    <link rel="stylesheet" th:href="@{${#themes.code('standard.custom.css.file')}}" />
+
+    <link rel="stylesheet" th:href="@{/static/css/font-awesome.min.css}" />
+
+
+    <link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        
+        var trackGeoLocation = /*[[${trackGeoLocation}]]*/ === "true";
+        
+        /*]]>*/
+    </script>
+</head>

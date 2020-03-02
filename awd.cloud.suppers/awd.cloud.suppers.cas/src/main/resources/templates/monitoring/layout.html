@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">CAS &#8211; 上海监管云平台授权服务中心</title>
+
+
+    <link rel="stylesheet" th:href="@{/static/css/font-awesome.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}"/>
+	<link type="text/css" rel="stylesheet" th:href="@{/static/css/jquery-ui.css}"/>
+	<link type="text/css" rel="stylesheet" th:href="@{/static/css/cas.css}"/>
+ 
+    <link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
+
+    <script type="text/javascript" th:src="@{/static/js/zxcvbn.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery-ui.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery.cookie.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/cas.js}"></script>
+    <script th:src="@{/static/js/bootstrap.min.js}"></script>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        var trackGeoLocation = /*[[${trackGeoLocation}]]*/ === "true";
+
+        
+        /*]]>*/
+    </script>
+</head>
+
+<body>
+<div id="container" class="container">
+    <div th:replace="fragments/logo"/>
+    <div layout:fragment="content" id="content">
+        <h1/>
+        <p/>
+    </div>
+    <div th:replace="fragments/footer"/>
+</div>
+<div th:insert="fragments/bottom"/>
+
+</body>
+</html>

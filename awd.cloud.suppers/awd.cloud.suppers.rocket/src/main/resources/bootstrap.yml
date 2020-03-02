@@ -1,0 +1,77 @@
+spring:
+  application:
+    name: ${hostname:awd-cloud-suppers-rocket}
+  cloud:
+  redis:
+    hostName: ${redisurl:14.66.87.165}
+    port: ${redisport:6379}
+    pool:
+      maxActive: 32
+      maxWait: 300
+      maxIdle: 16
+      minIdle: 8
+    timeout: 0
+awd:
+  mis:
+    name: 监管云平台-看守所基本服务
+    version: 1.0.0
+mybatis:
+  dynamicDatasource: true
+swagger2:
+  package:  awd.cloud.watchhouse.apps.server.controller
+  show:
+    dev: ${apidev:false}
+    pro: ${apipro:true}
+eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: ${eureka.serviceUrl:http://14.66.87.165:3001/eureka/,http://14.66.87.165:3002/eureka/,http://14.66.87.165:3003/eureka/}
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  threadpool:
+    default:
+      coreSize: 200 #并发执行的最大线程数，默认10
+      maxQueueSize: 1000 #BlockingQueue的最大队列数，默认值-1
+      queueSizeRejectionThreshold: 800 #即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝，默认值5
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: ${hystrixtime:300000}
+logging:
+  level:
+    root: ${loglevel:INFO}
+    awd.bj.kss.servers.base.dao: debug
+  file: log.log
+  pattern:
+    file: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+    console: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+  file.max-size: 200MB
+server:
+  max-http-header-size: 10000000
+  port: ${port:18200}
+  compression:
+    enabled: true
+    mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
+ribbon:
+  ReadTimeout: 300000
+  ConnectTimeout: 300000
+rocket:
+  url: http://14.66.87.170:8188/api/v1/RYGL/EMXxYc
+  secretKeyMsg: dfb121f1929042a7835b8581a28cea34
+  accessKeyMsg: 1c7f020f440c4d7a87ba4946f0ff237f
+  secretKeyApi: dfb121f1929042a7835b8581a28cea34
+  accessKeyApi: 1c7f020f440c4d7a87ba4946f0ff237f
+  producerGroup: mygroup
+  topic: chinaoly
+  nameServer: 14.66.87.77:9876

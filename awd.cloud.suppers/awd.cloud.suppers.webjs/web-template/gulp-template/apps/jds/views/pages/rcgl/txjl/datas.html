@@ -1,0 +1,77 @@
+<div class="section-item qa-query section-item-padding">
+    <!-- 简项查询 -->
+    <!-- <div class="section-header">
+        <div class="section-title"></div>
+    </div> -->
+    <div class="section-content" >
+        <div style="display: flex;">
+            <!--<table class="easyui-datagrid " data-options="url:'/mock/jds/datagrid/list',method:'GET',
+      pagination:true, rownumbers:true,fitColumns:true," style="width:50%;">
+        <thead>
+            <tr style="width:50%;">
+                <th data-options="field:'ck',checkbox:true,width:'50'"></th>
+                <th data-options="field:'name',width: '80'">通话类别</th>
+                <th data-options="field:'age', width: '80'">开始时间</th>
+                <th data-options="field:'firstTalkingTime', width: '60'">结束时间</th>
+            </tr>
+        </thead>
+        </table>-->
+            <div style="width:50%;">
+                <table class="easyui-datagrid " data-options="url:'/mock/jds/datagrid/txjl',method:'GET',
+pagination:true, rownumbers:true,fitColumns:true," style="width:100%;height: 200px">
+                    <thead>
+                    <tr style="width:100%;">
+                        <th data-options="field:'ck',checkbox:true,width:'50'"></th>
+                        <th data-options="field:'thlb',width: '80'">通话类别</th>
+                        <th data-options="field:'kssj', width: '80'">开始时间</th>
+                        <th data-options="field:'jssj', width: '60'">结束时间</th>
+                    </tr>
+
+                    </thead>
+                </table>
+                -社会关系信息
+                <table class="easyui-datagrid " data-options="url:'/mock/jds/datagrid/txjl',method:'GET',
+pagination:true, rownumbers:true,fitColumns:true," style="width:100%;height: 200px">
+                    <thead>
+                    <tr style="width:100%;">
+                        <th data-options="field:'ck',checkbox:true,width:'50'"></th>
+                        <th data-options="field:'gxrxm',width: '80'">关系人姓名</th>
+                        <th data-options="field:'gxrxb', width: '80'">关系人性别</th>
+                        <th data-options="field:'gx', width: '60'">关系</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        <div class="section-content" style="width:50%;height:400px;margin-left:70px;margin-top: 30px;">
+            
+            <div>
+              <label style="font-size: 16px;margin-left: 20px;">通话类别：</label><input style="width:30%" class="easyui-textbox" ></input>
+              <label style="font-size: 16px;margin-left: 20px;">对方姓名：</label><input style="width:30%" class="easyui-textbox" ></input>
+            </div>
+            <div style="margin-top:5px">
+              <label style="font-size: 16px;margin-left: 20px;">对方电话：</label><input style="width:30%" class="easyui-textbox" ></input>
+              <label style="font-size: 16px;margin-left: 20px;">对方关系：</label><input style="width:30%" class="easyui-textbox" ></input>
+            </div>
+            <div style="margin-top:5px">
+                <label style="font-size: 16px;margin-left: 20px;">开始时间：</label><input style="width:30%" class="easyui-textbox" ></input>
+                <label style="font-size: 16px;margin-left: 20px;">结束时间：</label><input style="width:30%" class="easyui-textbox" ></input>
+            </div>
+            <div style="margin-top:5px">
+                <label style="font-size: 16px;margin-left: 20px;">监听人员：</label><input style="width:30%" class="easyui-textbox" ></input>
+                <label style="font-size: 16px;margin-left: 20px;">批准人员：</label><input style="width:30%" class="easyui-textbox" ></input>
+            </div>
+            <div style="margin-top:5px">
+              <label style="font-size: 16px;margin-left: 20px;">通话理由：</label><input style="width:78%;height:84px" class="easyui-textbox" data-options="multiline:true" ></input>
+            </div>
+            <div style="margin-top:5px">
+                <label style="font-size: 16px;margin-left: 20px;">通话内容：</label><input style="width:78%;height:84px" class="easyui-textbox" data-options="multiline:true" ></input>
+            </div>
+            <div style="margin-top:5px">
+                <label style="font-size: 16px;margin-left: 52px;">备注：</label><input style="width:78%;height:84px" class="easyui-textbox" data-options="multiline:true" ></input>
+            </div>
+              
+        </div>
+        </div>
+        
+    </div>
+</div>

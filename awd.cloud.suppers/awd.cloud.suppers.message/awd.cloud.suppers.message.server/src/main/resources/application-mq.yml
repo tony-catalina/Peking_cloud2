@@ -1,0 +1,75 @@
+spring:
+  rabbitmq:
+    host: ${rabbitmqurl:192.168.4.71}
+    port: ${rabbitmqport:5672}
+    username: ${rabbitmqname:awd}
+    password: ${rabbitmqpass:awd}
+    virtualHost: awd
+    cache:
+      channel:
+        size: 500
+    publisher-confirms: true
+    publisher-returns: true
+    template:
+      mandatory: true
+    listener:
+      simple:
+        #      采用手动应答
+        acknowledge-mode: manual
+        #        当前监听容器数
+        concurrency: 1
+        #        最大数
+        max-concurrency: 1
+        #        是否支持重试
+        retry:
+          enabled: true
+    direct:
+      retry:
+        enabled: true
+        max-attempts: 5
+        # 消费者的组名
+###消息默认配置
+awdrabbit:
+  exchange:
+    #默认的广播交换机，所有消息都发送到这个交换机
+    defaultfanout: ${rabbit.defaultfanout:default.fanout.exchange}  
+    #默认的安威德的应用使用的直连交换机，队列绑定消息，然后获取
+    awdexchange: ${rabbit.awdexchange:default.awdDirect.exchange}
+    #默认的第三方应用使用的直连交换机，队列绑定消息，然后获取
+    appexchange: ${rabbit.appexchange:default.appDirect.exchange}
+message:
+  queues:
+    queuePropertiesList:
+      - appname: 北京监外屏
+        queue: awd.msg.jwp
+        routingkey: awd.queue.jwp
+        name: APP队列
+      - appname: 北京大屏
+        queue: awd.msg.charts
+        routingkey: awd.queue.charts
+        name: 大屏队列
+      - appname: 看守所
+        queue: awd.msg.kss
+        routingkey: awd.queue.kss
+        name: 看守所队列
+      - appname: 拘留所
+        queue: awd.msg.jls
+        routingkey: awd.queue.jls
+        name: 拘留所队列
+      - appname: 戒毒所
+        queue: awd.msg.jds
+        routingkey: awd.queue.jds
+        name: 戒毒所队列
+      - appname: 日志服务
+        queue: awd.msg.log
+        routingkey: awd.queue.log
+        name: 日志队列
+      - appname: 上位机
+        queue: awd.msg.swj
+        routingkey: awd.queue.swj
+        name: 上位机队列
+      - appname: 监管综合平台
+        queue: awd.msg.platform
+        routingkey: awd.queue.platform
+        name: 平台队列
+

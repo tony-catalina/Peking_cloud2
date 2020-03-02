@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.suppers.interfaces.dao.UserinfoDao">
+    <resultMap id="UserinfoResultMap" type="awd.cloud.suppers.interfaces.entity.UserinfoEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="usertype" column="usertype" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="loginname" column="loginname" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="loginpass" column="loginpass" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="email" column="email" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="realname" column="realname" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="glybz" column="glybz" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="state" column="state" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'UserinfoResultMap'"/>
+        <bind name="tableName" value="'userinfo'"/>
+        <bind name="resultJbxxMapId" value="'JbxxInfoResultMap'"/>
+        <bind name="jbxxName" value="'JBXX'"/>
+    </sql>
+    
+    <insert id="insert" parameterType="awd.cloud.suppers.interfaces.entity.UserinfoEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from userinfo where id =#{id}
+    </delete>
+
+    <delete id="deleteTable">
+        delete from userinfo 
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="UserinfoResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>
+
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select>
+
+ </mapper>

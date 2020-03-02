@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/ui/js/base-loading.js"></script>
+    <title>综合查询</title>
+    <link rel="stylesheet" type="text/css" href="/ui/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/ui/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/ui/easyui/themes/color.css">
+    <link rel="stylesheet" type="text/css" href="/ui/easyui/themes/xyy.css">
+    <link rel="stylesheet" type="text/css" href="/ui/font-awesome-4.7.0/css/font-awesome.css">
+    <style type="text/css">
+        .kv-group .kv-item .item-lt {
+            color: #000000 !important;
+        }
+
+        .datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber {
+            text-overflow: ellipsis;
+        }
+
+        .panel-tool a {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            margin: 0 0 0 2px;
+            vertical-align: top;
+        }
+
+        .datagrid-mask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+            display: none;
+            z-index: 9999999;
+        }
+
+        .lump {
+            float: left;
+            font-size: 12px;
+        }
+
+        textarea {
+            font-family: "微软雅黑";
+        }
+
+    </style>
+</head>
+
+<body class="gray-bg" style="margin: 0px; overflow: hidden;">
+<!--第一行-->
+<div class="easyui-layout" fit="true"
+     style="width: 100%; height: 100%; border-right-width: 0px; padding-right: 0px; margin-right: 0px">
+
+    <div data-options="region:'center',iconCls:'icon-dingdan'" id='sbxt'
+         style="padding: 0px">
+        <div id="toolbar">
+            &nbsp;&nbsp;&nbsp;<input id="name" name="name" prompt="流程名称" class="easyui-textbox"/>
+            &nbsp;<input id="lcid" name="lcid" prompt="流程ID" class="easyui-textbox"/>
+
+            <a class="easyui-linkbutton" id="query_process" plain="true">
+                <i class="fa fa-search" aria-hidden="true"></i>查询</a>
+            <a class="easyui-linkbutton" plain="true" id="add_process">
+                <i class="fa fa-plus" aria-hidden="true"></i>新增</a>
+            <a class="easyui-linkbutton" plain="true" id="edit_process">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>修改</a>
+            <a class="easyui-linkbutton" plain="true" id="delete_process">
+                <i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>删除</a>
+            <a class="easyui-linkbutton" plain="true" id="deploy_process">
+                <i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>部署</a>
+            <a class="easyui-linkbutton" id="import_process" plain="true" iconCls="icon-edit">
+                导入到bpmp</a>
+            <a class="easyui-linkbutton" id="report_process" plain="true">
+                <i class="fa fa-print" aria-hidden="true"></i>导出到bpmp</a>
+
+        </div>
+        <table id="processID" style="margin-left: 238px;"></table>
+    </div>
+    <div id="importXML"></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="/ui/js/plugins/seajs/sea.js?ver=${date()}"></script>
+<script type="text/javascript">
+    seajs.config({
+        base: "/ui/js/",
+        preload: ["/ui/js/plugins/jquery/jquery-1.9.1.min"],
+        map: [
+            [/^(.*\.(?:css|js))(.*)$/i, '$1$2?ver=${date()}']
+        ]
+    });
+    seajs.use('/ui/js/pages/process/main');
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+awd:
+  application:
+   name: 流程服务
+spring:
+  application:
+   name: ${hostname:awd-mis-activiti-server}
+  aop:
+      auto: true
+      proxy-target-class: true
+  redis:
+    hostName: ${redisUrl:192.168.4.50}
+    port: ${redisPort:6379}
+    pool:
+      maxActive: 8
+      maxWait: -1 
+      maxIdle: 8
+      minIdle: 0
+    timeout: 0    
+  datasource:
+     url : ${dataSourceUrl:jdbc:mysql://192.168.4.50:3307/soa_manager?useUnicode=true&amp;characterEncoding=utf-8&useSSL=false}
+     username : ${dataSourceUserName:root}
+     password : ${dataSourceUserPassword:root}
+     type: com.alibaba.druid.pool.DruidDataSource
+     driver-class-name : com.mysql.jdbc.Driver
+     dbcp2:
+      validation-query: select 1 
+  cache:
+       type: simple
+  jta:
+    status: true
+    atomikos:
+      datasource:        
+        xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
+        xa-properties:
+          url : ${dataSourceUrl:jdbc:mysql://192.168.4.50:3307/soa_manager?useUnicode=true&amp;characterEncoding=utf-8&useSSL=false}
+          username : ${dataSourceUserName:root}
+          password : ${dataSourceUserPassword:root}
+          filters : stat,mergeStat,wall,log4j 
+        max-pool-size: 20
+        borrow-connection-timeout: 1000            
+      connectionfactory:
+        max-pool-size: 20
+        local-transaction-mode: true 
+    in-memory: true     
+swagger2:
+  package:  awd.mis.activiti.controller  
+logging:
+  file: log.log
+  level:
+    root: INFO
+    awd.mis: DEBUG
+    awd.mis.expands: ERROR
+    access-logger: INFO
+    com.len.mapper: DEBUG
+eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 30 
+    lease-renewal-interval-in-seconds: 10 
+    prefer-ip-address: true 
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    register-with-eureka: true 
+    fetch-registry: true  
+    serviceUrl:
+      defaultZone: ${eureka.serviceUrl:http://192.168.4.50:3001/eureka/,http://192.168.4.50:3002/eureka/,http://192.168.4.50:3003/eureka/}
+mybatis:
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    dynamicDatasource: true   
+org:
+   dromara:
+     raincat:
+       txManagerUrl: ${txurl:http://192.168.4.50:8761}
+       serializer: kryo
+       nettySerializer: kryo
+       compensation: true
+       compensationCacheType : db
+       txDbConfig :
+              driverClassName  : ${txdriver:com.mysql.jdbc.Driver}
+              url :  ${txdb:jdbc:mysql://192.168.4.50:3307/soa_logs?useUnicode=true&amp;characterEncoding=utf8&useSSL=false}
+              username : ${txuser:root}
+              password : ${txpass:root}       
+server:
+  port: ${port:4002}

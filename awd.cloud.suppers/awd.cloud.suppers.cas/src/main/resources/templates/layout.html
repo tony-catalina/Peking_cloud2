@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Pragma" contect="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">CAS &#8211; 北京市公安监管综合业务平台</title>
+<script type="text/javascript" th:src="@{/static/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/jquery-ui.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/jquery.cookie.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/jquery.ztree.core.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/jquery.ztree.excheck.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/jquery.ztree.exhide.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/fuzzysearch.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon" />
+<link rel="stylesheet" th:href="@{/static/css/demo.css}"/>
+<link rel="stylesheet" th:href="@{/static/css/zTreeStyle.css}"/>
+<style type="text/css">
+.ztree * {font-size: 9pt;font-family:"Microsoft Yahei",Verdana,Simsun,"Segoe UI Web Light","Segoe UI Light","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol","Helvetica Neue",Arial}
+.ztree li ul{ margin:0; padding:0}
+.ztree li ul li{margin-left:20px}
+.ztree li {line-height:30px;}
+.ztree li a {width:100%;height:30px;padding-top: 0px;}
+.ztree li a:hover {text-decoration:none; background-color: #E7E7E7;}
+.ztree li a span.button.switch {visibility:hidden}
+.ztree.showIcon li a span.button.switch {visibility:visible}
+.ztree li a.curSelectedNode {background-color:#D4D4D4;border:0;height:30px;}
+.ztree li span {line-height:30px;font-size: 12pt;}
+.ztree li span.button {margin-top: -7px;}
+.ztree li span.button.switch {width: 16px;height: 16px;}
+
+.ztree li a.level0 span {font-size: 150%;font-weight: bold;}
+.ztree li span.button {background-image:url("./static/images/left_menuForOutLook.png"); *background-image:url("./static/images/left_menuForOutLook.gif")}
+.ztree li span.button.switch.level0 {width: 20px; height:20px}
+.ztree li span.button.switch.level1 {width: 20px; height:20px}
+.ztree li span.button.noline_open {background-position: 0 0;}
+.ztree li span.button.noline_close {background-position: -18px 0;}
+.ztree li span.button.noline_open.level0 {background-position: 0 -18px;}
+.ztree li span.button.noline_close.level0 {background-position: -18px -18px;}
+ul.ztree {
+	width:139%
+}
+ .modal-backdrop {
+filter: alpha(opacity=0)!important;
+opacity: 0!important;
+z-index:1;
+}
+</style>
+<script th:inline="javascript">
+        /*<![CDATA[*/
+
+        var trackGeoLocation =
+        /*[[${trackGeoLocation}]]*/ ===
+        "true";
+
+        /*]]>*/
+    </script>
+</head>
+<script type="text/javascript" th:inline="javascript">
+
+
+
+    $(document).ready(function () {
+        var login = $(document).attr("title").split(" ")[0];
+        var flag = false;
+        if (login == "注销成功" || login == "登录成功") {
+            flag = true;
+        }
+        var isIE = function(ver){
+            ver = ver || '';
+            var b = document.createElement('b')
+            b.innerHTML = '<!--[if IE ' + ver + ']>1<![endif]-->'
+            return b.innerHTML === '1'
+        } /**检测浏览器是否为IE**/
+        if (isIE()== true) {
+            $("#notIE").remove();
+            //console.log( "$(\"title\")",$(document).attr("title").split(" "));
+            $("head").append("<link>");
+            var css = $("head").children(":last");
+            css.attr({
+                rel: "stylesheet",
+                type: "text/css",
+                href: "/cas/static/css/css.css"
+            });
+
+            $.when(
+                $.getScript("/cas/static/js/jquery.lib.min.js"),
+                $.getScript("/cas/static/js/js.js"),
+                $.Deferred(function (deferred) {
+                    $(deferred.resolve);
+                })
+            ).done(function () {
+            });
+            $("body").addClass("login_bg")
+
+        }else if(isIE() == false){
+            $("#ie").remove();
+            $("<link>").attr({
+                rel: "stylesheet",
+                type: "text/css",
+                href: "/cas/static/css/font-awesome.min.css"
+            }).appendTo("head");
+            $("<link>").attr({
+                rel: "stylesheet",
+                type: "text/css",
+                href: "/cas/static/css/cas.css"
+            }).appendTo("head");
+            $("<link>").attr({
+                rel: "stylesheet",
+                type: "text/css",
+                href: "/cas/static/css/animate.css"
+            }).appendTo("head");
+            $("<link>").attr({
+                rel: "stylesheet",
+                type: "text/css",
+                href: "/cas/static/css/bootstrap.min.css"
+            }).appendTo("head");
+            $("<link>").attr({
+                rel: "stylesheet",
+                type: "text/css",
+                href: "/cas/static/css/jquery-ui.css"
+            }).appendTo("head");
+
+            $.when(
+                $.getScript("/cas/static/js/cas.js"),
+                $.getScript("/cas/static/js/bootstrap.min.js"),
+                $.getScript("/cas/static/js/zxcvbn.js"),
+                $.Deferred(function (deferred) {
+                    $(deferred.resolve);
+                })
+            ).done(function () {
+
+            });
+
+        }
+	/* -----------------------单点登录-自动登录开始	-------------------------- 
+        var url = window.location.href;
+        var username="管理员@310000111";
+        var password="dddd";
+        var execution=[[${flowExecutionKey}]];
+        console.log("execution",execution);
+        var _eventId="submit";
+        var geolocation="";
+        if(execution!=null){
+            $.ajax({
+                type: "post",
+                url: url,
+                data: {"username":username,
+                    "password":password,
+                    "execution":execution,
+                    "_eventId":_eventId,
+                    "geolocation":geolocation},
+                cache: false,
+                async : false,
+                dataType: "html",
+                success: function (data ,textStatus, jqXHR)
+                {
+                    console.log("进来了");
+                    location.reload();
+                },
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    //alert("请求失败！");
+                    console.log("请求失败！");
+                    location.reload();
+                }
+            });
+		}*/
+    	/* -----------------------单点登录-自动登录结束	-------------------------- */
+    	
+    $("#TitleType").on("click",function(){
+    	$("#WindowTitle").css("display","none");
+    })	
+    	
+    });
+    
+ 
+</script>
+
+
+<body>
+	<p value="$CONTENT_TITLE - $LAYOUT_TITLE"></p>
+	<div id="container" class="container">
+		<div id="ie">
+			<div th:replace="login"></div>
+		</div>
+		<div id="notIE">
+			<div th:replace="fragments/logo" /></div>
+
+			<div layout:fragment="content" id="content"></div>
+		</div>
+		<div th:replace="fragments/footer" />
+	</div>
+	<div></div>
+	<div th:insert="fragments/bottom" />
+
+
+</body>
+
+</html>

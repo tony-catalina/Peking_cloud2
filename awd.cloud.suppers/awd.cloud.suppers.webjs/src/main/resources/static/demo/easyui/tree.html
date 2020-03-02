@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" src="../../plugins/base-loading.js"></script>
+<title>tree demo</title>
+<link rel="stylesheet" type="text/css" href="../../plugins/easyui/jquery-easyui-theme/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../../plugins/easyui/jquery-easyui-theme/icon.css">
+<link rel="stylesheet" type="text/css" href="../../plugins/easyui/jquery-easyui-theme/color.css">
+<link rel="stylesheet" type="text/css" href="../../plugins/easyui/jquery-easyui-theme/xyy.css">
+<link rel="stylesheet" type="text/css" href="../font-awesome-4.7.0/css/font-awesome.css"> 
+</head>
+
+<body class="gray-bg" style="margin: 0px; overflow: hidden;">
+	<h2>Complex Layout</h2>
+	<p>This sample shows how to create a complex layout.</p>
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-layout" style="margin-left:10px;width:700px;height:350px;">
+		<div data-options="region:'west',split:true" title="West" style="width:100px;">
+			<div class="easyui-accordion" data-options="fit:true,border:false">
+				<div title="Title1" style="padding:10px;">
+					content1
+				</div>
+				<div title="Title2" data-options="selected:true" style="padding:10px;">
+					content2
+				</div>
+				<div title="Title3" style="padding:10px">
+					content3
+				</div>
+			</div>
+		</div>
+		<div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">
+			<div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+				<div title="下拉框"  style="padding:10px"> 
+					<input id="jtjyjyfwIDD"  required checkBox="false" style="width: 265px; height: 23px" >
+				</div>
+				<div title="DataGrid" style="padding:5px">
+					<table class="easyui-datagrid"
+							data-options="url:'datagrid_data1.json',method:'get',singleSelect:true,fit:true,fitColumns:true">
+						<thead>
+							<tr>
+								<th data-options="field:'itemid'" width="80">Item ID</th>
+								<th data-options="field:'productid'" width="100">Product ID</th>
+								<th data-options="field:'listprice',align:'right'" width="80">List Price</th>
+								<th data-options="field:'unitcost',align:'right'" width="80">Unit Cost</th>
+								<th data-options="field:'attr1'" width="150">Attribute</th>
+								<th data-options="field:'status',align:'center'" width="50">Status</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	
+	<script type="text/javascript" src="../../plugins/seajs/sea.js"></script>
+	<script type="text/javascript">
+		seajs.config({
+			base: "../../",
+			preload: ["plugins/jquery/jquery-1.9.1.min"],
+			map:[
+				[ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+			]
+		});
+		seajs.use('demo/js/tree');
+	</script>
+</body>
+</html>

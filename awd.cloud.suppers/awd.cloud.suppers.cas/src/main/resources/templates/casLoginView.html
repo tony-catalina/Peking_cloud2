@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <title th:text="#{cas.login.pagetitle}"></title>
+</head>
+
+<body id="cas" class="login">
+      <div layout:fragment="content">
+       
+        <div class="row">
+               <div class="panel panel-primary" id="WindowTitle" style="width:15%;position:absolute;margin-left:-2%;z-index:1000;">
+		           <div class="panel-heading">
+                    <button type="button" class="close" id="TitleType" style="opacity:1;text-shadow:none;"  aria-label="Close"><span style="color:red;font-size:25px;">&times;</span></button>
+                    <h4 class="panel-title"><font style="color:whitesmoke">帮助提示</font> <i class="fa fa-exclamation-circle"></i></h4>
+                   </div>
+                   <div class="panel-body">
+                    <p>相关浏览器地址下载</p>
+                    <p>http://www.baidu.com</p>
+                    <p>相关插件下载</p>
+                    <p>http://www.google.com</p>
+                    <p>相关需求下载</p>
+                    <p>https://cn.bing.com</p>
+                   </div>
+              </div> 
+            <div class="col-sm-12 col-md-9 col-md-offset-2" >
+                <!--<div th:replace="login" />-->
+                  <div th:replace="fragments/loginform"/></div>
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+
+</style>
+</html>
+

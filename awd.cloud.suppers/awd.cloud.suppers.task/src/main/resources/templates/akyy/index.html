@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Title -->
+    <title>安威德任务管理系统</title>
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+    <!-- These plugins only need for the run this page -->
+    <link rel="stylesheet" href="css/default-assets/notification.css">
+    <link rel="stylesheet" href="css/c3.min.css">
+    <!-- Master Stylesheet [If you remove this CSS file, your file will be broken undoubtedly.] -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="vertical-dark">
+    <!-- Preloader -->
+    <div id="preloader"></div>
+    <!-- ======================================
+    ******* Page Wrapper Area Start **********
+    ======================================= -->
+    <div class="admetro-page-wrapper">
+        <!-- Sidemenu Area -->
+        <div class="admetro-sidemenu-area">
+            <!-- Desktop Logo -->
+            <div class="admetro-logo">
+                <a href="/"><img class="desktop-logo" src="img/core-img/logo.png" alt="Desktop Logo"> <img class="small-logo" src="img/core-img/small-logo.png" alt="Mobile Logo"></a>
+            </div>
+            <!-- Side Nav -->
+            <div class="admetro-sidenav" id="admetroSideNav">
+                <!-- Side Menu Area -->
+                <div class="side-menu-area">
+                    <!-- Sidebar Menu -->
+                    <ul class="sidebar-menu" data-widget="tree">
+                        <li class="active">
+                            <a href="javascript:void(0);" class="btn- btn-c-gradient-3 btn-rounded"><i class="ti-home"></i><span>新增任务</span></a>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:void(0)"><i class="ti-magnet"></i> <span>任务分类</span> <i class="fa fa-angle-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="#">看守所</a></li>
+                                <li><a href="#">拘留所</a></li>
+                                <li><a href="#">戒毒所</a></li>
+                                <li><a href="#">收教所</a></li>
+                                <li><a href="#">安康医院</a></li>
+                                <li><a href="#">其他</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:void(0)"><i class="ti-ruler-pencil"></i> <span>相关查询</span> <i class="fa fa-angle-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="/tasks">任务查询</a></li>
+                                <li><a href="#">日志查询</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div class="admetro-page-content">
+            <!-- Top Header Area -->
+            <header class="top-header-area d-flex align-items-center justify-content-between">
+                <div class="left-side-content-area d-flex align-items-center">
+                    <!-- Mobile Logo -->
+                    <div class="mobile-logo mr-3 mr-sm-4">
+                        <a href="index.html"><img src="img/core-img/small-logo.png" alt="Mobile Logo"></a>
+                    </div>
+
+                    <!-- Triggers -->
+                    <div class="admetro-triggers mr-1 mr-sm-3">
+                        <div class="menu-collasped" id="menuCollasped">
+                            <i class="ti-align-right"></i>
+                        </div>
+                        <div class="mobile-menu-open" id="mobileMenuOpen">
+                            <i class="ti-align-right"></i>
+                        </div>
+                    </div>
+                    
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <div class="container-fluid">
+                	<div class="row align-items-end">
+                        <div class="col-8">
+                            <!-- Page Title -->
+                            <div class="page-title mb-30">
+                                <h5 class="mb-0">最近新增任务</h5>
+                                <span>欢迎使用安威德任务管理平台!</span>
+                            </div>
+                        </div>
+                    </div>
+                	
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3 mb-30">
+                            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="200ms">
+                                <div class="card-body">
+                                    <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between">
+                                        <h6 class="text-black">超期羁押情况分析</h6>
+                                        <div class="dashboard-dropdown">
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                    <a class="dropdown-item popwin" href="#" url="html/kss/cqjyqkfx/cqjyqkfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                    <a class="dropdown-item" href="#"><i class="ti-settings"></i> 模型设置</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <img src="./js/images/cqjyqkfx.png" alt=""class="imgs"/>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xl-3 mb-30">
+                            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="300ms">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                                            <h6 class="text-black">关押期限分析</h6>
+                                            <div class="dashboard-dropdown">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                        <a class="dropdown-item popwin" href="#" url="html/kss/gyqxfx/gyqxfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <img src="./js/images/gyqxfx.png" alt=""class="imgs"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xl-3 mb-30">
+                            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="400ms">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                                            <h6 class="text-black">超量关押分析</h6>
+                                            <div class="dashboard-dropdown">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                        <a class="dropdown-item popwin start" href="#" url="html/kss/allone/chart.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <img src="./js/images/clgyfx.png" alt="" class="imgs"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xl-3 mb-30">
+                            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="500ms">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                                            <h6 class="text-black">重点人员分析</h6>
+                                            <div class="dashboard-dropdown">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                        <a class="dropdown-item popwin" href="#" url="html/kss/zdryfx/zdryfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <img src="./js/images/zdryfx.png" alt="" class="imgs"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="row">
+                                <div class="col-12 col-md-6 mb-30">
+                                    <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="200ms">
+                                        <div class="card-body">
+                                            <div class="sparkline-chart">
+                                                <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                                                    <h6 class="text-black">医疗情况分析</h6>
+                                                    <div class="dashboard-dropdown">
+                                                        <div class="dropdown">
+                                                            <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                                <a class="dropdown-item popwin" href="#" url="html/kss/ylqkfx/ylqkfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <img src="./js/images/ylqkfx.png" alt="" class="imgs"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mb-30">
+                                    <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="300ms">
+                                        <div class="card-body">
+                                            <div class="sparkline-chart">
+                                                <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                                                    <h6 class="text-black">人员分类分析</h6>
+                                                    <div class="dashboard-dropdown">
+                                                        <div class="dropdown">
+                                                            <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                                <a class="dropdown-item popwin" href="#" url="html/kss/ryflfx/ryflfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <img src="./js/images/ryflfx.png" alt="" class="imgs"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mb-30">
+                                    <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="400ms">
+                                        <div class="card-body">
+                                            <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                                                <h6 class="text-black">涉黑涉恶人员统计</h6>
+                                                <div class="dashboard-dropdown">
+                                                    <div class="dropdown">
+                                                        <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                            <a class="dropdown-item popwin" href="#" url="html/kss/shserytj/shserytj.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <img src="./js/images/shserytj.png" alt=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mb-30">
+                                    <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="400ms">
+                                        <div class="card-body">
+                                            <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                                                <h6 class="text-black">国籍分析</h6>
+                                                <div class="dashboard-dropdown">
+                                                    <div class="dropdown">
+                                                        <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                            <a class="dropdown-item popwin" href="#" url="html/kss/gjfx/gjfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <img src="./js/images/gjfx.png" alt=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 mb-30">
+                            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="200ms">
+                                <div class="card-body">
+                                    <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between">
+                                        <h6 class="text-black">违规情况分析</h6>
+                                        <div class="dashboard-dropdown">
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                    <a class="dropdown-item popwin" href="#" url="html/kss/wgqkfx/wgqkfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="notifications-box" >
+                                        <img src="./js/images/wgqkfx.png" alt=""/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="row">
+                                <div class="col-12 col-md-6 mb-30">
+                                    <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="200ms">
+                                        <div class="card-body">
+                                            <div class="sparkline-chart">
+                                                <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                                                    <h6 class="text-black">案件情况分析</h6>
+                                                    <div class="dashboard-dropdown">
+                                                        <div class="dropdown">
+                                                            <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                                <a class="dropdown-item popwin" href="#" url="html/kss/ajqkfx/ajqkfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <img src="./js/images/ajqkfx.png" alt="" class="imgs"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mb-30">
+                                    <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="300ms">
+                                        <div class="card-body">
+                                            <div class="sparkline-chart">
+                                                <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                                                    <h6 class="text-black">留所服刑分析</h6>
+                                                    <div class="dashboard-dropdown">
+                                                        <div class="dropdown">
+                                                            <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                                <a class="dropdown-item popwin" href="#" url="html/kss/lsfxfx/lsfxfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <img src="./js/images/lsfxfx.png" alt="" class="imgs"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mb-30">
+                                    <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="400ms">
+                                        <div class="card-body">
+                                            <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                                                <h6 class="text-black">严重疾病人员分析</h6>
+                                                <div class="dashboard-dropdown">
+                                                    <div class="dropdown">
+                                                        <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                            <a class="dropdown-item popwin" href="#" url="html/kss/yzjbryfx/yzjbryfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <img src="./js/images/yzjbryfx.png" alt=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mb-30">
+                                    <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="400ms">
+                                        <div class="card-body">
+                                            <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                                                <h6 class="text-black">吸毒人员分析</h6>
+                                                <div class="dashboard-dropdown">
+                                                    <div class="dropdown">
+                                                        <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                            <a class="dropdown-item popwin" href="#" url="html/kss/xdryfx/xdryfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <img src="./js/images/xdryfx.png" alt=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 mb-30">
+                            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="200ms">
+                                <div class="card-body">
+                                    <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between">
+                                        <h6 class="text-black">送监未收人员分析</h6>
+                                        <div class="dashboard-dropdown">
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                                    <a class="dropdown-item popwin" href="#" url="html/kss/sjwsryfx/sjwsryfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="notifications-box" >
+                                        <img src="./js/images/sjwsryfx.png" alt=""/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Footer Area -->
+                <footer class="footer-area d-flex align-items-center flex-wrap">
+                    <!-- Copywrite Text -->
+                    <div class="copywrite-text">
+                        <p>njawd &copy; 2019 created by 南京安威德科技有限公司</p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <!-- ======================================
+    ********* Page Wrapper Area End ***********
+    ======================================= -->
+    <!-- Model -->
+        
+    <script type="text/javascript" src="js/seajs/sea.js"></script>
+    <script type="text/javascript">
+        seajs.config({
+            base: "./js",
+            preload: ["plugins/jquery/jquery-3.3.1.min","admetro.bundle.js"],
+            map:[
+                [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+            ]
+        });
+        seajs.use('pages/index');
+    </script>
+</body>
+
+
+</html>

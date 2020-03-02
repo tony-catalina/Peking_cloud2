@@ -1,0 +1,45 @@
+{
+	"messageManager": [
+		{
+			"title": "消息类型",
+			"icon": "icon-text",
+			"href": "/message/messageType.html",
+			"spread": false
+		},
+		{
+			"title": "消息用户管理",
+			"icon": "icon-text",
+			"href": "/rabbitUsers/rabbitUsers.html",
+			"spread": false
+		},
+		{
+			"title": "应用消息管理",
+			"icon": "icon-text",
+			"href": "/appmsg/appQueueList.html",
+			"spread": false
+		},
+		{
+			"title": "awd消息管理",
+			"icon": "icon-text",
+			"href": "/awdmsg/awdQueueList.html",
+			"spread": false
+		}
+	],
+	"rabbitManager": [
+
+		{
+			"title": "交换机管理",
+			"icon": "icon-text",
+			"href": "/exchanges/exchanges.html",
+			"spread": false
+		},
+		{
+			"title": "全部消息队列",
+			"icon": "icon-text",
+			"href": "/queues/queues.html",
+			"spread": false
+		}
+	]
+}
+
+

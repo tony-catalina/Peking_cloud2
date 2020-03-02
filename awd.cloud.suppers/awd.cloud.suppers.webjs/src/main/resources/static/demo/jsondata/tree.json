@@ -1,0 +1,35 @@
+{
+	"code": 0,
+	"msg": "成功",
+	"result": [
+		{
+			"id": "01",
+			"text": "监区01(5)人",
+			"leaf": "false",
+			"qtip": "监区01",
+			"state": "closed",
+			"wmjs": null,
+			"innum": null
+		},
+		{
+			"id": "02",
+			"text": "监区02(5)人",
+			"leaf": "false",
+			"qtip": "监区02",
+			"state": "closed",
+			"wmjs": null,
+			"innum": null
+		},
+		{
+			"id": "03",
+			"text": "监区03(0)人",
+			"leaf": "false",
+			"qtip": "监区03",
+			"state": "closed",
+			"wmjs": null,
+			"innum": null
+		}
+	],
+	"success": true,
+	"totalSize": null
+}

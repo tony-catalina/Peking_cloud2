@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.suppers.finger.dao.BzwtzmDao">
+    <resultMap id="BzwtzmResultMap" type="awd.cloud.suppers.finger.entity.BzwtzmEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="zwtzxh1" column="zwtzxh1" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="zwtz1" column="zwtz1" javaType="[B" jdbcType="LONGVARBINARY"/>
+		
+		<result property="zwtzxh2" column="zwtzxh2" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="zwtz2" column="zwtz2" javaType="[B" jdbcType="LONGVARBINARY"/>
+		
+		<result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		
+		<result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		
+		<result property="operator" column="operator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="updateoperator" column="updateoperator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="scbz" column="scbz" javaType="java.lang.String" jdbcType="CHAR"/>
+		
+		<result property="jsbh" column="jsbh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="rybh" column="rybh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="state" column="state" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'BzwtzmResultMap'"/>
+        <bind name="tableName" value="'b_zwtzm'"/>
+    </sql>
+
+    <insert id="insert" parameterType="awd.cloud.suppers.finger.entity.BzwtzmEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from app where id =#{id}
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="BzwtzmResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>  
+    
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select>  
+    
+    <select id="selectParam" parameterType="String">
+		select ZWTZ1 ,ZWTZ2,zwtzxh1,zwtzxh2,rybh from b_zwtzm  where jsbh=#{jsbh} and state='R2'
+    </select>
+    
+    <select id="selectCount" parameterType="String" resultType="int">
+		SELECT COUNT(rybh) from b_zwtzm WHERE rybh = #{rybh} and state='R2'
+    </select>
+    
+</mapper>

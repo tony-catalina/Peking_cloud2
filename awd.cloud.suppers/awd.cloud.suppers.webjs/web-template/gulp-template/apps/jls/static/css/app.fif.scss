@@ -1,0 +1,1200 @@
+@import "base.scss";
+html, body {
+  width: 100%;
+  height: 100%;
+}
+$width: 1920;
+$height: 1080;
+$w:1870;
+$h:980;
+@font-face {
+  font-family: "Acens";
+  src: url("./../fonts/Acens.ttf");
+}
+@font-face {
+  font-family: "Akzidenz";
+  src: url("./../fonts/Akzidenz.otf");
+}
+@font-face {
+  font-family: "kongx";
+  src: url("./../fonts/kongx.ttf");
+}
+
+
+.peo{
+  background-image: url('./../images/fif/tit-right.png');
+}
+.r1{
+  background-image: url('./../images/fif/r1.png');
+}
+.r2{
+  background-image: url('./../images/fif/r2.png');
+}
+.r3{
+  background-image: url('./../images/fif/r3.png');
+}
+.r4{
+  background-image: url('./../images/fif/r4.png');
+}
+.tu{
+  background-image: url('./../images/fif/tu.png');
+}
+
+.img1{
+  background-image: url('./../images/fif/left1.png');
+}
+.img2{
+  background-image: url('./../images/fif/left2.png');
+}
+.img3{
+  background-image: url('./../images/fif/left3.png');
+}
+.img4{
+  background-image: url('./../images/fif/left4.png');
+}
+.i2{
+  background-image: url('./../images/fif/ioc_l.png');
+}
+.right-t1{
+  background-image: url('./../images/fif/right-t1.png');
+}
+.right-t2{
+  background-image: url('./../images/fif/right-t2.png');
+}
+
+
+.container{
+  background-image: url('./../images/fif/bg.png');
+  /*头部右侧*/
+  .tit-right{
+    width: cptSize(360,$width);
+    height: cptSize(80,$height);
+    right: cptSize(10,360);
+    .tit-right-cent{
+      height: cptSize(22,80);
+      .peo{
+        width: cptSize(20,360);
+        height: cptSize(20,22);
+      }
+      .tit-right-span{
+        width: cptSize(340,360);
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+  /*主体*/
+  .body{
+    width: cptSize($w, $width);
+    height: cptSize($h, $height);
+    top: cptSize(80, $height);
+    left: cptSize(30, $width);
+    /*左边*/
+    .left{
+      width: cptSize(224, $w);
+      overflow-y: auto;
+      &::-webkit-scrollbar{display: none};
+      .left_nav{
+        border:1px solid #e6e6e6;
+        overflow:hidden;
+        ul{margin-top:-1px;}
+        li{
+          border-top:1px dashed #e7e7e7;
+          cursor: pointer;
+          .t{
+            height:50px;
+            line-height:50px;
+            padding:0 0 0 18px;
+            position:relative;
+            a{
+              color:#000
+            }
+            &:hover a{
+              color:#ff5825
+            }
+            .img1{
+              width: cptSize(38, 224);
+              height:cptSize(38, 50);
+              left: cptSize(5, 224);
+            }
+            .img2{
+              width: cptSize(38, 224);
+              height:cptSize(38, 50);
+              left: cptSize(5, 224);
+            }
+            .img3{
+              width: cptSize(38, 224);
+              height:cptSize(38, 50);
+              left: cptSize(5, 224);
+            }
+            .img4{
+              width: cptSize(38, 224);
+              height:cptSize(38, 50);
+              left: cptSize(5, 224);
+            }
+            .i2{
+              width: cptSize(20, 224);
+              height:cptSize(10, 50);
+              right: cptSize(5, 224);
+            }
+          }
+          .txt{
+            background: #f3f6fb;
+            display:none;
+            .xian{
+              width: 1px;
+              height: 88%;
+              background: #0eb2ff;
+              left: 10%;
+              z-index: 2;
+            }
+            .xian1{
+              width: 1px;
+              height: 76%;
+              background: #0eb2ff;
+              left: 10%;
+              z-index: 2;
+            }
+            p{
+              line-height:30px;
+              height:30px;
+              padding:30px 0;
+              overflow:hidden;
+              &.active {
+                background: #297aff;
+                a{
+                  color: white;
+                }
+              }
+              &:hover{
+                background: #297aff;
+              }
+              &:hover a{
+                color: white;
+              }
+              a{
+                color: #4e8dff;
+                width: 90%;
+                text-align: left;
+                left: 55%;
+              }
+            }
+          }
+        }
+      }
+    }
+    /*右边*/
+    .right{
+      width: cptSize(1627, $w);
+      .right-top{
+        height: cptSize(61, $h);
+          .right-top-left{
+            width: cptSize(30, 1627);
+            height: cptSize(22, 61);
+            cursor: pointer;
+            &:hover{
+              opacity: .5;
+            }
+            .right-t1{
+              width: cptSize(7, 30);
+              height: cptSize(9, 22);
+
+            }
+            .right-t2{
+              width: cptSize(23, 30);
+              height: cptSize(18, 22);
+            }
+          }
+          .right-top-right{
+            width: cptSize(1567, 1627);
+            margin-left:cptSize(60, 1627);
+            padding-top: cptSize(11, 1627);
+            padding-bottom: cptSize(11, 1627);
+          .r-nav-child {
+            .inside-box {
+              width: 90%;
+              border-radius: 50px;
+              color: black;
+              background: #f5f5f5;
+              cursor: pointer;
+              &:hover{
+                background: #0069f6;
+                color: white;
+              }
+              .close{
+                right:8%;
+                &:hover{
+                  opacity: 0.5;
+                }
+              }
+            }
+            &.active {
+              .inside-box {
+                background: #0069f6;
+                color: white;
+                box-shadow: 5px 2px 6px #afb4ba;
+              }
+            }
+          }
+        }
+      }
+      .right-bottom{
+        height: cptSize(903, $h);
+        .right-bottom1{
+         height: cptSize(172, 903);
+          z-index: 2;
+         .right-bottom1-t{
+           width: cptSize(182, 1627);
+           height: cptSize(60, 172);
+           top: cptSize(20, 172);
+           left: cptSize(10, 1627);
+           z-index: 2;
+           .r1{
+             width: cptSize(64, 182);
+             height: cptSize(65, 60);
+           }
+           .r1-span{
+             width: cptSize(100, 182);
+             color: #1c73ff;
+           }
+         }
+         .right-bottom1-c{
+           width: cptSize(1086, 1627);
+           height: cptSize(34, 172);
+           top: cptSize(78, 172);
+           left: cptSize(88, 1627);
+           color: black;
+           .c-span1{
+             width: cptSize(314,1086);
+             .tu{
+               width: cptSize(16,314);
+               height: cptSize(15, 34);
+               left: 23.847134%;
+             }
+             .input1{
+               width: cptSize(220,314);
+               height: 80%;
+               background: #f3f7f8;
+               border: 1px solid #b8b8b8;
+             }
+           }
+           .c-span2{
+             width: cptSize(260,1086);
+             left: cptSize(344,1086);
+             .tu{
+               width: cptSize(16,260);
+               height: cptSize(15, 34);
+               left:29.847134%;
+             }
+             .input2{
+               width: cptSize(158,260);
+               height: 80%;
+               background: #f3f7f8;
+               border: 1px solid #b8b8b8;
+             }
+           }
+           .c-span3{
+             width: cptSize(122,1086);
+             height: 80%;
+             left: cptSize(634,1086);
+             border: 1px solid #b8b8b8;
+             /* 清除默认的箭头样式 */
+             appearance: none;
+             -moz-appearance: none;
+             -webkit-appearance: none;
+             /* 右侧添加小箭头的背景图 */
+             background: #f3f7f8 url('../imags/fif/xiala.png') no-repeat 99% 50%;
+             background-size: 20px 20px;
+           }
+           .c-span4{
+             width: cptSize(130,1086);
+             height: 80%;
+             right: cptSize(160,1086);
+             background: #297aff;
+             border: 1px solid #b8b8b8;
+             color: white;
+             cursor: pointer;
+           }
+           .c-span5{
+             width: cptSize(130,1086);
+             height: 80%;
+             background: #f3f7f8;
+             border: 1px solid #297aff;
+             color: #297aff;
+             cursor: pointer;
+           }
+         }
+         .right-bottom1-b{
+           width: cptSize(1086, 1627);
+           height: cptSize(34, 172);
+           bottom: cptSize(18, 172);
+           left: cptSize(88, 1627);
+           color: black;
+           .c-span1{
+             width: cptSize(606,1086);
+             .tu{
+               width: cptSize(16,606);
+               height: cptSize(15, 34);
+               left: 12%;
+             }
+             .input1{
+               width: cptSize(510,606);
+               height: 80%;
+               background: #f3f7f8;
+               border: 1px solid #b8b8b8;
+             }
+           }
+           .c-span2{
+             width: cptSize(176,1086);
+             left: cptSize(636,1086);
+             background: #297aff;
+             color: white;
+             .tu{
+               width: cptSize(16,176);
+               height: cptSize(15, 34);
+               right:  cptSize(10,176);
+             }
+           }
+           .c-span3{
+             width: cptSize(110,1086);
+             right: cptSize(130,1086);
+             color: black;
+             .input1{
+               width: cptSize(20,110);
+               height: cptSize(20,34);
+               background: palegoldenrod;
+               cursor: pointer;
+             }
+             .span1{
+               left: cptSize(22,110);
+             }
+             .input2{
+               width: cptSize(20,110);
+               height: cptSize(20,34);
+               right: cptSize(20,110);
+               cursor: pointer;
+             }
+           }
+         }
+         .xian{
+           width: cptSize(1450, 1627);
+           height: 1px;
+           background: #adadad;
+         }
+        }
+        .right-bottom2{
+          height: cptSize(154, 903);
+          top:cptSize(190, 903);
+          z-index: 2;
+          .right-bottom2-t{
+            width: cptSize(182, 1627);
+            height: cptSize(60, 154);
+            left: cptSize(10, 1627);
+            z-index: 2;
+            .r2{
+              width: cptSize(64, 182);
+              height: cptSize(65, 60);
+            }
+            .r2-span{
+              width: cptSize(100, 182);
+              color: #1c73ff;
+            }
+          }
+          .right-bottom2-c{
+            width: cptSize(1380, 1627);
+            height: cptSize(34, 154);
+            top: cptSize(60, 154);
+            left: cptSize(88, 1627);
+            color: black;
+            .c-span1{
+              width: cptSize(110, 1380);
+              .tu{
+                width: cptSize(16,110);
+                height: cptSize(15, 34);
+                right:  cptSize(8,110);
+              }
+            }
+            .c-span2{
+              width: cptSize(300, 1380);
+              left: cptSize(116, 1380);
+              .span1{
+              left: cptSize(24, 296);
+              }
+              .span2{
+                right: cptSize(30, 296);
+              }
+              .input1{
+                width: cptSize(20, 296);
+                height: cptSize(20, 34);
+              }
+              .input2{
+                width: cptSize(20, 296);
+                height: cptSize(20, 34);
+                right: cptSize(112, 296);
+              }
+            }
+            .c-span3{
+              width: cptSize(600, 1380);
+              right: cptSize(350, 1380);
+              .tu{
+                width: cptSize(16,600);
+                height: cptSize(15, 34);
+                left: 14%;
+              }
+              .input1{
+                width: cptSize(488,600);
+                height: 80%;
+                background: #f3f7f8;
+                border: 1px solid #b8b8b8;
+              }
+            }
+            .c-span4{
+              width: cptSize(322, 1380);
+              .tu{
+                width: cptSize(16,322);
+                height: cptSize(15, 34);
+                left: 18%;
+              }
+              .input1{
+                width: cptSize(230,322);
+                height: 80%;
+                background: #f3f7f8;
+                border: 1px solid #b8b8b8;
+              }
+            }
+          }
+          .right-bottom2-b{
+            width: cptSize(1380, 1627);
+            height: cptSize(34, 154);
+            bottom: cptSize(18, 172);
+            left: cptSize(88, 1627);
+            color: black;
+            .c-span1{
+              width: cptSize(504, 1380);
+              .tu{
+                width: cptSize(16,504);
+                height: cptSize(15, 34);
+                left: 16%;
+              }
+              .input1{
+                width: cptSize(394,504);
+                height: 80%;
+                background: #f3f7f8;
+                border: 1px solid #b8b8b8;
+              }
+            }
+            .c-span2{
+              width: cptSize(430, 1380);
+              left:cptSize(536, 1380);
+              .tu{
+                width: cptSize(16,430);
+                height: cptSize(15, 34);
+                left: 16%;
+              }
+              .input1{
+                width: cptSize(320,430);
+                height: 80%;
+                background: #f3f7f8;
+                border: 1px solid #b8b8b8;
+              }
+            }
+            .c-span3{
+              width: cptSize(378, 1380);
+              .tu{
+                width: cptSize(16,378);
+                height: cptSize(15, 34);
+                left: 20%;
+              }
+              .input1{
+                width: cptSize(266,378);
+                height: 80%;
+                background: #f3f7f8;
+                border: 1px solid #b8b8b8;
+              }
+            }
+          }
+          .xian{
+            width: cptSize(1450, 1627);
+            height: 1px;
+            background: #adadad;
+          }
+        }
+        .right-bottom3{
+          height: cptSize(300, 903);
+          bottom:cptSize(244, 903);
+          z-index: 2;
+          .right-bottom3-t{
+            width: cptSize(182, 1627);
+            height: cptSize(60, 300);
+            left: cptSize(10, 1627);
+            z-index: 2;
+            .r3{
+              width: cptSize(64, 182);
+              height: cptSize(65, 60);
+            }
+            .r3-span{
+              width: cptSize(100, 182);
+              color: #1c73ff;
+            }
+          }
+          .right-bottom3-t1{
+            width: cptSize(1380, 1627);
+            height: cptSize(34, 300);
+            top: cptSize(60, 300);
+            left: cptSize(88, 1627);
+            color: black;
+            .c-span1{
+              width: cptSize(316, 1380);
+              .tu{
+                width: cptSize(16,316);
+                height: cptSize(15, 34);
+                left: 30%;
+              }
+              .input1{
+                width: cptSize(190,316);
+                height: 80%;
+                background: #f3f7f8;
+                border: 1px solid #b8b8b8;
+              }
+            }
+            .c-span2{
+              width: cptSize(306, 1380);
+              left: cptSize(350, 1380);
+              .tu{
+                width: cptSize(16,306);
+                height: cptSize(15, 34);
+                left: 25%;
+              }
+              .c-span2-s{
+                width: cptSize(190,306);
+                right: cptSize(20,306);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span3{
+              width: cptSize(356, 1380);
+              left: cptSize(680, 1380);
+              .tu{
+                width: cptSize(16,356);
+                height: cptSize(15, 34);
+                left: 25%;
+              }
+              .c-span2-s{
+                width: cptSize(228,356);
+                right: cptSize(20,356);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span4{
+              width: cptSize(314, 1380);
+              .tu{
+                width: cptSize(16,314);
+                height: cptSize(15, 34);
+                left: 18%;
+              }
+              .c-span2-s{
+                width: cptSize(238,314);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+          }
+          .right-bottom3-t2{
+            width: cptSize(1380, 1627);
+            height: cptSize(34, 300);
+            top: cptSize(106, 300);
+            left: cptSize(88, 1627);
+            color: black;
+            .c-span1{
+              width: cptSize(316, 1380);
+              .tu{
+                width: cptSize(16,316);
+                height: cptSize(15, 34);
+                left: 30%;
+              }
+              .c-span2-s{
+                width: cptSize(190,316);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span2{
+              width: cptSize(306, 1380);
+              left: cptSize(350, 1380);
+              .tu{
+                width: cptSize(16,306);
+                height: cptSize(15, 34);
+                left: 25%;
+              }
+              .input1{
+                width: cptSize(190,306);
+                right: cptSize(20,306);
+                height: 80%;
+                background: #f3f7f8;
+                border: 1px solid #b8b8b8;
+              }
+            }
+            .c-span3{
+              width: cptSize(356, 1380);
+              left: cptSize(680, 1380);
+              .tu{
+                width: cptSize(16,356);
+                height: cptSize(15, 34);
+                left: 25%;
+              }
+              .c-span2-s{
+                width: cptSize(228,356);
+                right: cptSize(20,356);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span4{
+              width: cptSize(314, 1380);
+              .tu{
+                width: cptSize(16,314);
+                height: cptSize(15, 34);
+                left: 18%;
+              }
+              .c-span2-s{
+                width: cptSize(238,314);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+          }
+          .right-bottom3-t3{
+            width: cptSize(1380, 1627);
+            height: cptSize(34, 300);
+            top: cptSize(154, 300);
+            left: cptSize(88, 1627);
+            color: black;
+            .c-span1{
+              width: cptSize(316, 1380);
+              .tu{
+                width: cptSize(16,316);
+                height: cptSize(15, 34);
+                left: 30%;
+              }
+              .input1{
+                width: cptSize(190,316);
+                height: 80%;
+                background: #f3f7f8;
+                border: 1px solid #b8b8b8;
+              }
+            }
+            .c-span2{
+              width: cptSize(306, 1380);
+              left: cptSize(350, 1380);
+              .tu{
+                width: cptSize(16,306);
+                height: cptSize(15, 34);
+                left: 25%;
+              }
+              .c-span2-s{
+                width: cptSize(190,306);
+                right: cptSize(20,306);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span3{
+              width: cptSize(356, 1380);
+              left: cptSize(680, 1380);
+              .tu{
+                width: cptSize(16,356);
+                height: cptSize(15, 34);
+                left: 25%;
+              }
+              .c-span2-s{
+                width: cptSize(228,356);
+                right: cptSize(20,356);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span4{
+              width: cptSize(314, 1380);
+              .tu{
+                width: cptSize(16,314);
+                height: cptSize(15, 34);
+                left: 18%;
+              }
+              .c-span2-s{
+                width: cptSize(238,314);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+          }
+          .right-bottom3-t4{
+            width: cptSize(1380, 1627);
+            height: cptSize(34, 300);
+            top: cptSize(202, 300);
+            left: cptSize(88, 1627);
+            color: black;
+            .c-span1{
+              width: cptSize(1034, 1380);
+              .tu{
+                width: cptSize(16,1034);
+                height: cptSize(15, 34);
+                left: 11.5%;
+              }
+              .c-span2-s{
+                width: cptSize(876,1034);
+                right: cptSize(20,1034);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99.80% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span2{
+              width: cptSize(316, 1380);
+              .tu{
+                width: cptSize(16,316);
+                height: cptSize(15, 34);
+                left: 22%;
+              }
+              .c-span2-s{
+                width: cptSize(222,316);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+          }
+          .right-bottom3-t5{
+            width: cptSize(1380, 1627);
+            height: cptSize(34, 300);
+            bottom:cptSize(18, 300);
+            left: cptSize(88, 1627);
+            color: black;
+            .c-span1{
+              width: cptSize(630, 1380);
+              .tu{
+                width: cptSize(16,630);
+                height: cptSize(15, 34);
+                left: 16%;
+              }
+              .c-span2-s{
+                width: cptSize(502,630);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99.60% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span2{
+              width: cptSize(700, 1380);
+              .tu{
+                width: cptSize(16,700);
+                height: cptSize(15, 34);
+                left: 12.5%;
+              }
+              .input1{
+                width: cptSize(592,700);
+                height: 80%;
+                background: #f3f7f8;
+                border: 1px solid #b8b8b8;
+              }
+            }
+          }
+          .xian{
+            width: cptSize(1450, 1627);
+            height: 1px;
+            background: #adadad;
+          }
+        }
+        .right-bottom4{
+          height: cptSize(138, 903);
+          bottom:cptSize(60, 903);
+          z-index: 2;
+          .right-bottom4-t{
+            width: cptSize(182, 1627);
+            height: cptSize(60, 138);
+            left: cptSize(10, 1627);
+            z-index: 2;
+            .r4{
+              width: cptSize(64, 182);
+              height: cptSize(65, 60);
+            }
+            .r4-span{
+              width: cptSize(100, 182);
+              color: #1c73ff;
+            }
+          }
+          .right-bottom4-c{
+            width: cptSize(1380, 1627);
+            height: cptSize(34, 138);
+            top: cptSize(60, 138);
+            left: cptSize(88, 1627);
+            color: black;
+            .c-span1{
+              width: cptSize(316, 1380);
+              .tu{
+                width: cptSize(16,316);
+                height: cptSize(15, 34);
+                left: 30%;
+              }
+              .input1{
+                width: cptSize(190,316);
+                height: 80%;
+                background: #f3f7f8;
+                border: 1px solid #b8b8b8;
+              }
+            }
+            .c-span2{
+              width: cptSize(306, 1380);
+              left: cptSize(344, 1380);
+              .tu{
+                width: cptSize(16,306);
+                height: cptSize(15, 34);
+                left: 16%;
+              }
+              .c-span2-s{
+                width: cptSize(230,306);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span3{
+              width: cptSize(248, 1380);
+              left: cptSize(680, 1380);
+              .tu{
+                width: cptSize(16,248);
+                height: cptSize(15, 34);
+                left: 36%;
+              }
+              .c-span2-s{
+                width: cptSize(134,248);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span4{
+              width: cptSize(214, 1380);
+              right: cptSize(212, 1380);
+              .tu{
+                width: cptSize(16,214);
+                height: cptSize(15, 34);
+                left: 28%;
+              }
+              .c-span2-s{
+                width: cptSize(134,214);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span5{
+              width: cptSize(186, 1380);
+              .tu{
+                width: cptSize(16,186);
+                height: cptSize(15, 34);
+                left: 30%;
+              }
+              .c-span2-s{
+                width: cptSize(106,186);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+          }
+          .right-bottom4-b{
+            width: cptSize(1380, 1627);
+            height: cptSize(34, 138);
+            left: cptSize(88, 1627);
+            color: black;
+            .c-span1{
+              width: cptSize(316, 1380);
+              .tu{
+                width: cptSize(16,316);
+                height: cptSize(15, 34);
+                left: 30%;
+              }
+              .input1{
+                width: cptSize(190,316);
+                height: 80%;
+                background: #f3f7f8;
+                border: 1px solid #b8b8b8;
+              }
+            }
+            .c-span2{
+              width: cptSize(306, 1380);
+              left: cptSize(344, 1380);
+              .tu{
+                width: cptSize(16,306);
+                height: cptSize(15, 34);
+                left: 29%;
+              }
+              .c-span2-s{
+                width: cptSize(196,306);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span3{
+              width: cptSize(248, 1380);
+              left: cptSize(680, 1380);
+              .tu{
+                width: cptSize(16,248);
+                height: cptSize(15, 34);
+                left: 36%;
+              }
+              .c-span2-s{
+                width: cptSize(134,248);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+            .c-span4{
+              width: cptSize(214, 1380);
+              right: cptSize(212, 1380);
+              .tu{
+                width: cptSize(16,214);
+                height: cptSize(15, 34);
+                left: 31.5%;
+              }
+              .input1{
+                width: cptSize(130,214);
+                height: 80%;
+                background: #f3f7f8;
+                border: 1px solid #b8b8b8;
+              }
+            }
+            .c-span5{
+              width: cptSize(186, 1380);
+              .tu{
+                width: cptSize(16,186);
+                height: cptSize(15, 34);
+                left: 50%;
+              }
+              .c-span2-s{
+                width: cptSize(70,186);
+                height: 80%;
+                border: 1px solid #b8b8b8;
+                /* 清除默认的箭头样式 */
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                /* 右侧添加小箭头的背景图 */
+                background: #f3f7f8 url('../images/fif/xiala.png') no-repeat 99% 50%;
+                background-size: 20px 20px;
+              }
+            }
+          }
+        }
+        .left-xian{
+          width: 1px;
+          height: cptSize(626, 903);
+          background: #aaaaaa;
+          left: 2.5%;
+          top: 43%;
+        }
+        .sub{
+          width: cptSize(154, 1627);
+          height: cptSize(44, 903);
+          left: 35%;
+          bottom: cptSize(10, 903);
+          background: white;
+          border:1px #fe980f solid;
+          color: #fe980f;
+          border-radius: 5px;
+          cursor: pointer;
+          &:hover{
+            background:#fe980f;
+            color: white;
+          }
+        }
+        .sub1{
+          width: cptSize(154, 1627);
+          height: cptSize(44, 903);
+          left: 45%;
+          bottom: cptSize(10, 903);
+          background: white;
+          color: #fe980f;
+          border:1px #fe980f solid;
+          border-radius: 5px;
+          cursor: pointer;
+          &:hover{
+            background:#fe980f;
+            color: white;
+          }
+        }
+        .shui{
+          width: cptSize(400, 1627);
+          height: cptSize(44, 903);
+          color: #f1f1f0;
+          font-family: "kongx";
+          transform:rotate(-19deg);
+          -ms-transform:rotate(-19deg); /* Internet Explorer */
+          -moz-transform:rotate(-19deg); /* Firefox */
+          -webkit-transform:rotate(-19deg); /* Safari 和 Chrome */
+          -o-transform:rotate(-19deg); /* Opera */
+        }
+        .shui0{
+          top: 20%;
+        }
+        .shui1{
+          top: 20%;
+          left: 35%;
+        }
+        .shui2{
+          top: 20%;
+          left: 70%;
+        }
+        .shui3{
+          top: 70%;
+        }
+        .shui4{
+          top: 70%;
+          left: 35%;
+        }
+        .shui5{
+          top: 70%;
+          left: 70%;
+        }
+      }
+    }
+  }
+}
+/*右击事件*/
+.right-youji{
+  width: 100px;
+  height: 120px;
+  box-shadow: #999 0.1em 0.1em 0.2em;
+  background: white;
+  display: none;
+  z-index: 10;
+  ul li{
+    padding: 5px 0;
+    cursor:pointer;
+    text-align: center;
+    &:hover{
+      background: #cccccc;
+    }
+  }
+}

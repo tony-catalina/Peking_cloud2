@@ -1,0 +1,87 @@
+{"properties": [
+  {
+    "name": "cas.warningCookie.domain",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.warningCookie.domain'"
+  },
+  {
+    "name": "cas.authn.attributeRepository.jdbc[0].dialect",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.authn.attributeRepository.jdbc[0].dialect'"
+  },
+  {
+    "name": "cas.authn.attributeRepository.jdbc[0].ddlAuto",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.authn.attributeRepository.jdbc[0].ddlAuto'"
+  },
+  {
+    "name": "cas.authn.attributeRepository.jdbc[0].driverClass",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.authn.attributeRepository.jdbc[0].driverClass'"
+  },
+  {
+    "name": "cas.authn.attributeRepository.jdbc[0].propagationBehaviorName",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.authn.attributeRepository.jdbc[0].propagationBehaviorName'"
+  },
+  {
+    "name": "cas.authn.attributeRepository.jdbc[0].batchSize",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.authn.attributeRepository.jdbc[0].batchSize'"
+  },
+  {
+    "name": "cas.authn.attributeRepository.jdbc[0].healthQuery",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.authn.attributeRepository.jdbc[0].healthQuery'"
+  },
+  {
+    "name": "cas.authn.attributeRepository.jdbc[0].failFast",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.authn.attributeRepository.jdbc[0].failFast'"
+  },
+  {
+    "name": "cas.authn.attributeRepository.jdbc[0].leakThreshold",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.authn.attributeRepository.jdbc[0].leakThreshold'"
+  },
+  {
+    "name": "cas.authn.jdbc.query[0].sql",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.authn.jdbc.query[0].sql'"
+  },
+  {
+    "name": "cas.authn.jdbc.query[0].sql",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.authn.jdbc.query[0].sql'"
+  },
+  {
+    "name": "cas.authn.jdbc.query[0].healthQuery",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.authn.jdbc.query[0].healthQuery'"
+  },
+  {
+    "name": "cas.authn.jdbc.query[0].isolateInternalQueries",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.authn.jdbc.query[0].isolateInternalQueries'"
+  },
+  {
+    "name": "cas.tgc.path",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.tgc.path'"
+  },
+  {
+    "name": "cas.tgc.domain",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.tgc.domain'"
+  },
+  {
+    "name": "cas.tgc.maxAge",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.tgc.maxAge'"
+  },
+  {
+    "name": "cas.tgc.maxAge",
+    "type": "java.lang.String",
+    "description": "A description for 'cas.tgc.maxAge'"
+  }
+]}

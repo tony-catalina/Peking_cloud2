@@ -1,0 +1,131 @@
+spring:
+  application:
+    name: ${hostname:awd-mis-ftp-server}
+  cloud:
+    inetutils:
+      preferred-networks: ${hostip:192.168.4.24}
+  http:
+    multipart:
+      maxFileSize: 20MB
+      maxRequestSize: 20MB
+  jta:
+    status: true
+    enabled: true
+    service: com.atomikos.icatch.standalone.UserTransactionServiceFactory
+    max-actives: 200
+    enable-logging: false
+    atomikos:
+      datasource:
+        min-pool-size: 5
+        max-life-time: 60 
+        max-idle-time: 60 
+        maintenance-interval: 60 
+        reap-timeout: 0
+        xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
+        xa-properties:
+          url: ${mysql_url:jdbc:mysql://192.168.4.103:3307/detain?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai}
+          username: ${mysql_user:root}
+          password: ${myslq_pass:root}
+          initialSize: 5
+          minIdle: 5
+          maxActive: 20        
+          # 打开PSCache，并且指定每个连接上PSCache的大小 
+          poolPreparedStatements: true
+          maxPoolPreparedStatementPerConnectionSize: 20
+          filters: stat,wall
+          # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+          connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+          # 合并多个DruidDataSource的监控数据
+          useGlobalDataSourceStat: true 
+        max-pool-size: 200
+        borrow-connection-timeout: 1000
+      connectionfactory:
+        max-pool-size: 200
+        local-transaction-mode: true
+awd:
+  ftp:
+    #hostip: ${ftpHostip:192.168.4.114}
+    #port: ${ftpPort:21}
+    #username: ${ftpUsername:ftproot}
+    #password: ${ftpPassword:123}
+    hostip: ${ftpHostip:192.168.4.103}
+    port: ${ftpPort:21}
+    username: ${ftpUsername:awd}
+    password: ${ftpPassword:awd}
+    folderpath: 
+      mysqlFolder:  ${mysqlFolder:/111/mysql_test233}
+      oracleFolder: ${oracleFolder:/111/oracle_test233}
+      publicFolder: ${publicFolder:/111/public_test233}
+  mis:
+    name: ftp上传服务
+    version: 1.0.0
+    dynamic:
+        datasource:
+           mysql_ds:
+                min-pool-size: 5
+                max-life-time: 20000 
+                max-idle-time: 60 
+                maintenance-interval: 60 
+                reap-timeout: 0                
+                xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
+                xa-properties:
+                  url: ${mysql_url:jdbc:mysql://192.168.4.103:3307/detain?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai}
+                  username: ${mysql_user:root}
+                  password: ${myslq_pass:root}
+                  initialSize: 5
+                  minIdle: 5
+                  maxActive: 20                
+                  # 打开PSCache，并且指定每个连接上PSCache的大小 
+                  poolPreparedStatements: true
+                  maxPoolPreparedStatementPerConnectionSize: 20
+                  filters: stat,wall
+                  # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+                  connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+                  # 合并多个DruidDataSource的监控数据
+                  useGlobalDataSourceStat: true 
+                max-pool-size: 200
+                borrow-connection-timeout: 1000
+                
+mybatis:
+  dynamicDatasource: true        
+          
+swagger2:
+  package:  awd.mis.servers
+  show: 
+    dev: ${apidev:false}
+    pro: ${apipro:true}
+hystrix:  
+  threadpool:
+    default:
+      coreSize: 200 #并发执行的最大线程数，默认10
+      maxQueueSize: 1000 #BlockingQueue的最大队列数，默认值-1
+      queueSizeRejectionThreshold: 800 #即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝，默认值5
+  command:  
+      default:  
+        execution:  
+          isolation:  
+            thread:  
+              timeoutInMilliseconds: ${hystrixtime:30000}
+logging:
+  level:
+    root: ${loglevel:INFO}
+    org.dromara.raincat.core: debug
+    awd.mis.servers.service: debug
+    awd.mis.servers.dao: debug
+  file: log.log
+  pattern:
+    file: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+    console: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+  file.max-size: 200MB
+
+server:
+  max-http-header-size: 10000000 
+  port: ${port:9999}
+  compression:
+    enabled: true
+    mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
+
+
+
+    
+

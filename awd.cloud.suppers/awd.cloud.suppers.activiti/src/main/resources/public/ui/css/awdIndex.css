@@ -1,0 +1,317 @@
+<!--/* CSS伪类元素，来制作的小气泡对话框效果 */-->
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Microsoft Yahei';
+    font-size: 18px;
+    background-color: #f8f8f8;
+}
+
+.table td,
+.table th {
+    padding: 0.75em 1.5em;
+}
+
+.table thead {
+    color: #fff;
+    background-color: #31bc86;
+}
+
+.table thead th {
+    text-align: left;
+}
+
+.table tbody {
+}
+
+.table tbody tr {
+    border-bottom: 2px dashed #000;
+    cursor: default;
+    transition: all .125s ease-in-out;
+}
+
+.table tbody tr:hover {
+    /*background-color: rgba(129,208,177,.3);*/
+}
+
+.table tbody tr.event-bgColor {
+    background-color: rgba(255, 192, 203, .2);
+}
+
+.table tbody tr.default-bgColor {
+    background-color: #fff;
+}
+
+.table tbody tr.hover-bgColor {
+    background-color: rgba(255, 192, 203, .8);
+}
+
+.table tbody tr.selected-bgColor {
+    background-color: rgb(255, 192, 203);
+}
+
+input {
+    width: 16px;
+    height: 16px;
+}
+
+#selectAll {
+    margin-left: -4px;
+}
+
+.checkbox {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.panel-body {
+    color: #18181a;
+}
+
+#risk td {
+    width: 123px;
+    height: 30px;
+    text-align: center;
+    background-color: #428bf1;
+}
+
+/* //动态滚动效果 */
+/*  #boxx{
+	overflow:hidden;
+}  */
+
+.list_li {
+    background: #ffffff;
+    list-style-type: none;
+    color: black;
+    width: 120px;
+    padding: 0 30px;
+    height: 34px;
+    line-height: 34px;
+    cursor: pointer;
+    border-bottom: 1px solid #dae1e9;
+}
+
+.panel-title {
+    font-size: 12px;
+    font-weight: bold;
+    color: #2980B9;
+    height: 20px;
+    line-height: 20px;
+}
+
+div.speech {
+    float: left;
+    margin: 10px 0;
+    padding: 8px;
+    table-layout: fixed;
+    word-break: break-all;
+    position: relative;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#ffffff), color-stop(0.1, #ececec), color-stop(0.5, #dbdbdb), color-stop(0.9, #dcdcdc), to(#8c8c8c));
+    border: 1px solid #989898;
+    border-radius: 8px;
+}
+
+div.speech:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 15px;
+    top: -20px;
+    border: 10px solid;
+    border-color: transparent transparent #989898 transparent;
+}
+
+div.speech:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 17px;
+    top: -16px;
+    border: 8px solid;
+    border-color: transparent transparent #ffffff transparent;
+}
+
+div.speech.right {
+    display: inline-block;
+    box-shadow: -2px 2px 5px #CCC;
+    margin-right: 10px;
+    max-width: 75%;
+    float: right;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#e4ffa7), color-stop(0.1, #bced50), color-stop(0.4, #aed943), color-stop(0.8, #a7d143), to(#99BF40));
+
+}
+
+div.speech.right:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 9px;
+    bottom: auto;
+    left: auto;
+    right: -10px;
+    border-width: 9px 0 9px 10px;
+    border-color: transparent #989898;
+}
+
+div.speech.right:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 10px;
+    bottom: auto;
+    left: auto;
+    right: -8px;
+    border-width: 8px 0 8px 9px;
+    border-color: transparent #bced50;
+}
+
+div .left {
+    display: inline-block;
+    box-shadow: 2px 2px 2px #CCCCCC;
+    margin-left: 140px;
+    max-width: 75%;
+    position: relative;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#ffffff), color-stop(0.1, #eae8e8), color-stop(0.4, #E3E3E3), color-stop(0.8, #DFDFDF), to(#D9D9D9));
+}
+
+div .left:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 9px;
+    bottom: auto;
+    left: -10px;
+    border-width: 9px 10px 9px 0;
+    border-color: transparent #989898;
+}
+
+.list_dt {
+    background: #fbfbfb;
+    /* color: white; */
+    color: #242438;
+    width: 120px;
+    padding: 0 40px 0 20px;
+    height: 34px;
+    line-height: 34px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    border-bottom: 1px solid #dae1ea;
+}
+
+.list_dt:hover {
+    background: #e2e2e2;
+}
+
+.list_li:hover {
+    background: #e2e2e2;
+}
+
+.list_li:hover {
+    background: #e2e2e2;
+    color: #428bf1;
+}
+
+.list_dt:hover ._after {
+    display: block;
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #e2e2e2;
+}
+
+#open {
+    background: #428bf1;
+    color: #ffffff;
+}
+
+#open ._after {
+    display: block;
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #ff8b00;
+}
+
+div .left:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 10px;
+    bottom: auto;
+    left: -8px;
+    border-width: 8px 9px 8px 0;
+    border-color: transparent #eae8e8;
+}
+
+.leftimg {
+    float: left;
+    margin-top: 10px;
+}
+
+.rightimg {
+    float: right;
+    margin-top: 10px;
+}
+
+.leftd {
+    clear: both;
+    float: left;
+    margin-left: 10px;
+}
+
+.rightd {
+    clear: both;
+    float: right;
+    margin-right: 10px;
+}
+
+.leftd_h {
+    width: 39px;
+    height: 39px;
+    border-radius: 100%;
+    display: block;
+    float: left;
+    overflow: hidden;
+}
+
+.leftd_h img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.rightd_h {
+    width: 39px;
+    height: 39px;
+    border-radius: 100%;
+    display: block;
+    float: right;
+    overflow: hidden;
+}
+
+.rightd_h img {
+    display: block;
+    width: 100%;
+    height: auto;
+}

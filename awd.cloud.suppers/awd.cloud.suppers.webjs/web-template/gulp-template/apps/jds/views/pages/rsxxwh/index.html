@@ -1,0 +1,247 @@
+<!-- partial:../../partials/_head.html -->
+<!-- partial -->
+
+<body class="easyui-layout" data-options="fit:true">
+  <link rel="stylesheet" href="/apps/jds/static/css/dzwd/test.css" />
+  
+  <div id="Layout" class="easyui-layout" style="width:100%;height:100%;">
+      <div data-options="region:'north',title:'条件查询',iconCls:'icon-addsearch',tools:'#toolstt',collapsible:true" style="width:100%;height:20%">
+          <div id="SearchLayout" class="easyui-layout" style="width:100%;height:100%">
+             <div data-options="region:'west',border:false" style="width:100%;">
+                 <table CELLPADDING="5" CELLSPACING="15">
+                   <tr>
+                     <td>人员姓名</td>
+                     <td><input class="easyui-textbox"></td>
+                     <td>人员年龄</td>
+                     <td><input class="easyui-textbox"></td>
+                     <td>人员性别</td>
+                     <td><input class="easyui-textbox"></td>
+                     <td>人员住址</td>
+                     <td><input class="easyui-textbox"></td>
+                     <td>人员藉贯</td>
+                     <td><input class="easyui-textbox"></td>
+                   </tr>
+                   <tr>
+                    <td>人员出生日期</td>
+                    <td><input class="easyui-datetimebox"></td>
+                    <td>人员入所日期</td>
+                    <td><input class="easyui-datetimebox"></td>
+                    <td>人员出所日期</td>
+                    <td><input class="easyui-datetimebox"></td>
+                    <td>人员关押日期</td>
+                    <td><input class="easyui-datetimebox"></td>
+                    <td>人员拘留日期</td>
+                    <td><input class="easyui-datetimebox"></td>
+                  </tr>
+                 </table>
+            </div>
+          </div>
+      
+      </div>
+      <div data-options="region:'west'" style="width:20%;background: linear-gradient(180deg, rgba(236, 243, 246, 0), rgb(218, 232, 251))">
+        <ul id="tt" class="easyui-tree">  
+          <li>
+          <span>总监区</span>
+          <ul>
+            <li>
+              <span>一号监区</span>
+              <ul>
+                <li><span><a href="#">1001</a></span></li>
+                <li><span>1002</span></li>
+                <li><span>1003</span></li>
+              </ul>
+            </li>
+            <li><span>二号监区</span></li>
+            <li><span>三号监区</span></li>
+          </ul>
+        </li>
+          <li><span>保安室</span></li>
+      </ul>
+      </div>
+      <div data-options="region:'center'" style="width:80%">
+        <table class="easyui-datagrid" style="height:95%">
+          <thead>
+          <tr>
+            <th data-options="field:'none',width:'5%'"></th>
+            <th data-options="field:'code',width:'20%'">人员编号</th>
+            <th data-options="field:'name',width:'20%'">姓名</th>
+            <th data-options="field:'price',width:'20%'">监室号</th>
+            <th data-options="field:'time',width:'20%'">入所时间</th>
+            <th data-options="field:'option',width:'15%'">操作</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><input type="radio"/></td><td>2020001</td><td>张浩然</td><td>1002</td><td>2020-01-01 14:30:59</td>
+            <td>
+               <button style="width: 62px;
+               height: 25px;
+               color: white;
+               border: 1px solid #0c86c0;
+               background: #007eff;
+               cursor: pointer;">查看</button>
+               <button style="width: 62px;
+               height: 25px;
+               color: white;
+               border: 1px solid #dc125c;
+               background: #e90f55;
+               cursor: pointer;">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="radio"/></td><td>2020002</td><td>吴湘泉</td><td>1003</td><td>2020-01-02 9:27:12</td>
+            <td>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #0c86c0;
+              background: #007eff;
+              cursor: pointer;">查看</button>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #dc125c;
+              background: #e90f55;
+              cursor: pointer;">删除</button>
+           </td>
+          </tr>
+          <tr>
+            <td><input type="radio"/></td><td>2020003</td><td>蒙达</td><td>1004</td><td>2020-01-02 17:30:42</td>
+            <td>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #0c86c0;
+              background: #007eff;
+              cursor: pointer;">查看</button>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #dc125c;
+              background: #e90f55;
+              cursor: pointer;">删除</button>
+           </td>
+          </tr>
+          <tr>
+            <td><input type="radio"/></td><td>2020004</td><td>李小明</td><td>1005</td><td>2020-01-18 20:17:10</td>
+            <td>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #0c86c0;
+              background: #007eff;
+              cursor: pointer;">查看</button>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #dc125c;
+              background: #e90f55;
+              cursor: pointer;">删除</button>
+           </td>
+          </tr>
+          <tr>
+            <td><input type="radio"/></td><td>2020005</td><td>王自达</td><td>2001</td><td>2020-01-19 18:30:11</td>
+            <td>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #0c86c0;
+              background: #007eff;
+              cursor: pointer;">查看</button>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #dc125c;
+              background: #e90f55;
+              cursor: pointer;">删除</button>
+           </td>
+          </tr>
+          <tr>
+            <td><input type="radio"/></td><td>2020006</td><td>孙无用</td><td>2002</td><td>2020-01-22 17:49:50</td>
+            <td>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #0c86c0;
+              background: #007eff;
+              cursor: pointer;">查看</button>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #dc125c;
+              background: #e90f55;
+              cursor: pointer;">删除</button>
+           </td>
+          </tr>
+          <tr>
+            <td><input type="radio"/></td><td>2020007</td><td>钱少</td><td>2003</td><td>2020-01-25 16:51:52</td>
+            <td>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #0c86c0;
+              background: #007eff;
+              cursor: pointer;">查看</button>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #dc125c;
+              background: #e90f55;
+              cursor: pointer;">删除</button>
+           </td>
+          </tr>
+          <tr>
+            <td><input type="radio"/></td><td>2020008</td><td>孟坤</td><td>3001</td><td>2020-01-27 12:59:59</td>
+            <td>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #0c86c0;
+              background: #007eff;
+              cursor: pointer;">查看</button>
+              <button style="width: 62px;
+              height: 25px;
+              color: white;
+              border: 1px solid #dc125c;
+              background: #e90f55;
+              cursor: pointer;">删除</button>
+           </td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="pp" class="easyui-pagination" style="background:#efefef;border:1px solid #ccc;" data-options="total:2000,pageSize:10"></div>
+      </div>
+  </div>
+  <div id="toolstt">
+    <button style="width: 75px;height: 25px;color: black; border: 1px solid #ffffff; background: #ffffff; cursor: pointer;letter-spacing: 5px;">
+      <i style="display: inline-block;width:12px;height:12px;vertical-align:middle;margin-top:-2px;background-image: url(./../../../static/images/add.png);background-position: center center;background-repeat: no-repeat;background-size:21px 21px"></i>
+      <font style="display: inline-block;font-size:15px;">查询</font>
+    </button>
+    <button style="width: 75px; height: 25px;color: black; border: 1px solid #ffffff;background: #ffffff;cursor: pointer;letter-spacing: 5px;">
+      <i style="display: inline-block;width:12px;height:12px;vertical-align:middle;margin-top:-2px;background-image: url(./../../../static/images/add.png);background-position: center center;background-repeat: no-repeat;background-size:21px 21px"></i>
+      <font style="display: inline-block;font-size:15px;">验证</font>
+    </button>
+    <button style="width: 75px; height: 25px;color: black; border: 1px solid #ffffff;background: #ffffff;cursor: pointer;letter-spacing: 5px;">
+      <i style="display: inline-block;width:12px;height:12px;vertical-align:middle;margin-top:-2px;background-image: url(./../../../static/images/add.png);background-position: center center;background-repeat: no-repeat;background-size:21px 21px"></i>
+      <font style="display: inline-block;font-size:15px;">查看</font>
+    </button>
+    <button style="width: 110px; height: 25px;color: black; border: 1px solid #ffffff;background: #ffffff;cursor: pointer;letter-spacing: 5px;">
+      <i style="display: inline-block;width:12px;height:12px;vertical-align:middle;margin-top:-2px;background-image: url(./../../../static/images/add.png);background-position: center center;background-repeat: no-repeat;background-size:21px 21px"></i>
+      <font style="display: inline-block;font-size:15px;">寻求帮助</font>
+    </button>
+    <button style="width: 110px; height: 25px;color: black; border: 1px solid #ffffff;background: #ffffff;cursor: pointer;letter-spacing: 5px;">
+      <i style="display: inline-block;width:12px;height:12px;vertical-align:middle;margin-top:-2px;background-image: url(./../../../static/images/add.png);background-position: center center;background-repeat: no-repeat;background-size:21px 21px"></i>
+      <font style="display: inline-block;font-size:15px;">高级查询</font>
+    </button>
+  </div>
+  <script src="/apps/jds/static/lib/seaJs/sea.js"></script>
+  <script src="/apps/jds/static/js/seajs.config.js"></script>
+  <script>
+  	  seajs.use("/apps/jds/static/js/controller/jdrygl.sjzx.rsxxwh.js")
+  </script>
+</body>
+<!-- partial:../../partials/_foot.html -->
+
+</html>
+
+<!-- partial -->

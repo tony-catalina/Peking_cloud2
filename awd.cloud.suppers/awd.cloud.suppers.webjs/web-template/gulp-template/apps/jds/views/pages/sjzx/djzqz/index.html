@@ -1,0 +1,114 @@
+<!-- partial:../../../partials/_head.html -->
+<!-- partial -->
+
+<!-- 此处引入页面相关的 CSS 样式 -->
+<link rel="stylesheet" href="/apps/jds/static/css/sjzx/djzqz.css" />
+<!-- partial:../../../partials/_head_end.html -->
+<!-- partial -->
+<!-- 页面主体内容 -->
+
+<body class="easyui-layout" data-options="fit:true">
+    <!-- <div class="section-container">
+        <div class="section-item section-item-padding">
+            <div class="jianxiang_top section-header">
+                <div class="section-title">简项查询</div>
+                <div class="section-controls single-colors">
+                    <button type="button" class="add"><span class="iconfont icon-jiahao"></span>增加</button>
+                    <button type="button" class="btn"><span></span>删除</button>
+                    <button type="button" class="btn"><span></span>批量强制</button>
+
+
+                </div>
+                <div class="section-corner">
+                    <button><span class="iconfont icon-gengduo7"></span></button>
+                    <button><span class="iconfont icon-gengduo1"></span></button>
+                    <button><span class="iconfont icon-gengduo6"></span></button>
+                </div>
+            </div>
+            <div class="table_middle section-content">
+                <table id="djzqz_table"></table>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- 点击增加按钮，跳出对话框 -->
+    <div id="add_dialog" style="display: none;">
+        <!-- <div style="margin: 13px 7px 0 -26px">
+            <form action="">
+                <table class="addInfo_table" align="center">
+                    <tbody>
+                        <tr>
+                            <td>姓名:</td>
+                            <td><input name="name" class="f1 easyui-textbox"></input></td>
+                            <td>别名:</td>
+                            <td><input name="name" class="f1 easyui-textbox"></input></td>
+                        </tr>
+                        <tr>
+                            <td>性别:</td>
+                            <td>
+                                <select class="easyui-combobox" name="language" style="width:100%">
+                                    <option value="ar">男</option>
+                                    <option value="bg">女</option>
+                                </select>
+                            </td>
+
+                            <td>戒毒室:</td>
+                            <td><input name="name" class="f1 easyui-textbox"></input></td>
+                        </tr>
+                        <tr>
+                            <td>入所时间:</td>
+                            <td> <input class="easyui-datebox" labelPosition="top" style="width:100%;">
+                            </td>
+                            <td>入所原因:</td>
+                            <td><input name="name" class="f1 easyui-textbox"></input></td>
+                        </tr>
+                        <tr>
+                            <td>办案单位:</td>
+                            <td><input name="name" class="f1 easyui-textbox"></input></td>
+                            <td>戒毒期限:</td>
+                            <td><input name="name" class="f1 easyui-textbox"></input></td>
+                        </tr>
+                        <tr>
+                            <td>决定机关:</td>
+                            <td><input name="name" class="f1 easyui-textbox"></input></td>
+                            <td>入所文件:</td>
+                            <td><input name="name" class="f1 easyui-textbox"></input></td>
+                        </tr>
+                        <tr>
+                            <td>戒毒期限起始日期:</td>
+                            <td><input class="easyui-datebox" labelPosition="top" style="width:100%;"></td>
+                            <td>戒毒期限截止日期:</td>
+                            <td><input class="easyui-datebox" labelPosition="top" style="width:100%;"></td>
+                        </tr>
+                        <tr class="cz_tr">
+                            <td colspan="4" class="cz_td">
+                                <span class="cancel">取消</span>
+                                <span class="save">保存</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div> -->
+    </div>
+    <script src="/apps/jds/static/lib/seaJs/sea.js"></script>
+    <script src="/apps/jds/static/lib/seaJs/seajs-text.js"></script>
+    <script src="/apps/jds/static/js/seajs.config.js"></script>
+    <script>
+        seajs.use("/apps/jds/static/js/controller/pages/sjzx/djzqz/main.js")
+    </script>
+    <script>
+        function getQiangjie() {
+            $.messager.confirm('提示', '确定要执行强戒操作?', function (r) {
+                if (r) {
+
+                }
+            })
+        };
+    </script>
+</body>
+
+<!-- 页面结束 -->
+<!-- partial:../../../partials/_foot.html -->
+<!-- partial -->

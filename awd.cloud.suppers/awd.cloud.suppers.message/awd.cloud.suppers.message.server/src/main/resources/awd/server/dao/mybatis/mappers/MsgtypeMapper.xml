@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.mis.servers.dao.MsgtypeDao">
+    <resultMap id="MsgtypeResultMap" type="awd.mis.servers.entity.MsgtypeEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="appid" column="appid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="appname" column="appname" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="msgtype" column="msgtype" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="rolecode" column="rolecode" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="businessid" column="businessid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="businessname" column="businessname" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="description" column="description" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="routingkey" column="routingkey" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'MsgtypeResultMap'"/>
+        <bind name="tableName" value="'msgtype'"/>
+    </sql>
+    
+    <insert id="insert" parameterType="awd.mis.servers.entity.MsgtypeEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from msgtype where id =#{id}
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="MsgtypeResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>
+
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select>
+    
+    <select id="hasMsgtype" parameterType="String" resultType="int">
+        SELECT
+			Count(ID)
+		FROM
+			msgtype
+		WHERE
+			msgtype.ROUTINGKEY = #{routingkey}
+    </select>
+ </mapper>

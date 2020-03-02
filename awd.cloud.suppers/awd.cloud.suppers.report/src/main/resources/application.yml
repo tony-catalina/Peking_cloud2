@@ -1,0 +1,10 @@
+spring:
+  thymeleaf:
+    cache: false
+    enabled: false
+reort:
+  server:
+    url: ${url:http://192.168.4.103:8084/SpagoBI/} 
+    user:  ${user:biadmin}
+    password: ${password:biadmin}
+     

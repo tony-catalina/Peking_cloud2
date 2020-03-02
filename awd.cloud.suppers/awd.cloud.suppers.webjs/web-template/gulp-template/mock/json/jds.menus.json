@@ -1,0 +1,306 @@
+{
+  "menugroups": [
+    {
+      "title": "收检中心",
+      "img": "",
+      "list": [
+        {
+          "title": "入所信息维护",
+          "url": "/apps/jds/views/pages/sjzx/rsxxwh/index.html"
+        },
+        {
+          "title": "待拘转强制",
+          "url": "/apps/jds/views/pages/sjzx/djzqz/index.html"
+        },
+        {
+          "title": "电子腕带",
+          "url": "/apps/jds/views/pages/sjzx/dzwd/index.html"
+        },
+        {
+          "title": "照片维护",
+          "url": "/apps/jds/views/pages/sjzx/zpwh/index.html"
+        },
+        {
+          "title": "误出所恢复",
+          "url": "/apps/jds/views/pages/sjzx/wcshf/index.html"
+        },
+        {
+          "title": "回收",
+          "url": "/apps/jds/views/pages/sjzx/hs/index.html"
+        }
+      ]
+    },
+    {
+      "title": "日常管理",
+      "img": "",
+      "list": [
+        {
+          "title": "代拘首谈",
+          "url": "/apps/jds/views/pages/rcgl/djst/index.html"
+        },
+        {
+          "title": "首次谈话",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "谈话教育",
+          "url": "/apps/jds/views/pages/rcgl/thjy/index.html"
+        },
+        {
+          "title": "信件收发",
+          "url": "/apps/jds/views/pages/rcgl/xjsf/index.html"
+        },
+        {
+          "title": "通讯记录",
+          "url": "/apps/jds/views/pages/rcgl/txjl/index.html"
+        },
+        {
+          "title": "戒室调整",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "家属会见",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "同案人员",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "临时出所",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "教育训练记录",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "社会关系",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "安全检查",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "交接班报告",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "警械具交接",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "虚假人员",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "个人简历维护",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "优秀戒室评比",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "责任民警分配",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "狱帧线索管理",
+          "url": "http://www.baidu.com"
+        }
+      ]
+    },
+    {
+      "title": "医疗管理",
+      "img": "",
+      "list": [
+        {
+          "title": "性病传染检查",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "病犯管理",
+          "url": "/apps/jds/views/pages/ylgl/bfgl/index.html"
+        },
+        {
+          "title": "入所体检台账",
+          "url": "http://www.baidu.com"
+        }
+      ]
+    },
+    {
+      "title": "财务管理",
+      "img": "",
+      "list": [
+        {
+          "title": "物品管理",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "现金存入",
+          "url": "http://www.baidu.com"
+        }
+      ]
+    },
+    {
+      "title": "学员评估",
+      "img": "",
+      "list": [
+        {
+          "title": "评估项目设置",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "日常评估登记",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "评估记录查询",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "评估复议申请",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "评估管教处理",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "评估记录复议审批",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "学员评估月结",
+          "url": "http://www.baidu.com"
+        }
+      ]
+    },
+    {
+      "title": "值班台账",
+      "img": "",
+      "list": [
+        {
+          "title": "重点人员台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "约束（隔离）台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "出所台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "预出所台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "临时出所台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "延期台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "耳目使用台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "接见记录台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "谈话教育台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "入所台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "投劳计划台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "投劳计划处理查询",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "病室调整台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "虚假人员台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "提讯台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "拒收人员台账",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "视频会见台账",
+          "url": "http://www.baidu.com"
+        }
+      ]
+    },
+    {
+      "title": "工作人员",
+      "img": "",
+      "list": [
+        {
+          "title": "基本信息",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "社会关系",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "统计",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "查询",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "奖惩记录",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "工作经历",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "教育经历",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "民警绩效考核",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "民警绩效考核查询",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "民警谈话",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "title": "查询统计",
+          "url": "http://www.baidu.com"
+        }
+      ]
+    }
+  ]
+}

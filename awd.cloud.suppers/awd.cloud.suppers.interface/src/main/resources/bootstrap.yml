@@ -1,0 +1,98 @@
+spring:
+  application:
+    name: ${hostname:awd-external-inferface-server}
+  redis:
+    hostName: ${redisurl:192.168.4.50}
+    port: ${redisport:6379}
+    pool:
+      maxActive: 8
+      maxWait: -1
+      maxIdle: 8
+      minIdle: 0
+    timeout: 0
+  jta:
+    status: true
+    atomikos:
+      datasource:
+        xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
+        xa-properties:
+          url: ${url:jdbc:mysql://192.168.4.103:3307/soa_interface?useUnicode=true&characterEncoding=utf-8}
+          username: ${myUser:root}
+          password: ${myPass:root}
+        max-pool-size: 20
+        borrow-connection-timeout: 1000
+      connectionfactory:
+        max-pool-size: 20
+        local-transaction-mode: true
+
+awd:
+  mis:
+    name: 监管云平台-平台管理服务
+    version: 1.0.0
+    dynamic:
+      datasource:
+        write_ds:
+          xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
+          xa-properties:
+            url: ${url:jdbc:mysql://192.168.4.103:3307/soa_interface?useUnicode=true&characterEncoding=utf-8}
+            username: ${myUser:root}
+            password: ${myPass:root}
+          max-pool-size: 20
+          borrow-connection-timeout: 1000
+        read_ds:
+          xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
+          xa-properties:
+            url: ${url:jdbc:mysql://192.168.4.103:3307/soa_interface?useUnicode=true&characterEncoding=utf-8}
+            username: ${myUser:root}
+            password: ${myPass:root}
+          max-pool-size: 20
+          borrow-connection-timeout: 1000
+          init-timeout: 20
+mybatis:
+  dynamicDatasource: true
+  
+swagger2:
+  package:  
+    interfaces: awd.cloud.suppers.interfaces.controller.interfaces
+    manager: awd.cloud.suppers.interfaces.controller.manager
+    jls: awd.cloud.suppers.interfaces.controller.jls
+    kss: awd.cloud.suppers.interfaces.controller.kss
+    jds: awd.cloud.suppers.interfaces.controller.jds
+  show:
+    dev: ${apidev:false}
+    pro: ${apipro:true}
+
+eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: ${eureka.serviceUrl:http://192.168.4.50:3001/eureka/,http://192.168.4.50:3002/eureka/,http://192.168.4.50:3003/eureka/}
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: ${hystrixtime:5000}
+
+logging:
+  level:
+    root: ${loglevel:INFO}
+  file: log.log
+  pattern:
+    file: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+    console: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+  file.max-size: 200MB
+
+server:
+  max-http-header-size: 10000000
+  port: ${port:11111}

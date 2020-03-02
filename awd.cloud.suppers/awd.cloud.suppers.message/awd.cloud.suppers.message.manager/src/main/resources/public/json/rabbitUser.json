@@ -1,0 +1,13 @@
+{
+    "status": 200,
+    "msg": "成功",
+    "result":{
+        "total":0,
+        "data":[{
+            "id":1110000114,
+            "appname":"1234561",
+            "username":"123456",
+            "password":"123456"
+        }]
+    }
+}

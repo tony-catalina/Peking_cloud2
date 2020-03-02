@@ -1,0 +1,120 @@
+<!--<!DOCTYPE HTML>
+<html>
+<head>
+<title>CAS &#8211; 上海监管云平台授权服务中心</title>
+	<link rel="stylesheet" type="text/css" href="style/css/css.css"/>
+	<script src="style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="style/js/jquery.lib.min.js"></script>
+	<script src="style/js/jobs.min.js" type="text/javascript"></script>
+</head>-->
+
+<!--
+<body id="login_bg">
+-->
+<img src="static/images/background.png" id="ieimg">
+<div id="login">
+	<div class="login_wrapper">
+		<div class="login_header">
+			<a href="#"><img src="static/images/apereo-logo.png" width="285"
+				height="62" alt="北京市公安监管综合业务平台" /></a>
+			<!--<div id="cloud_s">-->
+				<!--<img src="static/images/cloud_s.png" width="81" height="52"-->
+					<!--alt="cloud" />-->
+			<!--</div>-->
+			<!--<div id="cloud_m">-->
+				<!--<img src="static/images/cloud_m.png" width="136" height="95"-->
+					<!--alt="cloud" />-->
+			<!--</div>-->
+		</div>
+
+		<input type="hidden" id="resubmitToken" value="" />
+		<div class="login_box">
+
+			<form method="post" id="loginForm" action="login"
+				onsubmit="return toVaild()">
+				<table class="tableClass">
+					<tbody>
+						<tr>
+							<!--<td><span class="redstar">*</span></td>-->
+							<!--<td>监所编号</td>-->
+							<td>
+								<input type="hidden" id="experience" value="310000111"
+								name="jsbhchoice"> <input type="button" value="上海市看守所"
+								id="select_experience" class="selectr selectr_380">
+								<div class="boxUpDown boxUpDown_380 dn" id="box_experience"
+									style="display: none;">
+									<ul>
+										<li value="310000111">上海市看守所</li>
+										<li value="310000112">上海市第二看守所</li>
+									</ul>
+								</div>
+
+								<!--<Select >-->
+									<!--<option value="310000111">上海市看守所</option>-->
+									<!--<option value="310000112">上海市看守所</option>-->
+								<!--</Select>-->
+							</td>
+						</tr>
+
+						<tr>
+							<!--<td><span class="redstar">*</span></td>-->
+							<!--<td>用户名</td>-->
+							<td><input type="text"  value="请输入登录账号"
+								onfocus="input_focus(this)" onblur="input_blur(this)"
+								name="loginname" id="loginname"></td>
+
+						</tr>
+						<tr style="display: none;" class="validTd" id="loginname-tr">
+							<td></td>
+							<td></td>
+							<td style="float: right;"><span>请输入登录账号！！</span></td>
+
+						</tr>
+
+						<tr>
+							<!--<td><span class="redstar">*</span></td>-->
+							<!--<td>密 码</td>-->
+							<td><input type="password"  value=""
+								name="password" id="password"></td>
+						</tr>
+						<tr style="display: none; padding-bottom: 10px" class="validTd1"
+							id="capslock-on">
+							<td></td>
+							<td></td>
+							<td style="float: right;"><span>大小写已锁定！！</span></td>
+
+						</tr>
+						<input type="hidden" name="execution" th:value="${flowExecutionKey}"/>
+
+					</tbody>
+				</table>
+				<input type="hidden" id="username" name="username" value="submit" />
+				<input type="hidden" name="execution" th:value="${flowExecutionKey}" />
+				<input type="hidden" name="_eventId" value="submit" /> <input
+					type="hidden" name="geolocation" value="" />
+
+
+			</form>
+			<div style="text-align: center; padding-bottom: 10px;">
+				<!--<button-->
+					<!--style="color: #fff; cursor: url(/cas/static/images/select_r.png), pointer;"-->
+					<!--class="submitLogin btn" id="zwSubmit" title="登 &nbsp; &nbsp; 录">指纹登录</button>-->
+				<button style="color: #fff;width:67%;margin-top:3%" class="submitLogin btn" id="submit"
+					title="登 &nbsp; &nbsp; 录" onclick="$('#loginForm').submit();">登录</button>
+				<!-- <button style="color:#fff;" class="submitLogin"  title="登 &nbsp; &nbsp; 录">登 &nbsp; &nbsp; 录</button>-->
+			</div>
+			<div class="login_right">
+
+				<div>
+					<p style="color:ghostwhite;width:70%;margin-left:16%">
+						出于安全考虑，一旦您访问过那些需要您提供凭证，信息的应用时请操作完成之后<a href="#"
+							style="color: blue;">登出</a>并关闭浏览器。
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--</body>-->
+<!--
+</html>-->
