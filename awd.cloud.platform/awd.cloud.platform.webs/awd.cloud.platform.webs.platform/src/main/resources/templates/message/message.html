@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+	<meta name="renderer" content="webkit"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="keywords" content="spring cloud,看守所,拘留所,戒毒所,安康医院,监管总队,南京安威德" />
+	<meta name="generator" content="监管应用云平台"/>
+	<meta name="author" content="306165699@qq.com" />
+	<meta name="copyright" content="www.njawd.com" />
+	
+	<title>监管应用云平台--南京安威德科技有限公司</title>
+	<link rel="stylesheet" href="./style/message.css">
+	<!--  <link href="./js/bootstrap-fileinput-master/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
+	<link href="./js/bootstrap-fileinput-master/css/summernote.css" media="all" rel="stylesheet" type="text/css"/>
+	<link href="./js/bootstrap-fileinput-master/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>-->
+	<link href="./images/common/favicon.ico" rel="Shortcut Icon"/>
+	<link href="./js/lib/picasa/style/style.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="./js/lib/layui/css/layui.css"  media="all">
+	<link href="./style/common.css" rel="stylesheet"/>
+	<link href="./style/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+	<!--[if IE 7]>
+	<link rel="stylesheet" href="./style/font-awesome/css/font-awesome-ie7.css"/>
+	<![endif]-->
+	<link rel="stylesheet" href="./style/skin/base/app_explorer.css"/>
+	<link rel="stylesheet" href="./style/skin/win10.css" id='link_css_list'/>
+	<!-- ZTree插件css -->
+    <!-- <link href="./ZTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"> -->
+    
+	<script type="text/javascript" src="./js/lib/layui/layui.all.js"></script>
+	<!--  <link href="./js/app/src/message/css/iconfont.css" rel="stylesheet" type="text/css"/>
+     <link href="./js/app/src/message/css/fileUpload.css" rel="stylesheet" type="text/css">-->
+    <script src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+    <!--  <script type="text/javascript" src="./app/src/message/js/fileUpload.js"></script> -->
+    <script src="./ZTree/js/jquery.ztree.core.min.js"></script>
+	<script src="./ZTree/js/jquery.ztree.excheck.min.js"></script>
+	<style>
+	<%if(isNotEmpty(type)){%>
+	.topbar,.common_footer,.bottom_box{display:none;}
+	.frame-header{top:0;}
+	.frame-main{top:0px;bottom:0px;}
+	.frame-main .frame-left #folderList{bottom:0px !important;}
+	<%if(type=="explorer"){%>
+		.frame-header .header-content .header-left{display:none;}
+		.frame-header .header-content .header-middle{left:12px;}
+		.frame-main .frame-left,.frame-main .frame-resize{display:none;}
+		.frame-main .frame-right{left:0px;}
+		.task_tab{display:none;}
+	<%}%>
+	<%if(type=="file_list"){%>
+		.frame-header{display:none;}
+		.frame-main .frame-left,.frame-main .frame-resize{display:none;}
+		.frame-main .frame-right{left:0px;}
+		.frame-main{top:0px;}
+		.task_tab,#set_theme,#fav,#home{display:none !important;}
+		.header-middle{top:3px;left:5px;right:140px;}
+		#list_type_list{top:35px;}
+	<%}%>
+	<!--<%}%>-->
+</style>
+<style type="text/css">
+	.layui-btn+.layui-btn{margin-left:0px;}
+	.layui-nav .layui-badge, .layui-nav .layui-badge-dot{margin: -1px 6px 0;}
+	.layui-nav .layui-nav-item a:hover, .layui-nav .layui-this a{color:#F0FFF0}
+	.layui-table-tips-main{display:none}
+	.layui-table-tips-c{display:none}
+	.layui-table-page{height:72px}
+	.layui-layedit{width:90%}
+	.layui-table-body{overflow:hidden}
+	.layui-card-body {word-wrap: break-word;}
+	*{padding:0px;margin:0px;font-size: 1.0em;font-family:"Helvetica Neue,Helvetica,PingFang SC,\5FAE\8F6F\96C5\9ED1,Tahoma,Arial,sans-serif";}
+    dd,dl,dt,em,i,p,textarea,a,div{padding:0px;margin:0px;}
+    img{border:0px;}
+    ul,li{padding:0px;margin:0px;list-style:none; float:left}
+    .fl{ float:left;margin-left:42%;}
+    .fr{ float:right}
+	.common_footer{
+		font-size: 1.0em;
+	}
+	@media screen and (max-width: 1024px){
+	#zdhfrDiv:hover {
+	  width:79% !important;
+	}
+	}
+	@media screen and (max-width: 1024px){
+	#faDiv:hover {
+	  width:79% !important;
+	}
+	}
+	@media screen and (max-width: 1024px){
+	#treeDiv:hover {
+	  width:79% !important;
+	}
+	}
+	input[type="text"]:focus {
+		border-color: #75A1F0;
+		outline: none;
+		box-shadow: 0 0 4px #75A1F0;
+	}
+	body .frame-main .frame-left{
+			background-color: #F0F2F1 !important;
+			width: 12%;
+		}
+		.frame-right{
+			width: 87%;
+			padding:1% 0 0 13% ;
+		}
+		#putApp {
+			width: 80px;
+			color: #fff !important;
+			text-align: center;
+			margin: 20px auto;
+			padding: 0;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: null;
+			background: #ff4952 !important;
+			border: none;
+		}
+		#allread ,#yread ,#wread{
+			background-color: #F0F2F1;
+			color: #000;
+			padding-left: 20px;
+		}
+</style>
+
+
+
+
+</head>
+
+<body style="overflow:hidden;" oncontextmenu="return core.contextmenu();" id="page_explorer">
+	<%include("../common/navbar.html"){}%>
+	<div class="frame-main">
+	<div class='frame-left'>
+		<ul id="folderList" class="ztree" style="padding: 9px 0 0 22px;">
+			<li id="folderList_0" class="level0" tabindex="0" hidefocus="true" treenode="" style="float:none; ">
+				<button id='putApp' data-toggle="modal" data-target="#addAppModal" style="display:none" class="layui-btn layui-btn-normal layui-btn-sm" type="button">
+							新建消息
+				</button>
+			</li>
+			<li id="folderList_1" class="level0" tabindex="0" hidefocus="true" treenode="" style="float:none; ">
+				<a href="#" id="read">消息</a>
+			</li>
+			<li id="folderList_2" class="level0" tabindex="0" hidefocus="true" treenode="" style="float:none; ">
+				<button id='wread' class="layui-btn layui-btn-normal layui-btn-sm" style="display:none" lay-filter="allChoose" type="button">
+					未读<sup class="wdxx" style="background: #FF4500;color: white;border-radius: 15px;padding: 0 3px;font-size: 12px;" hidden></sup>
+				</button>
+			</li>
+			<li id="folderList_3" class="level0" tabindex="0" hidefocus="true" treenode="" style="float:none; ">
+				<button id='yread' class="layui-btn layui-btn-normal layui-btn-sm" style="display:none" lay-filter="allChoose" type="button">
+					全部
+				</button>
+			</li>
+			<li id="folderList_4" class="level0" tabindex="0" hidefocus="true" treenode="" style="float:none; ">
+				<button id='allread' class="layui-btn layui-btn-normal layui-btn-sm" style="display:none" lay-filter="allChoose" type="button">
+					全部标为已读
+				</button>
+			</li>
+			
+			<li id="folderList_5" class="level0" tabindex="0" hidefocus="true" treenode="" style="float:none; ">
+				<a href="#" id="send">公文</a>
+			</li>
+		</ul>
+		<div class="bottom_box">
+			<div class="user_space_info"></div>
+		</div>
+	</div>
+
+
+	<div class='frame-right'>
+		<div class="frame-header">
+			<div class="header-content">
+					<ul class="layui-nav" style="height:39px;width:100%">
+<!--						<li class="layui-nav-item" style="line-height:44px;height:37px"><a href="#" id="unread"><i class=" layui-icon layui-icon-read" style="padding-right: 4px;"></i>未读<span class="layui-badge-dot" id="unreadicon"></span></a></li>-->
+						<li class="layui-nav-item" style="line-height:44px;height:37px;"></li>
+						<li class="layui-nav-item" style="line-height:44px;height:37px;margin-left:49px"></li>
+					</ul>
+			</div>
+		</div><!-- / header end -->
+
+		<div id="gwZtree" class="frame-left" style="position:relative;width:15%;height:100%;float:left;display:none">
+			<div id="jsbhTree" class="ztree"></div>
+		</div>
+
+
+		<div class="frame-right-main">
+			<div class="tools">
+				<div class="tools-left tools-left-share    hidden">
+					<!-- 文件功能 -->
+					<div class="btn-group btn-group-sm awd_path_tool">
+						<button id='selectAll' class="btn btn-default" type="button">
+							<i class="font-icon icon-check"></i>全选						</button>
+						<button id='upload' class="btn btn-default" type="button">
+							<i class="font-icon icon-cloud-upload"></i>上传						</button>
+						
+						<button id='download' class="btn btn-default" type="button">
+							<i class="font-icon icon-download"></i>下载						</button>					        				        
+					</div>
+					<span class='msg'>载入中...</span>
+					<div class="clear"></div>
+				</div>
+				<div class="tools-left-explorer ">
+					<!-- 回收站tool -->
+					<div class="btn-group btn-group-sm awd_recycle_tool hidden fl-left">
+						<button id='recycle_clear' class="btn btn-default" type="button">
+				        	<i class="font-icon icon-folder-close-alt"></i>清空回收站				        </button>
+					</div>
+
+					<!-- 分享 tool -->
+					<div class="btn-group btn-group-sm  hidden fl-left">
+						<button id='refresh' class="btn btn-default" type="button">
+				        	<i class="font-icon icon-refresh"></i>刷新				        </button>
+					</div>
+					<!-- 文件功能 -->
+					<div class="btn-group btn-group-sm  fl-left">
+				        <button id='newxjgw' data-toggle="modal" data-target="#addGwModal" class="layui-btn layui-btn-normal layui-btn-sm" style="display:none" type="button">
+				        	<i class="font-icon icon-folder-close-alt"></i>新建公文
+				        </button>
+
+						
+
+						
+
+						
+
+						
+<!--   						<button id='gwhf' data-toggle="modal" data-target="#addgwhfModal" style="display:none" class="layui-btn layui-btn-normal layui-btn-sm" type="button">
+							<i class="font-icon icon-file-alt"></i>公文回复
+						</button> -->
+						<span class="gw_searchs" style="display: none;" ><input type="text" class="layui-input" autocomplete="off" id="searchs" style="height: 30px;width: 200px;border:0.5px solid #d0d0d0"></span>
+						<button id='gw_querys' class="layui-btn layui-btn-normal layui-btn-sm" style="display:none;" lay-filter="allChoose" type="button">
+							查询
+						</button>
+						<p class="sj" style="font-size: 1.0em;display: none; margin-left: 20px; font-color: #000;"/>发送时间:
+						<span class="sj" style="display: none;" ><input type="text" class="layui-input" autocomplete="off" id="kssj" style="height: 30px;width: 150px;border:0.5px solid #d0d0d0"></span>
+						<p class="sj" style="font-size: 1.0em;display: none; margin-left: 0px; font-color: #000;"/>至
+						<span class="sj" style="display: none;" ><input type="text" class="layui-input" autocomplete="off" id="jssj" style="height: 30px;width: 150px;border:0.5px solid #d0d0d0"></span>
+						<button id='querys' class="layui-btn layui-btn-normal layui-btn-sm" style="display:none" lay-filter="allChoose" type="button">
+							查询
+						</button>
+						<button id='dele' class="layui-btn layui-btn-normal layui-btn-sm" style="display:none;margin-left: 2px;" lay-filter="allChoose" type="button">
+							删除
+						</button>
+						<div class="group_space_use fl-left hidden"></div>
+
+						<div class="clear"></div>
+					</div>
+				</div>
+				 <div class="tools-right">
+					<div class="set_icon_size">
+						<span class="dropdown-toggle" data-toggle="dropdown">
+					    	<i class="font-icon icon-zoom-in"></i>
+					    </span>
+					    <ul class="dropdown-menu set_icon_size_slider animated menuShow">
+						    <div class="slider_bg"></div>
+						    <div class="slider_handle"></div>
+					    </ul>
+					</div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			</div>
+
+			<div id="demoTable" style="width:100%;height:98%;position:relative;float:left;overflow:scroll;">
+				<table id="tab" class="layui-hide" lay-filter="demo" style="width:100%"></table>
+			</div>
+		</div>
+	</div><!-- / frame-right end-->
+	<div id="newfolderForm"></div>
+    <input id="UserType" value="${userType}" style="display:none"></input>
+	<!-- / frame-main end-->
+
+	<%include("../common/footer.html"){}%>
+	<style type="text/css" id="setting_system_global_css"></style>
+
+	<script type="text/javascript" src="./js/lib/layui/lay/modules/layer.js"></script>
+	<script type="text/javascript" src="./js/lib/seajs/sea.js?ver=3.460"></script>
+	<%include("../user/common_js.html"){}%>
+	<script type="text/javascript">
+		G.this_path = "";
+		seajs.config({
+			base: "./js/",
+			preload: ["lib/jquery-1.8.0.min"],
+			map:[
+				[ /^(.*\.(?:css|js))(.*)$/i,'$1$2?ver='+G.version]
+			]
+		});
+		seajs.use("app/src/message/main");
+	</script>
+	<!--新建消息表单开始--------------------------------  -->
+	 <div class="modal fade" id="addAppModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"   >
+	  <div class="modal-dialog modal-lg" role="document" style="width: 81%;height: 80%;top:6%">
+	    <div class="modal-content"  >
+	      <div class="modal-header" >
+	        <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">新建消息</h4>
+	      </div>
+	      <div class="modal-body">
+	       <form class="layui-form" lay-filter="xjxx"  id="addAppForm">
+			 <div class="layui-form-item" style="width:97%;margin-top: 1%;">
+					<label class="layui-form-label">收件人<span class="mandatory" style="color:#ff0909;font-size: 18px;">*</span></label>
+			    <div class="layui-input-block" id="treeDiv"  >
+					<input name="jsrxm" readonly lay-verify="required" lay-filter="person1" id="receiptPerson1" onclick="showMenu();" style="font-size:15px;" class="layui-input"></input>
+			   	    <input name="jsrjh"  lay-verify="required" lay-filter="person" id="receiptPerson" style="font-size:15px;display:none" class="layui-input"></input>
+			   	      <input name="jsbh"  lay-verify="required" lay-filter="person" id="jsbh" style="font-size:15px;display:none" class="layui-input"></input>
+			    <!-- ztree ----开始-->
+			    <div id="menuContent" class="menuContent" style="display: none;background:white;width:10%;z-index: 9999 ">
+			    	<div id="zTree" class="ztree" style="padding:0px !important"></div>
+			    </div>
+			    </div>
+			    <!-- ztree----结束 -->
+			  </div>
+			  <div class="layui-form-item" style="width:97%;margin-top: 1%;">
+			    <label class="layui-form-label">消息级别</label>
+			    <div class="layui-input-block">
+					<select name="xxjb" lay-filter="type" style="font-size:15px" class="layui-input">
+						<option value="1">普通</option>
+						<option value="2">紧急</option>
+					</select>
+			    </div>
+			  </div>
+			  <div class="layui-form-item" style="width:97%;margin-top: 1%;">
+			    <label class="layui-form-label">发送时间</label>
+			    <div class="layui-input-block">
+			      <input type="text"  id="timedata"  name="fssj" style=""  lay-verify="date" class="layui-input">
+			    </div>
+			  </div>
+			  <div class="layui-form-item layui-form-text" id="intro" style="width:106%;margin-top: 1%;">
+			    <label class="layui-form-label">消息内容</label>
+			    <div class="layui-input-block">
+			      <textarea   id="Richtxt" name="fsnr" lay-verify="content"></textarea>
+			    </div>
+			  </div>
+<!--			  <div class="form-group" style="width:90%;margin-top: 1%;">-->
+<!--                  <label class="layui-form-label" style="">附件上传：</label>-->
+<!--                  <div class="layui-input-inline" style="left:1.5%">-->
+<!--                      <button type="button" class="layui-btn" id="imgfile">上传文件</button>-->
+<!--                  </div>-->
+<!--			  	</div>--> <!-- 此为新建消息上传图片功能，等候后台作功能处理 -->
+               <div class="layui-form-item">
+                   <div class="layui-upload">
+                       <div class="" style="margin-top: 10px;margin-left:35px">
+                           <div class="layui-upload-list" id="file2"></div>
+                       </div>
+                   </div>
+               </div>
+
+			   <div class="layui-form-item" style="width:90%;margin-top: 5%;">
+				   <div class="layui-input-block" style="margin-left:50%">
+					   <button class="layui-btn" lay-submit lay-filter="formDemo" id="formDemo">发送</button>
+					   <button type="reset" class="layui-btn layui-btn-primary" id="reset">重置</button>
+				   </div>
+			   </div>
+
+			  </div>
+			</form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!--新建消息表单结束----------------------------------->
+
+	<!--新建公文表单开始----------------------------------->
+	<div class="modal fade" id="addGwModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"   >
+		<div class="modal-dialog modal-lg" role="document" style="width:83%;height: 80%;">
+			<div class="modal-content"  >
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">新建公文</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal form-inline layui-form"  enctype="multipart/form-data"  role="form" id="addAppForm" action="./addApp" method="post">
+<!--								<textarea   id="gwRichtxt" name="gwcontent" lay-verify="gwcontent"></textarea>-->
+						<div class="layui-form-item">
+							<div class="layui-inline" style="margin-left:1%;width:90%;">
+								<label class="layui-form-label" >标题<font color="red">*</font>：</label>
+                                <div class="layui-input-inline" style="width:28%">
+									<input type="text" name="title" lay-verify="required" class="layui-input" >
+								</div>
+								<label class="layui-form-label">主送单位<font color="red">*</font>：</label>
+								<div class="layui-input-inline" style="width:35.5%;">
+									<input name="zsdwtip" id="zsdwtip" lay-verify="required" class="layui-input">
+									<input type="hidden" type="text" name="zsdw" id="zsdw" class="layui-input">
+								</div>
+							</div>
+						</div>
+						
+						<div class="layui-form-item">
+						<div class="layui-inline"  style="margin-left:1%;width:100%;">
+								<label class="layui-form-label">抄送单位<font color="red">*</font>：</label>
+								<div class="layui-input-inline" id="faDiv" style="width:66.5%;">
+									<input  name="csdw1" lay-filter="csdw1" readonly lay-verify="required" id="csdw" style="font-size:10px;" class="layui-input" onclick="showMenu2();"></input>
+									<input  name="csdw" lay-filter="csdw" readonly id="csdw1" style="font-size:10px;display:none;" class="layui-input"></input>
+									<div id="csdwmenuContent" class="menuContent" style="display: none;background:white;">
+									 	<div id="csdwtree" class="ztree" style="padding:0px !important"></div>
+									</div>
+							</div>
+							</div>
+						</div>
+						<div class="layui-form-item ">
+							<div class="layui-inline" style="margin-left:1%;width:100%;">
+							<label class="layui-form-label">是否回复：</label>
+								<div class="layui-input-inline" id="zdhfrDiv" style="width:66.5%;">
+      								 <input class="layui-input" type="checkbox" name="hfbj"  title="是" id="hfbj" lay-filter="hfbj"><span style="color:red;">*</span><span>&nbsp;默认为不回复</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<div class="layui-inline" style="margin-left:1%;width:100%;">
+							<label class="layui-form-label">呈报单位<font color="red">*</font>：</label>
+								<div class="layui-input-inline" style="width:16.5%;">
+							   <!-- <select name="cbdw" lay-filter="cbdw" id="cbdw" class="layui-input"></select> -->
+									<input type="text" name="cbdwtip" id="cbdwtip" lay-verify="required" class="layui-input">
+									<input type="hidden" name="cbdw" id="cbdw" class="layui-input">
+								</div>
+							<label class="layui-form-label" style="margin-left:-1%;">签发人：</label>
+								<div class="layui-input-inline" style="width:16.5%;">
+									<input type="text" name="qfr"  class="layui-input">
+								</div>
+							<label class="layui-form-label">签发日期：</label>
+								<div class="layui-input-inline" style="width:16%;">
+									<input type="text" name="qfrq"  id="gwtimedata" class="layui-input">
+								</div>
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<div class="layui-inline" style="margin-left:1%;width:100%;">
+							<label class="layui-form-label">文件字号<font color="red">*</font>：</label>
+								<div class="layui-input-inline" style="width:16.5%">
+									<input type="text" name="wjzh"  lay-verify="required" class="layui-input">
+								</div>
+							<label class="layui-form-label">保密级别：</label>
+								<div class="layui-input-inline"  style="width:16%;margin-left:-0.5%;">
+							
+									<select name="bmjb" lay-filter="bmjb" id="bmjb" style="font-size:15px" class="layui-input"></select>
+								</div>
+								<label class="layui-form-label">缓急：</label>
+								<div class="layui-input-inline"  style="width:16%">
+									<select name="hj" lay-filter="hj" id="hjcd" style="font-size:15px" class="layui-input">
+									</select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="layui-form-item">
+							<div class="layui-inline" style="margin-left:1%;width:100%;">
+							<label class="layui-form-label">拟稿人：</label>
+								<div class="layui-input-inline" style="width:16.5%">
+									<input type="text" name="ngr"  class="layui-input">
+								</div>
+								<label class="layui-form-label">拟稿单位<font color="red">*</font>：</label>
+								<div class="layui-input-inline" style="width:15.5%;">
+									<!-- <select name="ngdw" lay-filter="ngdw" id="ngdw" class="layui-input"></select> -->
+									<input type="text" name="ngdwtip" id="ngdwtip" lay-verify="required" class="layui-input" />
+									<input type="hidden" name="ngdw" id="ngdw" class="layui-input" />
+								</div>
+							</div>
+							</div>
+						<div class="layui-form-item">
+							<div class="layui-inline" style="margin-left:1%;width:92%;">
+								<label class="layui-form-label">主题<font color="red">*</font>：</label>
+							    <div class="layui-input-inline" style="width:80%;">
+								<textarea id="gwRichtxt" name="gwcontent" lay-verify="gwcontent"></textarea>
+						     	</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-inline" style="margin-left:1%;width:100%;">
+							<label class="layui-form-label" style="">附件上传<font color="red">*</font>：</label>
+								<div class="layui-input-inline">
+									<button type="button" class="layui-btn" id="imgup">上传图片</button>
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-upload">
+								<div class="" style="margin-top: 10px;margin-left:35px">
+									<div class="layui-upload-list" id="demo2"></div>
+								</div>
+							</div>
+						</div>
+                        <div class="layui-form-item" style="width:90%;margin-top: 5%;">
+                            <div class="layui-input-block" style="margin-left:50%">
+                                <button class="layui-btn" lay-submit lay-filter="OfficialSubmit" id="OfficialSubmit">新建</button>
+                                <button type="reset" class="layui-btn layui-btn-normal" id="gwreset">重置</button>
+                            </div>
+                        </div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--新建公文结束----------------------------------->
+</body>
+<script type="text/javascript">
+function getParameter(name) { 
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+	var r = window.location.search.substr(1).match(reg); 
+	if (r!=null) return unescape(r[2]); return null;
+}
+
+$(document).ready(function(){
+	layui.use('laydate', function(){
+		var laydate = layui.laydate;
+		laydate.render({
+			elem: '#kssj',
+			type:'date'
+		});
+	});
+	layui.use('laydate', function(){
+		var laydate = layui.laydate;
+		laydate.render({
+			elem: '#jssj',
+			type:'date'
+		});
+	});
+	$.ajax({
+		url:"document/getSjDocument",
+		type:"GET",
+		data:{
+			page : "10",
+			limit : "1",
+			id : "",
+			title : ""
+		},
+		success:function(data){
+		},
+		error:function(err){
+		}
+	})
+
+	$.ajax({
+		url:"document/getZdDocument",
+		type:'GET',
+		data:{
+		  	page:1,
+			limit:10,
+			csdw:"",
+			title : ""
+		},
+		success:function(data){
+          console.log(data);
+		}
+	})
+	publish();
+    showHide();
+    seachZsdw();
+    seachCbdw();
+    seachNgdw();
+    setNgdwValue();
+});
+
+var seachZsdw = function(){
+	$("#zsdwtip").on("blur",function(){
+		var zsdwtip = $("#zsdwtip").val();
+		if(zsdwtip==""){
+			/* layer.alert('单位不能为空',{
+				icon:3,
+				skin:'layer-ext-moon'
+			}); */
+			return;
+		}else{
+			var data = {"zsdwtip":zsdwtip};
+	  		$.ajax({
+				url:"document/getJsbhByJsName",
+				type:'GET',
+				data:data,
+		        cache: false,
+		        async: false,
+				success:function(data){
+					if(data.result.data==""){
+						layer.alert('未搜索到该单位',{
+							icon:3,
+							skin:'layer-ext-moon'
+						})
+					}else if(data.result.data[0].jsbh==""){
+						layer.alert('未搜索到该单位',{
+							icon:3,
+							skin:'layer-ext-moon'
+						})
+					}else{
+						$("#zsdw").val(data.result.data[0].jsbh);
+					}
+				}
+			});
+		}
+	})
+}
+
+var seachCbdw = function(){
+	$("#cbdwtip").on("blur",function(){
+		var cbdwtip = $("#cbdwtip").val();
+		if(cbdwtip==""){
+			/* layer.alert('单位不能为空',{
+				icon:3,
+				skin:'layer-ext-moon'
+			}); */
+			return;
+		}else{
+		var data = {"cbdwtip":cbdwtip};
+		$.ajax({
+			url:"document/getJsbhByJsName",
+			type:'GET',
+			data:data,
+	        cache: false,
+	        async: false,
+			success:function(data){
+				if(data.result.data==""){
+					layer.alert('未搜索到该单位',{
+						icon:3,
+						skin:'layer-ext-moon'
+					})
+				}else if(data.result.data[0].jsbh==""){
+					layer.alert('未搜索到该单位',{
+						icon:3,
+						skin:'layer-ext-moon'
+					})
+				}else{
+					$("#cbdw").val(data.result.data[0].jsbh);
+				}
+			}
+		});
+		}
+	})
+}
+
+var seachNgdw = function(){
+	$("#ngdwtip").on("blur",function(){
+		var ngdwtip = $("#ngdwtip").val();
+		if(cbdwtip==""){
+			/* layer.alert('单位不能为空',{
+				icon:3,
+				skin:'layer-ext-moon'
+			}); */
+			return;
+		}else{
+			var data = {"ngdwtip":ngdwtip};
+			$.ajax({
+				url:"document/getJsbhByJsName",
+				type:'GET',
+				data:data,
+		        cache: false,
+		        async: false,
+				success:function(data){
+					if(data.result.data==""){
+						layer.alert('未搜索到该单位',{
+							icon:3,
+							skin:'layer-ext-moon'
+						});
+					}else if(data.result.data[0].jsbh==""){
+						layer.alert('未搜索到该单位',{
+							icon:3,
+							skin:'layer-ext-moon'
+						});
+					}else{
+						$("#cbdw").val(data.result.data[0].jsbh);
+					}
+				}
+			});
+		}
+	})
+}
+
+var setNgdwValue = function(){
+	var jsbh = G.user_jsbh;
+	var name = G.user_name;
+	$("#ngdwtip").val(name);
+	$("#ngdw").val(jsbh);
+}
+<!--ztree开始-->
+var str =[];//存放姓名
+var str1 =[];//存放警号
+var jsbhList=[];//存放jsbh
+//点击重置后清空数组
+$("#reset").on("click",function(){
+	str =[];
+	str1 =[];
+	jsbhList=[];
+	csdwStr=[];
+	csdwStr1=[];
+	zdhfr=[];
+	zdhfr1=[];
+
+	$("#receiptPerson1").val("")
+	$("#receiptPerson").val("")
+	$("#jsbh").val("")
+	$("#csdw").val("");
+	$("#csdw1").val("");
+	$("#zdhfr").val("");
+	$("#zdhfr1").val("");
+})
+var setting = {
+		isSimpleData : true, //数据是否采用简单 Array 格式，默认false
+        treeNodeKey : "name", //在isSimpleData格式下，当前节点id属性
+        treeNodeParentKey : "pid", //在isSimpleData格式下，当前节点的父节点id属性
+        showLine : true, //是否显示节点间的连线
+		callback: {
+		   onClick: function(event, treeId, treeNode, clickFlag) {  
+	            // 判断是否父节点  
+	            if(treeNode.isParent){ 
+	            	$.ajax({
+	        			url : "/getReceiptPerson?pid="+treeNode.id+"&jsbh="+treeNode.jsbh,
+	        			type : "GET",
+	        			success : function(data) {
+	        				  var jsondata= eval(data);
+	                            if(jsondata == null || jsondata == ""){
+                	
+                                }else{
+	                                	 var treeObj = $.fn.zTree.getZTreeObj("zTree");
+	                               //      treeObj.expandAll();
+	                                 	 var nodes = treeObj.getSelectedNodes();
+	                                    for (var i=0, l=nodes.length; i < l; i++) 
+	                        			{
+	                        			    //删除选中的子节点
+	                        				treeObj.removeChildNodes(nodes[i]);
+	                        			} 
+	                                 	 var pi = treeNode.id
+	                                 	 var pid;
+	                                 	 if(pi.length != 1){
+	                                 		 pid = treeNode.id;
+	                                 	 }else{
+	                                 		 pid = treeNode.pid;
+	                                 	 }
+	                                    var parentZNode = treeObj.getNodeByParam("pid",pid);//获取指定父节点 
+	                                 //   newNode = treeObj.addNodes(parentZNode,jsondata, false);
+	                                    newNode = treeObj.addNodes(nodes[0], jsondata);
+	                                }
+	        			},
+	        			error : function(data) {
+	        				console.log("失败")
+	        				
+	        			}
+	        		});
+	            }else{
+	            	if($('#'+treeNode.id).is(':checked')){
+	            		$('#'+treeNode.id).attr('checked',false)
+	            		str.splice($.inArray(treeNode.name,str),1);
+	            		str1.splice($.inArray(treeNode.jh,str1),1);
+	            		jsbhList.splice($.inArray(treeNode.jsbh,jsbhList),1);
+	            	}else{
+	            		$('#'+treeNode.id).attr('checked',true)
+	            		str.push(treeNode.name)
+	            		str1.push(treeNode.jh)
+	            		jsbhList.push(treeNode.jsbh)
+	            	}
+	            	$("#receiptPerson1").val("")
+	            	$("#receiptPerson").val("")
+	            	//var ererHow = treeNode.name;
+	            	//console.log(ererHow)
+	            	$("#receiptPerson1").val(str)
+	            	$("#receiptPerson").val(str1)
+					$("#jsbh").val(jsbhList)
+	            }
+		   },
+		},
+	 	view: {
+	 	     addDiyDom: function(e, t) {
+	 	    	$("#"+t.tId).css("width","1098px")
+	 			var i = 12;
+	 			var a = $("#" + e + " #" + t.tId + "_switch");
+	 			var n = $("#" + e + " #" + t.tId + "_ico");
+	 			if(t.isParent){
+	 				n.before(a).before('<span class="tree_icon button">' + core.iconSmall("groupGuest") + "</span>").remove();
+	 			}else{
+	 				n.before(a).before("<span class='tree_icon button'><input type='checkbox' id="+t.id+" display='inline'/></span>").remove();
+	 				$("#"+t.id).css("display",'inline');
+	 				$("#"+t.id).attr("disabled",'true');
+	 			}
+	 			if ( t.level >= 1) {
+	 				var o = "<span class='space' style='display: inline-block;width:" + i * t.level + "px'></span>";
+	 				a.before(o);
+	 			}
+	 			$("#" + e + " #" + t.tId + "_a").addClass("menuGroup").attr("data_group_id", t.id);
+	 		},
+	 		showIcon: false
+		}, 
+		data: {
+			simpleData: {
+				enable: true
+			}
+		},
+	};
+	
+	//点击input显示下拉菜单
+	function showMenu() {
+	var cityObj = $('#receiptPerson');
+	var cityOffset = cityObj.offset();
+	$("#menuContent").css({ left: cityOffset.left + "px", top: cityOffset.top + cityObj.outerHeight() + "px" }).slideDown("fast");
+	$("body").bind("mousedown", onBodyDown);
+	$("#treeDiv").attr("style","height:250px;overflow-y:auto;overflow-x:hidden;position:absolute;z-index:1000;background-color:ghostwhite;width:85.5%; ")
+	}
+	function hideMenu() {
+		$("#menuContent").fadeOut("fast");
+		$("body").unbind("mousedown", onBodyDown);
+		$("#treeDiv").attr("style","")
+	}
+		 
+	function onBodyDown(event) {
+		if (!(event.target.id == "menuBtn" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length > 0)) {
+			hideMenu();
+	}
+}
+	var nodes = []
+$(document).ready(function(){
+	  $.ajax({
+	    	url:'/getUserType',
+	    	type:'get',
+	    	success:function(res){
+	    		setTimeout(function(){
+	    			if(res[0].flag == "true"){
+	    				 nodes = [
+	    					        {"name":"看守所",
+	    					         	"pid":"0",
+	    					         	"isParent":"true",
+	    					         	 "id":"0",
+	    					         },
+	    					         { "name":"拘留所",
+	    					         	 "pid":"1",
+	    					         	 "isParent":"true",
+	    					         	 "id":"1",
+	    					         },
+	    					         { "name":"戒毒所",
+	    					         	 "pid":"2",
+	    					         	 "isParent":"true",
+	    					         	 "id":"2",
+	    					         },
+	    					         { "name":"安康医院",
+	    					         	 "pid":"3",
+	    					         	 "isParent":"true",
+	    					         	 "id":"3",
+	    					         }
+	    				]
+		    			 $.fn.zTree.init($("#zTree"), setting, nodes);    //ztree初始化
+		    			 $.fn.zTree.init($("#csdwtree"), setting2, nodes2);    //ztree初始化
+		    		}else{
+		    				$.ajax({
+			        			url : "/getReceiptPerson?user="+"normal",
+			        			type : "GET",
+			        			success : function(data) {
+			        				var node = [ { "name":res[0].name,
+	    					         	 "pid":"2",
+	    					         	 "isParent":"true",
+	    					         	 "id":"2",
+	    					         }]
+			        				
+			        				 var setting = {
+			        							isSimpleData : true, //数据是否采用简单 Array 格式，默认false
+			        					        treeNodeKey : "name", //在isSimpleData格式下，当前节点id属性
+			        					        treeNodeParentKey : "pid", //在isSimpleData格式下，当前节点的父节点id属性
+			        					        showLine : true, //是否显示节点间的连线
+			        							callback: {
+			        							   onClick:function(event, treeId, treeNode, clickFlag) {
+			        								   if(treeNode.isParent){
+			        									   $.ajax({
+			        						        			url : "/getReceiptPerson?user="+"normal",
+			        						        			type : "GET",
+			        						        			success : function(data) {
+			        						        				 var treeObj = $.fn.zTree.getZTreeObj("zTree");
+			        						        				 var nodes = treeObj.getSelectedNodes();
+			        				                                    for (var i=0, l=nodes.length; i < l; i++)
+			        				                        			{
+			        				                        			    //删除选中的子节点
+			        				                        				treeObj.removeChildNodes(nodes[i]);
+			        				                        			}
+			        						        				 var parentZNode = treeObj.getNodeByParam("pid", treeNode.pid, null);//获取指定父节点
+			        				                                    newNode = treeObj.addNodes(parentZNode,data, false);
+			        						        			}
+				        									   })
+			        								   }else{
+		        									   if($('#'+treeNode.id).is(':checked')){
+			        						            		$('#'+treeNode.id).attr('checked',false)
+			        						            		str.splice($.inArray(treeNode.name,str),1);
+			        						            		str1.splice($.inArray(treeNode.jh,str1),1);
+			        						            		jsbhList.splice($.inArray(treeNode.jsbh,jsbhList),1);
+			        						            	}else{
+			        						            		$('#'+treeNode.id).attr('checked',true)
+			        						            		str.push(treeNode.name)
+			        						            		str1.push(treeNode.jh)
+			        						            		jsbhList.push(treeNode.jsbh)
+			        						            	}
+			        						            	$("#receiptPerson1").val("")
+			        						            	$("#receiptPerson").val("")
+			        						            	//var ererHow = treeNode.name;
+			        						            	//console.log(ererHow)
+			        						            	$("#receiptPerson1").val(str)
+			        						            	$("#receiptPerson").val(str1)
+			        						            	$("#jsbh").val(jsbhList)
+			        								   }
+			        				 			}
+			        			},
+			        		 	view: {
+			        		 		 addDiyDom: function(e, t) {
+			        		 			$("#"+t.tId).css("width","600px")
+			        			 			var i = 12;
+			        			 			var a = $("#" + e + " #" + t.tId + "_switch");
+			        			 			var n = $("#" + e + " #" + t.tId + "_ico");
+			        			 			if(t.isParent){
+			        			 				n.before(a).before('<span class="tree_icon button">' + core.iconSmall("groupGuest") + "</span>").remove();
+			        			 			}else{
+			        			 				n.before(a).before("<span class='tree_icon button'><input type='checkbox'id="+t.id+" display='inline'/></span>").remove();
+			        			 				$("#"+t.id).css("display",'inline');
+			        			 				$("#"+t.id).attr("disabled",'true');
+			        			 			}
+			        			 		//	n.before(a).before('<span class="tree_icon button">' + core.iconSmall("groupGuest") + "</span>").remove();
+			        			 			if ( t.level >= 1) {
+			        			 				var o = "<span class='space' style='display: inline-block;width:" + i * t.level + "px'></span>";
+			        			 				a.before(o);
+			        			 			}
+			        			 			$("#" + e + " #" + t.tId + "_a").addClass("menuGroup").attr("data_group_id", t.id);
+			        			 		}
+			        			
+			        			}, 
+			        			data: {
+			        				simpleData: {
+			        					enable: true
+			        				}
+			        			}
+			        		 }
+			        				 $.fn.zTree.init($("#zTree"), setting, node); 
+			        			},
+			        			error : function(data) {
+			        				console.log("失败")
+			        				
+			        			}
+			        		});
+		    		}
+	    		},500)
+	    		
+	    	}
+	    	
+	    })
+	   
+	
+})
+<!--ztree结束-->		
+
+	var showHide = function() {
+		$("#type").on(
+				'change',
+				function() {
+					var val = $('#type').val();
+					if (val == 2) {
+						$('#div1').attr("class", "form-group ");
+						$('#div2').attr("class", "form-group ");
+						$('#exeurl').attr("name", "exeurlyz");
+						//	$('#exeurl').attr("required","required");
+						$("#addAppForm").data('bootstrapValidator').addField(
+								'exeurlyz',
+								{
+									validators : {
+										callback : { /*自定义，可以在这里与其他输入项联动校验*/
+											callback : function(value,
+													validator, $field) {
+												if (value == 0) {
+													return false;
+												} else {
+													return true;
+												}
+											}
+										}
+									}
+								});
+					} else {
+						$('#exeurl').removeAttr("required");
+						//$('#exeurl').attr("name","exeurl");
+						$('#div1').attr("class", "form-group hidden");
+						$('#div2').attr("class", "form-group hidden");
+
+					}
+
+				})
+	}
+	//点击查询
+	function query(pageIndex, pageSize) {
+		if (pageSize == undefined) {
+			pageSize = 12;
+		}
+		if (pageIndex == undefined) {
+			pageIndex = 0;
+		}
+		var querydata = querydata + '&page=' + pageIndex + '&rows=' + pageSize;
+		var data = $("input[name='inlineRadioOptions']:checked").val();
+		var name = $("#appName").val();
+		$.ajax({
+			url : "./getApp?options=" + data + "&name=" + name,// 跳转到 action
+			data : querydata,
+			type : 'get',
+			cache : false,
+			async : false,
+			success : function(data) {
+				var totalRecords = data.result.total;
+				var totalPage;
+				if (totalRecords % pageSize == 0) {
+					totalPage = Math.floor(totalRecords / pageSize);
+				} else {
+					totalPage = Math.floor(totalRecords / pageSize) + 1;
+				}
+				loadAppImg(data.result.data);
+				//加载分页插件
+				init_kkpager(pageSize, totalPage, totalRecords);
+			}
+		});
+	}
+
+	var publish = function() {
+		$("#apps").on('click', ":button", function() {
+			var value = $(this).attr("name");
+			var data = {
+				"value" : value
+			}
+			$.ajax({
+				url : "./publishApp",
+				type : "POST",
+				data : data,
+				success : function(result) {
+					//$("#content").html("发布成功");
+					$("#MyModalcontent").html("发布成功");
+					$("#myModal").modal();
+
+					query(0, 12);
+				}
+			})
+		})
+
+	}
+
+	function applyPage(appId) {
+		$.ajax({
+			url : serverInfo.serverURL + serverInfo.appInfo,// 跳转到 action
+			data : {
+				id : appId
+			},
+			type : 'get',
+			cache : false,
+			async : false,
+			success : function(data) {
+				if (data) {
+					$("#content > div[id='applyBlock']").show();
+					$("#content > div[id!='applyBlock']").hide();
+				} else {
+					$("#content").html("该应用暂时无法申请接口！");
+					$("#myModal").modal();
+					return;
+				}
+			}
+		});
+	}
+
+	function searchAPP() {
+		var data = $("input[name='inlineRadioOptions']:checked").val();
+		$('#table').bootstrapTable("destroy")
+		var name = $("#appName").val();
+		$('#table')
+				.bootstrapTable(
+						{
+							url : "./getApp?options=" + data + "&name=" + name, //请求后台的URL（*）
+							method : 'GET', //请求方式（*）
+							cache : false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+							pagination : true, //是否显示分页（*）
+							sidePagination : "server", //分页方式：client客户端分页，server服务端分页（*）
+							pageNumber : 1, //初始化加载第一页，默认第一页,并记录
+							pageSize : 10, //每页的记录行数（*）
+							pageList : [ 10, 25, 50, 100 ], //可供选择的每页的行数（*）
+							strictSearch : true,
+							uniqueId : "ID", //每一行的唯一标识，一般为主键列
+							//得到查询的参数
+							queryParams : function(params) {
+								//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+								var temp = {
+									rows : params.limit, //页面大小
+									page : (params.offset / params.limit) + 1, //页码
+								};
+								return temp;
+							},
+							responseHandler : function(res) {
+								return {
+									"total" : res.result.total,//总页数
+									"rows" : res.result.data
+								};
+							},
+							onLoadSuccess : function(res) {
+								$("#apps ul>li").remove();
+								var val = res.rows;
+								var ulEle;
+								for (var i = 0; i < val.length; i++) {
+									if (i % 4 == 0) {
+										ulEle = $("<ul></ul>").appendTo(
+												$("#apps"));
+									}
+									var app = val[i];
+									var id = app['id'];
+
+									var appEle = $(
+											"<li style='float:left;margin-left:10px;margin-top:10px;width:50px,height:30px;border:1px solid black'><div class='img' style=''><a href='#' onclick='_iframe("
+													+ id
+													+ ")'><img width='250px' height='112' src='"+app.pic1 + "' /></a>"
+													+ "<div class='overlay'><a href='#' class='lnColor'>"
+													+ app['name']
+													+ "</a>"
+													+ "<a class='close-overlay hidden'>x</a></div></div>"
+													+ "<p>"
+													+ "<br/><br/><div class='pl'>"
+													+ app['createtime']
+													+ "</div></p>" + "</li>")
+											.appendTo(ulEle);
+								}
+
+							},
+							onLoadError : function() {
+								showTips("数据加载失败！");
+							},
+							onDblClickRow : function(row, $element) {
+								var id = row.ID;
+								EditViewById(id, 'view');
+							},
+						});
+	}
+
+	//init
+	var init_kkpager = function(pageSize, totalPage, totalRecords) {
+		var pageNo = getParameter('pno');
+		if (!pageNo) {
+			pageNo = 1;
+		}
+		//生成分页
+		kkpager.generPageHtml({
+			pno : pageNo,
+			//总页码
+			total : totalPage,
+			//总数据条数
+			totalRecords : totalRecords,
+			mode : 'click',//默认值是link，可选link或者click
+			click : function(click_page) {
+
+				// do something
+				var data = $("input[name='inlineRadioOptions']:checked").val();
+				var name = $("#appName").val();
+				//手动选中按钮
+				//this.selectPage(click_page);
+				//return false;
+				var querydata = '&page=' + (click_page - 1) + '&rows='
+						+ pageSize;
+				//searchAPP(click_page-1,pageSize,totalPage,totalRecords);
+				$.ajax({
+					url : "./getApp?options=" + data + "&name=" + name,// 跳转到 action
+					data : querydata,
+					type : 'get',
+					cache : false,
+					async : false,
+					success : function(data) {
+						loadAppImg(data.result.data);
+						kkpager.generPageHtml({
+							pno : click_page,
+							//总页码
+							total : totalPage,
+							//总数据条数
+							totalRecords : totalRecords,
+						}, true)
+					}
+				});
+			}
+		}, true);
+	}
+
+	var loadAppImg = function(app_data) {
+		$("#apps ul>li").remove();
+		var ulEle;
+		for (var i = 0; i < app_data.length; i++) {
+			if (i % 4 == 0) {
+				ulEle = $("<ul></ul>").appendTo($("#apps"));
+			}
+			var app = app_data[i];
+			var id = app['id'];
+			var appcode = app['appcode'];
+			var data = $("input[name='inlineRadioOptions']:checked").val();
+			if (data != "option5") {
+				var appEle = $(
+						"<li><div class='img'><a href='#' onclick='_iframe(\""
+								+ id
+								+ "\",\""
+								+ appcode
+								+ "\")'><img width='100%' height='142' src='"
+								+ app['pic1']
+								+ "' /></a>"
+								+ "<div class='overlay'><a href='#' class='lnColor'>"
+								+ app['name']
+								+ "</a>"
+								+ "<a class='close-overlay hidden'>x</a></div></div>"
+								+ "<p>" + "<br/><br/><div class='pl'>"
+								+ app['createtime'] + "</div></p>" + "</li>")
+						.appendTo(ulEle);
+			} else {
+				var appEle = $(
+						"<li><div class='img'><a href='#' onclick='_iframe(\""
+								+ id
+								+ "\",\""
+								+ appcode
+								+ "\")'><img width='100%' height='142' src='"
+								+ app['pic1']
+								+ "' /></a>"
+								+ "<div class='overlay'><a href='#' class='lnColor'>"
+								+ app['name']
+								+ "</a>"
+								+ "</div><input style='float:right' type='button' value='发布' class='btn btn-primary' name='"+appcode+","+app['creator']+","+app['version']+","+app['id']+"' ></div>"
+								+ "<p>" + "<br/><br/><div class='pl'>"
+								+ app['createtime'] + "</div></p>" + "</li>")
+						.appendTo(ulEle);
+			}
+		}
+	}
+
+	function _iframe(id, appcode) {
+		var flag = "";
+		var appcode = encodeURIComponent(appcode);
+		$.ajax({
+			url : "./listJsapp?appcode=" + appcode,// 跳转到 action
+			type : 'post',
+			cache : false,
+			async : false,
+			success : function(data) {
+				var total = data.result.result.total;
+				if (total > 0) {
+					flag = "1";
+				} else {
+					flag = "0"
+				}
+			}
+		});
+		zeroModal.show({
+			title : '应用详情',
+			iframe : true,
+			top : '30px',
+			url : '/appModel?id=' + id + "&appcode=" + appcode + "&flag="
+					+ flag,
+			width : '80%',
+			height : '90%',
+			cancel : true,
+			esc : true,
+		});
+	}
+</script>
+
+<script type="text/javascript">
+
+	function downLoadimg(data){
+		var url = data.target.value;
+		window.open("document/download?url="+url);
+	}
+
+
+
+	/* $.ajax({   /**获取新建消息收件人下拉框**/
+		/*url:"kss_dictionary/getUserList",
+		type:"POST",
+		data:{},
+		success:function(data){
+			var $html = "";
+			if(data != null){
+				for(var i = 0 ; i < data.length; i++){
+					$html += "<option value='"+data[i].jh+"'>"+data[i].xm+"</option>";
+				}
+			};
+			$("#person").append($html);
+		}
+	}) */
+
+	 /*$.ajax({ /**获取新建公文中单位下拉框数据**/
+		/*url:"kss_dictionary/getJsbhList",
+		type:"POST",
+		data:{},
+		success:function(data){
+			var $html = "";
+			if(data != null){
+				for(var i = 0 ; i < data.length; i++){
+					$html += "<option value='"+data[i].jsbh+"'>"+data[i].kssmc+"</option>";
+				}
+			};
+			$("#csdw").append($html);
+			//$("#cbdw").append($html);
+			//$("#ngdw").append($html);
+		}
+	}) */
+
+	$.ajax({ /**获取新建公文中保密级别下拉框**/
+		url:"kss_dictionary/getDictionary",
+		type:"POST",
+		data:{"node":"BMJB"},
+		success:function(data){
+			var $html = "";
+			if(data != null){
+				for(var i = 0 ; i < data.length; i++){
+					$html += "<option value='"+data[i].code+"'>"+data[i].content+"</option>";
+				}
+			};
+			$("#bmjb").append($html);
+		}
+	})
+		$.ajax({ /**获取新建公文缓急程度中下拉框数据**/
+			url:"kss_dictionary/getDictionary",
+			type:"POST",
+			data:{"node":"HJCD"},
+			success:function(data){
+				var $html = "";
+				if(data != null){
+					for(var i = 0 ; i < data.length; i++){
+						$html += "<option value='"+data[i].code+"'>"+data[i].content+"</option>";
+					}
+				};
+				$("#hjcd").append($html);
+			}
+	})
+
+	var ClickRow = function(){
+		$(document).on("click",".layui-table-body table.layui-table tbody tr", function () {
+			var index = $(this).attr('data-index');
+			var tableBox = $(this).parents('.layui-table-box');
+			//存在固定列
+			if (tableBox.find(".layui-table-fixed.layui-table-fixed-l").length>0) {
+				tableDiv = tableBox.find(".layui-table-fixed.layui-table-fixed-l");
+			} else {
+				tableDiv = tableBox.find(".layui-table-body.layui-table-main");
+			}
+			var checkCell   = tableDiv.find("tr[data-index=" + index + "]").find("td div.laytable-cell-checkbox div.layui-form-checkbox I");
+			var radioCell   = tableDiv.find("tr[data-index=" + index + "]").find("td div.layui-table-cell div.layui-form-radio I");
+			if (checkCell.length>0) {
+				checkCell.click();
+			}else if(radioCell.length > 0){
+				radioCell.click();
+			}
+		});
+
+		$(document).on("click", "td div.laytable-cell-checkbox div.layui-form-checkbox", function (e) {
+			e.stopPropagation();
+		});
+	}
+	<!--抄送单位树开始-->
+	$("#gwreset").on('click',function(){
+		csdwStr=[];
+		csdwStr1=[];
+		var csdwJsbh=[];
+		$("#csdw").val("");
+		$("#csdw1").val("");
+	});
+	var csdwStr=[];
+	var csdwStr1=[];
+	var csdwJsbh=[];
+	var setting2 = {
+			isSimpleData : true, //数据是否采用简单 Array 格式，默认false
+	        treeNodeKey : "name", //在isSimpleData格式下，当前节点id属性
+	        treeNodeParentKey : "pid", //在isSimpleData格式下，当前节点的父节点id属性
+	        showLine : true, //是否显示节点间的连线
+			callback: {
+			   onClick: function(event, treeId, treeNode, clickFlag) {
+		            // 判断是否父节点  
+		            if(treeNode.isParent){
+		            	$.ajax({
+		        			url : "/getReceiptPerson?pid="+treeNode.id+"&jsbh="+"undefined"+"&gwfs="+"true",
+		        			type : "GET",
+		        			success : function(data) {
+		        				var treeObj = $.fn.zTree.getZTreeObj("csdwtree");
+		        				 var nodes = treeObj.getSelectedNodes();
+                                   for (var i=0, l=nodes.length; i < l; i++)
+                       			{
+                       			    //删除选中的子节点
+                       				treeObj.removeChildNodes(nodes[i]);
+                       			}
+		        				 var parentZNode = treeObj.getNodeByParam("pid", treeNode.pid, null);//获取指定父节点
+                                   newNode = treeObj.addNodes(parentZNode,data, false);
+		        			},
+		        			error : function(data) {
+		        				console.log("失败")
+		        			}
+		        		});
+		            }else{
+		            	if($('#'+treeNode.id).is(':checked')){
+		            		$('#'+treeNode.id).attr('checked',false)
+		            		csdwStr.splice($.inArray(treeNode.name,csdwStr),1);
+		            		csdwJsbh.splice($.inArray(treeNode.jsbh,csdwJsbh),1);
+		            		csdwStr1.splice($.inArray(treeNode.jh,csdwStr1),1);
+		            	}else{
+		            		$('#'+treeNode.id).attr('checked',true)
+		            		csdwStr.push(treeNode.name)
+		            		csdwStr1.push(treeNode.jh)
+		            		csdwJsbh.push(treeNode.jsbh)
+		            	}
+		            	$("#csdw1").val("")
+		            	$("#csdw").val("")
+		            	//var ererHow = treeNode.name;
+		            	//console.log(ererHow)
+		            	console.log(csdwStr)
+		            	$("#csdw1").val(csdwJsbh)
+		            	
+		            	$("#csdw").val(csdwStr)
+		            }
+			   },
+			},
+			view: {
+		 	     addDiyDom: function(e, t) {
+		 	    	$("#"+t.tId).css("width","1098px")
+		 			var i = 12;
+		 			var a = $("#" + e + " #" + t.tId + "_switch");
+		 			var n = $("#" + e + " #" + t.tId + "_ico");
+		 			if(t.isParent){
+		 				n.before(a).before('<span class="tree_icon button">' + core.iconSmall("groupGuest") + "</span>").remove();
+		 			}else{
+		 				n.before(a).before("<span class='tree_icon button'><input type='checkbox' id="+t.id+" display='inline'/></span>").remove();
+		 				$("#"+t.id).css("display",'inline');
+		 				$("#"+t.id).attr("disabled",'true');
+		 			}
+		 			if ( t.level >= 1) {
+		 				var o = "<span class='space' style='display: inline-block;width:" + i * t.level + "px'></span>";
+		 				a.before(o);
+		 			}
+		 			$("#" + e + " #" + t.tId + "_a").addClass("menuGroup").attr("data_group_id", t.id);
+		 		},
+		 		showIcon: false
+			}, 
+			data: {
+				simpleData: {
+					enable: true
+				}
+			}
+		};
+	
+	
+	//点击input显示下拉菜单
+	function showMenu2() {
+	var cityObj = $('#csdw');
+	var cityOffset = cityObj.offset();
+	$("#csdwmenuContent").css({ left: cityOffset.left + "px", top: cityOffset.top + cityObj.outerHeight() + "px" }).slideDown("fast");
+	$("body").bind("mousedown", onBodyDown2);
+	$("#faDiv").attr("style","height:250px;overflow-y:auto;overflow-x:hidden;z-index:1000;position:absolute;background-color:ghostwhite;width:66.5%; ")
+	}
+	
+	
+	function hideMenu2() {
+		$("#csdwmenuContent").fadeOut("fast");
+		$("body").unbind("mousedown", onBodyDown2);
+		$("#faDiv").attr("style","width:66.5%;")
+	}
+		 
+	function onBodyDown2(event) {
+		if (!(event.target.id == "menuBtn" || event.target.id == "csdwmenuContent" || $(event.target).parents("#csdwmenuContent").length > 0)) {
+				hideMenu2();
+		} 
+	}
+	
+	$(document).ready(function(){
+		    				 nodes2 = [
+		    					        {"name":"看守所",
+		    					         	"pid":"0",
+		    					         	"isParent":"true",
+		    					         	 "id":"0",
+		    					         },
+		    					         { "name":"拘留所",
+		    					         	 "pid":"1",
+		    					         	 "isParent":"true",
+		    					         	 "id":"1",
+		    					         },
+		    					         { "name":"戒毒所",
+		    					         	 "pid":"2",
+		    					         	 "isParent":"true",
+		    					         	 "id":"2",
+		    					         },
+		    					         { "name":"安康医院",
+		    					         	 "pid":"3",
+		    					         	 "isParent":"true",
+		    					         	 "id":"3",
+		    					         }
+		    					         ]
+
+	});
+	
+	<!--抄送单位树结束-->
+	
+	
+	<!--指定回复人树开始-->
+
+	/* var zdhfr=[];
+	var zdhfr1=[]
+	var zdhfrJsbh=[];
+	var setting3 = {
+			isSimpleData : true, //数据是否采用简单 Array 格式，默认false
+	        treeNodeKey : "name", //在isSimpleData格式下，当前节点id属性
+	        treeNodeParentKey : "pid", //在isSimpleData格式下，当前节点的父节点id属性
+	        showLine : true, //是否显示节点间的连线
+			callback: {
+			   onClick: function(event, treeId, treeNode, clickFlag) {
+		            // 判断是否父节点  
+		            if(treeNode.isParent){ 
+		            	$.ajax({
+		        			url : "/getReceiptPerson?pid="+treeNode.id+"&jsbh="+treeNode.jsbh,
+		        			type : "GET",
+		        			success : function(data) {
+		        				  var jsondata= eval(data);
+		                            if(jsondata == null || jsondata == ""){
+		                                }else{
+		                                	 var treeObj = $.fn.zTree.getZTreeObj("zdhfrtree");
+		                                     treeObj.expandAll();
+		                                 	 var nodes = treeObj.getSelectedNodes();
+		                                    for (var i=0, l=nodes.length; i < l; i++) 
+		                        			{
+		                        			    //删除选中的子节点
+		                        				treeObj.removeChildNodes(nodes[i]);
+		                        			} 
+		                                 	 var pi = treeNode.id
+		                                 	 var pid;
+		                                 	 if(pi.length != 1){
+		                                 		 pid = treeNode.id;
+		                                 	 }else{
+		                                 		 pid = treeNode.pid;
+		                                 	 }
+		                                    var parentZNode = treeObj.getNodeByParam("pid",pid);//获取指定父节点 
+		                                   // newNode = treeObj.addNodes(parentZNode,jsondata, false);
+		                                    newNode = treeObj.addNodes(nodes[0], jsondata);
+		                                }
+		        			},
+		        			error : function(data) {
+		        				console.log("失败")
+		        			}
+		        		});
+		            }else{
+		            	if($('#'+treeNode.id).is(':checked')){
+		            		$('#'+treeNode.id).attr('checked',false)
+		            		zdhfr.splice($.inArray(treeNode.name,zdhfr),1);
+		            		zdhfr1.splice($.inArray(treeNode.jh,zdhfr1),1);
+		            		zdhfrJsbh.splice($.inArray(treeNode.jsbh,zdhfrJsbh),1);
+		            	}else{
+		            		$('#'+treeNode.id).attr('checked',true)
+		            		zdhfr.push(treeNode.name)
+		            		zdhfr1.push(treeNode.jsbh)
+		            		zdhfrJsbh.push(treeNode.jsbh)
+		            	}
+		            	$("#zdhfr1").val("")
+		            	$("#zdhfr").val("")
+		            	//var ererHow = treeNode.name;
+		            	//console.log(ererHow)
+		            	console.log(zdhfr)
+		            	$("#zdhfr1").val(zdhfr1)
+		            	$("#zdhfr").val(zdhfr)
+		            }
+			   },
+			},
+			view: {
+		 	     addDiyDom: function(e, t) {
+		 	    	$("#"+t.tId).css("width","1080px")
+		 			var i = 12;
+		 			var a = $("#" + e + " #" + t.tId + "_switch");
+		 			var n = $("#" + e + " #" + t.tId + "_ico");
+		 			if(t.isParent){
+		 				n.before(a).before('<span class="tree_icon button">' + core.iconSmall("groupGuest") + "</span>").remove();
+		 			}else{
+		 				n.before(a).before("<span class='tree_icon button'><input type='checkbox'id="+t.id+" display='inline'/></span>").remove();
+		 				$("#"+t.id).css("display",'inline');
+		 				$("#"+t.id).attr("disabled",'true');
+		 			}
+		 			if ( t.level >= 1) {
+		 				var o = "<span class='space' style='display: inline-block;width:" + i * t.level + "px'></span>";
+		 				a.before(o);
+		 			}
+		 			$("#" + e + " #" + t.tId + "_a").addClass("menuGroup").attr("data_group_id", t.id);
+		 		},
+		 		showIcon: false
+			}, 
+			data: {
+				simpleData: {
+					enable: true
+				}
+			}
+		};
+	
+	
+	//点击input显示下拉菜单
+	function showMenu3() {
+		if(csdwStr.length==0){
+			Tips.tips("请选择抄送单位!","error");
+			return false;
+		}else{
+			
+			$.ajax({
+				url:'getRightVal?csdwStr='+csdwStr+"&csdwJsbh="+csdwJsbh,
+				type:'get',
+				success:function(res){
+					
+					$.fn.zTree.init($("#zdhfrtree"), setting3, res);    //ztree初始化
+				}
+					
+				
+			})
+		var cityObj = $('#zdhfr');
+		var cityOffset = cityObj.offset();
+		
+
+		$("#zdhfrmenuContent").css({ left: cityOffset.left + "px", top: cityOffset.top + cityObj.outerHeight() + "px" }).slideDown("fast");
+		$("body").bind("mousedown", onBodyDown3);
+		$("#zdhfrDiv").attr("style","height:250px;overflow-y:auto;overflow-x:hidden;position:absolute;z-index:1000;background-color:ghostwhite;width:66.50%; ")
+		}
+	}
+	
+	
+	function hideMenu3() {
+		$("#zdhfrmenuContent").fadeOut("fast");
+		$("body").unbind("mousedown", onBodyDown3);
+		$("#zdhfrDiv").attr("style","width:66.5%;")
+	}
+		 
+	function onBodyDown3(event) {
+		if (!(event.target.id == "menuBtn" || event.target.id == "zdhfrmenuContent" || $(event.target).parents("#zdhfrmenuContent").length > 0)) {
+		hideMenu3();
+	} 
+}
+	
+	$(document).ready(function(){
+	}) */
+	<!--指定回复人树结束-->
+</script>
+</html>
+
+

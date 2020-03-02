@@ -1,0 +1,17 @@
+
+/* 滚动条样式修改 */
+.mCSB_scrollTools{/* 滚动条距离右边像素 */
+    right: -3px !important;
+}
+.mCSB_inside>.mCSB_container, .mCSB_container_wrapper{/* 容器边距 */
+  margin-right: 0 !important;
+}
+.mCSB_container_wrapper>.mCSB_container{
+  padding-right: 0 !important;
+}
+.mCS-dark-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCS-light-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{/* 滚动条颜色 */
+  background-color: rgba(3, 169, 244, 0.46) !important;
+}
+.mCS-dark-thick.mCSB_scrollTools .mCSB_draggerRail, .mCS-light-thick.mCSB_scrollTools .mCSB_draggerRail{/* 滚动条滚槽颜色 */
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}

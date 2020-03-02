@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.HjbdDao">
+
+    <select id="queryHjbdNum"  parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisResultVO">
+        select
+        k.dz,
+        k.jsbh,
+        count(h.jsbh) as count
+        from kss k
+        left join hjbd h
+        on k.jsbh = h.jsbh
+        <where>
+            h.state = 'R2'
+            <if test="starttime != null and starttime != ''">
+                and h.bdrq &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and h.bdrq &lt;= #{endtime}
+            </if>
+        </where>
+        group by dz,kssmc
+    </select>
+
+    <!--环节变动业务动态-->
+    <select id="hjbdYwdt" resultType="java.util.HashMap">
+        select
+        count(if( BAHJ='11',true,null)) as xsjl,
+        count(if( BAHJ='12',true,null)) as db,
+        count(if( BAHJ='13',true,null)) as gabczc1,
+        count(if( BAHJ='14',true,null)) as gabczc2,
+        count(if( BAHJ='21',true,null)) as scqs1,
+        count(if( BAHJ='22',true,null)) as scqs2,
+        count(if( BAHJ='23',true,null))as scqs3,
+        count(if( BAHJ='24',true,null)) as jcbczc,
+        count(if( BAHJ='31',true,null))as ys,
+        count(if( BAHJ='32',true,null)) as es,
+        count(if( BAHJ='33',true,null)) as fhcs,
+        count(if( BAHJ='34',true,null)) as sxfh,
+        count(if( BAHJ='35',true,null)) as dzx,
+        count(if( BAHJ='36',true,null)) as yj,
+        count(if( BAHJ='99',true,null)) as qt,
+        count(if( BAHJ='37',true,null)) as ysssq,
+        count(if( BAHJ='38',true,null)) as zs,
+        count(*) as zrs
+        from hjbd
+        <where>
+            <if test="starttime != null and starttime !=  ''">
+
+                and  date_format(bdrq,'%Y-%m-%d' ) &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and  date_format(bdrq,'%Y-%m-%d' ) &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+    <!--在押人员诉讼情况-->
+    <select id="zyryss" resultType="java.util.HashMap">
+        SELECT IFNULL(BAHJ,24) as "办案环节",IFNULL(QSRQ,now()) as "办案时间"
+        from hjbd
+        where rybh=#{rybh} ORDER BY QSRQ
+    </select>
+
+</mapper>

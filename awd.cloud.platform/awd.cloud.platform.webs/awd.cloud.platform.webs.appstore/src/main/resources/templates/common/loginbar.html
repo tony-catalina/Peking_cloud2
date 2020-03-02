@@ -1,0 +1,14 @@
+		<div class="bj1">
+            <div class="dl">
+                <div class="set">
+                	<% if(user!null==null){%>
+                    <button type="button" style="float:right " class="btn btn-info" data-toggle="modal"  data-target="#loginModal">
+                        	登陆
+                    </button>
+                    <%}else{%>
+                    	欢迎使用:)${user.loginname! }&nbsp;&nbsp;<a href="./manufacturerSetting">个人中心</a>
+                    	<a href="./user/logout">注销</a>
+                    <%}%>
+                </div>
+            </div>
+        </div>

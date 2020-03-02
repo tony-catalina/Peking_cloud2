@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.mis.servers.dao.MjjbxxDao">
+    <resultMap id="MjjbxxResultMap" type="awd.mis.servers.entity.MjjbxxEntity">
+        <result property="id" column="id" javaType="java.lang.String" jdbcType="CHAR"/>
+
+        <result property="jsbh" column="jsbh" javaType="java.lang.String" jdbcType="CHAR"/>
+
+        <result property="jh" column="jh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="sfzh" column="sfzh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="xm" column="xm" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="xmpy" column="xmpy" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="xb" column="xb" javaType="java.lang.String" jdbcType="CHAR"/>
+
+        <result property="mz" column="mz" javaType="java.lang.String" jdbcType="CHAR"/>
+
+        <result property="csny" column="csny" javaType="java.util.Date" jdbcType="DATE"/>
+
+        <result property="jx" column="jx" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="xl" column="xl" javaType="java.lang.String" jdbcType="CHAR"/>
+
+        <result property="zzmm" column="zzmm" javaType="java.lang.String" jdbcType="CHAR"/>
+
+        <result property="cjgmgzsj" column="cjgmgzsj" javaType="java.util.Date" jdbcType="DATE"/>
+
+        <result property="hyzk" column="hyzk" javaType="java.lang.String" jdbcType="CHAR"/>
+
+        <result property="jtzz" column="jtzz" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="hjszd" column="hjszd" javaType="java.lang.String" jdbcType="CHAR"/>
+
+        <result property="cjgzsj" column="cjgzsj" javaType="java.util.Date" jdbcType="DATE"/>
+
+        <result property="bm" column="bm" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="bmzw" column="bmzw" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="zpurl" column="zpurl" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="gbzwjb" column="gbzwjb" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="lxdh" column="lxdh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="xlzxs" column="xlzxs" javaType="java.lang.String" jdbcType="CHAR"/>
+
+        <result property="sjh" column="sjh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="lkrq" column="lkrq" javaType="java.util.Date" jdbcType="DATE"/>
+
+        <result property="lkyy" column="lkyy" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="bz" column="bz" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="flag" column="flag" javaType="java.lang.String" jdbcType="CHAR"/>
+
+        <result property="state" column="state" javaType="java.lang.String" jdbcType="CHAR"/>
+
+        <result property="creator" column="creator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+        <result property="updator" column="updator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+        <result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+        <result property="xkid" column="xkid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'MjjbxxResultMap'"/>
+        <bind name="tableName" value="'mjjbxx'"/>
+    </sql>
+
+    <insert id="insert" parameterType="awd.mis.servers.entity.MjjbxxEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+
+    <update id="update" parameterType="awd.mis.servers.entity.MjjbxxEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.mis.servers.entity.MjjbxxEntity" resultMap="MjjbxxResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="selectByJh" parameterType="String"  resultType="awd.mis.servers.entity.MjjbxxEntity">
+        select * from mjjbxx where jh=#{jh}
+    </select>
+
+    <select id="count" parameterType="awd.mis.servers.entity.MjjbxxEntity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>
+
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select>
+
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_AqjcDao">
+
+    <select id="aqjcCount" resultType="java.util.HashMap" parameterType="String">
+    select count(id) jccs,count(cljd=2 or cljd=3 or cljd=0 or null) clqk from aqjc
+        <where>
+              state = 'R2'
+           <if test="starttime != null and starttime != ''">
+                and date_format(jckssj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(jckssj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

@@ -1,0 +1,77 @@
+/* 颜色 */
+.co-black { color: #000;}
+.co-white { color: #fff;}
+.co-0058{ color: #0058f1;}
+.co-94e9 { color: #94e9ff; }
+.co-3dd4 { color: #3dd4fa; }
+.co-99ff { color: #99ffff; }
+.co-63ff { color: #63ffde; }
+.co-fbba { color: #fbba06; }
+.co-ff00 { color: #ff0000; }
+.co-f2f2 { color: #f2f2f2; }
+.co-0ff { color: #0ff;}
+.co-3dd4fa { color: #3dd4fa;}
+.co-999 { color: #999;}
+.col-0 { color: #fe3131;}
+.col-1 { color: #ff8f00;}
+.col-2 { color: #00ffed;}
+.col {color: #0084ff;}
+.co-rule-0 { color: #63ffde;}
+.co-rule-1 { color: #fbba06;}
+.co-rule-2 { color: #f00;}
+.co-ff656c { color: #ff656c;}
+.co-ffc66c { color: #ffc66c;}
+.co-00aeff { color: #00aeff;}
+.co-00c0ff { color: #00c0ff;}
+/* 水平渐变字体 */
+.co-blue-head {
+  color: #4bddff;
+  background: -webkit-linear-gradient(left, #4bddff, #1578fc);
+  background: -ms-linear-gradient(left, #4bddff, #1578fc);
+  background: -moz-linear-gradient(left, #4bddff, #1578fc);
+  background: linear-gradient(left, #4bddff, #1578fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.co-blue-person {
+  color: #63ffde;
+  background: -webkit-linear-gradient(left, #63ffde, #3dd4fa);
+  background: -ms-linear-gradient(left, #63ffde, #3dd4fa);
+  background: -moz-linear-gradient(left, #63ffde, #3dd4fa);
+  background: linear-gradient(left, #63ffde, #3dd4fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.co-blue-shadow {
+  color: #0ff;
+  font-weight: 400;
+  text-shadow: 0 0 5px rgba(79, 91, 161, .6), 0 0 10px rgba(79, 91, 161, .6),
+  0 0 15px rgba(79, 91, 161, .6),0 0 20px rgba(79, 91, 161, .6);
+  @extend .co-white
+}
+
+/* 垂直渐变字体 */
+.co-blue-linearvtl {
+  color: #36b3ff;
+  background: linear-gradient(top, #50efff, #1578fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.co-lt-yellow {
+  color: #ef6e18;
+  background: -webkit-linear-gradient(top, #fcc204, #ef6e18);
+  background: -ms-linear-gradient(top, #fcc204, #ef6e18);
+  background: -moz-linear-gradient(top, #fcc204, #ef6e18);
+  background: linear-gradient(top, #fcc204, #ef6e18);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.co-lt-red {
+  color: #ff7800;
+  background: -webkit-linear-gradient(top, #ff7800, #f00);
+  background: -ms-linear-gradient(top, #ff7800, #f00);
+  background: -moz-linear-gradient(top, #ff7800, #f00);
+  background: linear-gradient(top, #ff7800, #f00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

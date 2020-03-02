@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_XsjlDao">
+	<select id="dpjqwg" resultType="java.util.HashMap" parameterType="String">
+		select count(id) sl,jsh,jsbh,jjcd from xsjl 
+		<where>
+				 wglx="3" and state="R2"
+	            <if test="jsbh != null and jsbh != ''">
+	                and jsbh = #{jsbh}
+	            </if>
+	        </where>
+		 GROUP BY substring(jsh,1,2)+"%",jjcd
+	</select>
+	
+	<select id="dpjqwgry" resultType="java.util.LinkedHashMap" parameterType="String">
+		select count(jjcd = 5 or null) "一般",count(jjcd = 4 or null) "急" ,count(jjcd = 2 or null) "特急",count(id) yg from xsjl
+			<where>
+				  wglx="3" and state="R2"
+	            <if test="jsbh != null and jsbh != ''">
+	                and jsbh = #{jsbh}
+	            </if>
+	        </where>
+	</select>
+
+	<select id="queryXsjlNum" parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisJlsResultVO">
+		select
+		j.dz,
+		j.jsbh,
+		count(x.jsbh) as count
+		from jls j
+		LEFT JOIN xsjl x
+		ON x.jsbh = j.jsbh
+		<where>
+			x.state='R2'
+			<if test="starttime!=null and starttime!=''">
+				and x.fssj &gt;= #{starttime}
+			</if>
+			<if test="endtime!=null and endtime!=''">
+				and x.fssj &lt;= #{endtime}
+			</if>
+		</where>
+		GROUP BY j.dz,j.jsbh
+	</select>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.BjjlDao">
+
+    <select id="getBjjlCount" resultType="Integer">
+        select count(*) as count from bjjl
+        <where>
+            state = "R2"
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+</mapper>

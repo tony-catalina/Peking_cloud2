@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.GQSXXDao">
+
+
+    <resultMap id="GQUXXMapper" type="awd.cloud.platform.servers.analyse.model.kss.DsjPTModel">
+        <result property="state" column="STATE "/>
+        <result property="xb" column="XB"/>
+        <result property="wxdj" column="WXDJ"/>
+        <result property="crjbj" column="CRJBJ"/>
+        <result property="jsbh" column="JSBH"/>
+    </resultMap>
+
+
+
+
+    <!--kss各区所信息 页面中间偏下 律师会见。。。-->
+    <select id="select_GQSXX" resultType="java.util.HashMap">
+
+
+        select  ifnull (( select count(id or null) from jbxx where STATE='R8' and JSBH=#{jsbh} ),0) as zy ,
+					    ifnull ((select count(id or null) from jbxx where STATE='R8' and XB=1 and JSBH=#{jsbh}),0) as man,
+						ifnull ((select count(id or null) from jbxx where STATE='R8' and XB=2 and JSBH=#{jsbh}),0) as woman,
+						ifnull ((select count(id or null) from jbxx where CRJBJ='02'and STATE='R8'and JSBH=#{jsbh}),0) as ts,
+						ifnull ((select count(id or null) from jbxx where CRJBJ='04'and STATE='R8'and JSBH=#{jsbh}),0) as lshj,
+						ifnull ((select count(id or null) from jbxx where CRJBJ='06'and STATE='R8'and JSBH=#{jsbh}),0) as jshj,
+						ifnull ((select count(id or null) from jbxx where WXDJ='1' and STATE='R8'and JSBH=#{jsbh}),0) as yjwx,
+                        ifnull ((select count(id or null) from jbxx where WXDJ='2' and STATE='R8'and JSBH=#{jsbh}),0) as ejwx,
+						ifnull ((select count(id or null) from jbxx where WXDJ='3' and STATE='R8'and JSBH=#{jsbh}),0) as sjwx
+    </select>
+
+    <!--kss鼠标悬浮 查询 设计押量  在编警力-->
+<select id="select_xf" resultType="java.util.HashMap">
+   					select RL as "sjyl",RS as "zbjl", LDXM as "sld", DH as "sjh", to_code2zh("XZQH", DZ)  as "dz" from kss where JSBH=#{jsbh}
+</select>
+
+
+
+    <!--2jls各区所信息 页面中间偏下 律师会见。。。-->
+<select id="select_jls_GQSXX"  resultType="java.util.HashMap">
+    select  ifnull (( select count(id or null) from jbxx where STATE='R8' and JSBH=#{jsbh} ),0) as zy ,
+					    ifnull ((select count(id or null) from jbxx where STATE='R8' and XB=1 and JSBH=#{jsbh}),0) as man,
+						ifnull ((select count(id or null ) from jbxx where STATE='R8' and XB=2 and JSBH=#{jsbh}),0) as woman,
+						ifnull ((select count(id or null) from jbxx where CRJBJ='02'and STATE='R8'and JSBH=#{jsbh}),0) as ts,
+						ifnull ((select count(id or null) from jbxx where CRJBJ='04'and STATE='R8'and JSBH=#{jsbh}),0) as lshj,
+						ifnull ((select count(id or null) from jbxx where CRJBJ='06'and STATE='R8'and JSBH=#{jsbh}),0) as jshj,
+						ifnull ((select count(id or null) from jbxx where FXDJ='1' and STATE='R8'and JSBH=#{jsbh}),0) as yjwx,
+                        ifnull ((select count(id or null) from jbxx where FXDJ='2' and STATE='R8'and JSBH=#{jsbh}),0) as ejwx,
+						ifnull ((select count(id or null) from jbxx where FXDJ='3' and STATE='R8'and JSBH=#{jsbh}),0) as sjwx
+</select>
+    <!--2jls鼠标悬浮 查询 设计押量  在编警力-->
+<select id="select_jls_xf" resultType="java.util.HashMap">
+select RL as "sjyl",RS as "zbjl", LDXM as "sld", DH as "sjh", to_code2zh("XZQH", DZ)  as "dz" from jls where JSBH=#{jsbh}
+</select>
+
+
+</mapper>

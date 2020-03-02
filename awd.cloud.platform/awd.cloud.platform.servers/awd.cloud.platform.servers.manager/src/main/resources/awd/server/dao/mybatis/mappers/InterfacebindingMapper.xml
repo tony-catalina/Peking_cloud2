@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.mis.servers.dao.InterfacebindingDao">
+    <resultMap id="InterfacebindingResultMap" type="awd.mis.servers.entity.InterfacebindingEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="CHAR"/>
+		
+		<result property="appcode" column="appcode" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="interfaceId" column="interface_Id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		
+		<result property="bdzt" column="bdzt" javaType="java.lang.String" jdbcType="CHAR"/>
+		
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'InterfacebindingResultMap'"/>
+        <bind name="tableName" value="'interfacebinding'"/>
+    </sql>
+
+    <insert id="insert" parameterType="awd.mis.servers.entity.InterfacebindingEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from app where id =#{id}
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="InterfacebindingResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>  
+    
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select>  
+    
+    <!-- 根据appcode和interface_id更新数据 -->
+    <update id="updateInterfaceBdByCode" parameterType="String">
+    	update interfacebinding set bdzt=#{bdzt} where appcode=#{appcode} and id=#{interface_id}
+    </update>
+    
+</mapper>

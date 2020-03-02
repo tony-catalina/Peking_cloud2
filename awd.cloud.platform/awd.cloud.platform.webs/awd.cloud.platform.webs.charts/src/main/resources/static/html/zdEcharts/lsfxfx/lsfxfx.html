@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留所服刑分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+<div class="lsfx">
+    <div class="button">
+        <div id="changeBar">表格</div> 
+    </div>
+    <div  id="lsfxfx"></div>
+    <div cellspacing="0" class="tableBar">
+        <div class="lsfxTable">
+            <div>留所服刑分析</div>
+        </div>
+        <div class='cs'>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;"></div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">北京市</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">东城区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">西城区</div style="width:80px;">
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">朝阳区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">丰台区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">石景山区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">海淀区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">门头沟区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">房山区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">通州区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">顺义区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">昌平区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">大兴区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">平谷区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">怀柔区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">密云区</div>
+            <div style="width:100px;text-align:center;border:1px solid #165c69;">延庆区</div>
+        </div>
+    <table style="width:1354px;height:50px;margin-left:70px;" cellspacing="0">
+        <tbody id='tbodyResult'></tbody>  
+    </table>
+    </div>
+</div>
+<!-- <div style="" id="lsfxfx"></div> -->
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+var tbody = window.document.getElementById("tbodyResult")
+$("#changeBar").on("click",function(){
+    if($(this).text()=="表格"){
+        $(this).text("图表");
+        $.ajax({
+            url: '/kssqsfx/lsfxfxCount',
+            type: "get",
+            dataType: "json",
+            success: function (res) {
+                var man = '';
+                var woman = '';
+                var unknow = '';
+                var result='';
+                var rest=[];
+                var data = res.result
+                console.log(data.man,777)
+
+                for(var i=0;i<data.man.length;i++)
+                {
+                    rest[i] = data.man[i] + data.woman[i] + data.unknown[i];
+                }
+
+                console.log(rest,111111)
+                
+                for (var i=0;i< data.man.length;i++) {   
+                    man += "<td style='width:90px;height:50px;text-align:center;border:1px solid #165c69;'>" + data.man[i] + "</td>";
+                } 
+                var _man = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#fff;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #165c69">男生</td>'+  man + "</tr>"
+                for (var i=0;i< data.woman.length;i++) {   
+                    woman += "<td style='width:90px;height:50px;text-align:center;border:1px solid #165c69;'>" + data.woman[i] + "</td>";
+                }
+                var _woman = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#fff;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #165c69">女生</td>' + woman + "</tr>"
+                for (var i=0;i< data.unknown.length;i++) {   
+                    unknow += "<td style='width:90px;height:50px;text-align:center;border:1px solid #165c69;'>" + data.unknown[i] + "</td>";
+                }
+                var _unknow = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#fff;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #165c69">未说明</td>' + unknow + "</tr>"
+                for (var i=0;i< data.man.length;i++) {   
+                    result += "<td style='width:90px;height:50px;text-align:center;border:1px solid #165c69;'>" + rest[i] + "</td>";
+                }
+                var _result = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#fff;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #165c69">留所服刑总数</td>' + result + "</tr>"
+                tbody.innerHTML = _man + _woman + _unknow + _result ; 
+            },error(error){
+                console.log(error)
+            }
+        })
+        //
+        $('#lsfxfx').css('visibility',"hidden")
+        $('.tableBar').css('visibility',"visible")
+    }else{
+        $(this).text("表格");
+        $('#lsfxfx').css('visibility',"visible")
+        $('.tableBar').css('visibility',"hidden")
+    }
+})
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/zdEcharts/lsfxfx/lsfxfx');
+</script>
+<style>
+    *{ 
+        padding:0;
+        margin:0;
+    }
+    #lsfxfx{
+        margin-top:60px;
+        width: 100%;
+        height: 642px;
+    }
+    .lsfx{
+        width:100%;
+        height:710px;
+        border:1px solid #11183c;
+        background:#1c2e40;
+    }
+    .button{
+        width:120px;
+        float:right;
+        margin-top:10px;
+        height:50px;
+        line-height:50px;
+        color:#fff;
+    }
+    #changeBar{
+        width:70px;
+        height:38px;
+        line-height:38px;
+        text-align:center;
+        background:#165c69;
+        border-radius: 13px;
+        cursor:pointer;
+    }
+    .lsfxTable{
+        width:1350px;
+        text-align:center;
+        height:50px;
+        border:1px solid #165c69;
+        font-size: 23px;
+        line-height:50px;
+        margin-left: 70px;
+        color:#fff;
+        border-top:2px solid #165c69;
+        border-left:2px solid #165c69;
+        border-right:2px solid #165c69;
+    }
+    .tableBar{
+        visibility: hidden;
+        width:100%;
+        height:600px;
+        color: #11183c;
+        position: fixed;
+        top:60px;
+        left:0;
+    }
+    .cs{
+        margin-top:-1px;
+        display:flex;
+        width:1354px;
+        height:40px;
+        line-height:40px;
+        margin-left: 70px;
+        border-top:1px solid #165c69;
+        color:#fff;
+    }
+    #tbodyResult{
+        width:1352px;
+        margin-left: 70px;
+        height:600px;
+    }
+</style>
+</body>
+</html>

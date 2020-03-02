@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.JjSYDao">
+
+	<resultMap id="jjSYMapper" type="awd.cloud.platform.servers.analyse.model.kss.DsjPTModel">
+
+		<result property="jsbh" column="JSBH"/>
+	</resultMap>
+
+    <!--kss械具-->
+     <select id="jjSY" resultType="java.util.HashMap">
+
+             select count(JJ="02" or null)  as "jj" from jbxx where JSBH=#{jsbh} and state="R8"
+     </select>
+
+    <!--jls械具-->
+    <select id="jls_jjSY" resultType="java.util.HashMap">
+
+             select count(JJ="02" or null)  as "jj" from jbxx where JSBH=#{jsbh} and state="R8"
+     </select>
+
+
+
+
+</mapper>

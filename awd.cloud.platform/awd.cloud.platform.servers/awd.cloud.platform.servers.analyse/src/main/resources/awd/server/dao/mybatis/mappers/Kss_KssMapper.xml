@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.KssDao">
+
+
+    <!--上位机=超量关押分析-->
+    <select id="swj_Clgyfx"  parameterType="String" resultType="java.util.HashMap">
+        SELECT
+        jsbh,
+        jsbhString,
+        dz,
+        IFNULL( sum( j ), 0 ) AS gyl,
+        IFNULL( sum( rl ), 0 ) AS rl,
+        ifnull( ( sum( j ) / sum( rl ) ), 0 ) AS zb
+        FROM
+        (
+        SELECT DISTINCT
+        d.jsbh AS jsbh,
+        d.KSSMC as 'jsbhString',
+        d.DZ as 'dz',
+        t.j AS j,
+        d.rl AS rl
+        FROM
+        Kss d
+        LEFT JOIN (
+        SELECT
+        a.jsbh,
+        count( * ) AS j
+        FROM
+        Jbxx a
+
+        <where>
+            a.state NOT IN ( 'R3', 'R9' )
+            <if test=" starttime !=null and starttime !='' ">
+                and date_format(rsrq,'%Y-%m-%d') &gt;=date_format(#{starttime},'%Y-%m-%d')
+            </if>
+            <if test=" endtime !=null and endtime !='' ">
+                and date_format(rsrq,'%Y-%m-%d') &lt;=date_format(#{endtime},'%Y-%m-%d')
+            </if>
+        </where>
+        GROUP BY
+        a.jsbh
+        ORDER BY
+        a.jsbh
+        ) t ON d.jsbh = t.jsbh
+        ORDER BY
+        d.jsbh
+        ) m
+        GROUP BY
+        m.jsbh,m.jsbhString, m.dz
+    </select>
+
+
+
+
+    <select id="queryClgyfxNum"  parameterType="String" resultType="java.util.HashMap">
+        select
+
+            k.dz,
+            k.kssmc,
+            k.rl,
+            count(j.jsbh) as sjrl,
+            (count(j.jsbh)/k.rl*100) as zb
+        from kss k
+        left join jbxx j
+        on k.jsbh = j.jsbh
+        <where>
+            j.state = 'R8'
+            <if test="starttime != null and starttime != ''">
+                and j.rsrq &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and j.rsrq &lt;= #{endtime}
+            </if>
+        </where>
+        group by kssmc
+    </select>
+
+</mapper>

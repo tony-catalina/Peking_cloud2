@@ -1,0 +1,369 @@
+<div class="modal fade" id="apiSpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"   >
+    <div class="modal-dialog modal-lg" role="document" aglin="center" style="width: 71%;height: 75%">
+        <div class="modal-content" style="margin-top:108px;height:100%" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="top" id="topName" style="text-align: center;margin-bottom: 20px;">
+	<span style="font-size: 16px;">用户名：
+		<span id="username"></span>
+	</span>
+	<span style="font-size: 16px;margin-left: 100px;">密码：
+		<span id="password" ></span>
+	</span>
+	<span style="font-size: 16px;margin-left: 100px;">虚拟主机：
+		<span id="vhost"></span>
+	</span>
+	<span style="font-size: 16px;margin-left: 100px;">绑定的消息队列：
+		<span id="queuename"></span>
+	</span>
+</div>
+<table style="text-align: center;height: auto;"
+       class="table table-hover table-bordered" id="ydyxx">
+    <thead>
+    <tr>
+        <th width="18.5%">序号</th>
+        <th class="text-center" width="12.5%" data-field="appname">监所</th>
+        <th class="text-center" width="12.5%" data-field="msgtype">消息类型</th>
+		<th class="text-center" width="12.5%" data-field="rolecode">角色代码</th>
+	    <th class="text-center" width="12.5%" data-field="businessid">消息编号</th>
+		<th class="text-center" width="12.5%" data-field="businessname">消息名称</th>
+        <th class="hidden-xs" width="18.5%" data-field="operation">操作</th>
+    </tr>
+    </thead>
+</table>
+<script>
+    function AddFunctionAlty(value,row,index){
+      return [
+        '<button id = "TableEditor" type="button" value="'+value+'" class = "btn btn-info btngroup" data-target:"#myModal" >取消订阅</button>',
+      ].join('');
+    }
+
+    window.operateEvents = {
+      "click #TableEditor":function(ev,value,row,index){
+		console.log(index);
+		var rows=$("#ydyxx").bootstrapTable("getData")[index];
+        Ewin.confirm({ message: "确认要取消订阅吗？" }).on(function (e) {
+                if (!e) {
+                    return;
+                }
+                $.ajax({
+                    type: "post",
+                    url: "/message/xxtdDelete",
+                    data: rows,
+                    success: function (data) {
+                        if (data.status == 200) {
+						$("#content").html("取消订阅成功");
+					    $("#myModal").modal();
+						var appcode = $("#appcode").val();
+						$("#ydyxx").bootstrapTable('refresh',{pageNumber:1})
+                        }
+                    },
+                    error: function () {
+                        $("#content").html("取消订阅成功");
+					    $("#myModal").modal();
+                    },
+                    complete: function () {
+
+                    }
+
+                });
+            });
+
+      }
+ }
+
+    function searchapiydyxx(appcode){
+            $("#ydyxx").bootstrapTable({
+                url: "/message/getXxydy",       //请求后台的URL（*）
+                method: 'get',                      //请求方式（*）
+                toolbar: '#toolbar',              //工具按钮用哪个容器
+                striped: true,                      //是否显示行间隔色
+                cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                pagination: true,                   //是否显示分页（*）
+                sortable: true,                     //是否启用排序
+                sortOrder: "asc",                   //排序方式
+                sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+                pageSize: 10,                     //每页的记录行数（*）
+                pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                search: false,                      //是否显示表格搜索
+                strictSearch: true,
+                showColumns: false,                  //是否显示所有的列（选择显示的列）
+                showRefresh: false,               //是否显示刷新按钮
+                singleSelect: true,				//开启行单选
+                minimumCountColumns: 2,             //最少允许的列数
+                clickToSelect: false,                //是否启用点击选中行
+                //height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+                showToggle: false,                   //是否显示详细视图和列表视图的切换按钮
+                cardView: false,                    //是否显示详细视图
+                detailView: false,                  //是否显示父子表
+                //得到查询的参数
+                queryParams : function (params) {
+                    //这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+                    var temp = {
+                        rows: params.limit,                         //页面大小
+                        page: (params.offset / params.limit) + 1,   //页码
+                        sort: params.sort,      //排序列名
+                        sortOrder: params.order, //排位命令（desc，asc）
+						appcode:appcode,
+						shbz:"1"
+                    };
+                    return temp;
+                },
+                responseHandler: function(res) {
+                    return {
+                        "total": res.result.total,//总页数
+                        "rows": res.result.data
+                    };
+                },
+                columns: [{
+                    checkbox: false ,
+                    visible: false                  //是否显示复选框
+                }, {
+                    title: '行号',
+                    align: 'center',
+                    valign: 'bottom',
+                    formatter: function(value, row, index) {
+                        var pageSize = $('#ydyxx').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+                        var pageNumber = $('#ydyxx').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+                        return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+                    }
+
+                },
+				{
+            			field: 'appname',
+						align: 'center',
+            			title: '监所',
+            			sortable: true
+            		},{
+            			field: 'msgtype',
+						align: 'center',
+            			title: '消息类型',
+            			sortable: true
+            		}, {
+            			field: 'rolecode',
+						align: 'center',
+            			title: '角色代码',
+            			sortable: true,
+            		}, {
+            			field: 'businessid',
+						align: 'center',
+            			title: '消息编号',
+            			sortable: true
+            		}, {
+            			field: 'businessname',
+						align: 'center',
+            			title: '消息名称',
+            			sortable: true
+            		},{
+                        field: 'operation',
+                        title: '操作',
+                        align: 'center',
+                        events: operateEvents,
+                        formatter:AddFunctionAlty,//表格中增加按钮
+                    }],
+                    pagination:true,
+                onLoadSuccess: function () {
+                    $('.pagination-info').css("display","none");
+                    $('.page-list').css("display","none");
+                    $('.pull-right pagination').css("margin-top","-20px");
+                },
+                onLoadError: function () {
+                    showTips("数据加载失败！");
+                },
+                onDblClickRow: function (row, $element) {
+                    var id = row.ID;
+                    EditViewById(id, 'view');
+                },formatNoMatches: function () {
+                    return '暂无数据';
+                }
+
+            });
+			$.ajax({
+				url: "/message/getUerQueuename",     
+                method: 'get',  
+				data:{
+					"appcode":appcode,
+				},
+				success : function(data) {
+				  $("#username").html(data.result.data.username)
+				  $("#password").html(data.result.data.password)
+				  $("#vhost").html(data.result.data.vhost)
+				  $("#queuename").html(data.result.data.queuename)
+                },
+                error : function(msg) {
+                }
+			})
+				 
+			
+				         
+				
+		
+    }
+
+
+    
+//弹出框封装
+(function ($) {
+
+window.Ewin = function () {
+	var html = '<div id="[Id]" style="overflow:hidden;margin-top:-90px" class="modal fade" role="dialog" aria-labelledby="modalLabel">' +
+						  '<div class="modal-dialog modal-sm">' +
+							  '<div class="modal-content">' +
+								  '<div class="modal-header">' +
+									  '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>' +
+									  '<h4 class="modal-title" id="modalLabel">[Title]</h4>' +
+								  '</div>' +
+								  '<div class="modal-body">' +
+								  '<p>[Message]</p>' +
+								  '</div>' +
+								   '<div class="modal-footer">' +
+	'<button type="button" class="btn btn-default cancel" data-dismiss="modal">[BtnCancel]</button>' +
+	'<button type="button" class="btn btn-primary ok" data-dismiss="modal">[BtnOk]</button>' +
+'</div>' +
+							  '</div>' +
+						  '</div>' +
+					  '</div>';
+
+
+	var dialogdHtml = '<div id="[Id]" class="modal fade" role="dialog" aria-labelledby="modalLabel">' +
+						  '<div class="modal-dialog">' +
+							  '<div class="modal-content">' +
+								  '<div class="modal-header">' +
+									  '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>' +
+									  '<h4 class="modal-title" id="modalLabel">[Title]</h4>' +
+								  '</div>' +
+								  '<div class="modal-body">' +
+								  '</div>' +
+							  '</div>' +
+						  '</div>' +
+					  '</div>';
+	var reg = new RegExp("\\[([^\\[\\]]*?)\\]", 'igm');
+	var generateId = function () {
+		var date = new Date();
+		return 'mdl' + date.valueOf();
+	}
+	var init = function (options) {
+		options = $.extend({}, {
+			title: "操作提示",
+			message: "提示内容",
+			btnok: "确定",
+			btncl: "取消",
+			width: 200,
+			auto: false
+		}, options || {});
+		var modalId = generateId();
+		var content = html.replace(reg, function (node, key) {
+			return {
+				Id: modalId,
+				Title: options.title,
+				Message: options.message,
+				BtnOk: options.btnok,
+				BtnCancel: options.btncl
+			}[key];
+		});
+		$('body').append(content);
+		$('#' + modalId).modal({
+			width: options.width,
+			backdrop: 'static'
+		});
+		$('#' + modalId).on('hide.bs.modal', function (e) {
+			$('body').find('#' + modalId).remove();
+		});
+		return modalId;
+	}
+
+	return {
+		alert: function (options) {
+			if (typeof options == 'string') {
+				options = {
+					message: options
+				};
+			}
+			var id = init(options);
+			var modal = $('#' + id);
+			modal.find('.ok').removeClass('btn-success').addClass('btn-primary');
+			modal.find('.cancel').hide();
+
+			return {
+				id: id,
+				on: function (callback) {
+					if (callback && callback instanceof Function) {
+						modal.find('.ok').click(function () { callback(true); });
+					}
+				},
+				hide: function (callback) {
+					if (callback && callback instanceof Function) {
+						modal.on('hide.bs.modal', function (e) {
+							callback(e);
+						});
+					}
+				}
+			};
+		},
+		confirm: function (options) {
+			var id = init(options);
+			var modal = $('#' + id);
+			modal.find('.ok').removeClass('btn-primary').addClass('btn-success');
+			modal.find('.cancel').show();
+			return {
+				id: id,
+				on: function (callback) {
+					if (callback && callback instanceof Function) {
+						modal.find('.ok').click(function () { callback(true); });
+						modal.find('.cancel').click(function () { callback(false); });
+					}
+				},
+				hide: function (callback) {
+					if (callback && callback instanceof Function) {
+						modal.on('hide.bs.modal', function (e) {
+							callback(e);
+						});
+					}
+				}
+			};
+		},
+		dialog: function (options) {
+			options = $.extend({}, {
+				title: 'title',
+				url: '',
+				width: 800,
+				height: 550,
+				onReady: function () { },
+				onShown: function (e) { }
+			}, options || {});
+			var modalId = generateId();
+
+			var content = dialogdHtml.replace(reg, function (node, key) {
+				return {
+					Id: modalId,
+					Title: options.title
+				}[key];
+			});
+			$('body').append(content);
+			var target = $('#' + modalId);
+			target.find('.modal-body').load(options.url);
+			if (options.onReady())
+				options.onReady.call(target);
+			target.modal();
+			target.on('shown.bs.modal', function (e) {
+				if (options.onReady(e))
+					options.onReady.call(target, e);
+			});
+			target.on('hide.bs.modal', function (e) {
+				$('body').find(target).remove();
+			});
+		}
+	}
+}();
+})(jQuery);
+</script>

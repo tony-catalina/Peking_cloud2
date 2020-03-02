@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.WlryDao">
+    <!--外来人员,来所事由统计-->
+    <select id="wlryLssy" resultType="java.util.HashMap">
+        SELECT
+        count(if(state='R2' and lssy='0',true,null)) as tx,
+        count(if(state='R2' and lssy='1',true,null)) as tj,
+        count(if(state='R2' and lssy='2',true,null)) as jshj,
+        count(if(state='R2' and lssy='3',true,null)) as lshj,
+        count(if(state='R2' and lssy='4',true,null)) as sf,
+        count(if(state='R2' and lssy='5',true,null)) as cg,
+        count(if(state='R2' and lssy='6',true,null)) as sc,
+        count(if(state='R2' and lssy='7',true,null)) as jc,
+        count(if(state='R2' and lssy='8',true,null)) as lsgz,
+        count(if(state='R2' and lssy='',true,null)) as qt
+        FROM wlry
+        <where>
+            <if test="starttime != null and starttime !=  ''">
+                and date_format(drsj,'%Y-%m-%d' ) &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(drsj,'%Y-%m-%d' ) &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <!--外来人员,来所人数统计-->
+    <select id="wlryLfrs" resultType="java.util.HashMap">
+        SELECT sum(lfrs) as lfrs FROM wlry
+        <where>
+            state='R2'
+            <if test="starttime != null and starttime !=  ''">
+                and drsj &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and drsj &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <!--外来人员,来所车辆统计-->
+    <select id="wlrySxcls" resultType="java.util.HashMap">
+        SELECT sum(SXCLS)as sxcls FROM wlry
+        <where>
+            state='R2'
+            <if test="starttime != null and starttime !=  ''">
+                and drsj &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and drsj &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+</mapper>

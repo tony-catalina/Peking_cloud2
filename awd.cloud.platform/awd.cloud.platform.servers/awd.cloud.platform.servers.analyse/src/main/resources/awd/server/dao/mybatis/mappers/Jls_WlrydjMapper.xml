@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_WlrydjDao">
+
+    <select id="wlrydjCount" resultType="java.util.HashMap" parameterType="awd.framework.common.entity.Entity">
+    select sum(sxrs) as sxrs,
+    sum(sxcls) as sxcls,
+    count(lssy=0 or null) tx,
+    count(lssy=1 or null) tj,
+    count(lssy=2 or null) qshj,
+    count(lssy=3 or null) lshj,
+    count(lssy=4 or null) sf,
+    count(lssy=5 or null) cg,
+    count(lssy=7 or null) jc,
+    count(lssy=6 or null) sc,
+    count(lssy=8 or null) lsgz, 
+    count(lssy=9 or null) qt from wlrydj
+        <where>
+              state = 'R2'
+           <if test="starttime != null and starttime != ''">
+                and date_format(lssj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(lssj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

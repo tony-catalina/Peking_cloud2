@@ -1,0 +1,509 @@
+<div class="left-nr">
+	<!-- 搜索框 -->
+<form id="searchForm" action="/" method="get">
+	<div class="nr-input-asd">
+		<div class="input-asd-s">
+			<div class="search-input-qy" id="search-input-qy">
+				<span class="search-qy-icon"></span> <input class="input-search"
+					id="input-search" name="namelike" style="font-size:14px;" type="text" maxlength="300">
+				<button class="input-emp" id="input-emp"></button>
+			</div>
+			<div class="search-input-ts">
+				<div class="ts-nr">
+					<div class="ts-nr-item flex ts-nr-item-active">
+						s<span class="nr-end">tore</span>
+					</div>
+					<div class="ts-nr-item flex">
+						s<span class="nr-end">uper</span>
+					</div>
+					<div class="ts-nr-item flex">
+						s<span class="nr-end">tar</span>
+					</div>
+					<div class="ts-nr-item flex">
+						s<span class="nr-end">earch</span>
+					</div>
+					<div class="ts-nr-item flex">
+						s<span class="nr-end">pace</span>
+					</div>
+					<div class="ts-nr-item flex">
+						s<span class="nr-end">port</span>
+					</div>
+					<div class="ts-nr-item flex">
+						s<span class="nr-end">eason</span>
+					</div>
+					<div class="ts-nr-item flex eLNT1d">s</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="btn-asd-app">
+		<div btn-item-app style="font-size:15px;height: 48px;" class="btn-item-app btn-item-app-active flex">
+			<input id="qb"  style="position: absolute;top: -999px;left: -999px;" name="classfic" value="" checked type="radio"/>
+			<label style="width:200px;font-weight:normal;cursor: pointer" for="qb">
+				<img src="../images/icon/All.png" style="float:left;width:22px;height:25px;margin-left: 2%;">
+				<p style="float:left;margin-left:7%;margin-top:5%;">全部</p>
+			</label>
+		</div>
+		<div btn-item-app style="font-size:15px;height: 48px;" class="btn-item-app flex">
+			<input id="kss" style="position: absolute;top: -999px;left: -999px;"  name="classfic" value="1" type="radio"/>
+			<label  style="width:200px;font-weight:normal;cursor: pointer" for="kss">
+				<img src="../images/icon/kss.png" style="float:left;width:25px;height:25px">
+				<p style="float:left;margin-left:7%;margin-top:4%;">看守所</p>
+			</label>
+		</div>
+		<div btn-item-app style="font-size:15px;height: 48px;" class="btn-item-app flex">
+			<input id="jls" style="position: absolute;top: -999px;left: -999px;" name="classfic" value="2" type="radio"/>
+			<label style="width:200px;font-weight:normal;cursor: pointer" for="jls">
+				<img src="../images/icon/jls.png" style="float:left;width:25px;height:25px">
+				<p style="float:left;margin-left:7%;margin-top:4%;">拘留所</p>
+			</label>
+		</div>
+		<div btn-item-app style="font-size:15px;height: 48px;" class="btn-item-app flex">
+			<input id="jds" style="position: absolute;top: -999px;left: -999px;" name="classfic" value="3" type="radio"/>
+			<label style="width:200px;font-weight:normal;cursor: pointer" for="jds">
+				<img src="../images/icon/jds.png" style="float:left;width:25px;height:25px">
+				<p style="float:left;margin-left:7%;margin-top:4%;">戒毒所</p>
+			</label>
+		</div>
+		<div btn-item-app style="font-size:15px;height: 48px;" class="btn-item-app flex">
+			<input id="srjy" style="position: absolute;top: -999px;left: -999px;" name="classfic" value="4" type="radio"/>
+			<label style="width:200px;font-weight:normal;cursor: pointer" for="srjy">
+				<img src="../images/icon/srjy.png" style="float:left;width:25px;height:25px">
+				<p style="float:left;margin-left:7%;margin-top:4%;">收容教育</p>
+			</label>
+		</div>
+		<div btn-item-app style="font-size:15px;height: 48px;" class="btn-item-app flex">
+			<input id="jhyls" style="position: absolute;top: -999px;left: -999px;" name="classfic" value="5" type="radio"/>
+			<label style="width:200px;font-weight:normal;cursor: pointer" for="jhyls">
+				<img src="../images/icon/hospital.png" style="float:left;width:25px;height:25px">
+				<p style="float:left;margin-left:7%;margin-top:4%;">监护医疗所</p>
+			</label>
+		</div>
+		<div btn-item-app style="font-size:15px;height: 48px;" class="btn-item-app flex">
+			<input id="qzyls" style="position: absolute;top: -999px;left: -999px;" name="classfic" value="6" type="radio"/>
+			<label style="width:200px;font-weight:normal;cursor: pointer" for="qzyls">
+				<img src="../images/icon/qzyls.png" style="float:left;width:25px;height:25px">
+				<p style="float:left;margin-left:7%;margin-top:4%;">强制医疗所</p>
+			</label>
+		</div>
+		<div btn-item-app style="font-size:15px;height: 48px;" class="btn-item-app flex">
+			<input id="jgzd" style="position: absolute;top: -999px;left: -999px;" name="classfic" value="0" type="radio"/>
+			<label style="width:200px;font-weight:normal;cursor: pointer" for="jgzd">
+				<img src="../images/icon/jgzd.png" style="float:left;width:41px;height:25px;margin-left:-4%;">
+				<p style="float:left;margin-left:3%;margin-top:4%;">监管总队</p>
+			</label>
+		</div>
+		<div btn-item-app style="font-size:15px;height: 48px;" class="btn-item-app flex">
+			<input id="qtapp" style="position: absolute;top: -999px;left: -999px;" name="classfic" value="9" type="radio"/>
+			<label style="width:200px;font-weight:normal;cursor: pointer" for="qtapp">
+				<img src="../images/icon/other.png" style="float:left;width:25px;height:25px">
+				<p style="float:left;margin-left:7%;margin-top:4%;">其他</p>
+			</label>
+		</div>
+	</div>
+	<div class="br-bm"></div>
+	<div class="dper-type-asd">
+		<div class="asd-nr ">
+			<div class="gn-asd">
+				<div class="gz-nr">
+					<span style="font-size:14px;" class="gz-nr-txt">岗位</span>
+					<div style="font-size:14px;margin-top: 4px;" class="gz-bdg" id="gz-bdg-gn">全部不打勾</div>
+					<div class="dper-cl-bth"></div>
+				</div>
+
+				<![if !IE]>
+
+				<div class="input-d-s" input-d-s-gn>
+					<input id="jggw" name="rolename" value="11" class="ipt-ds" type="checkbox">
+					<label for="jggw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">监管岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="sygw" name="rolename" value="01" class="ipt-ds" type="checkbox">
+					<label for="sygw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">收押岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="gjgw" name="rolename" value="03" class="ipt-ds" type="checkbox">
+					<label for="gjgw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">管教岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="ywgw" name="rolename" value="04,05" class="ipt-ds" type="checkbox">
+					<label for="ywgw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">医务岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="cwgw" name="rolename" value="07" class="ipt-ds" type="checkbox"> <label
+						for="cwgw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">财务岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="xkgw" name="rolename" value="06" class="ipt-ds" type="checkbox"> <label
+						for="xkgw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">巡控岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="zhgw" name="rolename" value="10" class="ipt-ds" type="checkbox"> <label
+						for="zhgw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">综合岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="ldgw" name="rolename" value="08" class="ipt-ds" type="checkbox"> <label
+						for="ldgw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">领导岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="qt" name="rolename" value="0" class="ipt-ds" type="checkbox"> <label
+						for="qt" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">其他</span></label>
+				</div>
+				<![endif]>
+
+				<!--[if IE]>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="jggw" name="rolename" value="11"  class="ipt-ds-s" type="checkbox"><label
+						for="jggw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">监管岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="sygw" name="rolename" value="01" class="ipt-ds-s" type="checkbox"> <label
+						for="sygw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">收押岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="gjgw" name="rolename" value="03" class="ipt-ds-s"  type="checkbox">
+					<label for="gjgw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">管教岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="ywgw" name="rolename" value="04,05" class="ipt-ds-s"  type="checkbox">
+					<label for="ywgw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">医务岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="cwgw" name="rolename" value="07" class="ipt-ds-s" type="checkbox"> <label
+						for="cwgw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">财务岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="xkgw" name="rolename" value="06" class="ipt-ds-s" type="checkbox"> <label
+						for="xkgw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">巡控岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="zhgw" name="rolename" value="10" class="ipt-ds-s" type="checkbox"> <label
+						for="zhgw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">综合岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="ldgw" name="rolename" value="08" class="ipt-ds-s" type="checkbox"> <label
+						for="ldgw" class="flex"><span style="font-size:15px;margin-top: 7px;" class="label-txt">领导岗位</span></label>
+				</div>
+				<div class="input-d-s" input-d-s-gn>
+					<input id="qt" name="rolename" value="0" type="checkbox" class="ipt-ds-s">
+					<label for="qt" class="flex">
+						<span style="font-size:15px;margin-top: 7px;" class="label-txt">其他</span>
+					</label>
+				</div>
+				<![endif]-->
+
+			</div>
+			<div class="score-asd">
+				<div class="gz-nr">
+					<span style="font-size:14px;" class="gz-nr-txt">评分</span>
+					<div style="font-size:14px;margin-top: 4px;" class="gz-bdg" id="gz-bdg-score">全部不打勾</div>
+					<div class="dper-cl-bth"></div>
+				</div>
+
+					<![if !IE]>
+				<div class="input-d-s" input-d-s-score>
+					<input id="5stars" name="fruit" value="5" class="ipt-ds" type="radio"> <label
+							for="5stars" class=" flex"><span class="label-txt">
+							<div class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div style="margin-top: 3px;" class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div style="margin-top: 3px;" class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div style="margin-top: 3px;" class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path>
+                            </svg>
+							</div>
+					</span> </label>
+					</div>
+					<div class="input-d-s" input-d-s-score>
+						<input id="4stars" name="fruit" value="4" class="ipt-ds" type="radio"> <label
+							for="4stars" class="flex"> <span class="label-txt">
+							<div class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+                                            <path d="M0 0h24v24H0z"
+												  fill="none"></path>
+                                            <path
+													d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                                            <path d="M0 0h24v24H0z"
+												  fill="none"></path>
+                                        </svg>
+							</div>
+							<div class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+                                            <path d="M0 0h24v24H0z"
+												  fill="none"></path>
+                                            <path
+													d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                                            <path d="M0 0h24v24H0z"
+												  fill="none"></path>
+                                        </svg>
+							</div>
+							<div class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div class="g-s  n-j-Z-N-Z-lb">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div> <span style="padding-top: 7px;font-size:14px" class="n-j-Z-qi-Ie-L">及以上</span>
+					</span></label>
+					</div>
+					<div class="input-d-s" input-d-s-score>
+						<input id="3stars" name="fruit" value="3" class="ipt-ds" type="radio"> <label
+							for="3stars" class=" flex"> <span class="label-txt">
+							<div class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div class="g-s  n-j-Z-N-Z-lb">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div class="g-s  n-j-Z-N-Z-lb">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div> <span style="padding-top: 7px;font-size:14px" class="n-j-Z-qi-Ie-L">及以上</span>
+					</span></label>
+					</div>
+					<div class="input-d-s" input-d-s-score>
+						<input id="2stars" name="fruit" value="2" class="ipt-ds" type="radio"> <label
+							for="2stars" class=" flex"><span class="label-txt">
+							<div class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div class="g-s dper-hts">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div class="g-s  n-j-Z-N-Z-lb">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div class="g-s  n-j-Z-N-Z-lb">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div>
+							<div class="g-s  n-j-Z-N-Z-lb">
+								<svg style="margin-top: 3px;" class="hts-svg-txt" viewBox="0 0 24 24" width="100%"
+									 height="100%">
+									<path d="M0 0h24v24H0z" fill="none"></path>
+									<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+									<path d="M0 0h24v24H0z" fill="none"></path></svg>
+							</div> <span style="padding-top: 7px;font-size:14px" class="n-j-Z-qi-Ie-L">及以上</span>
+					</span></label>
+					</div>
+					<![endif]>
+
+					<!--[if gte IE 8]>
+				   <div class="input-d-s" input-d-s-score>
+					   <input id="5stars" name="fruit" value="5" type="checkbox"><label
+						   for="5stars" class=" flex"> <span class="label-txt">
+					   <span class="label-icon" style="margin-left:0%;">
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+					</span>
+					   <span style="font-size:14px;float:right;" class="n-j-Z-qi-Ie-L"></span>
+				   </div>
+				   </span></label>
+
+				   <div class="input-d-s" input-d-s-score>
+					   <input id="4stars" name="fruit" value="4" type="checkbox"><label
+						   for="4stars" class=" flex"> <span class="label-txt">
+					   <span class="label-icon">
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+						        <span class="icon-star"></span>
+					</span>
+					   <span style="font-size:14px;" class="n-j-Z-qi-Ie-L">以上</span>
+				   </div>
+				   </span></label>
+
+				   <div class="input-d-s" input-d-s-score>
+					   <input id="3stars" name="fruit" value="3" type="checkbox"><label
+						   for="3stars" class=" flex"> <span class="label-txt">
+					   <span class="label-icon">
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+					</span>
+					   <span style="font-size:14px;" class="n-j-Z-qi-Ie-L">以上</span>
+				   </div>
+				   </span></label>
+
+				   <div class="input-d-s" input-d-s-score >
+					   <input id="2stars" name="fruit" value="2"  type="checkbox"><label
+						   for="2stars" class=" flex"> <span class="label-txt">
+					   <span class="label-icon" style="">
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+					</span>
+					   <span style="font-size:14px;" class="n-j-Z-qi-Ie-L">以上</span>
+				   </div>
+				   </span></label>
+					<![endif]-->
+			</div>
+		</div>
+	</form>
+	</div>
+	<div class="br-bm"></div>
+	<div class="btn-msg">
+		<!-- <div class="btn-msg-txts">隐私权政策</div>
+		<div class="btn-msg-txts">服务条款</div>
+		<div class="btn-msg-txts">关于 Chrome 网上应用店</div> -->
+	</div>
+
+<!--[if  gte IE 9]>
+<style>
+	input[type="checkbox"] {
+		position: absolute;
+		clip: rect(0, 0, 0, 0);
+	}
+	input[type="checkbox"] + label {
+		content: "\a0"; /*不换行空格*/
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 18px;
+		width: 1em;
+		height: 1em;
+		margin-right: .4em;
+		border-radius: 50%;
+		border: 1px solid #01cd78;
+		text-indent: .15em;
+		line-height: 1;
+	}
+	input[type="checkbox"]:checked + label {
+		background-color: #01cd78;
+		background-clip: content-box;
+		padding: .2em;
+	}
+
+</style>
+<![endif]-->
+
+<!--[if IE 8]>
+<style>
+	input[type="checkbox"] {
+		position: absolute;
+		clip: rect(0, 0, 0, 0);
+	}
+
+	input[type="checkbox"] + label {
+		content: "\a0"; /*不换行空格*/
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 18px;
+		width: 1em;
+		height: 1em;
+		margin-right: .4em;
+		border-radius: 50%;
+		border: 1px solid #01cd78;
+		text-indent: .15em;
+		line-height: 1;
+	}
+
+</style>
+
+<![endif]-->
+
+
+</div>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>民警性别分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class="mjxb">
+        <div>
+            <div id="mjxbfx"></div>
+            <table cellspacing="0" class="tableBar">
+                <div class='cs'>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;"></div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">北京市</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">东城区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">西城区</div style="width:80px;">
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">朝阳区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">丰台区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">石景山区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">海淀区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">门头沟区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">房山区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">通州区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">顺义区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">昌平区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">大兴区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">平谷区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">怀柔区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">密云区</div>
+                    <div style="width:100px;text-align:center;line-height:37px;border:1px solid #fff;;">延庆区</div>
+                </div>
+                <tbody id='tbodyResult'></tbody>
+            </table>
+        </div>
+    </div>    
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+    var tbody = window.document.getElementById("tbodyResult")
+    $.ajax({
+        url: '/kssdp/mjxbfx',
+        type: "get",
+        dataType: "json",
+        success: function (res) {
+            var data = res.result
+            var man = '';
+            var woman = '';
+            var rest = [];
+            var zs = '';
+            for(var i=0;i<data.man.length;i++)
+            {
+                rest[i] = data.man[i] + data.woman[i];
+            }
+            
+            // var result = res.result.value
+            for (var i=0;i< data.man.length;i++) {   
+                man += "<td style='width:80px;height:40px;text-align:center;border:1px solid #fff;'>" + data.man[i] + "</td>";
+            } 
+            var manfx = "<tr style='height:40px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:40px;text-align:center;border:1px solid #fff">男生</td>'+  man + "</tr>"
+            for (var i=0;i< data.woman.length;i++) {   
+                woman += "<td style='width:80px;height:40px;text-align:center;border:1px solid #fff;'>" + data.woman[i] + "</td>";
+            }
+            var womanfx = "<tr style='height:40px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:40px;text-align:center;border:1px solid #fff">女生</td>' + woman + "</tr>"
+            for (var i=0;i< data.man.length;i++) {   
+                zs += "<td style='width:80px;height:40px;text-align:center;border:1px solid #fff;'>" + rest[i] + "</td>";
+            }
+            var zsfx = "<tr style='height:40px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:40px;text-align:center;border:1px solid #fff">总数</td>' + zs + "</tr>"
+            tbody.innerHTML = manfx + womanfx + zsfx; 
+        },error(error){
+            console.log(error)
+        }
+    })
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/zdEcharts/mjxbfx/mjxbfx');
+</script>
+<style>
+    html, body {
+      position: relative;
+      height: 100%;
+      color:#fff;
+      background:#191e40;
+    }
+    *{
+        padding:0;
+        margin:0;
+    }
+    #mjxbfx{
+        width:100%;
+        height:540px;
+    }
+    .mjxb{
+        width:100%;
+        height:100%;
+    }
+    .tableBar{
+        margin-left: 85px;
+        width:1352px;
+        height:auto;
+    }
+    .cs{
+        margin-top:10px;
+        height:40px;
+        display:flex;
+        font-size: 18px;
+        line-height:40px;
+        width: 1352px;
+        margin-left: 85px;
+        border:1px solid #fff;
+    }
+    #tbodyResult{
+        height:auto;
+        width:1352px;
+        margin-left: 85px;
+        border:1px solid #fff;
+    }
+</style>
+</body>
+</html>

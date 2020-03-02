@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.QSCSJYDao">
+
+   <resultMap id="QSCSJYMapper" type="awd.cloud.platform.servers.analyse.model.kss.DsjPTModel">
+       <result property="swjy" column="SWJY"/>
+       <result property="csjylx" column="CSJYLX"/>
+       <result property="jzyy" column="JZYY"/>
+
+   </resultMap>
+
+
+
+    <!--1kss全市出所就医-->
+    <select id="select_QSCSJY" resultType="java.util.HashMap">
+   SELECT  ifnull((select COUNT(id or null ) from jy  where   state = "R2" and SWJY="1" and DATE_FORMAT(ZDRQ ,"%Y-%m-%d")= DATE_FORMAT(now(),"%Y-%m-%d")),0) as swjy,
+    ifnull((select count(id or null) from jy where CSJYLX="2" and  state = "R2" and DATE_FORMAT(ZDRQ ,"%Y-%m-%d")= DATE_FORMAT(now(),"%Y-%m-%d")  ),0) as mqzy,
+    ifnull((select count( id or null) from jy where JZYY like "%公安医院%" and  state = "R2" and DATE_FORMAT(ZDRQ ,"%Y-%m-%d")= DATE_FORMAT(now(),"%Y-%m-%d") ),0) as gayy
+    </select>
+
+
+
+
+</mapper>

@@ -1,0 +1,73 @@
+	<div id="header" class="clear" style="width:20%;height:1120px">
+        <div id="gameLogo" style="margin:8px;float:left"> 
+        <a href="/" style="text-decoration: none;">       	
+            <img alt="监管应用中心" src="images/common/desktop/fengche.png" width="35" style="margin-right:5px;"><span style="font-size:19px">监管应用中心</span>
+        </a>
+        </div>
+        <form id="searchForm" action="/" method="get">
+        	<div class="input-group" style="width: 90%;">        		 
+			     <input name="namelike" class="form-control" type="text"  placeholder="搜索平台内应用" /><!-- 搜索框  -->
+			     <input id="hiddenText" type="text" style="display:none"/>
+			     <span class="input-group-btn">
+			        <button class="btn btn-success" type="button" id="searchAppBtn" onClick="javascript:searchAPP()">搜索</button>
+			     </span>		
+        	</div>            
+            <div style="height: 10px"></div>
+			<div class="lbie"><p><img alt="类别" src="images/common/lb.png" width="22" style="margin-right:5px;"><span style="font-size:15px;font-weight: 700;">类别</p></div>
+            <div id="menu">
+                <ul>
+                    <li><label ><input name="classfic" type="checkbox" value="1" style="margin-right: 5px;"/>看守所 </label></li>
+                    <li><label ><input name="classfic" type="checkbox" value="2" style="margin-right: 5px;"/>拘留所 </label></li>
+                    <li><label ><input name="classfic" type="checkbox" value="3" style="margin-right: 5px;"/>戒毒所</label></li>
+                    <li><label ><input name="classfic" type="checkbox" value="4" style="margin-right: 5px;"/>收容教育 </label></li>
+                    <li><label ><input name="classfic" type="checkbox" value="5" style="margin-right: 5px;"/>监护医疗所 </label></li>
+                    <li><label ><input name="classfic" type="checkbox" value="6" style="margin-right: 5px;"/>强制医疗所 </label></li>
+                    <li><label ><input name="classfic" type="checkbox" value="0" style="margin-right: 5px;"/>监管总队</label></li>
+                    <li><label ><input name="classfic" type="checkbox" value="9" style="margin-right: 5px;"/>其他</label></li>
+                </ul>
+            </div>  
+            <div class="lbie"><p><img alt="岗位" src="images/common/gw.png" width="22" style="margin-right:5px;"><span style="font-size:15px;font-weight: 700;">岗位</p></div>          
+            <select name="rolename" style="width: 90%;" class="form-control"><!-- onchange="selectOnchang(this)" -->
+            	<option value="" selected>全部</option>
+            	<option value="11">监管岗位</option>
+                <option value="01">收押岗位</option>
+                <option value="03">管教岗位</option>
+                <option value="04,05">医务岗位</option>
+                <option value="07">财务岗位</option>
+                <option value="06">巡控岗位</option>
+                <option value="10">综合岗位</option>
+                <option value="08">领导岗位</option>
+                <option vlaue="0">其他</option>
+            </select>
+            <div style="height: 10px"></div>
+            <div class="lbie"><p><img alt="评分" src="images/common/pf.png" width="22" style="margin-right:5px;"><span style="font-size:15px;font-weight: 700;">评分</p></div>
+            <ul>
+                <li><label><input name="fruit" type="checkbox" value="5" style="margin-right: 5px;"/>★★★★★ </label></li>
+                <li><label><input name="fruit" type="checkbox" value="4" style="margin-right: 5px;"/>★★★★☆ <a href="#">及以上</a> </label></li>
+                <li><label><input name="fruit" type="checkbox" value="3" style="margin-right: 5px;"/>★★★☆☆ <a href="#">及以上</a> </label></li>
+                <li><label><input name="fruit" type="checkbox" value="2" style="margin-right: 5px;"/>★★☆☆☆ <a href="#">及以上</a> </label></li>
+            </ul>
+        </form>
+        <div>
+            <div style="margin-top:150px;margin-left:15px;float:left">
+                <div style="font-size:16px">
+                	<% if(user!null==null){%>
+                    <button type="button" style="float:left " class="btn btn-info" data-toggle="modal"  data-target="#loginModal">
+                        	登陆
+                    </button><br/><br/><br/>
+                    <form action="./jkwd">
+                        <button type="submit" style="float:left " class="btn btn-info" data-toggle="modal" >
+                            接口文档
+                        </button><br/><br/><br/>
+                    </form>
+                    <div style="margin-top:20px;float:left;font-size:16px" id="jnkc"></div>
+                    <%}else{%>
+                    	欢迎使用:)${user.loginname! }<br/>
+                    	<a href="./manufacturerSetting" style="color:#09f;">个人中心</a><br/>
+                    	<div style="margin-top:20px;float:left;font-size:16px" id="jnkc"></div><br/>
+                    	<a href="./user/logout" style="color:#09f;">注销</a>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+    </div>

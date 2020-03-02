@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.ZdryDao">
+
+    <!--上位机版本=重点人员统计查询-->
+    <select id="swj_zdry" resultType="java.util.LinkedHashMap">
+        select jsbh,  jsbhString, dz,
+        IFNULL(sum(m.man),0) nan, IFNULL(sum(m.woman),0) nv,
+        IFNULL(sum(m.zd),0) zd, IFNULL(sum(m.wu),0) wsm
+        from( select distinct d.jsbh as jsbh,  d.KSSMC as 'jsbhString',  d.DZ  as 'dz',
+        t.man man,t.woman woman,t.zd zd,t.wu wu
+        from Kss d left join (select j.jsbh ,  IFNULL(COUNT(j.xb="1" or null ),0) man,     IFNULL(COUNT(j.xb="2" or null ),0) woman,
+        IFNULL(COUNT(j.xb='3' or null ),0) wu,
+        IFNULL(COUNT(j.ZDRY="1" or null ),0) zd
+        from jbxx j,zdzy z
+
+        <where>
+            j.state not in ('R3','R9') and j.ZDRY='1' and j.rybh=z.rybh
+            <if test=" starttime !=null and starttime !='' ">
+                and date_format(j.rsrq,'%Y-%m-%d') &gt;=date_format(#{starttime},'%Y-%m-%d')
+            </if>
+            <if test=" endtime !=null and endtime !='' ">
+                and date_format(j.rsrq,'%Y-%m-%d') &lt;=date_format(#{endtime},'%Y-%m-%d')
+            </if>
+        </where>
+        group by j.jsbh order by j.jsbh)t on d.jsbh=t.jsbh
+        order by d.jsbh) m
+        GROUP BY m.jsbh ,m.jsbhString, m.dz
+    </select>
+
+
+
+
+    <select id="ZdryInfo" parameterType="String" resultType="java.util.HashMap">
+        select
+        k.dz,
+        k.jsbh,
+
+        count(j.zdry) as zdry,
+        sum(case when j.xb='1' then 1 else 0 end) as nan,
+        sum(case when j.xb='2' then 1 else 0 end) as nv,
+        sum(case when j.xb=null then 1 else 0 end) as wsm
+
+        from kss k
+        left join jbxx j
+        on k.jsbh = j.jsbh
+
+        left join zdry z
+        on k.jsbh = z.jsbh
+        <where>
+        j.state = 'R8'
+        <if test="starttime != null and starttime != ''">
+            and z.blrq &gt;= #{starttime}
+        </if>
+        <if test="endtime != null and endtime != ''">
+            and z.blrq &lt;= #{endtime}
+        </if>
+        </where>
+        group by dz, jsbh
+    </select>
+
+       <!--管教，重点人员，业务动态-->
+    <select id="zdryYwdt" resultType="java.util.HashMap">
+        SELECT
+        count( IF ( BLLX = "1" OR BLLX = '2', TRUE, NULL ) ) AS zdry,
+        count( IF ( BLLX = "3", TRUE, NULL ) ) AS jccpry
+        FROM
+        zdry z LEFT JOIN jbxx j
+        on z.RYBH = j.RYBH
+        <where>
+            1=1
+            <if test="starttime != null and starttime != ''">
+                and date_format(z.blrq,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(z.blrq,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and z.jsbh &lt;= #{jsbh}
+            </if>
+            <if test="jsh != null and jsh != ''">
+                and j.jsh in (${jsh})
+            </if>
+        </where>
+    </select>
+
+    <select id="getZdryCount" resultType="Integer">
+        select count(*) as rs from zdry
+        <where>
+             state = "R2"
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+</mapper>

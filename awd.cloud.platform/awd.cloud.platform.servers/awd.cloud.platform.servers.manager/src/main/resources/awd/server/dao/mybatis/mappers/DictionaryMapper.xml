@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.mis.servers.dao.DictionaryDao">
+    <resultMap id="DictionaryResultMap" type="awd.mis.servers.entity.DictionaryEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="fieldname" column="fieldname" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="code" column="code" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="content" column="content" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="py" column="py" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="isgb" column="isgb" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="sypl" column="sypl" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>		
+		<result property="editable" column="editable" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="creator" column="creator" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="DATE"/>		
+		<result property="updator" column="updator" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="DATE"/>		
+		<result property="jslx" column="jslx" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+    </resultMap>
+    
+    
+    
+    <resultMap id="FieldResultMap" type="String">		
+		<result property="fieldname" column="fieldname" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'DictionaryResultMap'"/>
+        <bind name="tableName" value="'DICTIONARY'"/>
+    </sql>
+
+    <insert id="insert" parameterType="awd.mis.servers.entity.DictionaryEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from dictionary where id =#{id}
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="DictionaryResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select> 
+     
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select>
+
+    <select id="findByField" parameterType="String" resultMap="DictionaryResultMap">
+        select * from dictionary where fieldname =#{fieldname}
+    </select>
+
+    <select id="findByFieldCode" parameterType="String" resultMap="DictionaryResultMap">
+        select * from dictionary where fieldname =#{fieldname} and code =#{code}
+    </select>
+
+    <select id="getAllFields" resultType="java.util.HashMap">
+        select jslx,fieldname  from dictionary group by jslx,fieldname
+    </select> 
+    
+    
+</mapper>

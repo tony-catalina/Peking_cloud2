@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.SzjdjlDao">
+    <!--领导接访，来访次数统计-->
+    <select id="ldjfLfcs" resultType="java.util.HashMap">
+        SELECT count(*) as lfcs,sum(lfrs) lfrs FROM szjdjl
+        <where>
+            state='R2'
+            <if test="starttime != null and starttime !=  ''">
+                and date_format(JDSJ,'%Y-%m-%d' ) &gt;= date_format(#{starttime},'%Y-%m-%d' )
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(JDSJ,'%Y-%m-%d' ) &lt;= date_format(#{endtime},'%Y-%m-%d' )
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <!--领导接访，处理情况统计-->
+        <select id="ldjfClqk" resultType="java.util.HashMap">
+            SELECT count(*) as clqk from szjdjl
+            <where>
+                state='R2' and
+                dfyj is not null
+                <if test="starttime != null and starttime !=  ''">
+                    and date_format(JDSJ,'%Y-%m-%d' ) &gt;= date_format(#{starttime},'%Y-%m-%d' )
+                </if>
+                <if test="endtime != null and endtime != ''">
+                    and date_format(JDSJ,'%Y-%m-%d' ) &lt;= date_format(#{endtime},'%Y-%m-%d' )
+                </if>
+                <if test="jsbh != null and jsbh != ''">
+                    and jsbh = #{jsbh}
+                </if>
+            </where>
+        </select>
+
+    <!--领导接访，总人数统计-->
+    <select id="ldjfZrs" resultType="java.util.HashMap">
+        SELECT sum(lfrs) as zrs from szjdjl
+        <where>
+            state='R2'
+            <if test="starttime != null and starttime !=  ''">
+                and date_format(JDSJ,'%Y-%m-%d' ) &gt;= date_format(#{starttime},'%Y-%m-%d' )
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(JDSJ,'%Y-%m-%d' ) &lt;= date_format(#{endtime},'%Y-%m-%d' )
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+</mapper>

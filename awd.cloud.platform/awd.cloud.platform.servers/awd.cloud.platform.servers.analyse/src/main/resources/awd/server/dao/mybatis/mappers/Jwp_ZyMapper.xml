@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jwp.Jwp_PbDao">
+
+    <select id="zyCount" resultType="java.util.HashMap" parameterType="String">
+        select
+        ifnull((select DISTINCT count(id) FROM soa_kss.jbxx WHERE jsbh=#{jsbh} and jsh=#{jsh} and state = "R8" limit 1),0) as "zy",
+        ifnull((select DISTINCT count(id) from soa_kss.jbxx  where jsbh=#{jsbh} and jsh=#{jsh} and wxdj="1" and state="R8" limit 1),0) as "yjfx",
+        ifnull((select DISTINCT count(id) from soa_kss.jbxx  where jsbh=#{jsbh} and jsh=#{jsh} and wxdj="2" and state="R8" limit 1),0) as "ejfx",
+        ifnull((select DISTINCT count(id) from soa_kss.jbxx  where jsbh=#{jsbh} and jsh=#{jsh} and wxdj="3" and state="R8" limit 1),0) as "sjfx",
+        ifnull((select DISTINCT count(id) from soa_kss.jbxx  where jsbh=#{jsbh} and jsh=#{jsh} and bhlx="01" and state="R8" limit 1),0) as "zbh",
+        ifnull((select DISTINCT count(id) from soa_jwp.xj  where jsbh=#{jsbh} and jsh=#{jsh} and bllx="1" and sszx="1" and state="R8" limit 1),0) as "jj",
+        ifnull((select DISTINCT count(id) from soa_jwp.yjdj  where jsbh=#{jsbh} and jsh=#{jsh} and state="R2" and bllx="1" and sszx="1" limit 1),0) as "yj",
+        ifnull((select DISTINCT count(id) from soa_jwp.ybdj  where jsbh=#{jsbh} and jsh=#{jsh} and state="R2" and bllx="1" and sszx="1" limit 1),0) as "yb",
+		ifnull((select DISTINCT js.ZGMJ from soa_kss.js js  where jsbh=#{jsbh} and jsh=#{jsh} and state="R2" limit 1),0) as "zgmj",
+		ifnull((select DISTINCT js.XGMJ from soa_kss.js js  where jsbh=#{jsbh} and jsh=#{jsh} and state="R2" limit 1),0) as "xgmj",
+		ifnull((select DISTINCT mj.ZPURL from soa_kss.mjjbxx mj  where jh=(select js.ZGMJJH from soa_kss.js js  where jsbh=#{jsbh} and jsh=#{jsh} and state="R2" limit 1) and state="R2" limit 1) ,0) as "zgzp",
+		ifnull((select DISTINCT mj.ZPURL from soa_kss.mjjbxx mj  where jh=(select js.XGMJJH from soa_kss.js js  where jsbh=#{jsbh} and jsh=#{jsh} and state="R2" limit 1) and state="R2" limit 1) ,0) as "xgzp"
+    </select>
+</mapper>

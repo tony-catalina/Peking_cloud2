@@ -1,0 +1,136 @@
+body {
+    background-color: #fff;
+}
+.single-nav-top {
+    overflow: hidden;
+}
+.filter-box {
+    font-size: 27px;
+    margin: 40px 0 0 140px;
+    float: left;
+}
+.filter-box li {
+    padding: 0 5px;
+    position: relative;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.filter-box li i {
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    background: url("../imgs/single-radio.png") no-repeat 0 -2px;
+    margin: 0 10px 0 5px;
+    vertical-align: text-bottom;
+}
+.filter-box .selected i {
+    background: url("../imgs/single-radio.png") no-repeat 0 -45px ;
+}
+
+.menu-box {
+    margin: 50px 0 0 50px;
+    float: left;
+    font-size: 35px;
+}
+.menu-box li {
+    width: 174px;
+    height: 63px;
+    line-height: 63px;
+    text-align: center;
+    float: left;
+    background: url("../imgs/menu-bg.png") no-repeat;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.menu-box li.selected {
+    background: url("../imgs/menu-selected-bg.png") no-repeat;
+}
+
+.left-box {
+    width: 642px;
+    float: left;
+    margin-left: 35px;
+    margin-top: 10px;
+}
+.left-box .item-box {
+    width: 100%;
+    border: 1px solid #0334ff;
+    border-radius: 20px;
+    position: relative;
+    margin-top: 40px;
+    padding: 40px 30px;
+    box-sizing: border-box;
+}
+.left-box .item-box .i-title {
+    width: 160px;
+    height: 50px;
+    background: #fff;
+    position: absolute;
+    font-size: 34px;
+    line-height: 50px;
+    text-align: center;
+    top: -25px;
+    left: 20px;
+    font-weight: bold;
+}
+.item-box .list-item {
+    height: 76px;
+    width: 100%;
+    cursor: pointer;
+}
+.item-box .list-item + .list-item {
+    margin-top: 30px;
+}
+.item-box .list-item .title {
+    width: 360px;
+    float: left;
+    line-height: 76px;
+    font-size: 36px;
+    text-align: right;
+}
+.item-box .list-item .num {
+    width: 195px;
+    height: 76px;
+    float: left;
+    background: url("../imgs/item-bg.png") no-repeat 0 3px;
+    margin-left: 10px;
+    line-height: 76px;
+    text-align: center;
+    font-size: 65px;
+    font-weight: bolder;
+    color: #fff;
+}
+.item-box .list-item.selected .num{
+    background: url("../imgs/item-selected-bg.png") no-repeat;
+}
+
+.right-box {
+    float: left;
+}
+.average-box {
+    width: 1207px;
+    height: 900px;
+    margin-top: 50px;
+}
+.average-box #lineChart {
+    width: 1207px;
+    height: 370px;
+    padding-top: 40px;
+}
+.average-box #barChart {
+    width: 1207px;
+    height: 330px;
+    margin-top: 110px;
+}
+
+.important-box {
+    width: 1113px;
+    height: 817px;
+    margin-top: 80px;
+}
+.important-box #importantBarChart {
+    width: 1113px;
+    height: 817px;
+    margin-left: 50px;
+}

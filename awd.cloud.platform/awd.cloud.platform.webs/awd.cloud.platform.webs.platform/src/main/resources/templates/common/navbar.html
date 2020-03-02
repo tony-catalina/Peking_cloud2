@@ -1,0 +1,24 @@
+	<div class="full_background"></div>
+	<div class="init_loading"><div><img src="./images/common/loading_simple.gif"/></div></div>
+	<div class="topbar">
+		<div class="content">
+			<div class="top_left">
+				<a href="./" class="topbar_menu title" style="width:290px">
+                <i class="icon-cloud"></i>${config.CLOUD_NAME!}</a>
+                <%if((config.menu.desktop!)=="1"){%>
+				<a class='topbar_menu <%if(config.my_desktop=="\\/desktop\\/"){%>this<%}%>' href='desktop' target='_self'><i class='font-icon menu-desktop'></i>桌面</a>
+                <%}%>
+                <%if((config.menu.explorer!)=="1"){%>
+                <a class='topbar_menu <%if(config.my_desktop=="\\/explorer\\/"){%>this<%}%>' href='explorer' target='_self'><i class='font-icon menu-explorer'></i>文件管理</a>
+                <%}%>
+                <%if((config.menu.search!)=="1"){%>
+                <a class='topbar_menu <%if(config.my_desktop=="\\/search\\/"){%>this<%}%>' href='search' target='_self'><i class='font-icon menu-search'></i>超级搜索</a>
+                <%}%>
+                <%if((config.menu.message!)=="1"){%>
+                <a class='topbar_menu <%if(config.my_desktop=="\\/message\\/"){%>this<%}%>' href='message' target='_self' ><i class='font-icon menu-message'></i>信息中心</a>
+                <%}%>
+			</div>				
+		</div>
+		<div style="clear:both"></div>
+	</div>
+	

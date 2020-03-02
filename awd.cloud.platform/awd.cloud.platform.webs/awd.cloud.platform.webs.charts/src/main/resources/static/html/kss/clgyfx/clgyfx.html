@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>超量关押分析</title>
+</head>
+<body >
+<div id="clgyfx"></div>
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/kss/clgyfx/clgyfx');
+</script>
+<style> 
+    *{
+        padding:0;
+        margin:0;
+    }
+    #clgyfx{
+        width: 100%;
+        height: 700px;
+    }
+</style>
+</body>
+</html>

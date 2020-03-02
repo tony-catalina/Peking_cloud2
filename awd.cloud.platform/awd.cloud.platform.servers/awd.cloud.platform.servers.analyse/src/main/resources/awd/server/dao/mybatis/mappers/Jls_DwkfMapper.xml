@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_DwkfDao">
+
+    <select id="dwkfDt" parameterType="String" resultType="java.util.HashMap">
+        select
+      	sum(IF(kflx=01,cgrs,0)) as grrs,
+        sum(IF(kflx=02,cgrs,0)) as ttrs,
+        count(id)as cs,
+        count(kflx = 01 or null) gr,
+        count(kflx = 02 or null) tt
+        from  dwkf
+        <where>
+        state="R2" and szyj="1" and sjldyj="1" 
+            <if test="starttime != null and starttime != ''">
+                 and date_format(kfsj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                 and date_format(kfsj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

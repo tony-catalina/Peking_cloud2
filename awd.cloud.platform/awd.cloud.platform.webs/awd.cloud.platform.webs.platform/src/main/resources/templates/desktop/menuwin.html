@@ -1,0 +1,33 @@
+	<div id="menuwin">
+		<div id="startmenu"></div>
+		<ul id="programs">
+			<li><a href="javascript:core.setting('user');"><i class="font-icon icon-user"></i>个人中心</a></li>
+            <li><div id="leftspliter"></div></li>
+            <!--
+			<li><a href="javascript:core.setting('help');"><i class="font-icon icon-question"></i>使用帮助</a></li>
+            <li><a href="javascript:core.setting('about');"><i class="font-icon icon-info-sign"></i>关于作品</a></li>
+            -->
+            <%if((config.menu.explorer!)=="1"){%> 
+            <li><a href="#" onclick="core.explorer('//office','我的公文');"><span>我的公文</span></a></li>
+			<li><a href="#" onclick="core.explorer('//document','我的文件');"><span>我的文件</span></a></li>
+			<%}%>
+			<%if(config.is_root==1){%>
+			<li><a href="javascript:core.setting('system');"><i class="font-icon icon-cog"></i>系统设置</a></li>
+			<%}%>
+			<li><a href="javascript:core.fullScreen();"><i class="font-icon icon-fullscreen"></i>全屏</a></li>
+			<li class="search"></li>
+		</ul>
+		<ul id="links">
+			<li class="icon"></li>
+			<!--			
+			<li><a href="#" onclick="core.explorer('//download','下载');"><span>下载</span></a></li>-->
+			<li><div id="rightspliter"></div></li>
+			<%if(config.is_root!=1&&config.is_admin!=1){%>
+			<li><a href="#" onclick="core.setting('appsetting');"><span>应用设置</span></a></li>
+			<%}%>
+			<li><a href="#" onclick="core.setting('wall');"><span>更换壁纸</span></a></li>
+			<li><a href="#" onclick="core.setting('theme');"><span>主题设置</span></a></li>
+			<li><a href="./user/usersysm" target="_blank"><span>使用说明</span></a></li>
+			<li><a href="./user/logout" style="margin-top:70px;"><span>退出</span></a></li>
+		</ul>
+	</div>

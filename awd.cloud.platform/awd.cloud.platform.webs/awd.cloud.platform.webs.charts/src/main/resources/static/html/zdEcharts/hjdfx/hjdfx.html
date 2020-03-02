@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>户籍地分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class="apply-record">
+        <ul class="tab">
+            <li class="tab-item active">看守所</li>
+            <li class="tab-item">拘留所</li>
+        </ul>
+        <div class="content products">
+            <div class="mainCont selected">
+                <div>
+                    <div id="hjdfx"></div>
+                    <table cellspacing="0" class="tableBar">
+                        <div class='cs'>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;"></div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">北京市</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">东城区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">西城区</div style="width:80px;">
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">朝阳区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">丰台区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">石景山区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">海淀区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">门头沟区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">房山区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">通州区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">顺义区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">昌平区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">大兴区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">平谷区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">怀柔区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">密云区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">延庆区</div>
+                        </div>
+                        <tbody id='tbodyResult'></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mainCont">
+                <div>
+                    <div id="jlsHjdfx"></div>
+                    <table cellspacing="0" class="jlsTableBar">
+                        <div class='jlscs'>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;"></div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">北京市</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">东城区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">西城区</div style="width:80px;">
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">朝阳区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">丰台区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">石景山区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">海淀区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">门头沟区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">房山区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">通州区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">顺义区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">昌平区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">大兴区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">平谷区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">怀柔区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">密云区</div>
+                            <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">延庆区</div>
+                        </div>
+                        <tbody id='jlsTbodyResult'></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+    var tbody = window.document.getElementById("tbodyResult")
+    var jlsTbody = window.document.getElementById("jlsTbodyResult")
+    $.ajax({
+        url: '/kssdp/hjdfx',
+        type: "get",
+        dataType: "json",
+        success: function (res) {
+            var str = '';
+            var bar = '';
+            var car = '';
+            var data = res.result
+            
+            // var result = res.result.value
+            for (var i=0;i< data.bs.length;i++) {   
+                str += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.bs[i] + "</td>";
+            } 
+            var strr = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">超期羁押人数</td>'+  str + "</tr>"
+            for (var i=0;i< data.ws.length;i++) {   
+                bar += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.ws[i] + "</td>";
+            }
+            var barr = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">超期羁押百分比</td>' + bar + "</tr>"
+            for (var i=0;i< data.wg.length;i++) {   
+                car += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.wg[i] + "</td>";
+            }
+            var carr = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">超期羁押百分比</td>' + car + "</tr>"
+            tbody.innerHTML = strr + barr + carr; 
+        },error(error){
+            console.log(error)
+        }
+    })
+    // $.ajax({
+    //     url: '/kssdp/hjdfx',
+    //     type: "get",
+    //     dataType: "json",
+    //     success: function (res) {
+    //         var str = '';
+    //         var bar = '';
+    //         var car = '';
+    //         var data = res.result
+            
+    //         // var result = res.result.value
+    //         for (var i=0;i< data.bs.length;i++) {   
+    //             str += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.bs[i] + "</td>";
+    //         } 
+    //         var strr = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">超期羁押人数</td>'+  str + "</tr>"
+    //         for (var i=0;i< data.ws.length;i++) {   
+    //             bar += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.ws[i] + "</td>";
+    //         }
+    //         var barr = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">超期羁押百分比</td>' + bar + "</tr>"
+    //         for (var i=0;i< data.wg.length;i++) {   
+    //             car += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.wg[i] + "</td>";
+    //         }
+    //         var carr = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">超期羁押百分比</td>' + car + "</tr>"
+    //         jlsTbody.innerHTML = strr + barr + carr; 
+    //     },error(error){
+    //         console.log(error)
+    //     }
+    // })
+    
+    $(function() {
+			$(".apply-record .tab .tab-item").click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".products .mainCont").eq($(this).index()).show().siblings().hide();
+			})
+		})
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/zdEcharts/hjdfx/hjdfx');
+</script>
+<style> 
+    *{
+        list-style: none;
+        color:#fff;
+        margin: 0px;
+        padding: 0px;
+        background:#0f375f;
+    }
+    .products .mainCont::-webkit-scrollbar {display:none}
+    .apply-record{
+        width: 100%;
+        height:100%;
+    }
+    .apply-record .tab{
+        height:60px;
+        line-height:60px;
+        border-bottom: 1px solid #00bfb7;				
+    }
+    .apply-record .tab .tab-item{
+        list-style:none;
+        display:inline-block;
+        width:100px;
+        text-align:center;
+        font-size:20px;
+        margin-right: -5px;
+        background:#d1beb8;
+    }
+    .apply-record .tab .tab-item.active{
+        color: #fff;
+        background: #8db9bf;
+        margin-right: -5px;
+    }			
+    .products .mainCont { 
+        display: none; 
+        width:100%;
+        overflow-y: scroll;
+        text-align: center;
+    } 
+    .products .mainCont.selected {
+        width:100%;
+        height:670px;
+        display: block; 
+    }
+    #hjdfx{
+        width:100%;
+        height:460px;
+    }
+    .tableBar{
+        margin-left: 70px;
+        width:1352px;
+        height:auto;
+    }
+    .cs{
+        height:40px;
+        display:flex;
+        font-size: 18px;
+        line-height:40px;
+        width: 1350px;
+        margin-top:10px;
+        margin-left: 70px;
+        border:1px solid rgb(0, 136, 201);
+    }
+    #tbodyResult{
+        height:auto;
+        width:1352px;
+        margin-left: 70px;
+        border:1px solid rgb(0, 136, 201);
+    }
+    #jlsHjdfx{
+        width:1598px;
+        height:460px;
+    }
+    .jlsTableBar{
+        margin-left: 70px;
+        width:1352px;
+        height:auto;
+    }
+    .jlscs{
+        height:40px;
+        display:flex;
+        font-size: 18px;
+        line-height:40px;
+        width: 1350px;
+        margin-top:10px;
+        margin-left: 70px;
+        border:1px solid rgb(0, 136, 201);
+    }
+    #jlsTbodyResult{
+        height:auto;
+        width:1352px;
+        margin-left: 70px;
+        border:1px solid rgb(0, 136, 201);
+    }
+</style>
+</body>
+</html>

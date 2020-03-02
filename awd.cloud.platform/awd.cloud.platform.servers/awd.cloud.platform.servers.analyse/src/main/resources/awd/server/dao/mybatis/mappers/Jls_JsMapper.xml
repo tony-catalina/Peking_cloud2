@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_JsDao">
+
+<select id="jqlist" resultType="awd.cloud.platform.servers.analyse.model.jls.JsModel" parameterType="String">
+		select * from js
+		<where>
+				state="R2"
+	            <if test="jsbh != null and jsbh != ''">
+	                and jsbh = #{jsbh}
+	            </if>
+	            <if test="jqh != null and jqh != ''">
+	                and jqh = #{jqh}
+	            </if>
+	        </where>
+	</select>
+</mapper>

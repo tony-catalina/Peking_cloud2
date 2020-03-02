@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: awd.framework.common:awd.framework.common.entity:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/common/awd.framework.common.entity/1.0-SNAPSHOT/awd.framework.common.entity-1.0-20200113.055524-12.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/common/awd.framework.common.entity/1.0-SNAPSHOT/awd.framework.common.entity-1.0-20200113.055524-12-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/common/awd.framework.common.entity/1.0-SNAPSHOT/awd.framework.common.entity-1.0-20200113.055524-12-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.all.ZYRY_ryqkDao">
+    
+    <resultMap id="ryqkMapper" type="awd.cloud.platform.servers.analyse.model.kss.BJSDY_kssModel">
+        <result property="rybh" column="RYBH"/>
+    </resultMap>
+
+    <!--案件情况-->
+    <select id="selectAjqk" resultType="java.util.HashMap">
+        select  AY as "ay" , RSRQ as "rs"  from jbxx where RYBH = #{rybh} and STATE = "R8"
+    </select>
+
+    <!--身体状况-->
+    <select id="selectStzk" resultType="java.util.HashMap">
+         select  k.XY as "xy", k.XL as "xt", to_code2zh("JKZK",j.JKZK  ) as "stzk",   k.TBSSQK as "tbsq"
+  from jkqk k LEFT JOIN jbxx j on k.GCBH = j.RYBH where j.RYBH = #{rybh} and j.STATE = "R8"
+
+    </select>
+
+   <!-- 精神状态-->
+    <select id="selectJszt" resultType="java.util.HashMap">
+        select  JSYCBZ "js" from jbxx  where RYBH = #{rybh} and STATE = "R8"
+
+    </select>
+
+    <!--风险等级-->
+  <select id="selectFxdj" resultType="java.util.HashMap" >
+	select ifnull(wxdj,0) AS "dj" from jbxx where  RYBH = #{rybh} and STATE = "R8"
+  </select>
+
+
+</mapper>

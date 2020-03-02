@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.mis.servers.dao.JbxxDao">
+    <resultMap id="JbxxResultMap" type="awd.mis.servers.entity.JbxxEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="gcbh" column="gcbh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="wbrybh" column="wbrybh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="rybh" column="rybh" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="dah" column="dah" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="jsbh" column="jsbh" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="snbh" column="snbh" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="jsh" column="jsh" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="xm" column="xm" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="xmpy" column="xmpy" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="xmpyszm" column="xmpyszm" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="bm" column="bm" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="bmty" column="bmty" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="mz" column="mz" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="gj" column="gj" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="xb" column="xb" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="csrq" column="csrq" javaType="java.util.Date" jdbcType="DATE"/>
+
+		<result property="zjlx" column="zjlx" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="zjh" column="zjh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="zzmm" column="zzmm" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="hyzk" column="hyzk" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="zuc" column="zuc" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="sg" column="sg" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="jg" column="jg" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="hjd" column="hjd" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="hjdxz" column="hjdxz" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="xzd" column="xzd" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="xzdxz" column="xzdxz" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="whcd" column="whcd" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="zc" column="zc" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="sf" column="sf" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="tssf" column="tssf" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="zy" column="zy" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="gzdw" column="gzdw" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="jkzk" column="jkzk" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="bhlx" column="bhlx" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="azb" column="azb" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="rsrq" column="rsrq" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="rsxz" column="rsxz" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="zrdw" column="zrdw" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="shid" column="shid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="sydw" column="sydw" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="syr" column="syr" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="sy" column="sy" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="byzd" column="byzd" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="sypzwsh" column="sypzwsh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="sypz" column="sypz" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="jyrq" column="jyrq" javaType="java.util.Date" jdbcType="DATE"/>
+
+		<result property="gyqx" column="gyqx" javaType="java.util.Date" jdbcType="DATE"/>
+
+		<result property="ay" column="ay" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="xhay" column="xhay" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="fzjl" column="fzjl" javaType="java.lang.String" jdbcType="LONGVARCHAR"/>
+
+		<result property="jyaq" column="jyaq" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="zxf" column="zxf" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="wxdj" column="wxdj" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="caaj" column="caaj" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="cylx" column="cylx" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="bar" column="bar" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="barjh" column="barjh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="bahj" column="bahj" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="bardh" column="bardh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="czdh" column="czdh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="zzqsrq" column="zzqsrq" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="jlrq" column="jlrq" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="dbrq" column="dbrq" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="scqsrq" column="scqsrq" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="ysfyrq" column="ysfyrq" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="badw" column="badw" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="dwlx" column="dwlx" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="hx" column="hx" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="hxqx" column="hxqx" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="csyy" column="csyy" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="csqx" column="csqx" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="cszwyz" column="cszwyz" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="cssj" column="cssj" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="xq" column="xq" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="cljg" column="cljg" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="fjx" column="fjx" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="zwbh" column="zwbh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="jcqk" column="jcqk" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="ykss" column="ykss" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="lsyy" column="lsyy" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="rygllb" column="rygllb" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="zszt" column="zszt" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="lscsyy" column="lscsyy" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="lscssj" column="lscssj" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="lscshssj" column="lscshssj" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="crjbj" column="crjbj" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="rkbhgbj" column="rkbhgbj" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="rkbhgyy" column="rkbhgyy" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="lrsfjs" column="lrsfjs" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="zyryxgqk" column="zyryxgqk" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="emlx" column="emlx" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="rsjclx" column="rsjclx" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="jj" column="jj" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="jb" column="jb" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="ldf" column="ldf" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="ygry" column="ygry" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="zdry" column="zdry" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="slaj" column="slaj" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="sykzrq" column="sykzrq" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="isjdwm" column="isjdwm" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="cypjfz" column="cypjfz" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="sfypj" column="sfypj" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="sfrz" column="sfrz" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="sfyxjslx" column="sfyxjslx" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="dagdbj" column="dagdbj" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="clsypzr" column="clsypzr" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="ryzwbj" column="ryzwbj" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="wcnbj" column="wcnbj" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="grjl" column="grjl" javaType="java.lang.String" jdbcType="LONGVARCHAR"/>
+
+		<result property="drjsr" column="drjsr" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="drjssj" column="drjssj" javaType="java.util.Date" jdbcType="DATE"/>
+
+		<result property="lastfxpgfz" column="lastfxpgfz" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="state" column="state" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="bz" column="bz" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="jsly" column="jsly" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="creator" column="creator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="updator" column="updator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="jygzzlpg" column="jygzzlpg" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="flws" column="flws" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="zyaf" column="zyaf" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="sfcxcy" column="sfcxcy" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="sffy" column="sffy" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="fyksrq" column="fyksrq" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="fyjsrq" column="fyjsrq" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="wpsflq" column="wpsflq" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="sfwxjc" column="sfwxjc" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="ywlcid" column="ywlcid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="syrdh" column="syrdh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="tabh" column="tabh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="za" column="za" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="yfh" column="yfh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="zw" column="zw" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="zwjb" column="zwjb" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="tz" column="tz" javaType="java.lang.Short" jdbcType="DECIMAL"/>
+
+		<result property="cwh" column="cwh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="tbtsbj" column="tbtsbj" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="cljgrq" column="cljgrq" javaType="java.util.Date" jdbcType="DATE"/>
+
+		<result property="pjzm" column="pjzm" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="zxtzssdrq" column="zxtzssdrq" javaType="java.util.Date" jdbcType="DATE"/>
+
+		<result property="tzcsbz" column="tzcsbz" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="je" column="je" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
+
+		<result property="jbr" column="jbr" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="jbrq" column="jbrq" javaType="java.util.Date" jdbcType="DATE"/>
+
+		<result property="sfswry" column="sfswry" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="swpgzb" column="swpgzb" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="swpgr" column="swpgr" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="swpgsj" column="swpgsj" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="jsycbz" column="jsycbz" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="ddgy" column="ddgy" javaType="java.lang.String" jdbcType="CHAR"/>
+		
+		<result property="sfswsy" column="sfswsy" javaType="java.lang.String" jdbcType="CHAR"/>
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'JbxxResultMap'"/>
+        <bind name="tableName" value="'JBXX'"/>
+        <bind name="resultJbxxMapId" value="'JbxxInfoResultMap'"/>
+        <bind name="jbxxName" value="'JBXX'"/>
+    </sql>
+	<insert id="insert" parameterType="awd.mis.servers.entity.JbxxEntity">
+		<include refid="config"/>
+		<include refid="BasicMapper.buildInsertSql"/>
+	</insert>
+
+
+	<update id="update" parameterType="awd.mis.servers.entity.JbxxEntity">
+		<include refid="config"/>
+		<include refid="BasicMapper.buildUpdateSql"/>
+	</update>
+
+	<select id="query" parameterType="awd.mis.servers.entity.JbxxEntity" resultMap="JbxxResultMap">
+		<include refid="config"/>
+		<include refid="BasicMapper.buildSelectSql"/>
+	</select>
+
+	<select id="selectByrybh" parameterType="String"  resultType="awd.mis.servers.entity.JbxxEntity">
+		select * from jbxx where rybh=#{rybh}
+	</select>
+
+	<select id="count" parameterType="awd.mis.servers.entity.JbxxEntity" resultType="int">
+		<include refid="config"/>
+		<include refid="BasicMapper.buildTotalSql"/>
+	</select>
+
+	<select id="sequid"  resultType="String">
+		<include refid="config"/>
+		<include refid="BasicMapper.buildIdSqlMysql"/>
+	</select>
+
+
+</mapper>

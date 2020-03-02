@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_WsfyDao">
+
+    <select id="wsfyCount" resultType="java.util.HashMap" parameterType="String">
+   	select count(ssdd=1 or null) dqjs,
+   	count(ssdd=2 or null) dqgc,
+   	count(ssdd=3 or null) dqqs,
+   	(select count(ssdd=1 or null) from wsfy where to_days(xdsj) = to_days(now())) jrjs,
+   	(select count(ssdd=2 or null) from wsfy where to_days(xdsj) = to_days(now())) jrgc,
+   	(select count(ssdd=3 or null) from wsfy where to_days(xdsj) = to_days(now())) jrqs,
+   	(select count(ssdd=1 or null) from wsfy where TO_DAYS( NOW( ) ) - TO_DAYS( xdsj) &lt;= 1 and TO_DAYS( NOW( ) ) - TO_DAYS( xdsj)!=0) zrjs,
+   	(select count(ssdd=2 or null) from wsfy where TO_DAYS( NOW( ) ) - TO_DAYS( xdsj) &lt;= 1 and TO_DAYS( NOW( ) ) - TO_DAYS( xdsj)!=0) zrgc,
+   	(select count(ssdd=3 or null) from wsfy where TO_DAYS( NOW( ) ) - TO_DAYS( xdsj) &lt;= 1 and TO_DAYS( NOW( ) ) - TO_DAYS( xdsj)!=0) zrqs,
+   	(select count(ssdd=1 or null) from wsfy where YEARWEEK( date_format(  xdsj,'%Y-%m-%d' ) ) = YEARWEEK( now() )) bzjs,
+   	(select count(ssdd=2 or null) from wsfy where YEARWEEK( date_format(  xdsj,'%Y-%m-%d' ) ) = YEARWEEK( now() )) bzgc,
+   	(select count(ssdd=3 or null) from wsfy where YEARWEEK( date_format(  xdsj,'%Y-%m-%d' ) ) = YEARWEEK( now() )) bzqs,
+   	(select count(ssdd=1 or null) from wsfy where YEARWEEK(date_format(xdsj,'%Y-%m-%d')) = YEARWEEK(now())-1) szjs,
+   	(select count(ssdd=2 or null) from wsfy where YEARWEEK(date_format(xdsj,'%Y-%m-%d')) = YEARWEEK(now())-1) szgc,
+   	(select count(ssdd=3 or null) from wsfy where YEARWEEK(date_format(xdsj,'%Y-%m-%d')) = YEARWEEK(now())-1) szqs from wsfy
+        <where>
+              state = 'R2'
+           <if test="starttime != null and starttime != ''">
+                and date_format(xdsj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(xdsj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

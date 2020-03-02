@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_SnjyDao">
+
+    <select id="snjyCount" resultType="java.util.HashMap" parameterType="String">
+   	select count(id) djrs,count(ypmc) pyrs from snjy 
+        <where>
+              state = 'R2'
+           <if test="starttime != null and starttime != ''">
+                and date_format(zdrq,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(zdrq,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+<!--     每月抱病 -->
+ 	<select id="snjyBym" resultType="java.util.LinkedHashMap" parameterType="String">
+	 	select count(id) sl,
+	 	substring(jsh,1,2) jq,
+	 	DATE_FORMAT(kssj,"%Y/%m") month from snjy 
+	 	<where>
+	           kssj between date_sub(now(),interval 6 month) and date_add(NOW(),interval 1 month) 
+	          <if test="jsbh != '' and jsbh != null">
+	              and jsbh = #{jsbh}
+	          </if>
+	    </where>
+	 	GROUP BY DATE_FORMAT(kssj,"%Y/%m") ,substring(jsh,1,2)+"%"
+ 	 </select>
+</mapper>

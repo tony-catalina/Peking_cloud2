@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: ${hostname:awd-mis-appstore-web}
+  cloud:
+    inetutils:
+      preferred-networks: ${hostip:192.168.4.24}
+    config:
+      uri: ${config.serviceUrl:http://192.168.4.107:3000}
+      label: ${config.lable:awd-mis-servers-manager}
+      profile: ${config.profile:dev}
+  http:
+    multipart:
+      maxFileSize: 100MB
+      maxRequestSize: 100MB
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+awd:
+  api:
+     url: http://192.168.4.24:9000

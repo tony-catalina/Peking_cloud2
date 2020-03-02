@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.JGRYSYDao">
+
+    <resultMap id="JGRYSYMapper" type="awd.cloud.platform.servers.analyse.model.kss.DsjPTModel">
+        <result property="rsrq" column="RSRQ"/>
+    </resultMap>
+
+
+
+    <!--全市被监管人员收押情况 看守所 日-->
+    <select id="select_JGRYSY" resultType="java.util.HashMap">
+        select DATE_FORMAT(RSRQ,"%Y-%m-%d") as "rq" ,count(id or null) as "sl" FROM jbxx where STATE='R8' and
+        DATEDIFF(NOW(),RSRQ) &lt; 10 and DATEDIFF(DATE_FORMAT(DATE_ADD(NOW(),INTERVAL 1 DAY),'%Y-%m-%d'),RSRQ) &gt; 0
+        GROUP BY DATE_FORMAT(RSRQ,"%Y-%m-%d")
+        ORDER BY DATE_FORMAT(RSRQ,"%Y-%m-%d")
+    </select>
+    
+
+    
+</mapper>

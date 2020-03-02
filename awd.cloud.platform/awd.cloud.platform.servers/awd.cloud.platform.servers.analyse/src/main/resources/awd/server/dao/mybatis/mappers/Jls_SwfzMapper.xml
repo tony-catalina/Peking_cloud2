@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_SwfzDao">
+
+    <select id="swfzCount" resultType="java.util.HashMap" parameterType="String">
+   select count(id) yg,count(xslx=1 or null) tb,count(xslx=2 or null) zs,
+   count(xslx=3 or null) jj,count(czqk=0 or null) ycz,
+   sum(phxsajs) phxsaj,sum(xsjlrs) xsjlrs,sum(DBRS) dbrs,
+   sum(LJRS) ljrs,sum(YSQSRS) ysqsrs,sum(QTRS) qtrs,
+   sum(xsjlrs+dbrs+ljrs+ysqsrs+qtrs) chrs,sum(BDBTJRS) bdbtjrs,
+   sum(SDBTJRS) sdbtjrs,sum(WSZTRS) wsztrs,sum(ZZJE) zzje,
+   sum(SDBTJRS+WSZTRS+BDBTJRS) ztrs from swfz
+        <where>
+              state = 'R2' and sldyj="1"
+           <if test="starttime != null and starttime != ''">
+                and date_format(jjrq,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(jjrq,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

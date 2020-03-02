@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>吸毒人员分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class="xdry">  
+        <div id="xdryfx"></div>
+        <div class="btn">
+            <div id="csBtn"></div>
+        </div>
+        
+    </div>
+<!-- <div id="xdryfx"></div> -->
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+    var echartData=[{
+                value: 2154,name: '北京'}, {
+                value: 3854,name: '东城区'}, {
+                value: 3515,name: '西城区'}, {
+                value: 3515,name: '朝阳区'}, {
+                value: 3854,name: '丰台区'}, {
+                value: 2154,name: '石景山区'},{
+                value: 3854,name: '海淀区'}, { 
+                value: 3854,name: '门头沟区'}, {
+                value: 3854,name: '房山区'},{
+                value: 3854,name: '通州区'}, {
+                value: 3515,name: '顺义区'}, {
+                value: 3515,name: '昌平区'}, {
+                value: 3854,name: '大兴区'}, {
+                value: 2154,name: '平谷区'}, {
+                value: 3854,name: '怀柔区'}, {
+                value: 3854,name: '密云区'}, {
+                value: 3854,name: '延庆区'}
+        ]
+            console.log(echartData,5555555)
+        for(var i=0;i<echartData.length;i++){
+            // console.log(echartData[i].name+'你好')
+            $('#csBtn').append('<input type="button" id="button" style="float:left;margin-right:20px;border: none;outline:none;width:71px;height:30px;margin-top:30px;text-align:center;border-radius:12px;color:#031f2d;background:#39b3c3" onclick="csBtn('+i+')" style="color:#fff;" value="'+echartData[i].name+'">')
+            
+        }
+  
+        function csBtn(i){
+            // console.log(i+'哈哈哈')
+            if(i==0){
+                console.log(0);
+                var csBtn1=[
+                {value: 201,name: '打架'}, {
+                value: 301,name: '分析法'}, {
+                value: 401,name: 'D攻防'}, {
+                value: 501,name: '突然'}, {
+                value: 601,name: '风骨'}, {
+                value: 701,name: '太阳'},{
+                value: 801,name: '沙滩'}, { 
+                value: 901,name: '高楼'}, {
+                value: 501,name: '大厦'},{
+                value: 711,name: '好烦'}, {
+                value: 521,name: '真好'}, {
+                value: 731,name: '奶片'}, {
+                value: 541,name: '薯片'}, {
+                value: 451,name: '面包'}, {
+                value: 661,name: '糖果'}, {
+                value: 571,name: '牛奶'}, {
+                value: 541,name: '益达'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+             
+            }
+            if(i==1){
+                console.log(1)
+                var csBtn1=[
+                {value: 201,name: '打架1'}, {
+                value: 301,name: '分析法1'}, {
+                value: 401,name: 'D攻防1'}, {
+                value: 501,name: '突然1'}, {
+                value: 601,name: '风骨1'}, {
+                value: 701,name: '太阳1'},{
+                value: 801,name: '沙滩1'}, { 
+                value: 901,name: '高楼1'}, {
+                value: 101,name: '大厦1'},{
+                value: 211,name: '好烦1'}, {
+                value: 221,name: '真好1'}, {
+                value: 231,name: '奶片1'}, {
+                value: 241,name: '薯片1'}, {
+                value: 251,name: '面包1'}, {
+                value: 261,name: '糖果1'}, {
+                value: 271,name: '牛奶1'}, {
+                value: 281,name: '益达1'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==2){
+                console.log(2)
+                var csBtn1=[
+                {value: 201,name: '打架2'}, {
+                value: 301,name: '分析法2'}, {
+                value: 401,name: 'D攻防2'}, {
+                value: 501,name: '突然2'}, {
+                value: 601,name: '风骨2'}, {
+                value: 701,name: '太阳2'},{
+                value: 801,name: '沙滩2'}, { 
+                value: 901,name: '高楼2'}, {
+                value: 101,name: '大厦2'},{
+                value: 211,name: '好烦2'}, {
+                value: 221,name: '真好2'}, {
+                value: 231,name: '奶片2'}, {
+                value: 241,name: '薯片2'}, {
+                value: 251,name: '面包2'}, {
+                value: 261,name: '糖果2'}, {
+                value: 271,name: '牛奶2'}, {
+                value: 281,name: '益达2'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==3){
+                console.log(3)
+                var csBtn1=[
+                {value: 201,name: '打架3'}, {
+                value: 301,name: '分析法3'}, {
+                value: 401,name: 'D攻防3'}, {
+                value: 501,name: '突然3'}, {
+                value: 601,name: '风骨3'}, {
+                value: 701,name: '太阳3'},{
+                value: 801,name: '沙滩3'}, { 
+                value: 901,name: '高楼3'}, {
+                value: 101,name: '大厦3'},{
+                value: 211,name: '好烦3'}, {
+                value: 221,name: '真好3'}, {
+                value: 231,name: '奶片3'}, {
+                value: 241,name: '薯片3'}, {
+                value: 251,name: '面包3'}, {
+                value: 261,name: '糖果3'}, {
+                value: 271,name: '牛奶3'}, {
+                value: 281,name: '益达3'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==4){
+                console.log(4)
+                var csBtn1=[
+                {value: 201,name: '打架4'}, {
+                value: 301,name: '分析法4'}, {
+                value: 401,name: 'D攻防4'}, {
+                value: 501,name: '突然4'}, {
+                value: 601,name: '风骨4'}, {
+                value: 701,name: '太阳4'},{
+                value: 801,name: '沙滩4'}, { 
+                value: 901,name: '高楼4'}, {
+                value: 101,name: '大厦4'},{
+                value: 211,name: '好烦4'}, {
+                value: 221,name: '真好4'}, {
+                value: 231,name: '奶片4'}, {
+                value: 241,name: '薯片4'}, {
+                value: 251,name: '面包4'}, {
+                value: 261,name: '糖果4'}, {
+                value: 271,name: '牛奶4'}, {
+                value: 281,name: '益达4'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==5){
+                console.log(5)
+                var csBtn1=[
+                {value: 201,name: '打架5'}, {
+                value: 301,name: '分析法5'}, {
+                value: 401,name: 'D攻防5'}, {
+                value: 501,name: '突然5'}, {
+                value: 601,name: '风骨5'}, {
+                value: 701,name: '太阳5'},{
+                value: 801,name: '沙滩5'}, { 
+                value: 901,name: '高楼5'}, {
+                value: 101,name: '大厦5'},{
+                value: 211,name: '好烦5'}, {
+                value: 221,name: '真好5'}, {
+                value: 231,name: '奶片5'}, {
+                value: 241,name: '薯片5'}, {
+                value: 251,name: '面包5'}, {
+                value: 261,name: '糖果5'}, {
+                value: 271,name: '牛奶5'}, {
+                value: 281,name: '益达5'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==6){
+                console.log(6)
+                var csBtn1=[
+                {value: 201,name: '打架6'}, {
+                value: 301,name: '分析法6'}, {
+                value: 401,name: 'D攻防6'}, {
+                value: 501,name: '突然6'}, {
+                value: 601,name: '风骨6'}, {
+                value: 701,name: '太阳6'},{
+                value: 801,name: '沙滩6'}, { 
+                value: 901,name: '高楼6'}, {
+                value: 101,name: '大厦6'},{
+                value: 211,name: '好烦6'}, {
+                value: 221,name: '真好6'}, {
+                value: 231,name: '奶片6'}, {
+                value: 241,name: '薯片6'}, {
+                value: 251,name: '面包6'}, {
+                value: 261,name: '糖果6'}, {
+                value: 271,name: '牛奶6'}, {
+                value: 281,name: '益达6'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==7){
+                console.log(7)
+                var csBtn1=[
+                {value: 201,name: '打架7'}, {
+                value: 301,name: '分析法7'}, {
+                value: 401,name: 'D攻防7'}, {
+                value: 501,name: '突然7'}, {
+                value: 601,name: '风骨7'}, {
+                value: 701,name: '太阳7'},{
+                value: 801,name: '沙滩7'}, { 
+                value: 901,name: '高楼7'}, {
+                value: 101,name: '大厦7'},{
+                value: 211,name: '好烦7'}, {
+                value: 221,name: '真好7'}, {
+                value: 231,name: '奶片7'}, {
+                value: 241,name: '薯片7'}, {
+                value: 251,name: '面包7'}, {
+                value: 261,name: '糖果7'}, {
+                value: 271,name: '牛奶7'}, {
+                value: 281,name: '益达7'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==8){
+                console.log(8)
+                var csBtn1=[
+                {value: 201,name: '打架8'}, {
+                value: 301,name: '分析法8'}, {
+                value: 401,name: 'D攻防8'}, {
+                value: 501,name: '突然8'}, {
+                value: 601,name: '风骨8'}, {
+                value: 701,name: '太阳8'},{
+                value: 801,name: '沙滩8'}, { 
+                value: 901,name: '高楼8'}, {
+                value: 101,name: '大厦8'},{
+                value: 211,name: '好烦8'}, {
+                value: 221,name: '真好8'}, {
+                value: 231,name: '奶片8'}, {
+                value: 241,name: '薯片8'}, {
+                value: 251,name: '面包8'}, {
+                value: 261,name: '糖果8'}, {
+                value: 271,name: '牛奶8'}, {
+                value: 281,name: '益达8'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==9){
+                console.log(9)
+                var csBtn1=[
+                {value: 201,name: '打架9'}, {
+                value: 301,name: '分析法9'}, {
+                value: 401,name: 'D攻防9'}, {
+                value: 501,name: '突然9'}, {
+                value: 601,name: '风骨9'}, {
+                value: 701,name: '太阳9'},{
+                value: 801,name: '沙滩9'}, { 
+                value: 901,name: '高楼9'}, {
+                value: 101,name: '大厦9'},{
+                value: 211,name: '好烦9'}, {
+                value: 221,name: '真好9'}, {
+                value: 231,name: '奶片9'}, {
+                value: 241,name: '薯片9'}, {
+                value: 251,name: '面包9'}, {
+                value: 261,name: '糖果9'}, {
+                value: 271,name: '牛奶9'}, {
+                value: 281,name: '益达9'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==10){
+                console.log(10)
+                var csBtn1=[
+                {value: 201,name: '打架10'}, {
+                value: 301,name: '分析法10'}, {
+                value: 401,name: 'D攻防10'}, {
+                value: 501,name: '突然10'}, {
+                value: 601,name: '风骨10'}, {
+                value: 701,name: '太阳10'},{
+                value: 801,name: '沙滩10'}, { 
+                value: 901,name: '高楼10'}, {
+                value: 101,name: '大厦10'},{
+                value: 211,name: '好烦10'}, {
+                value: 221,name: '真好10'}, {
+                value: 231,name: '奶片10'}, {
+                value: 241,name: '薯片10'}, {
+                value: 251,name: '面包10'}, {
+                value: 261,name: '糖果10'}, {
+                value: 271,name: '牛奶10'}, {
+                value: 281,name: '益达10'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==11){
+                console.log(11)
+                var csBtn1=[
+                {value: 201,name: '打架11'}, {
+                value: 301,name: '分析法11'}, {
+                value: 401,name: 'D攻防11'}, {
+                value: 501,name: '突然11'}, {
+                value: 601,name: '风骨11'}, {
+                value: 701,name: '太阳11'},{
+                value: 801,name: '沙滩11'}, { 
+                value: 901,name: '高楼11'}, {
+                value: 101,name: '大厦11'},{
+                value: 211,name: '好烦11'}, {
+                value: 221,name: '真好11'}, {
+                value: 231,name: '奶片11'}, {
+                value: 241,name: '薯片11'}, {
+                value: 251,name: '面包11'}, {
+                value: 261,name: '糖果11'}, {
+                value: 271,name: '牛奶11'}, {
+                value: 281,name: '益达11'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==12){
+                console.log(12)
+                var csBtn1=[
+                {value: 201,name: '打架12'}, {
+                value: 301,name: '分析法12'}, {
+                value: 401,name: 'D攻防12'}, {
+                value: 501,name: '突然12'}, {
+                value: 601,name: '风骨12'}, {
+                value: 701,name: '太阳12'},{
+                value: 801,name: '沙滩12'}, { 
+                value: 901,name: '高楼12'}, {
+                value: 101,name: '大厦12'},{
+                value: 211,name: '好烦12'}, {
+                value: 221,name: '真好12'}, {
+                value: 231,name: '奶片12'}, {
+                value: 241,name: '薯片12'}, {
+                value: 251,name: '面包12'}, {
+                value: 261,name: '糖果12'}, {
+                value: 271,name: '牛奶12'}, {
+                value: 281,name: '益达12'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==13){
+                console.log(13)
+                var csBtn1=[
+                {value: 201,name: '打架13'}, {
+                value: 301,name: '分析法13'}, {
+                value: 401,name: 'D攻防13'}, {
+                value: 501,name: '突然13'}, {
+                value: 601,name: '风骨13'}, {
+                value: 701,name: '太阳13'},{
+                value: 801,name: '沙滩13'}, { 
+                value: 901,name: '高楼13'}, {
+                value: 101,name: '大厦13'},{
+                value: 211,name: '好烦13'}, {
+                value: 221,name: '真好13'}, {
+                value: 231,name: '奶片13'}, {
+                value: 241,name: '薯片13'}, {
+                value: 251,name: '面包13'}, {
+                value: 261,name: '糖果13'}, {
+                value: 271,name: '牛奶13'}, {
+                value: 281,name: '益达13'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==14){
+                console.log(14)
+                var csBtn1=[
+                {value: 201,name: '打架14'}, {
+                value: 301,name: '分析法14'}, {
+                value: 401,name: 'D攻防14'}, {
+                value: 501,name: '突然14'}, {
+                value: 601,name: '风骨14'}, {
+                value: 701,name: '太阳14'},{
+                value: 801,name: '沙滩14'}, { 
+                value: 901,name: '高楼14'}, {
+                value: 101,name: '大厦14'},{
+                value: 211,name: '好烦14'}, {
+                value: 221,name: '真好14'}, {
+                value: 231,name: '奶片14'}, {
+                value: 241,name: '薯片14'}, {
+                value: 251,name: '面包14'}, {
+                value: 261,name: '糖果14'}, {
+                value: 271,name: '牛奶14'}, {
+                value: 281,name: '益达14'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==15){
+                console.log(15)
+                var csBtn1=[
+                {value: 201,name: '打架15'}, {
+                value: 301,name: '分析法15'}, {
+                value: 401,name: 'D攻防15'}, {
+                value: 501,name: '突然15'}, {
+                value: 601,name: '风骨15'}, {
+                value: 701,name: '太阳15'},{
+                value: 801,name: '沙滩15'}, { 
+                value: 901,name: '高楼15'}, {
+                value: 101,name: '大厦15'},{
+                value: 211,name: '好烦15'}, {
+                value: 221,name: '真好15'}, {
+                value: 231,name: '奶片15'}, {
+                value: 241,name: '薯片15'}, {
+                value: 251,name: '面包15'}, {
+                value: 261,name: '糖果15'}, {
+                value: 271,name: '牛奶15'}, {
+                value: 281,name: '益达15'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+            if(i==16){
+                console.log(16)
+                var csBtn1=[
+                {value: 201,name: '打架16'}, {
+                value: 301,name: '分析法16'}, {
+                value: 401,name: 'D攻防16'}, {
+                value: 501,name: '突然16'}, {
+                value: 601,name: '风骨16'}, {
+                value: 701,name: '太阳16'},{
+                value: 801,name: '沙滩16'}, { 
+                value: 901,name: '高楼16'}, {
+                value: 101,name: '大厦16'},{
+                value: 211,name: '好烦16'}, {
+                value: 221,name: '真好16'}, {
+                value: 231,name: '奶片16'}, {
+                value: 241,name: '薯片16'}, {
+                value: 251,name: '面包16'}, {
+                value: 261,name: '糖果16'}, {
+                value: 271,name: '牛奶16'}, {
+                value: 281,name: '益达16'}
+                ]
+                console.log(csBtn1)
+                // var myChar = echarts.init(document.getElementById('xdryfx'));
+                var option={
+                    legend: {
+                        formatter: function(name) {
+                            var total = 0;
+                            var averagePercent;
+                            csBtn1.forEach(function(value, index, array) {
+                                total += value.value;
+                            });
+                            return '{total|' + total + '}';
+                        },
+                        data: [csBtn1[0].name],
+                    },
+                    series: [{
+                        label:{
+                            normal: {
+                                formatter: function(params, ticket, callback) {
+                                    var total = 0;
+                                    var percent = 0;
+                                    csBtn1.forEach(function(value, index, array) {
+                                        total += value.value;
+                                    });
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                                },
+                            },
+                        },
+                        data: csBtn1
+                    }]
+                }
+                var myChar = echarts.init(document.getElementById('xdryfx'));
+                myChar.setOption(option);
+            }
+
+
+        }
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/kss/xdryfx/xdryfx');
+</script>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    .xdry{
+        display:flex;
+        background:#031f2d;
+    }
+    .btn{
+        width: 20%;
+        height: 730px;
+        color:white;
+        background:#031f2d;
+        /* padding-top:150px; */
+    }
+    #csBtn{
+        margin-top:100px;
+        width:60%;
+        /* height: 730px; */
+    }
+    #csbtn:last-child{
+        border:1px solid red;
+    }
+    #xdryfx{
+        width: 80%;
+        height: 730px;
+        /* border:1px solid green; */
+    }
+</style>
+</body>
+</html>

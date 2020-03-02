@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+	<meta name="renderer" content="webkit"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="keywords" content="spring cloud,看守所,拘留所,戒毒所,安康医院,监管总队,南京安威德" />
+	<meta name="generator" content="监管应用云平台"/>
+	<meta name="author" content="306165699@qq.com" />
+	<meta name="copyright" content="www.njawd.com" />
+	
+	<title>监管应用云平台--南京安威德科技有限公司</title>
+	<link href="./images/common/favicon.ico" rel="Shortcut Icon"/>
+	<link href="./js/lib/picasa/style/style.css" rel="stylesheet"/>
+	<link href="./style/common.css" rel="stylesheet"/>
+	<link href="./style/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+	<!--[if IE 7]>
+	<link rel="stylesheet" href="./style/font-awesome/css/font-awesome-ie7.css"/>
+	<![endif]-->
+
+	
+	<link rel="stylesheet" href="./style/skin/base/app_explorer.css"/>
+	<link rel="stylesheet" href="./style/skin/${userconfig.theme}.css" id='link_css_list'/>
+	
+</head>
+
+<style>
+	<%if(isNotEmpty(type)){%>
+	.topbar,.common_footer,.bottom_box{display:none;}
+	.frame-header{top:0;}
+	.frame-main{top:0px;bottom:0px;}
+	.frame-main .frame-left #folderList{bottom:0px !important;}
+	<%if(type=="explorer"){%>
+		.frame-header .header-content .header-left{display:none;}
+		.frame-header .header-content .header-middle{left:12px;}
+		.frame-main .frame-left,.frame-main .frame-resize{display:none;}
+		.frame-main .frame-right{left:0px;}
+		.task_tab{display:none;}
+	<%}%>
+	<%if(type=="file_list"){%>
+		.frame-header{display:none;}
+		.frame-main .frame-left,.frame-main .frame-resize{display:none;}
+		.frame-main .frame-right{left:0px;}
+		.frame-main{top:0px;}
+		.task_tab,#set_theme,#fav,#home{display:none !important;}
+		.header-middle{top:3px;left:5px;right:140px;}
+		#list_type_list{top:35px;}
+	<%}%>
+	<%}%>
+</style>
+
+
+<body style="overflow:hidden;" oncontextmenu="return core.contextmenu();" id="page_explorer">
+	<%if(isEmpty(type)){%>
+	<%include("../common/navbar.html"){}%>
+	<%}%>
+	<div class="frame-main">
+	<div class='frame-left'>
+		<ul id="folderList" class="ztree"></ul>
+		<div class="bottom_box">
+			<div class="user_space_info"></div>
+			<div class="box_content">
+				<div class="cell menuRecycleButton"><i class="font-icon icon-trash"></i><span>回收站</span></div>
+				<div class="cell menuShareButton"><i class="font-icon icon-share-sign"></i><span>我的公文</span></div>
+				<div style="clear:both"></div>
+			</div>
+		</div>
+	</div><!-- / frame-left end-->
+	
+	<div class='frame-resize'></div>
+	<div class='frame-right'>
+		<div class="frame-header">
+			<div class="header-content">
+				<div class="header-left">
+					<div class="btn-group btn-group-sm">
+						<button class="btn btn-default" id='history_back' title='后退' type="button">
+							<i class="font-icon icon-angle-left"></i>
+						</button>
+						<button class="btn btn-default" id='history_next' title='前进' type="button">
+							<i class="font-icon icon-angle-right"></i>
+						</button>
+					</div>
+				</div><!-- /header left -->
+
+				<div class='header-middle'>
+					<button class="btn btn-default btn-left-radius ml-10" id='home' title='我的文档'>
+						<i class="font-icon icon-home"></i>
+					</button>
+					<div id='yarnball' title="点击进入编辑状态"></div>
+					<div id='yarnball_input'><input type="text" name="path" value="" class="path" id="path"/></div>
+
+					<button class="btn btn-default" id='fav' title='添加到收藏夹' type="button">
+						<i class="font-icon icon-star"></i>
+					</button>
+					<!-- <button class="btn btn-default" id='refresh' title='强制刷新' type="button">
+						<i class="font-icon icon-refresh"></i>
+					</button> -->
+					<button class="btn btn-default btn-right-radius" id='goto_father' title='上层' type="button">
+						<i class="font-icon icon-circle-arrow-up"></i>
+					</button>
+					<!-- <div class="path_tips" title='该目录没有写权限<br/>可以在服务器设置此目录的权限'>
+						<i class="icon-warning-sign"></i>
+					</div>-->
+					<div class="role_label_box"></div>
+				</div><!-- /header-middle end-->		
+				<div class='header-right'>
+					<input type="text" name="seach" class="btn-left-radius"/>
+					<button class="btn btn-default btn-right-radius" id='search' title='搜索' type="button">
+						<i class="font-icon icon-search"></i>
+					</button>
+				</div>
+			</div>
+		</div><!-- / header end -->
+		<div class="frame-right-main">
+			<div class="tools">
+				<div class="tools-left tools-left-share    hidden">
+					<!-- 文件功能 -->
+					<div class="btn-group btn-group-sm awd_path_tool">
+						<button id='selectAll' class="btn btn-default" type="button">
+							<i class="font-icon icon-check"></i>全选						</button>
+						<button id='upload' class="btn btn-default" type="button">
+							<i class="font-icon icon-cloud-upload"></i>上传						</button>
+						
+						<button id='download' class="btn btn-default" type="button">
+							<i class="font-icon icon-download"></i>下载						</button>					        				        
+					</div>
+					<span class='msg'>载入中...</span>
+					<div class="clear"></div>
+				</div>
+				<div class="tools-left tools-left-explorer ">
+					<!-- 回收站tool -->
+					<div class="btn-group btn-group-sm awd_recycle_tool hidden fl-left">
+						<button id='recycle_clear' class="btn btn-default" type="button">
+				        	<i class="font-icon icon-folder-close-alt"></i>清空回收站				        </button>
+					</div>
+
+					<!-- 分享 tool -->
+					<div class="btn-group btn-group-sm awd_share_tool hidden fl-left">
+						<button id='refresh' class="btn btn-default" type="button">
+				        	<i class="font-icon icon-refresh"></i>刷新				        </button>
+					</div>
+
+					<!-- 文件功能 -->
+					<div class="btn-group btn-group-sm awd_path_tool fl-left">
+				        <button id='newfolder' class="btn btn-default" type="button">
+				        	<i class="font-icon icon-folder-close-alt"></i>新建文件夹	        </button>
+				        <button id='newfile' class="btn btn-default" type="button">
+				        	<i class="font-icon icon-file-alt"></i>新建文件				        </button>
+				        <button id='upload' class="btn btn-default" type="button">
+				        	<i class="font-icon icon-cloud-upload"></i>上传				        </button>
+
+				        <div class="btn-group btn-group-sm">
+						    <button type="button" class="btn btn-default btn-sm toolPathMore">
+						      <i class="font-icon icon-ellipsis-horizontal"></i>更多&nbsp;<span class="caret"></span>
+						    </button>
+						</div>
+						<div class="group_space_use fl-left hidden"></div>
+						<div class="admin_real_path hidden fl-left ml-10">
+							<button type="button" class="btn btn-default btn-sm dlg_goto_path"  title="进入所在目录">
+								<i class="font-icon icon-folder-open"></i>
+							</button>
+		                </div>
+						<span class='msg fl-left'>载入中...</span>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="tools-right">
+					<div class="btn-group btn-group-sm">
+					  <button id='set_icon' title="图标排列" type="button" class="btn btn-default <%if(userconfig.list_type=='icon'){%>active<%}%>">
+					  	<i class="font-icon icon-th"></i>
+					  </button>
+					  <button id='set_list' title="列表排列" type="button" class="btn btn-default <%if(userconfig.list_type=='list'){%>active<%}%>">
+					  	<i class="font-icon icon-list"></i>
+					  </button>
+					  <button id='set_list_split' title="分栏模式" type="button" class="btn btn-default <%if(userconfig.list_type=='split'){%>active<%}%>">
+					  	<i class="font-icon icon-columns"></i>
+					  </button>
+
+					  <div class="btn-group btn-group-sm menu-theme-list">
+					    <button id="set_theme" title="主题设置" type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+					      <i class="font-icon icon-dashboard"></i>&nbsp;&nbsp;<span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu pull-right dropdown-menu-theme animated menuShow">
+						    <li class='list' theme='mac'><a href='javascript:void(0);'>Mac 简约白</a></li>
+							<li class='list' theme='win10'><a href='javascript:void(0);'>Windows 10</a></li>
+							<li class='list' theme='win7'><a href='javascript:void(0);'>Windows 7</a></li>
+							<li class='list' theme='metro'><a href='javascript:void(0);'>Metro 经典蓝</a></li>
+							<li class='list' theme='metro_green'><a href='javascript:void(0);'>Metro 淡绿</a></li>
+							<li class='list' theme='metro_purple'><a href='javascript:void(0);'>Metro 高雅紫</a></li>
+							<li class='list' theme='metro_pink'><a href='javascript:void(0);'>Metro 玫红</a></li>
+							<li class='list' theme='metro_orange'><a href='javascript:void(0);'>Metro 亮橙</a></li>
+							<li class='list' theme='alpha_image'><a href='javascript:void(0);'>炫彩——飞扬</a></li>
+							<li class='list' theme='alpha_image_sun'><a href='javascript:void(0);'>炫彩——夕阳</a></li>
+							<li class='list' theme='alpha_image_sky'><a href='javascript:void(0);'>炫彩——蓝天</a></li>
+							<li class='list' theme='diy'><a href='javascript:void(0);'><b>自定义</b></a></li>
+					    </ul>
+					  </div>
+					</div>
+					<div class="set_icon_size">
+						<span class="dropdown-toggle" data-toggle="dropdown">
+					    	<i class="font-icon icon-zoom-in"></i>
+					    </span>
+					    <ul class="dropdown-menu set_icon_size_slider animated menuShow">
+						    <div class="slider_bg"></div>
+						    <div class="slider_handle"></div>
+					    </ul>
+					</div>
+				</div>
+				<div style="clear:both"></div>
+			</div><!-- end tools -->
+			<div id='list_type_list' class="hidden">
+				<div id="main_title">
+					<div class="filename" field="name">名称<span></span></div><div class="resize filename_resize"></div>
+					<div class="filetype" field="ext">类型<span></span></div><div class="resize filetype_resize"></div>
+					<div class="filesize" field="size">大小<span></span></div><div class="resize filesize_resize"></div>
+					<div class="filetime" field="mtime">修改时间<span></span></div><div class="resize filetime_resize"></div>
+					<div style="clear:both"></div>
+				</div>
+			</div>
+			</div><!-- list type 列表排序方式 -->
+
+			<div class='bodymain html5_drag_upload_box menuBodyMain'>
+				<div class="list_split_box hidden">
+					<div class="split_line"></div>
+					<div class="split_line"></div>
+					<div class="split_line"></div>
+					<div class="split_line"></div>
+					<div class="split_line"></div>
+					<div class="split_line"></div>
+					<div class="split_line"></div>
+					<div class="split_line"></div>
+					<div class="split_line"></div>
+					<div class="split_line"></div>
+				</div>
+				<div class="fileContiner fileList_${userconfig.list_type}" ></div>
+				<div class="fileContinerMore"></div>
+			</div><!-- html5拖拽上传list -->
+			<div class="file_select_info">
+				<span class="item_num"></span>
+				<span class="item_select"></span>
+			</div>
+		</div>
+	</div><!-- / frame-right end-->
+	<!-- / frame-main end-->
+
+	<%include("../common/footer.html"){}%>
+
+	<style type="text/css" id="setting_system_global_css"></style>
+
+	<script type="text/javascript" src="./js/lib/seajs/sea.js?ver=3.460"></script>
+	<%include("../user/common_js.html"){}%>
+	<script type="text/javascript">
+		G.this_path = G.my_desktop;
+		seajs.config({
+			base: "./js/",
+			preload: ["lib/jquery-1.8.0.min"],
+			map:[
+				[ /^(.*\.(?:css|js))(.*)$/i,'$1$2?ver='+G.version]
+			]
+		});
+		seajs.use("app/src/explorer/main");
+	</script>
+</body>
+</html>
+
+

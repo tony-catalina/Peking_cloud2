@@ -1,0 +1,2927 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>监管应用中心</title>
+	<link rel="icon" href="../assets/img/fengche.png" sizes="96x96">
+	<script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.form.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap-paginator.js"></script>
+	<script type="text/javascript" src="./js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap-table.js"></script>
+	<script type="text/javascript" src="./js/bootstrap-select.js"></script>
+	<script type="text/javascript" src="./js/bootstrap-datetimepicker.zh-CN.js"></script>
+	<script type="text/javascript" src="./js/bootstrapValidator.js"></script>
+	<script type="text/javascript" src="./js/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript" src="./js/api.js"></script>
+	<script type="text/javascript" src="./js/zh_CN.js"></script>
+	<script type="text/javascript" src="./ZTree/js/jquery.ztree.core.js"></script>
+
+
+	<script src="../js/appjs/global.js"></script>
+	<script src="../js/appjs/app.common.js"></script>
+	<script type="text/javascript" src="./js/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript" src="./js/api.js"></script>
+	<link href="./style/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="./style/css/zzc/zzcstyle.css" rel="stylesheet" type="text/css" />
+	<link href="./style/css/icon.css" rel="stylesheet" type="text/css" />
+	<link href="./style/css/icon.css" rel="stylesheet" type="text/css" />
+
+	<link href="./style/css/icon.css" rel="stylesheet" type="text/css" />
+	<link href="./style/bootstrap/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+	<link href="./style/bootstrap/bootstrap-select.css" rel="stylesheet" type="text/css" />
+	<link href="./style/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="./ZTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../css/common/header.css">
+	<style type="text/css">
+		.table th {
+			text-align: center;
+		}
+
+		sup {
+			background: #FF4500;
+			color: white;
+			border-radius: 5px;
+			/*圆角*/
+			padding: 0px 3px;
+			/*左右边距*/
+		}
+
+		/*  element.style{
+            width: 89% !important;
+        }  */
+		element.style .form-group {
+			width: 120% !important;
+		}
+
+		.btn-item-app {
+			vertical-align: middle;
+			letter-spacing: .01785714em;
+			font-family: 'Google Sans', Roboto, Arial, sans-serif;
+			font-size: .875rem;
+			font-weight: 300;
+			line-height: 1.1rem;
+			color: #3c4043;
+			padding: 22px 0 10px 19px;
+			text-shadow: none;
+			cursor: pointer;
+			margin-left: -15px;
+		}
+
+
+		.header-container .header-nr .header-logo .logo-main .logo {
+			-webkit-flex-shrink: 0;
+			flex-shrink: 0;
+			float: left;
+			margin-top: 16px;
+		}
+
+		.header-container .header-nr .dper-x-y .x-y-ff-c .hs-set {
+			background: none;
+			cursor: pointer;
+			display: block;
+			height: 24px;
+			text-indent: 0;
+			width: 24px;
+			margin-top: 20px;
+
+		}
+
+		.btn-asd-app .btn-item-app-active,
+		.btn-asd-app .btn-item-app-active:hover,
+		.btn-asd-app .btn-item-app-active:focus {
+			background: #1a73e8;
+			-webkit-border-radius: 0 100px 100px 0;
+			border-radius: 0 100px 100px 0;
+			text-shadow: 0 -1px rgba(0, 0, 0, 0.2);
+			color: #fff;
+
+		}
+
+		.yyxqpadding {
+			padding-left: 0px !important;
+		}
+
+		.dropdown-menu {
+			left: -211%;
+			padding-left: 23px;
+		}
+
+		.col-xs-12 .pagination {
+			margin: 0 0 19px !important;
+		}
+
+		.roww {
+			margin-right: 0 !important;
+		}
+
+		/* 小心应用审批的搜索框 */
+		.pull-left {
+			padding: 10px 0;
+		}
+	</style>
+
+</head>
+
+<body style="height: 100%">
+	<% include("/common/header1.html"){}%>
+	<div class="row roww" style="height: 100%;padding-top: 66px;">
+		<div class="col-sm-2 col-md-2 col-lg-2"
+			style="padding-right:0px;height: 100%;background:#E8E8E8;border-right:1px solid #B8B8B8">
+			<div id="sidebar">
+				<div class="sidebar-inner btn-asd-app">
+					<ul id="sideNav" class="nav nav-pills nav-stacked ">
+						<div btn-item-app id="yysp" style="font-size:15px;height: 48px; "
+							class="btn-item-app flex btn-item-app-active">
+							<input hidden name="classfic" value="1" type="radio" />
+							<label style="width:200px;font-weight:normal;" data-toggle="modal">
+								<p style="float:left;margin-left:7%;margin-top:4%;">
+									<li id="jksp"><i class="fa-align-justify"></i>应用审批</li>
+								</p>
+							</label>
+						</div>
+
+						<div btn-item-app id="csxx" style="font-size:15px;height: 48px; " class="btn-item-app flex ">
+							<input hidden name="classfic" value="1" type="radio" />
+							<label style="width:200px;font-weight:normal;" data-toggle="modal">
+								<p style="float:left;margin-left:7%;margin-top:4%;">
+									<li id="csxxwh"><i class="fa-pencil"></i>厂商信息维护</li>
+								</p>
+							</label>
+						</div>
+
+						<!-- <li><a href="#" data-toggle="modal"
+                            data-target="#addAppModal"><i class="fa-pencil"></i>发布应用</a></li> -->
+						<!--					<li id="xjyy"><a href="#"><i class="fa-pencil"></i><span name="inlineRadioOptions" value="option6" id="xj">下架应用</span></a></li>-->
+						<div btn-item-app id="xjyys" style="font-size:15px;height: 48px;" class="btn-item-app flex ">
+							<input hidden name="inlineRadioOptions" value="option6" type="radio" />
+							<label style="width:200px;font-weight:normal;" data-toggle="modal">
+								<p style="float:left;margin-left:7%;margin-top:4%;">
+									<li id="xjyy"><i class="fa-pencil"></i><span name="inlineRadioOptions"
+											value="option6" id="xj">下架应用</span></li>
+								</p>
+							</label>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-10 col-md-10 col-lg-10 ">
+
+			<div class="row roww" id="content" style="height: 690px;overflow: auto;">
+
+				<div id="csxxwhBlock" style="display:none;">
+					<div class="row roww form-inline" style="margin: 10px">
+						<div class="col-xs-10">
+							登录名：<input id="loginname" type="text" class="form-control" placeholder="">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=""
+								id="query1">查询</button>
+							<button type="button" class="btn btn-primary" data-toggle="modal"
+								data-target="#addConpyModal">新增</button>
+							<button type="button" class="btn btn-primary" data-toggle="modal"
+								id="updateUser">修改</button>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=""
+								id="deleteUser">删除</button>
+						</div>
+					</div>
+					<table style="text-align: center;height: 70%" class="table table-hover table-bordered"
+						id="userinfo">
+						<thead>
+							<tr>
+								<th width="12.5%"><input type="checkbox" id="user" class="group-checkable"
+										data-set="#userinfo .checkboxes" /></th>
+								<th width="12.5%">序号</th>
+								<th class="hidden-xs" width="12.5%" data-field="loginname">登录名</th>
+								<th class="hidden-xs" width="12.5%" data-field="sfzh">身份证号</th>
+								<th class="hidden-xs" width="12.5%" data-field="realname">真实姓名</th>
+								<th class="hidden-xs" width="12.5%" data-field="email">Email</th>
+							</tr>
+						</thead>
+					</table>
+					<div id="csxxPage"></div>
+				</div>
+
+
+
+
+				<div id="xjyyBlock" style="display: none;">
+					<div class="col-xs-12">
+						<div class="row roww form-inline" style="margin: 10px">
+							<div class="col-xs-10">
+								应用名：<input id="name" type="text" class="form-control" placeholder="">
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target=""
+									id="queryapp">查询</button>
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target=""
+									id="appsj">上架</button>
+							</div>
+						</div>
+						<table style="text-align: center;height: 70%" class="table table-hover table-bordered"
+							id="xjApp">
+							<thead>
+								<tr>
+									<th width="12.5%"><input type="checkbox" id="xcc" class="group-checkable"
+											data-set="#table .checkboxes" /></th>
+									<th width="12.5%">序号</th>
+									<th class="hidden-xs" width="12.5%" data-field="name">应用名称</th>
+									<th class="hidden-xs" width="12.5%" data-field="version">版本号</th>
+									<th class="hidden-xs" width="12.5%" data-field="type">应用类型</th>
+									<th class="hidden-xs" width="12.5%" data-field="zone">使用范围</th>
+									<th class="hidden-xs" width="12.5%" data-field="url">访问地址</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+				<div id="jkspBlock">
+					<div class="row roww form-inline" style="margin: 10px">
+						<div class="col-xs-15">
+							<ul id="myTab" class="nav nav-tabs">
+								<li class="active"><a class="text-primary" href="#clear1" data-toggle="tab"> <span
+											class="glyphicon glyphicon-th-large" value="option1" id="all">全部应用<sup
+												id="alls"></sup></span></a></li>
+								<li><a class="text-primary" href="#clear2" data-toggle="tab"> <span
+											class="glyphicon glyphicon-pencil" name="inlineRadioOptions" value="option2"
+											id="sp">审批应用<sup id="sps"></sup></span></a></li>
+								<li><a class="text-primary" href="#clear3" data-toggle="tab"> <span
+											class="glyphicon glyphicon-ok-circle" value="option4" id="yfb">已上线应用<sup
+												id="fbs"></sup></span></a></li>
+							</ul>
+						</div>
+					</div>
+
+
+					<div id="myTabContent" class="tab-content">
+
+						<div class="tab-pane fade in active" id="clear1">
+							<div class="row roww form-inline" style="margin: 10px">
+								<div class="col-xs-10">
+									应用名称：<input type="text" class="form-control" placeholder="" name=cx id="cx"> <button
+										type="button" class="btn btn-primary" data-toggle="modal" data-target=""
+										id="queryallapp">查询</button>
+								</div>
+							</div>
+
+							<div class="col-xs-12">
+
+								<table style="text-align: center;height: 70%" class="table table-hover table-bordered"
+									id="alltable">
+									<thead>
+										<tr>
+											<th width="12.5%"><input type="checkbox" id="xcc" class="group-checkable"
+													data-set="#table .checkboxes" /></th>
+											<th width="12.5%">序号</th>
+											<th class="hidden-xs" width="12.5%" data-field="name">应用名称</th>
+											<th class="hidden-xs" width="12.5%" data-field="version">版本号</th>
+											<th class="hidden-xs" width="12.5%" data-field="typestring">应用类型</th>
+											<th class="hidden-xs" width="12.5%" data-field="zone">使用范围</th>
+											<th class="hidden-xs" width="12.5%" data-field="url">下载地址</th>
+										</tr>
+									</thead>
+
+								</table>
+							</div>
+							<div id="allPage"></div>
+
+						</div>
+						<!--审批应用  -->
+						<div class="tab-pane fade" id="clear2">
+
+
+							<div class="row roww form-inline" style="margin: 10px">
+								<div class="col-xs-10">
+									应用名称：<input type="text" class="form-control" placeholder="" id="querysp"> <button
+										type="button" class="btn btn-primary" data-toggle="modal" data-target=""
+										id="queryspapp">查询</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									审批应用
+									<button type="button" class="btn btn-primary" id="y" value="yes">通过</button>
+									<button type="button" class="btn btn-primary" id="n" value="no">不通过</button>
+									<button type="button" class="btn btn-primary" id="spyyapisq"
+										value="apisp">Api审批</button>
+									<button type="button" class="btn btn-primary" id="xxyyspl"
+										value="xxyysp">消息应用审批</button>
+
+								</div>
+							</div>
+							</hr>
+							<div class="col-xs-12">
+								<table style="text-align: center;height: 70%" class="table table-hover table-bordered"
+									id="spyytable"></table>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="clear3">
+							<div class="row roww form-inline" style="margin: 10px">
+								<div class="col-xs-10">
+									应用名称：<input type="text" class="form-control" placeholder="" id="queryfy"><button
+										type="button" class="btn btn-primary" data-toggle="modal" data-target=""
+										id="queryfyapp">查询</button>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=""
+										id="appxj">下架</button>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=""
+										id="applunbo">设置轮播图</button>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=""
+										id="apisps">Api审批</button>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=""
+										id="xxyyspp">消息应用审批</button>
+								</div>
+							</div>
+
+							<div class="col-xs-12">
+
+								<table style="text-align: center;height: 70%" class="table table-hover table-bordered"
+									id="fbyytable">
+									<thead>
+										<tr>
+											<th width="12.5%"><input type="checkbox" id="xcc" class="group-checkable"
+													data-set="#table .checkboxes" /></th>
+											<th width="12.5%">序号</th>
+											<th class="hidden-xs" width="12.5%" data-field="name">应用名称</th>
+											<th class="hidden-xs" width="12.5%" data-field="version">版本号</th>
+											<th class="hidden-xs" width="12.5%" data-field="type">应用类型</th>
+											<th class="hidden-xs" width="12.5%" data-field="zone">使用范围</th>
+											<th class="hidden-xs" width="12.5%" data-field="url">下载地址</th>
+										</tr>
+									</thead>
+								</table>
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+				<div id="applyBlock" class="row roww" style="display:none;margin: 2px">
+
+					<div class="row roww" style="margin-left: 7px">
+						<h4>可申请接口</h4>
+					</div>
+					<hr />
+					<div class="row roww" style="margin-left: 7px">
+						<form action="/applyApi" method="post">
+							<div class="row roww">
+								<div class="form-group">
+									<div class="col-sm-4 col-md-4 col-lg-4">
+										<div class="checkbox">
+											<label> <input type="checkbox" value="jbxxApi">查询在押人员基本信息
+											</label>
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" value="mjjbxxApi">查询在押民警基本信息
+											</label>
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" value="jsxxApi">查询监室信息
+											</label>
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" value="csxxApi">查询出所信息
+											</label>
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" value="rsxxApi">查询入所信息
+											</label>
+										</div>
+									</div>
+									<div class="col-sm-4 col-md-4 col-lg-4">
+										<div class="checkbox">
+											<label> <input type="checkbox" value="jbxxApi">查询在押人员基本信息
+											</label>
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" value="mjjbxxApi">查询在押民警基本信息
+											</label>
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" value="jsxxApi">查询监室信息
+											</label>
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" value="csxxApi">查询出所信息
+											</label>
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" value="rsxxApi">查询入所信息
+											</label>
+										</div>
+									</div>
+									<div class="col-sm-4 col-md-4 col-lg-4">
+										<div class="checkbox">
+											<label> <input type="checkbox" value="jbxxApi">查询在押人员基本信息
+											</label>
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" value="mjjbxxApi">查询在押民警基本信息
+											</label>
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" value="jsxxApi">查询监室信息
+											</label>
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" value="csxxApi">查询出所信息
+											</label>
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" value="rsxxApi">查询入所信息
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row roww" style="margin-top: 20px;margin-left: 5px">
+								<div class="row roww" style="margin-top: 20px">
+									<div style="margin-bottom: 5px">
+										<div class="col-xs-3 form-group">
+											<label for="applyPerson">申请人</label> <input type="text" id="applyPerson"
+												name="applyPerson" class="form-control" placeholder="申请人">
+										</div>
+									</div>
+								</div>
+								<div class="row roww" style="margin-top: 20px">
+									<div>
+										<div class="col-xs-3">
+											<label for="applyTime">申请时间</label> <input
+												class="form_datetime form-control" id="applyTime" type="text" size="16"
+												placeholder="申请时间">
+										</div>
+									</div>
+								</div>
+								<div class="row roww center-block" style="margin-top: 20px;">
+									<button type="submit" class="btn btn-primary">申请</button>
+									<button type="button" class="btn btn-info">关闭</button>
+
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- 新增公司model   form -->
+	<div class="modal fade" id="addConpyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="addVendorInfo">新增厂商信息</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" enctype="multipart/form-data" role="form" id="addUserForm"
+						action="./addUser" method="post">
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="loginname">登录名<span class="mandatory"
+									style="color:#ff0909;font-size: 18px;">*</span></label>
+							<div class="col-sm-10">
+								<input class="form-control" name="loginname" id="loginname" required="required"
+									type="text" placeholder="该输入登录名...">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="loginpass">登录密码<span class="mandatory"
+									style="color:#ff0909;font-size: 18px;">*</span></label>
+							<div class="col-sm-10">
+								<input class="form-control" name="loginpass" id="loginpass" required="required"
+									type="text" placeholder="该输入登录密码..."></input>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="sfzh">身份证号</label>
+							<div class="col-sm-10">
+								<input class="form-control" name="sfzh" id="sfzh" type="text"
+									placeholder="该输入身份证号..."></input>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="email">Email<span class="mandatory"
+									style="color:#ff0909;font-size: 18px;">*</span></label>
+							<div class="col-sm-10">
+								<input class="form-control" name="email" id="email" required="required" type="text"
+									placeholder="该输入Email..."></input>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="realname">真实姓名<span class="mandatory"
+									style="color:#ff0909;font-size: 18px;">*</span></label>
+							<div class="col-sm-10">
+								<input class="form-control" name="realname" id="realname" required="required"
+									type="text" placeholder="该输入真实姓名..."></input>
+							</div>
+						</div>
+						<div class="modal-footer center-block">
+							<button type="button" class="btn btn-default" id="addUserBtn">保存</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 修改公司model   form -->
+	<div class="modal fade" id="updateConpyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="updateVendorInfo">修改厂商信息</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" enctype="multipart/form-data" role="form" id="updateUserForm"
+						action="./updateUser" method="post">
+						<input class="hidden" id="id1" name="id">
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="loginname">登录名<span class="mandatory"
+									style="color:#ff0909;font-size: 18px;">*</span></label>
+							<div class="col-sm-10">
+								<input class="form-control" name="loginname" id="loginname1" required="required"
+									type="text" placeholder="该输入登录名...">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="loginpass">登录密码<span class="mandatory"
+									style="color:#ff0909;font-size: 18px;">*</span></label>
+							<div class="col-sm-10">
+								<input class="form-control" name="loginpass" id="loginpass1" required="required"
+									type="text" placeholder="该输入登录密码..."></input>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="sfzh">身份证号</label>
+							<div class="col-sm-10">
+								<input class="form-control" name="sfzh" id="sfzh1" type="text"
+									placeholder="该输入身份证号..."></input>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="email">Email<span class="mandatory"
+									style="color:#ff0909;font-size: 18px;">*</span></label>
+							<div class="col-sm-10">
+								<input class="form-control" name="email" id="email1" required="required" type="text"
+									placeholder="该输入Email..."></input>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="realname">真实姓名<span class="mandatory"
+									style="color:#ff0909;font-size: 18px;">*</span></label>
+							<div class="col-sm-10">
+								<input class="form-control" name="realname" id="realname1" required="required"
+									type="text" placeholder="该输入真实姓名..."></input>
+							</div>
+						</div>
+						<div class="modal-footer center-block">
+							<button type="button" class="btn btn-default" id="updateUserBtn">保存</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 发布商品model   form -->
+	<div class="modal fade" id="addAppModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">新增应用信息</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" enctype="multipart/form-data" role="form" id="addAppForm"
+						action="./addApp" method="post">
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="name">应用名称</label>
+							<div class="col-sm-10">
+								<input class="form-control" style="width: 89%;" id="name" name="name"
+									required="required" type="text" placeholder="该输入应用名称...">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="version">应用版本</label>
+							<div class="col-sm-10">
+								<input class="form-control" id="version" name="version" required="required" type="text"
+									placeholder="该输入应用版本...">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="creator">创建人</label>
+							<div class="col-sm-10">
+								<input class="form-control" name="creator" id="creator" disable="true" readonly="true"
+									required="required" type="text" value=${user.loginname} placeholder="该输入创建人...">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="desc">应用简介</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" name="desc" id="desc" rows="2"
+									placeholder="该输入应用简介..."></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="url">应用URL</label>
+							<div class="col-sm-10">
+								<input class="form-control" name="url" id="url" rows="2" required="required"
+									placeholder="该输入应用URL..." />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="type">应用类型</label>
+							<div class="col-sm-10">
+								<select class="form-control" id="type" name="type">
+									<option value="1">web应用</option>
+									<option value="2">exe应用程序</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group hidden" id="div1">
+							<label class="col-sm-2 control-label" for="exeurl">exe应用程序url</label>
+							<div class="col-sm-10">
+								<input class="form-control" name="exeurl" id="exeurl" rows="2"
+									placeholder="http://192.168.4.99:9090" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="zone">使用范围</label>
+							<div class="col-sm-10">
+								<select class="selectpicker form-control" multiple id="zone" name="zone">
+									<option value="1">看守所</option>
+									<option value="2">戒毒所</option>
+									<option value="3">拘留所</option>
+									<option value="4">安康医院</option>
+									<option value="5">总队</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="pic1" class="col-sm-2 control-label">选择图片</label>
+							<div class="col-sm-10">
+								<input type="file" name="file" id="pic1" accept="image/*">
+							</div>
+						</div>
+						<div class="form-group" class="col-sm-2 control-label">
+							<label for="pic2" class="col-sm-2 control-label">图片2</label>
+							<div class="col-sm-10">
+								<input type="file" name="file" id="pic2" accept="image/*">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="pic3" class="col-sm-2 control-label">图片3</label>
+							<div class="col-sm-10">
+								<input type="file" id="pic3" name="file" accept="image/*">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="icon" class="col-sm-2 control-label">选择图标 </label>
+							<div class="col-sm-10">
+								<input type="file" id="icon" name="icon" accept="image/*">
+							</div>
+						</div>
+						<div class="modal-footer center-block">
+							<input type="button" class="btn btn-primary" id="addAppBtn" value="保存">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 下架商品model   form -->
+	<div class="modal fade" id="xjyyAppModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="model-title" id="deleteApp">下架应用</h4>
+				</div>
+
+				<div class="modal-body">
+					<form class="form-horizontal" role="form" id="deleteAppForm" action="./appXj" method="get"
+						enctype="multipart/form-data">
+						<div class="form-group" value=$()>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是否确定下架此应用，与此应用相关记录将删除!</p>
+						</div>
+						<div class="modal-footer center-block">
+							<input type="button" class="btn btn-primary" id="appXjBtn" value="确定" />
+							<button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--通用提示alert框样式 -->
+	<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" tabindex="-1" aria-hidden="true"
+		style="z-index:9999;">
+		<div class="modal-content" style="width:44%;height:33%;left:28%;top:30%;">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">提示</h4>
+			</div>
+			<!-- 右上角X图标关闭提示框  默认关闭 <div class="modal-body"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+			<p id="textcontent" style="letter-spacing:2px;text-align:center;margin-top:7%;font-size:20px;"></p>
+			<button type="button" class="btn btn-primary" data-dismiss="modal"
+				style="position:absolute;top:68%;left:44%;">关闭</button>
+		</div>
+	</div>
+
+
+	<!--确认框样式-->
+	<div class="modal fade" id="confirm" role="dialog" aria-labelledby="myModalLabel" tabindex="-1" aria-hidden="true">
+		<div class="modal-content" style="width:21%;height:25%;left:40%;top:30%;">
+			<div class="modal-header">
+				<h5 class="modal-title" id="myModalLabel">提示</h5>
+			</div>
+			<!-- 右上角X图标关闭提示框  默认关闭 <div class="modal-body"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+			<p id="confirmcontent" style="letter-spacing:2px;text-align:center;margin-top:7%;font-size:20px;"></p>
+			<button type="button" class="btn btn-primary" data-dismiss="modal"
+				style="position:relative;margin-top:5%;left:25%;">取消</button>
+			<button type="button" class="btn btn-primary revisebutton" data-dismiss="modal"
+				style="position:relative;margin-top:5%;left:28%;" value=1>确认</button>
+		</div>
+	</div>
+	<!-- 审批应用点击查看详情 -->
+	<div class="modal fade yyxqpadding" id="spxq" role="dialog" style="font-size:3rem;overflow:hidden"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-content" style="top:8%;width:100%;height:85%;">
+			<div class="modal-header">
+				<button type="button" class="close" style="font-size:34px;" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="setMenusLabel">应用详情</h4>
+			</div>
+			<iframe scrolling="auto" frameborder="0" src="" style="width:100%;height:100%;" id="ifspxq"></iframe>
+		</div>
+	</div>
+
+	<!--上架api审批model -->
+	<div class="modal fade" id="apiSpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-lg" role="document" aglin="center" style="width: 81%; height: 100%;">
+			<div class="modal-content" style="margin-top: 108px; height: 90%;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="RefreshApi">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="model-title" id="deleteApp">API审批</h4>
+				</div>
+				<div class="modal-body" style="max-height: 80%;overflow-y:auto;">
+					<table style="text-align: center;" class="table table-hover table-bordered" id="apiSp">
+						<thead>
+							<tr>
+								<th width="12.5%"><input type="checkbox" id="api" class="group-checkable"
+										data-set="#apiSp.checkboxes" /></th>
+								<th width="12.5%">序号</th>
+								<th class="hidden-xs" width="12.5%" data-field="interfaceName">接口名称</th>
+								<th class="hidden-xs" width="12.5%" data-field="interfaceDescription">接口描述</th>
+								<th class="hidden-xs" width="12.5%" data-field="interfaceId">接口ID</th>
+								<th class="hidden-xs" width="12.5%" data-field="method">方法类型</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="modal-footer center-block">
+					<input type="button" class="btn btn-primary" data-dismiss="modal" id="apiSpNoVidBtn"
+						style="position: relative;" value="不通过" />
+					<input type="button" class="btn btn-primary" data-dismiss="modal" id="apiSpVidBtn"
+						style="position: relative;" value="通过" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--审批应用api审批model -->
+	<div class="modal fade" id="spyyapiSpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-lg" role="document" aglin="center" style="width: 81%; height: 100%;">
+			<div class="modal-content" style="margin-top: 108px; height: 90%;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="RefreshApi">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="model-title" id="deleteApp">Api审批</h4>
+				</div>
+				<div class="modal-body" style="max-height: 80%;overflow-y:auto;">
+					<table style="text-align: center;" class="table table-hover table-bordered" id="spyyapiSp">
+						<thead>
+							<tr>
+								<th width="12.5%"><input type="checkbox" id="api" class="group-checkable"
+										data-set="#apiSp.checkboxes" /></th>
+								<th width="12.5%">序号</th>
+								<th class="hidden-xs" width="12.5%" data-field="interfaceName">接口名称</th>
+								<th class="hidden-xs" width="12.5%" data-field="interfaceDescription">接口描述</th>
+								<th class="hidden-xs" width="12.5%" data-field="interfaceId">接口ID</th>
+								<th class="hidden-xs" width="12.5%" data-field="method">方法类型</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="modal-footer center-block">
+					<input type="button" class="btn btn-primary" data-dismiss="modal" id="spyyapiSpNoVidBtn"
+						style="position: relative;" value="不通过" />
+					<input type="button" class="btn btn-primary" data-dismiss="modal" id="spyyapiSpVidBtn"
+						style="position: relative;" value="通过" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 审批应用--消息应用审批model -->
+	<div class="modal fade" id="xxyyspModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-lg" role="document" aglin="center" style="width: 81%; height: 100%;">
+			<div class="modal-content" style="margin-top: 108px; height: 70%;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="RefreshApi">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="model-title" id="deleteApp">消息应用审批</h4>
+				</div>
+				<div class="modal-body" style="max-height: 80%;overflow-y:auto;">
+					<form action="" class="form-inline" onsubmit="return false;">
+						<div class="form-group">
+							<!-- <label for="approvalPrisonsName">监所名：</label> -->
+							<input type="text" class="form-control" id="approvalPrisonsName"  placeholder="请输入查询内容">
+						</div>
+						<button type="button" class="btn btn-primary" id="apprpval-search-btn">查询</button>
+					</form>
+					<br>
+					<table style="text-align: center;" class="table table-hover table-bordered" id="xxyyspTable">
+					</table>
+				</div>
+				<div class="modal-footer center-block" id="approval_application_btn_grounp">
+					<input type="button" class="btn btn-primary" id="spyyapiSpNoVidBtn" style="position: relative;"
+						data-shbz="2" value="不通过" />
+					<input type="button" class="btn btn-primary" id="spyyapiSpVidBtn" style="position: relative;"
+						data-shbz="1" value="通过" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 已上线应用--消息应用审批model -->
+	<div class="modal fade" id="xxyyspYsxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-lg" role="document" aglin="center" style="width: 81%; height: 100%;">
+			<div class="modal-content" style="margin-top: 108px; height: 70%;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="RefreshApi">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="model-title" id="deleteApp">消息应用审批</h4>
+				</div>
+				<div class="modal-body" style="max-height: 80%;overflow-y:auto;">
+					<form action="" class="form-inline" onsubmit="return false;">
+						<div class="form-group">
+							<!-- <label for="approvalPrisonsName">监所名：</label> -->
+							<input type="text" class="form-control" id="online_Application_searchInput"  placeholder="请输入查询内容">
+						</div>
+						<button type="button" class="btn btn-primary" id="online_Application_searchBtn">查询</button>
+					</form>
+					<br>
+					<table style="text-align: center;" class="table table-hover table-bordered" id="xxyyspYsxTable">
+					</table>
+				</div>
+				<div class="modal-footer center-block" id="online_Application_btn_group">
+					<input type="button" class="btn btn-primary" data-shbz="2" style="position: relative;"
+						value="不通过" />
+					<input type="button" class="btn btn-primary" data-shbz="1" style="position: relative;" value="通过" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+<script type="text/javascript">
+	$(document).ready(function () {
+		Array.prototype.remove = function (val) {
+			var index = this.indexOf(val);
+			if (index > -1) {
+				this.splice(index, 1);
+			}
+		};
+		$("#yysp").on("click", function () {
+			$("#jkspBlock").show();
+			$("#xjyyBlock").hide();
+			$("#csxxwhBlock").hide();
+		})
+		$("#csxx").on("click", function () {
+			$("#jkspBlock").hide();
+			$("#xjyyBlock").hide();
+			$("#csxxwhBlock").show()
+		})
+		$("#xjyys").on("click", function () {
+			$("#jkspBlock").hide();
+			$("#xjyyBlock").show();
+			$("#csxxwhBlock").hide()
+		})
+		$("[btn-item-app]").on("click", function () {
+			$(this).addClass("btn-item-app-active");
+			$(this).siblings().removeClass("btn-item-app-active");
+		});
+		deleteUser();
+		appLunbo();
+		updateUser();
+		queryUser();
+		appXj();
+		appSj();
+		//apiSP();
+		$("li[id]").on("click", function () {
+			var id = $(this).attr('id') + "Block";
+			$("#content > div[id='" + id + "']").show();
+			$("#content > div[id!='" + id + "']").hide();
+		}).bind(this);
+
+
+		xjyyBlock();
+		searchAPP3();
+		searchAPP1();
+		searchAPP2();
+
+		$("#query1").on("click", function () {
+			queryUser();
+		});
+		$("#queryallapp").on("click", function () {
+			searchAPP1();
+		});
+		$("#queryspapp").on("click", function () {
+			searchAPP2();
+		});
+		$("#queryfyapp").on("click", function () {
+			searchAPP3();
+		});
+		$('#queryapp').on('click', function () {
+			xjyyBlock();
+		});
+		// 、、Api审批
+		$("#apisps").on("click", function () {
+			searchapiSp();
+		});
+		// API审批
+		$("#spyyapisq").on('click', function () {
+			searchspyyapiSp();
+		});
+		// 审批应用--消息应用审批
+		$("#xxyyspl").on('click', function () {
+			// console.log("111111111111");
+			xxyysplhanshu();
+		});
+		// 已上线应用--消息应用审批
+		$("#xxyyspp").on('click', function () {
+			// alert(11)
+			xxyysplYsxhanshu();
+		});
+
+		$("#addAppBtn").on("click", function () {
+			if ($("#type").val() == 2) {
+				if ($("#exeurl").val() == "") {
+
+				}
+			}
+			$('#addAppForm').bootstrapValidator('validate');
+			if (!$('#addAppForm').data('bootstrapValidator').isValid()) {
+				return;
+			} else {
+				var zone = $('#zone').val();
+				$("#addAppForm").ajaxSubmit({
+					type: "post",
+					url: serverInfo.serverURL + serverInfo.addApp,
+					dataType: "json",
+					success: function (data) {
+						$("#textcontent").html("应用添加成功！");
+						$("#myModal").modal();
+					} //end success
+				}); //end ajaxSubmit
+
+				$("#addAppBtn").attr("data-dismiss", "modal")
+			}
+		});
+
+		$("#addUserBtn").on("click", function () {
+			$('#addUserForm').bootstrapValidator('validate');
+			if (!$('#addUserForm').data('bootstrapValidator').isValid()) {
+				return;
+			} else {
+				$("#confirmcontent").html("确认添加吗");
+				$("#confirm").modal();
+				$(".revisebutton").on("click", function () {
+					$("#addUserForm").ajaxSubmit({
+						type: "post",
+						url: "./addUser",
+						dataType: "json",
+						success: function (data) {
+							$('#addUserForm').data('bootstrapValidator').destroy();
+							$('#addUserForm').data('bootstrapValidator', null);
+							clearForm($('#addUserForm'));
+							queryUser();
+							$("#textcontent").html("用户添加成功！");  //用户点击确认保存之后alert弹出“用户添加成功!”
+							$("#myModal").modal();
+						} //end success
+					}); //end ajaxSubmit
+					//$("#addUserBtn").attr("data-dismiss","modal");
+					$("#addConpyModal").modal("hide");
+				})
+			}
+		});
+
+		$("#updateUserBtn").on("click", function () {
+			$('#updateUserForm').bootstrapValidator('validate');
+			if (!$('#updateUserForm').data('bootstrapValidator').isValid()) {
+				return;
+			} else {
+				$("#confirmcontent").html("确认修改吗");
+				$("#confirm").modal();
+				$(".revisebutton").on("click", function () {
+					$("#updateUserForm").ajaxSubmit({
+						type: "post",
+						url: "./updateUser",
+						dataType: "json",
+						success: function (data) {
+							$("#textcontent").html("用户修改成功！！");
+							$("#myModal").modal();
+							clearForm($('#updateUserForm'));
+							queryUser();
+							$("#updateConpyModal").modal("hide");
+						} //end success
+					}); //end ajaxSubmit
+				})
+			}
+		});
+
+
+		$("#online_Application_searchBtn").on('click',function(){
+			var val = $("#online_Application_searchInput").val();
+			xxyysplYsxhanshu(val);
+			$("#online_Application_searchInput").val("");
+
+		})
+
+
+
+		// 已上线应用的消息审批表的保存按钮
+		$("#online_Application_btn_group").on('click', 'input', function () {
+			var shbz = $(this).attr('data-shbz');
+			var selectItems = $("#xxyyspYsxTable").bootstrapTable("getSelections");
+			var postDataString = "";
+			$.each(selectItems, function (i, item) {
+				postDataString += item.id + ",";
+			})
+			//  console.log(postDataString.toString());
+			if (selectItems.length == 0) {
+				$("#textcontent").html("请选择要审批的应用");
+				$("#myModal").modal();
+			} else {
+				$(this).ajaxSubmit({
+					url: "/message/adminAudit",
+					data: { id: postDataString, shbz: shbz },
+					type: 'post',
+					success: function (res) {
+						$("#textcontent").html(res.result);
+						$("#myModal").modal();
+					}
+				})
+			}
+		})
+
+		//  审批应用-消息应用审批表单的按钮
+		$("#approval_application_btn_grounp").on("click", 'input', function () {
+			var shbz = $(this).attr("data-shbz");
+			var selectItems = $("#xxyyspTable").bootstrapTable("getSelections");
+			var postDataString = "";
+			$.each(selectItems, function (i, item) {
+				postDataString += item.id + ",";
+			})
+			if (selectItems.length == 0) {
+				$("#textcontent").html("请选择要审批的应用");
+				$("#myModal").modal();
+			} else {
+				$(this).ajaxSubmit({
+					url: "/message/adminAudit",
+					data: { id: postDataString, shbz: shbz },
+					type: 'post',
+					success: function (res) {
+						$("#textcontent").html(res.result);
+						$("#myModal").modal();
+					}
+				})
+			}
+
+		})
+
+
+
+
+
+
+
+
+
+
+
+		//审批应用 通过
+		$("#y").on("click", function () {
+			var s = $('#spyytable').bootstrapTable('getSelections');
+			var data = $("#y")[0].getAttribute('value');
+			if (s == "") {
+				$("#textcontent").html("请选择要审批的应用");
+				$("#myModal").modal();
+			} else {
+				$("#y").ajaxSubmit({
+					type: "POST",
+					url: "/appSp?data=" + data,
+					data: {
+						"id": s[0].id,
+						"appcode": s[0].appcode
+					},
+					dataType: "json",
+					success: function (data) {
+						$("#textcontent").html("审批成功，通过审批！");
+						$("#myModal").modal();
+						searchAPP2();
+					}
+				});
+				$("#y").attr("data-dismiss", "modal")
+			}
+		});
+		//不通过
+		$("#n").on("click", function () {
+			var s = $('#spyytable').bootstrapTable('getSelections');
+			var data = $("#n")[0].getAttribute('value');
+			if (s == "") {
+				$("#textcontent").html("请选择要审批的应用！");
+				$("#myModal").modal();
+			} else {
+				$("#n").ajaxSubmit({
+					type: "POST",
+					url: "/appSp?data=" + data,
+					data: {
+						"id": s[0].id,
+						"appcode": s[0].appcode
+					},
+					dataType: "json",
+					success: function (data) {
+						$("#textcontent").html("此应用未审核通过！");
+						$("#myModal").modal();
+						searchAPP2();
+					}
+				});
+				$("#n").attr("data-dismiss", "modal")
+			}
+		});
+
+
+		$('#addUserForm').bootstrapValidator({
+			message: '这个值没有被验证',
+			feedbackIcons: {
+				valid: 'glyphicon glyphicon-ok',
+				invalid: 'glyphicon glyphicon-remove',
+				validating: 'glyphicon glyphicon-refresh'
+			},
+			fields: {
+				loginname: {
+					validators: {
+						notEmpty: {
+							message: '登录名是必填项'
+						}
+					}
+				},
+				loginpass: {
+					validators: {
+						notEmpty: {
+							message: '登录密码是必填项'
+						}
+					}
+				},
+				realname: {
+					validators: {
+						notEmpty: {
+							message: '真实姓名不能为空'
+						},
+					}
+				},
+			}
+		})
+
+		$('#updateUserForm').bootstrapValidator({
+			message: '这个值没有被验证',
+			feedbackIcons: {
+				valid: 'glyphicon glyphicon-ok',
+				invalid: 'glyphicon glyphicon-remove',
+				validating: 'glyphicon glyphicon-refresh'
+			},
+			fields: {
+				loginname: {
+					validators: {
+						notEmpty: {
+							message: '登录名是必填项'
+						}
+					}
+				},
+				loginpass: {
+					validators: {
+						notEmpty: {
+							message: '登录密码是必填项'
+						}
+					}
+				},
+				realname: {
+					validators: {
+						notEmpty: {
+							message: '真实姓名不能为空'
+						},
+					}
+				},
+			}
+		})
+		searchAPP2();
+		searchAPP3();
+		searchAPP1();
+		validata();
+		showHide();
+	});
+
+	var validata = function () {
+		$('#addAppForm').bootstrapValidator({
+			message: '这个值没有被验证',
+			excluded: [':disabled'],
+			feedbackIcons: {
+				valid: 'glyphicon glyphicon-ok',
+				invalid: 'glyphicon glyphicon-remove',
+				validating: 'glyphicon glyphicon-refresh'
+			},
+			fields: {
+				name: {
+					validators: {
+						notEmpty: {
+							message: '应用名称是必填项'
+						}
+					}
+				},
+				version: {
+					validators: {
+						notEmpty: {
+							message: '应用版本是必填项'
+						}
+					}
+				},
+				url: {
+					validators: {
+						notEmpty: {
+							message: '应用url是必填项'
+						}
+					}
+				},
+				zone: {
+					validators: {
+						notEmpty: {
+							message: '请选择应用使用范围'
+						},
+						callback: {//用于select的校验
+							message: '请选择应用使用范围',
+							callback: function (value, validator) {//这里可以自定义value的判断规则
+								if (value == 0) {//"请选择"
+									return false;
+								} else {
+									return true;
+								}
+							}
+						}
+					}
+				},
+				file: {
+					validators: {
+						notEmpty: {
+							message: '上传图片不能为空'
+						},
+						file: {
+							extension: 'png,jpg,jpeg',
+							type: 'image/png,image/jpg,image/jpeg',
+							message: '请重新选择图片'
+						}
+					}
+				},
+				file: {
+					validators: {
+						notEmpty: {
+							message: '上传图片不能为空'
+						},
+						file: {
+							extension: 'png,jpg,jpeg',
+							type: 'image/png,image/jpg,image/jpeg',
+							message: '请重新选择图片'
+						}
+					}
+				},
+				file: {
+					validators: {
+						notEmpty: {
+							message: '上传图片不能为空'
+						},
+						file: {
+							extension: 'png,jpg,jpeg',
+							type: 'image/png,image/jpg,image/jpeg',
+							message: '请重新选择图片'
+						}
+					}
+				},
+				icon: {
+					validators: {
+						notEmpty: {
+							message: '上传图标不能为空'
+						},
+						file: {
+							extension: 'png,ico,icon',
+							type: 'image/ico,image/icon,image/png',
+							message: '请重新选择图标'
+						}
+					}
+				},
+			}
+
+		});
+
+	}
+	//选择应用类型显示隐藏exeurl
+	var showHide = function () {
+		$("#type").on('change', function () {
+			var val = $('#type').val();
+			if (val == 2) {
+				$('#div1').attr("class", "form-group ");
+				$('#exeurl').attr("name", "exeurlyz");
+				$('#exeurl').attr("required", "required");
+				$('#addAppForm').bootstrapValidator('validate');
+			} else {
+				$('#exeurl').removeAttr("required");
+				$('#exeurl').attr("name", "exeurl");
+				$('#div1').attr("class", "form-group hidden");
+				$('#addAppForm').bootstrapValidator('validate');
+			}
+
+		})
+	}
+	$("#type").on('change', function () {
+		var val = $('#type').val();
+		if (val == 2) {
+			$('#div1').attr("class", "form-group ");
+			$('#exeurl').attr("name", "exeurlyz");
+			$('#exeurl').attr("required", "required");
+			$('#addAppForm').bootstrapValidator('validate');
+		} else {
+			$('#exeurl').removeAttr("required");
+			$('#exeurl').attr("name", "exeurl");
+			$('#div1').attr("class", "form-group hidden");
+			$('#addAppForm').bootstrapValidator('validate');
+
+		}
+
+	})
+
+	$("#type").on('change', function () {
+		var val = $('#type').val();
+		if (val == 2) {
+			$('#div1').attr("class", "form-group ");
+			$('#exeurl').attr("name", "exeurlyz");
+			//	$('#exeurl').attr("required","required");
+			$("#addAppForm").data('bootstrapValidator').addField('exeurlyz', {
+				validators: {
+					callback: { /*自定义，可以在这里与其他输入项联动校验*/
+						callback: function (value, validator, $field) {
+							if (value == 0) {
+								return false;
+							} else {
+								return true;
+							}
+						}
+					}
+				}
+			});
+		} else {
+			$('#exeurl').removeAttr("required");
+			//$('#exeurl').attr("name","exeurl");
+			$('#div1').attr("class", "form-group hidden");
+
+		}
+
+	})
+
+
+
+
+	function applyPage(appId) {
+		$.ajax({
+			url: serverInfo.serverURL + serverInfo.appInfo, // 跳转到 action
+			data: {
+				id: appId
+			},
+			type: 'get',
+			cache: false,
+			async: false,
+			success: function (data) {
+				if (data) {
+					$("#content > div[id='applyBlock']").show();
+					$("#content > div[id!='applyBlock']").hide();
+				} else {
+					$("#content").html("该应用暂时无法申请接口！");
+					$("#myModal").modal();
+					return;
+				}
+			}
+		});
+	}
+
+
+	function searchAPP1() {
+		$("#alltable").bootstrapTable('destroy');
+		var data = $("#all")[0].getAttribute('value');
+		var name = $("#cx").val();
+		$('#alltable').bootstrapTable({
+			url: "./getApp?options=" + data + "&name=" + name,      //请求后台的URL（*）
+			method: 'GET',                      //请求方式（*）
+			toolbar: '#toolbar',              //工具按钮用哪个容器
+			striped: true,                      //是否显示行间隔色
+			cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+			pagination: true,                   //是否显示分页（*）
+			sortable: true,                     //是否启用排序
+			sortOrder: "asc",                   //排序方式
+			sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+			pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+			pageSize: 10,                     //每页的记录行数（*）
+			pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+			search: false,                      //是否显示表格搜索
+			strictSearch: true,
+			showColumns: true,                  //是否显示所有的列（选择显示的列）
+			showRefresh: true,               //是否显示刷新按钮
+			singleSelect: true,				//开启行单选
+			minimumCountColumns: 2,             //最少允许的列数
+			clickToSelect: true,                //是否启用点击选中行
+			//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+			uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+			showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
+			cardView: false,                    //是否显示详细视图
+			detailView: false,                  //是否显示父子表
+
+			//得到查询的参数
+			queryParams: function (params) {
+				//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+				var temp = {
+					rows: params.limit,                         //页面大小
+					page: (params.offset / params.limit) + 1,   //页码
+					sort: params.sort,      //排序列名
+					sortOrder: params.order //排位命令（desc，asc）
+				};
+				return temp;
+			},
+			responseHandler: function (res) {
+				$("#alls").text(res.result.total);
+				return {
+					"total": res.result.total,//总页数
+					"rows": res.result.data
+				};
+			},
+
+			columns: [{
+				checkbox: true,
+				visible: true                  //是否显示复选框
+			}, {
+				title: '行号',
+				align: 'center',
+				valign: 'bottom',
+				formatter: function (value, row, index) {
+					var pageSize = $('#alltable').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+					var pageNumber = $('#alltable').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+					return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+				}
+
+			},
+			{
+				field: 'name',
+				title: '应用名称',
+				sortable: true
+			}, {
+				field: 'version',
+				title: '版本号',
+				sortable: true
+			}, {
+				field: 'typeString',
+				title: '应用类型',
+				sortable: true,
+			}, {
+				field: 'zoneString',
+				title: '使用范围',
+				sortable: true,
+			}, {
+				field: 'creator',
+				title: '创建人',
+				sortable: true,
+			}, {
+				field: 'url',
+				title: '访问地址',
+				visible: false
+			}],
+			onLoadSuccess: function () {
+			},
+			onLoadError: function () {
+				showTips("数据加载失败！");
+			},
+			onDblClickRow: function (row, $element) {
+				var id = row.ID;
+				EditViewById(id, 'view');
+			},
+		});
+	}
+	function searchAPP2() {
+		$("#spyytable").bootstrapTable('destroy');
+		var data = $("#sp")[0].getAttribute('value');
+		var name = $("#querysp").val();
+		$('#spyytable').bootstrapTable({
+			url: "./getApp?options=" + data + "&name=" + name,       //请求后台的URL（*）
+			method: 'GET',                      //请求方式（*）
+			toolbar: '#toolbar',              //工具按钮用哪个容器
+			striped: true,                      //是否显示行间隔色
+			cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+			pagination: true,                   //是否显示分页（*）
+			sortable: true,                     //是否启用排序
+			sortOrder: "asc",                   //排序方式
+			sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+			pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+			pageSize: 10,                     //每页的记录行数（*）
+			pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+			search: false,                      //是否显示表格搜索
+			strictSearch: true,
+			showColumns: true,                  //是否显示所有的列（选择显示的列）
+			showRefresh: true,               //是否显示刷新按钮
+			singleSelect: true,				//开启行单选
+			minimumCountColumns: 2,             //最少允许的列数
+			clickToSelect: true,                //是否启用点击选中行
+			//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+			uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+			showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
+			cardView: false,                    //是否显示详细视图
+			detailView: false,                  //是否显示父子表
+			//得到查询的参数
+			queryParams: function (params) {
+				//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+				var temp = {
+					rows: params.limit,                         //页面大小
+					page: (params.offset / params.limit) + 1,   //页码
+					sort: params.sort,      //排序列名
+					sortOrder: params.order //排位命令（desc，asc）
+				};
+				return temp;
+			},
+			responseHandler: function (res) {
+				$("#sps").text(res.result.total);
+				return {
+					"total": res.result.total,//总页数
+					"rows": res.result.data
+				};
+			},
+			columns: [{
+				checkbox: true,
+				visible: true                  //是否显示复选框
+			}, {
+				title: '行号',
+				align: 'center',
+				valign: 'bottom',
+				formatter: function (value, row, index) {
+					var pageSize = $('#spyytable').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+					var pageNumber = $('#spyytable').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+					return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+				}
+
+			},
+			{
+				field: 'name',
+				title: '应用名称',
+				sortable: true,
+				cellStyle: {
+					css: { "text-decoration": "underline", "color": "blue", "cursor": "pointer" }
+				}
+			}, {
+				field: 'version',
+				title: '版本号',
+				sortable: true
+			}, {
+				field: 'typeString',
+				title: '应用类型',
+				sortable: true,
+			}, {
+				field: 'zoneString',
+				title: '使用范围',
+				sortable: true,
+			}, {
+				field: 'creator',
+				title: '创建人',
+				sortable: true,
+			}, {
+				field: 'url',
+				title: '访问地址',
+				visible: false
+			}],
+			onLoadSuccess: function () {
+			},
+			onLoadError: function () {
+				showTips("数据加载失败！");
+			},
+			onClickCell: function (field, value, row, $element) {
+				if (field == 'name') {
+					yyxp(row);
+				}
+			},
+			onDblClickRow: function (row, $element) {
+				var id = row.ID;
+				EditViewById(id, 'view');
+			},
+
+		});
+
+	}
+
+
+	var overAllIds = new Array();                // 全局保存选中行的对象
+
+	var examine = function (type, datas) {            // 操作类型，选中的行
+		if (type.indexOf('uncheck') == -1) {
+			$.each(datas, function (i, v) {        // 如果是选中则添加选中行的 id
+				overAllIds.push(v.appcode);
+			});
+		} else {
+			$.each(datas, function (i, v) {
+				overAllIds.remove(v.appcode);     // 删除取消选中行的 id
+			});
+		}
+	}
+
+
+
+
+	function searchAPP3() {
+		$("#fbyytable").bootstrapTable('destroy');
+		var data = $("#yfb")[0].getAttribute('value');
+		var name = $("#queryfy").val();
+		$('#fbyytable').bootstrapTable({
+			url: "./getApp?options=" + data + "&name=" + name,       //请求后台的URL（*）
+			method: 'GET',                      //请求方式（*）
+			toolbar: '#toolbar',              //工具按钮用哪个容器
+			striped: true,                      //是否显示行间隔色
+			cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+			pagination: true,                   //是否显示分页（*）
+			sortable: true,                     //是否启用排序
+			sortOrder: "asc",                   //排序方式
+			sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+			pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+			pageSize: 10,                     //每页的记录行数（*）
+			pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+			search: false,                      //是否显示表格搜索
+			strictSearch: true,
+			showColumns: true,                  //是否显示所有的列（选择显示的列）
+			showRefresh: true,               //是否显示刷新按钮
+			singleSelect: false,				//开启行单选 
+			minimumCountColumns: 2,             //最少允许的列数
+			clickToSelect: true,                //是否启用点击选中行
+			//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+			uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+			showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
+			cardView: false,                    //是否显示详细视图
+			detailView: false,
+
+			//是否显示父子表
+
+			//得到查询的参数
+			queryParams: function (params) {
+				//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+				var temp = {
+					rows: params.limit,                         //页面大小
+					page: (params.offset / params.limit) + 1,   //页码
+					sort: params.sort,      //排序列名  
+					sortOrder: params.order //排位命令（desc，asc） 
+				};
+				return temp;
+			},
+			responseHandler: function (res) {
+				$("#fbs").text(res.result.total);
+				return {
+					"total": res.result.total,//总页数
+					"rows": res.result.data
+				};
+			},
+			columns: [{
+				checkbox: true,
+				visible: true,                //是否显示复选框  
+				formatter: function (i, row) {            // 每次加载 checkbox 时判断当前 row 的 id 是否已经存在全局 Set() 里
+					if ($.inArray(row.id, overAllIds) != -1) {    // 因为 Set是集合,需要先转换成数组  
+						return {
+							checked: true               // 存在则选中
+						}
+					}
+				}
+			}, {
+				title: '行号',
+				align: 'center',
+				valign: 'bottom',
+				formatter: function (value, row, index) {
+					var pageSize = $('#fbyytable').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+					var pageNumber = $('#fbyytable').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+					return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+				}
+
+			},
+			{
+				field: 'name',
+				title: '应用名称',
+				sortable: true
+			}, {
+				field: 'version',
+				title: '版本号',
+				sortable: true
+			}, {
+				field: 'typeString',
+				title: '应用类型',
+				sortable: true,
+			}, {
+				field: 'zoneString',
+				title: '使用范围',
+				sortable: true,
+			}, {
+				field: 'creator',
+				title: '创建人',
+				sortable: true,
+			}, {
+				field: 'url',
+				title: '访问地址',
+				visible: false
+			}],
+			onLoadSuccess: function () {
+			},
+			onLoadError: function () {
+				showTips("数据加载失败！");
+			},
+			onDblClickRow: function (row, $element) {
+				var id = row.ID;
+				EditViewById(id, 'view');
+			},
+
+		});
+		var data = $("#yfb")[0].getAttribute('value');
+		var name = $("#queryfy").val();
+		$('#fbyytable').bootstrapTable({
+			url: "./getApp?options=" + data + "&name=" + name,       //请求后台的URL（*）
+			method: 'GET',                      //请求方式（*）
+			toolbar: '#toolbar',              //工具按钮用哪个容器
+			striped: true,                      //是否显示行间隔色
+			cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+			pagination: true,                   //是否显示分页（*）
+			sortable: true,                     //是否启用排序
+			sortOrder: "asc",                   //排序方式
+			sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+			pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+			pageSize: 10,                     //每页的记录行数（*）
+			pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+			search: false,                      //是否显示表格搜索
+			strictSearch: true,
+			showColumns: true,                  //是否显示所有的列（选择显示的列）
+			showRefresh: true,               //是否显示刷新按钮
+			singleSelect: false,				//开启行单选 
+			minimumCountColumns: 2,             //最少允许的列数
+			clickToSelect: true,                //是否启用点击选中行
+			//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+			uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+			showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
+			cardView: false,                    //是否显示详细视图
+			detailView: false,
+
+			//是否显示父子表
+
+			//得到查询的参数
+			queryParams: function (params) {
+				//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+				var temp = {
+					rows: params.limit,                         //页面大小
+					page: (params.offset / params.limit) + 1,   //页码
+					sort: params.sort,      //排序列名  
+					sortOrder: params.order //排位命令（desc，asc） 
+				};
+				return temp;
+			},
+			responseHandler: function (res) {
+				$("#fbs").text(res.result.total);
+				return {
+					"total": res.result.total,//总页数
+					"rows": res.result.data
+				};
+			},
+			columns: [{
+				checkbox: true,
+				visible: true                  //是否显示复选框  
+			}, {
+				title: '行号',
+				align: 'center',
+				valign: 'bottom',
+				formatter: function (value, row, index) {
+					var pageSize = $('#fbyytable').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+					var pageNumber = $('#fbyytable').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+					return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+				}
+
+			},
+			{
+				field: 'name',
+				title: '应用名称',
+				sortable: true
+			}, {
+				field: 'version',
+				title: '版本号',
+				sortable: true
+			}, {
+				field: 'typeString',
+				title: '应用类型',
+				sortable: true,
+			}, {
+				field: 'zoneString',
+				title: '使用范围',
+				sortable: true,
+			}, {
+				field: 'creator',
+				title: '创建人',
+				sortable: true,
+			}, {
+				field: 'url',
+				title: '访问地址',
+				visible: false
+			}],
+			onLoadSuccess: function () {
+			},
+			onLoadError: function () {
+				showTips("数据加载失败！");
+			},
+			onDblClickRow: function (row, $element) {
+				var id = row.ID;
+				EditViewById(id, 'view');
+			},
+
+		});
+		var data = $("#yfb")[0].getAttribute('value');
+		var name = $("#queryfy").val();
+		$('#fbyytable').bootstrapTable({
+			url: "./getApp?options=" + data + "&name=" + name,       //请求后台的URL（*）
+			method: 'GET',                      //请求方式（*）
+			toolbar: '#toolbar',              //工具按钮用哪个容器
+			striped: true,                      //是否显示行间隔色
+			cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+			pagination: true,                   //是否显示分页（*）
+			sortable: true,                     //是否启用排序
+			sortOrder: "asc",                   //排序方式
+			sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+			pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+			pageSize: 10,                     //每页的记录行数（*）
+			pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+			search: false,                      //是否显示表格搜索
+			strictSearch: true,
+			showColumns: true,                  //是否显示所有的列（选择显示的列）
+			showRefresh: true,               //是否显示刷新按钮
+			singleSelect: true,				//开启行单选
+			minimumCountColumns: 2,             //最少允许的列数
+			clickToSelect: true,                //是否启用点击选中行
+			//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+			uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+			showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
+			cardView: false,                    //是否显示详细视图
+			detailView: false,                  //是否显示父子表
+
+			//得到查询的参数
+			queryParams: function (params) {
+				//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+				var temp = {
+					rows: params.limit,                         //页面大小
+					page: (params.offset / params.limit) + 1,   //页码
+					sort: params.sort,      //排序列名
+					sortOrder: params.order //排位命令（desc，asc）
+				};
+				return temp;
+			},
+			responseHandler: function (res) {
+				$("#fbs").text(res.result.total);
+				return {
+					"total": res.result.total,//总页数
+					"rows": res.result.data
+				};
+			},
+			columns: [{
+				checkbox: true,
+				visible: true                  //是否显示复选框
+			}, {
+				title: '行号',
+				align: 'center',
+				valign: 'bottom',
+				formatter: function (value, row, index) {
+					var pageSize = $('#fbyytable').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+					var pageNumber = $('#fbyytable').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+					return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+				}
+
+			},
+			{
+				field: 'name',
+				title: '应用名称',
+				sortable: true
+			}, {
+				field: 'version',
+				title: '版本号',
+				sortable: true
+			}, {
+				field: 'typeString',
+				title: '应用类型',
+				sortable: true,
+			}, {
+				field: 'zoneString',
+				title: '使用范围',
+				sortable: true,
+			}, {
+				field: 'creator',
+				title: '创建人',
+				sortable: true,
+			}, {
+				field: 'url',
+				title: '访问地址',
+				visible: false
+			}],
+			onLoadSuccess: function () {
+			},
+			onLoadError: function () {
+				showTips("数据加载失败！");
+			},
+			onDblClickRow: function (row, $element) {
+				var id = row.ID;
+				EditViewById(id, 'view');
+			},
+
+		});
+	}
+
+
+
+	$('#fbyytable').on('uncheck.bs.table check.bs.table check-all.bs.table uncheck-all.bs.table', function (e, rows) {
+		var datas = $.isArray(rows) ? rows : [rows];        // 点击时获取选中的行或取消选中的行
+		examine(e.type, datas);                                 // 保存到全局 Set() 里
+	});
+
+	function xjyyBlock() {
+		$("#xjApp").bootstrapTable('destroy');
+		$("#xjApp").bootstrapTable('destroy');
+		var name = $("#name").val();
+		var data = $("#xj")[0].getAttribute('value');
+		$('#xjApp').bootstrapTable({
+			url: "./getApp?options=" + data + "&name=" + name,        //请求后台的URL（*）
+			method: 'GET',                      //请求方式（*）
+			toolbar: '#toolbar',              //工具按钮用哪个容器
+			striped: true,                      //是否显示行间隔色
+			cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+			pagination: true,                   //是否显示分页（*）
+			sortable: true,                     //是否启用排序
+			sortOrder: "asc",                   //排序方式
+			sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+			pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+			pageSize: 10,                     //每页的记录行数（*）
+			pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+			search: false,                      //是否显示表格搜索
+			strictSearch: true,
+			showColumns: true,                  //是否显示所有的列（选择显示的列）
+			showRefresh: true,               //是否显示刷新按钮
+			singleSelect: true,				//开启行单选
+			minimumCountColumns: 2,             //最少允许的列数
+			clickToSelect: true,                //是否启用点击选中行
+			//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+			uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+			showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
+			cardView: false,                    //是否显示详细视图
+			detailView: false,                  //是否显示父子表
+
+			//得到查询的参数
+			queryParams: function (params) {
+				//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+				var temp = {
+					rows: params.limit,                         //页面大小
+					page: (params.offset / params.limit) + 1,   //页码
+					sort: params.sort,      //排序列名
+					sortOrder: params.order //排位命令（desc，asc）
+				};
+				return temp;
+			},
+			responseHandler: function (res) {
+				return {
+					"total": res.result.total,//总页数
+					"rows": res.result.data
+				};
+			},
+			columns: [{
+				checkbox: true,
+				visible: true                  //是否显示复选框
+			}, {
+				field: 'name',
+				title: '应用名称',
+				sortable: true
+			},
+			{
+				field: 'id',
+				title: 'id',
+				sortable: true,
+				visible: false
+			}, {
+				field: 'version',
+				title: '版本号',
+				sortable: true
+			}, {
+				field: 'creator',
+				title: '创建人',
+				sortable: true,
+			}, {
+				field: 'typeString',
+				title: '应用类型',
+				sortable: true,
+			}, {
+				field: 'zoneString',
+				title: '使用范围',
+				sortable: true,
+
+			}, {
+				field: 'url',
+				title: '访问地址'
+			}],
+			onLoadSuccess: function () {
+			},
+			onLoadError: function () {
+				showTips("数据加载失败！");
+			},
+			onDblClickRow: function (row, $element) {
+				var id = row.ID;
+				EditViewById(id, 'view');
+			},
+		});
+
+
+	}
+
+	function queryUser() {
+		$("#userinfo").bootstrapTable('destroy');
+		var name = $("#loginname").val();
+		$('#userinfo').bootstrapTable({
+			url: "./queryUsers?loginname=" + name,       //请求后台的URL（*）
+			method: 'GET',                      //请求方式（*）
+			toolbar: '#toolbar',              //工具按钮用哪个容器
+			striped: true,                      //是否显示行间隔色
+			cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+			pagination: true,                   //是否显示分页（*）
+			sortable: true,                     //是否启用排序
+			sortOrder: "asc",                   //排序方式
+			sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+			pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+			pageSize: 10,                     //每页的记录行数（*）
+			pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+			search: false,                      //是否显示表格搜索
+			strictSearch: true,
+			showColumns: true,                  //是否显示所有的列（选择显示的列）
+			showRefresh: true,               //是否显示刷新按钮
+			singleSelect: true,				//开启行单选
+			minimumCountColumns: 2,             //最少允许的列数
+			clickToSelect: true,                //是否启用点击选中行
+			//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+			uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+			showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
+			cardView: false,                    //是否显示详细视图
+			detailView: false,                  //是否显示父子表
+
+			//得到查询的参数
+			queryParams: function (params) {
+				//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+				var temp = {
+					rows: params.limit,                         //页面大小
+					page: (params.offset / params.limit) + 1,   //页码
+					sort: params.sort,      //排序列名
+					sortOrder: params.order //排位命令（desc，asc）
+				};
+				return temp;
+			},
+			responseHandler: function (res) {
+				return {
+					"total": res.result.total,//总页数
+					"rows": res.result.data
+				};
+			},
+
+			columns: [{
+				checkbox: true,
+				visible: true                  //是否显示复选框
+			}, {
+				title: '序号',
+				align: 'center',
+				valign: 'bottom',
+				formatter: function (value, row, index) {
+					var pageSize = $('#userinfo').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+					var pageNumber = $('#userinfo').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+					return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+				}
+			},
+			{
+				field: 'loginname',
+				title: '登录名',
+				sortable: true
+			}, {
+				field: 'sfzh',
+				title: '身份证号',
+				sortable: true
+			}, {
+				field: 'realname',
+				title: '真实姓名',
+				sortable: true,
+			}, {
+				field: 'email',
+				title: 'Email',
+				sortable: true
+			}],
+			onLoadSuccess: function () {
+			},
+			onLoadError: function () {
+				showTips("数据加载失败！");
+			},
+			onDblClickRow: function (row, $element) {
+				var id = row.ID;
+				EditViewById(id, 'view');
+			},
+		});
+	}
+	//定义多选的全局变量
+	var AllApis = new Array();
+
+	$("#apiSpModal").on('hidden.bs.modal', function () {
+		AllApis = new Array();
+	});
+
+	//api审批表格加载数据
+	function searchapiSp() {
+		$('#apiSp').bootstrapTable('destroy');
+		var data = $('#fbyytable').bootstrapTable('getSelections');
+		if (data.length > 1 || data.length < 1) {
+			$("#textcontent").html("你必须选择一条数据!");
+			$("#myModal").modal();
+		} else {
+			var appcode = encodeURIComponent(data[0].appcode);
+			$("#apiSpModal").modal();
+			$("#apiSp").bootstrapTable({
+				url: "./getinterfaceByAppcode?appcode=" + appcode,       //请求后台的URL（*）
+				contentType: "application/x-www-form-urlencoded",
+				method: 'POST',                      //请求方式（*）
+				toolbar: '#toolbar',              //工具按钮用哪个容器
+				striped: true,                      //是否显示行间隔色
+				cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+				pagination: true,                   //是否显示分页（*）
+				sortable: true,                     //是否启用排序
+				sortOrder: "asc",                   //排序方式
+				sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+				pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+				pageSize: 10,                     //每页的记录行数（*）
+				pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+				search: false,                      //是否显示表格搜索
+				strictSearch: true,
+				showColumns: true,                  //是否显示所有的列（选择显示的列）
+				showRefresh: true,               //是否显示刷新按钮
+				singleSelect: false,				//开启行单选
+				minimumCountColumns: 2,             //最少允许的列数
+				clickToSelect: true,                //是否启用点击选中行
+				//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+				uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+				showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
+				cardView: false,                    //是否显示详细视图
+				detailView: false,                  //是否显示父子表
+				//得到查询的参数
+				queryParams: function (params) {
+					//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+					var temp = {
+						rows: params.limit,                         //页面大小
+						page: (params.offset / params.limit) + 1,   //页码
+						sort: params.sort,      //排序列名
+						sortOrder: params.order //排位命令（desc，asc）
+					};
+					return temp;
+				},
+				responseHandler: function (res) {
+					$("#apiSp").text(res.result.total);
+					return {
+						"total": res.result.result.total,//总页数
+						"rows": res.result.result.data
+					};
+				},
+				columns: [{
+					checkbox: true,
+					visible: true,//是否显示复选框
+					formatter: function (i, row) {            // 每次加载 checkbox 时判断当前 row 的 id 是否已经存在全局 Set() 里
+						if ($.inArray(row.id, AllApis) != -1) {    // 因为 Set是集合,需要先转换成数组  
+							return {
+								checked: true               // 存在则选中
+							}
+						}
+					}
+
+				}, {
+					title: '行号',
+					align: 'center',
+					valign: 'bottom',
+					formatter: function (value, row, index) {
+						var pageSize = $('#apiSp').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+						var pageNumber = $('#apiSp').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+						return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+					}
+
+				},
+				{
+					field: 'interfaceName',
+					title: '接口名称',
+					sortable: true
+				}, {
+					field: 'interfaceDescription',
+					title: '接口描述',
+					sortable: true
+				}, {
+					field: 'interfaceId',
+					title: '接口ID',
+					sortable: true,
+				}, {
+					field: 'method',
+					title: '方法类型',
+					sortable: true,
+				}],
+				onLoadSuccess: function () {
+				},
+				onLoadError: function () {
+					showTips("数据加载失败！");
+				},
+				onDblClickRow: function (row, $element) {
+					var id = row.ID;
+					EditViewById(id, 'view');
+				},
+
+			});
+		}
+	}
+
+	//定义多选的全局变量
+	var spyyAllApis = new Array();
+
+	$("#spyyapiSpModal").on('hidden.bs.modal', function () {
+		spyyAllApis = new Array();
+	});
+
+	//审批应用中api审批表格加载数据
+	function searchspyyapiSp() {
+		$('#spyyapiSp').bootstrapTable('destroy');
+		var data = $('#spyytable').bootstrapTable('getSelections');
+		if (data.length > 1 || data.length < 1) {
+			$("#textcontent").html("你必须选择一条数据!");
+			$("#myModal").modal();
+		} else {
+			var appcode = encodeURIComponent(data[0].appcode);
+			$("#spyyapiSpModal").modal();
+			$("#spyyapiSp").bootstrapTable({
+				url: "./getinterfaceByAppcode?appcode=" + appcode,       //请求后台的URL（*）
+				contentType: "application/x-www-form-urlencoded",
+				method: 'POST',                      //请求方式（*）
+				toolbar: '#toolbar',              //工具按钮用哪个容器
+				striped: true,                      //是否显示行间隔色
+				cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+				pagination: true,                   //是否显示分页（*）
+				sortable: true,                     //是否启用排序
+				sortOrder: "asc",                   //排序方式
+				sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+				pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+				pageSize: 10,                     //每页的记录行数（*）
+				pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+				search: false,                      //是否显示表格搜索
+				strictSearch: true,
+				showColumns: true,                  //是否显示所有的列（选择显示的列）
+				showRefresh: true,               //是否显示刷新按钮
+				singleSelect: false,				//开启行单选
+				minimumCountColumns: 2,             //最少允许的列数
+				clickToSelect: true,                //是否启用点击选中行
+				//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+				uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+				showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
+				cardView: false,                    //是否显示详细视图
+				detailView: false,                  //是否显示父子表
+				//得到查询的参数
+				queryParams: function (params) {
+					//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+					var temp = {
+						rows: params.limit,                         //页面大小
+						page: (params.offset / params.limit) + 1,   //页码
+						sort: params.sort,      //排序列名
+						sortOrder: params.order //排位命令（desc，asc）
+					};
+					return temp;
+				},
+				responseHandler: function (res) {
+					$("#spyyapiSp").text(res.result.total);
+					return {
+						"total": res.result.result.total,//总页数
+						"rows": res.result.result.data
+					};
+				},
+				columns: [{
+					checkbox: true,
+					visible: true,//是否显示复选框
+					formatter: function (i, row) {            // 每次加载 checkbox 时判断当前 row 的 id 是否已经存在全局 Set() 里
+						if ($.inArray(row.id, spyyAllApis) != -1) {    // 因为 Set是集合,需要先转换成数组  
+							return {
+								checked: true               // 存在则选中
+							}
+						}
+					}
+
+				}, {
+					title: '行号',
+					align: 'center',
+					valign: 'bottom',
+					formatter: function (value, row, index) {
+						var pageSize = $('#spyyapiSp').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+						var pageNumber = $('#spyyapiSp').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+						return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+					}
+
+				},
+				{
+					field: 'interfaceName',
+					title: '接口名称',
+					sortable: true
+				}, {
+					field: 'interfaceDescription',
+					title: '接口描述',
+					sortable: true
+				}, {
+					field: 'interfaceId',
+					title: '接口ID',
+					sortable: true,
+				}, {
+					field: 'method',
+					title: '方法类型',
+					sortable: true,
+				}],
+				onLoadSuccess: function () {
+				},
+				onLoadError: function () {
+					showTips("数据加载失败！");
+				},
+				onDblClickRow: function (row, $element) {
+					var id = row.ID;
+					EditViewById(id, 'view');
+				},
+
+			});
+		}
+	}
+	
+	// 审批应用--消息应用审批 内部按钮
+	$("#apprpval-search-btn").on('click',function(){
+		var val = $("#approvalPrisonsName").val();
+		xxyysplhanshu(val);
+		$("#approvalPrisonsName").val("")
+
+	})
+
+
+	// 审批应用--消息应用审批
+	function xxyysplhanshu(searchdata) {
+		$('#xxyyspTable').bootstrapTable('destroy');
+		var data = $('#spyytable').bootstrapTable('getSelections');
+		if (data.length > 1 || data.length < 1) {
+			$("#textcontent").html("你必须选择一条数据!");
+			$("#myModal").modal();
+		} else {
+			var appcode = data[0].appcode;
+			$("#xxyyspModal").modal();
+			$("#xxyyspTable").bootstrapTable({
+				url: "/message/getXxydy",
+				searchAlign: 'left',
+				toolbar: '#toolbar',              //工具按钮用哪个容器
+				striped: true,                      //是否显示行间隔色
+				cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+				pagination: true,                   //是否显示分页（*）
+				sortable: true,                     //是否启用排序
+				sortOrder: "asc",                   //排序方式
+				sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+				pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+				pageSize: 10,                     //每页的记录行数（*）
+				pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+				// search: true,                      //是否显示表格搜索
+				strictSearch: true,
+				showColumns: false,                  //是否显示所有的列（选择显示的列）
+				showRefresh: false,               //是否显示刷新按钮
+				singleSelect: false,				//开启行单选
+				minimumCountColumns: 2,             //最少允许的列数
+				clickToSelect: true,                //是否启用点击选中行
+				//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+				uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+				showToggle: false,                   //是否显示详细视图和列表视图的切换按钮
+				cardView: false,                    //是否显示详细视图
+				detailView: false,                  //是否显示父子表
+				//得到查询的参数
+				queryParams: function (params) {
+					//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+					var temp = {
+						rows: params.limit,                         //页面大小
+						page: (params.offset / params.limit) + 1,   //页码
+						sort: params.sort,      //排序列名
+						sortOrder: params.order,//排位命令（desc，asc）
+						appcode: appcode,
+						shbz: 0,
+						routingkey:searchdata
+						
+					};
+					return temp;
+				},
+				responseHandler: function (res) {
+					return {
+						"total": res.result.total,//总页数
+						"rows": res.result.data
+					};
+				},
+				columns: [{
+					checkbox: true,
+					visible: true,           //是否显示复选框
+					formatter: function (i, row) {            // 每次加载 checkbox 时判断当前 row 的 id 是否已经存在全局 Set() 里
+						if ($.inArray(row.id, overAllIds) != -1) {    // 因为 Set是集合,需要先转换成数组  
+							return {
+								checked: true               // 存在则选中
+							}
+						}
+					}
+				}, {
+					title: '序号',
+					align: 'center',
+					valign: 'bottom',
+					formatter: function (value, row, index) {
+						var pageSize = $('#xxyyspTable').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+						var pageNumber = $('#xxyyspTable').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+						return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+					}
+				},
+				{
+					field: 'appname',
+					title: '监所',
+					sortable: true
+				}, {
+					field: 'msgtype',
+					title: '消息类型',
+					sortable: true
+				}, {
+					field: 'rolecode',
+					title: '角色代码',
+					sortable: true,
+				}, {
+					field: 'businessid',
+					title: '消息编号',
+					sortable: true
+				}, {
+					field: 'businessname',
+					title: '消息名称',
+					sortable: true
+				}],
+				onLoadSuccess: function () {
+				},
+				onLoadError: function () {
+					showTips("数据加载失败！");
+				},
+			});
+		}
+	}
+	// 已上线应用--消息应用审批
+	function xxyysplYsxhanshu(val) {
+		$('#xxyyspYsxTable').bootstrapTable('destroy');
+		// getSelections 返回所选的行，当没有选择任何行的时候返回一个空数组
+		var data = $('#fbyytable').bootstrapTable('getSelections');
+		console.log(data);
+		if (data.length > 1 || data.length < 1) {
+			$("#textcontent").html("你必须选择一条数据!");
+			$("#myModal").modal();
+		} else {
+			// var appcode = encodeURIComponent(data[0].appcode);
+			var appcode = data[0].appcode;
+			$("#xxyyspYsxModal").modal();
+			function xxdyQuery(pageIndex, pageSize) {
+				// <!--点击节点加载表格数据-->
+				$("#xxdysqTable").bootstrapTable('destroy');
+				var appcode = $("#appcode").val();
+
+				//var bootstrapTableDataLength;	//定义一个上级变量，存放当前加载的行数据的长度
+
+			}
+
+			$("#xxyyspYsxTable").bootstrapTable({
+				url: "/message/getXxydy",
+				searchAlign: 'left',
+				toolbar: '#toolbar',              //工具按钮用哪个容器
+				striped: true,                      //是否显示行间隔色
+				cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+				pagination: true,                   //是否显示分页（*）
+				sortable: true,                     //是否启用排序
+				sortOrder: "asc",                   //排序方式
+				sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+				pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+				pageSize: 10,                     //每页的记录行数（*）
+				pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+				// search: true,                      //是否显示表格搜索
+				strictSearch: true,
+				showColumns: false,                  //是否显示所有的列（选择显示的列）
+				showRefresh: false,               //是否显示刷新按钮
+				singleSelect: false,				//开启行单选
+				minimumCountColumns: 2,             //最少允许的列数
+				clickToSelect: true,                //是否启用点击选中行
+				//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+				uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+				showToggle: false,                   //是否显示详细视图和列表视图的切换按钮
+				cardView: false,                    //是否显示详细视图
+				detailView: false,                  //是否显示父子表
+				//得到查询的参数
+				queryParams: function (params) {
+					//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+					var temp = {
+						rows: params.limit,                         //页面大小
+						page: (params.offset / params.limit) + 1,   //页码
+						sort: params.sort,      //排序列名
+						sortOrder: params.order,//排位命令（desc，asc）
+						appcode: appcode,
+						shbz: 0,
+						routingkey:val
+
+					};
+					return temp;
+				},
+				responseHandler: function (res) {
+					return {
+						"total": res.result.total,//总页数
+						"rows": res.result.data
+					};
+				},
+				columns: [{
+					checkbox: true,
+					visible: true,           //是否显示复选框
+					formatter: function (i, row) {            // 每次加载 checkbox 时判断当前 row 的 id 是否已经存在全局 Set() 里
+						if ($.inArray(row.id, overAllIds) != -1) {    // 因为 Set是集合,需要先转换成数组  
+							return {
+								checked: true               // 存在则选中
+							}
+						}
+					}
+				}, {
+					title: '序号',
+					align: 'center',
+					valign: 'bottom',
+					formatter: function (value, row, index) {
+						var pageSize = $('#xxyyspYsxTable').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+						var pageNumber = $('#xxyyspYsxTable').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+						return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+					}
+				},
+				{
+					field: 'appname',
+					title: '监所',
+					sortable: true
+				}, {
+					field: 'msgtype',
+					title: '消息类型',
+					sortable: true
+				}, {
+					field: 'rolecode',
+					title: '角色代码',
+					sortable: true,
+				}, {
+					field: 'businessid',
+					title: '消息编号',
+					sortable: true
+				}, {
+					field: 'businessname',
+					title: '消息名称',
+					sortable: true
+				}],
+				onLoadSuccess: function () {
+				},
+				onLoadError: function () {
+					showTips("数据加载失败！");
+				},
+			});
+		}
+	}
+	var examine1 = function (type, datas) {            // 操作类型，选中的行
+		if (type.indexOf('uncheck') == -1) {
+			$.each(datas, function (i, v) {        // 如果是选中则添加选中行的 id
+				AllApis.push(v.id);
+			});
+		} else {
+			$.each(datas, function (i, v) {
+				AllApis.remove(v.id);     // 删除取消选中行的 id
+			});
+		}
+	}
+
+	$('#apiSp').on('uncheck.bs.table check.bs.table check-all.bs.table uncheck-all.bs.table', function (e, rows) {
+		var datas = $.isArray(rows) ? rows : [rows];        // 点击时获取选中的行或取消选中的行
+		examine1(e.type, datas);                                 // 保存到全局 Set() 里
+	});
+
+
+
+	var examine2 = function (type, datas) {            // 操作类型，选中的行
+		if (type.indexOf('uncheck') == -1) {
+			$.each(datas, function (i, v) {        // 如果是选中则添加选中行的 id
+				spyyAllApis.push(v.id);
+			});
+		} else {
+			$.each(datas, function (i, v) {
+				spyyAllApis.remove(v.id);     // 删除取消选中行的 id
+			});
+		}
+	}
+	$('#spyyapiSp').on('uncheck.bs.table check.bs.table check-all.bs.table uncheck-all.bs.table', function (e, rows) {
+		var datas = $.isArray(rows) ? rows : [rows];        // 点击时获取选中的行或取消选中的行
+		examine2(e.type, datas);                                 // 保存到全局 Set() 里
+	});
+
+	var deleteUser = function () {
+		$("#deleteUser").on('click', function () {
+			var data = $('#userinfo').bootstrapTable('getSelections');
+			if (data == "") {
+				$("#textcontent").html("请选择要删除的用户");
+				$("#myModal").modal();
+			} else {
+				$("#confirmcontent").html("确认删除吗");
+				$("#confirm").modal();
+				$(".revisebutton").on("click", function () {
+					$.ajax({
+						url: "./deleteUser",
+						type: "POST",
+						data: data[0],
+						success: function (result) {
+							$("#textcontent").html("删除成功");
+							$("#myModal").modal();
+							queryUser();
+
+						}
+					});
+				})
+			}
+		});
+	}
+	var appXj = function () {
+		$("#appxj").on('click', function () {
+			var data = $('#fbyytable').bootstrapTable('getSelections');
+			if (data == "") {
+				$("#textcontent").html("请选择要下架的应用！");
+				$("#myModal").modal();
+			} else {
+				$('#xjyyAppModal').modal('show');
+				$("#appXjBtn").on('click', function () {
+					$.ajax({
+						url: "./appXj",
+						type: "POST",
+						data: data[0],
+						success: function (result) {
+							$("#textcontent").html("下架成功！");
+							$("#myModal").modal();
+							searchAPP3();
+							$('#xjyyAppModal').modal('hide');
+						}
+
+					});
+				});
+			}
+		});
+	}
+
+	var appSj = function () {
+		$("#appsj").on('click', function () {
+			var data = $('#xjApp').bootstrapTable('getSelections');
+			var s = "yes";
+			if (data == "") {
+				$("#textcontent").html("请选择要上架的应用！");
+				$("#myModal").modal();
+			} else {
+				//$('#xjyyAppModal').modal('show');
+				$.ajax({
+					url: "/appSp?data=" + s,
+					type: "POST",
+					data: {
+						"id": data[0].id,
+						"appcode": data[0].appcode
+					},
+					dataType: "json",
+					success: function (result) {
+						$("#textcontent").html("上架成功！");
+						$("#myModal").modal();
+						xjyyBlock();
+						//$('#xjyyAppModal').modal('hide');
+					}
+
+				});
+			}
+		});
+	}
+	var updateUser = function () {
+		$("#updateUser").on('click', function () {
+			var data = $('#userinfo').bootstrapTable('getSelections');
+			if (data == "") {
+				$("#textcontent").html("请选择要更新的用户");
+				$("#myModal").modal();
+				$('#updateConpyModal').modal('hide')
+			} else {
+				$('#updateConpyModal').modal('show');
+				$('#id1').val(data[0].id);
+				$('#loginname1').val(data[0].loginname);
+				$('#loginpass1').val(data[0].loginpass);
+				$('#sfzh1').val(data[0].sfzh);
+				$('#email1').val(data[0].email);
+				$('#realname1').val(data[0].realname);
+			}
+		});
+	}
+
+	//设置轮播图
+	var appLunbo = function () {
+		$("#applunbo").on('click', function () {
+			if (overAllIds.length != 4) {
+				$("#textcontent").html("请选择4条需要设置为轮播的数据!");
+				$("#myModal").modal();
+			} else {
+				$.ajax({
+					url: "./appLunbo",
+					type: "POST",
+					data: { "data": overAllIds },
+					success: function (result) {
+						$("#textcontent").html("设置成功！");
+						$("#myModal").modal();
+					}
+				});
+			}
+		})
+	}
+	//api审批通过
+	$("#apiSpVidBtn").on('click', function () {
+		var apidata = $('#fbyytable').bootstrapTable('getSelections');
+		//var data = $('#apiSp').bootstrapTable('getSelections');
+		var appcode = apidata[0].appcode;
+		var bdzt = 2;
+		/*var interface_id=[];
+		for(var i=0;i<data.length;i++){
+			interface_id.push(data[i]['id'])
+		}
+		console.log(interface_id); */
+		//console.log(AllApis);
+		if (AllApis.length == 0) {
+			/* $("#textcontent").html("请选择你要审批的Api接口！");
+			$("#myModal").modal();*/
+			alert("请选择你要审批的Api接口!");
+		} else {
+			$.ajax({
+				url: './updateInterfaceBdByCode',
+				type: 'POST',
+				dataType: "json",
+				data: { "appcode": appcode, "bdzt": bdzt, "interface_id": AllApis },
+				success: function (result) {
+					alert("审批完成");
+					$("#apiSp").bootstrapTable('refresh');
+
+				}
+			});
+		}
+	});
+
+	//api审批不通过
+	$("#apiSpNoVidBtn").on('click', function () {
+		var apidata = $('#fbyytable').bootstrapTable('getSelections');
+		var data = $('#apiSp').bootstrapTable('getSelections');
+		var appcode = apidata[0].appcode;
+		var bdzt = 3;
+		//var interface_id=[];
+		//for(var i=0;i<data.length;i++){
+		//	interface_id.push(data[i]['id'])
+		//}
+		if (AllApis.length == 0) {
+			alert("请选择你不给予通过的Api接口!");
+		} else {
+			$.ajax({
+				url: './updateInterfaceBdByCode',
+				type: 'POST',
+				dataType: "json",
+				data: { "appcode": appcode, "bdzt": bdzt, "interface_id": AllApis },
+				success: function (result) {
+					alert("不给予通过完成");
+					$("#apiSp").bootstrapTable('refresh');
+				}
+
+			});
+		}
+	});
+
+
+	//审批应用api审批通过
+	$("#spyyapiSpVidBtn").on('click', function () {
+		var apidata = $('#spyytable').bootstrapTable('getSelections');
+		//var data = $('#apiSp').bootstrapTable('getSelections');
+		var appcode = apidata[0].appcode;
+		var bdzt = 2;
+		/*var interface_id=[];
+		for(var i=0;i<data.length;i++){
+			interface_id.push(data[i]['id'])
+		}
+		console.log(interface_id); */
+		if (spyyAllApis.length == 0) {
+			/* $("#textcontent").html("请选择你要审批的Api接口！");
+			$("#myModal").modal();*/
+			alert("请选择你要审批的Api接口!");
+		} else {
+			$.ajax({
+				url: './updateInterfaceBdByCode',
+				type: 'POST',
+				dataType: "json",
+				data: { "appcode": appcode, "bdzt": bdzt, "interface_id": spyyAllApis },
+				success: function (result) {
+					alert("审批完成");
+					$("#spyyapiSp").bootstrapTable('refresh');
+
+				}
+			});
+		}
+	});
+
+	//审批应用api审批不通过
+	$("#spyyapiSpNoVidBtn").on('click', function () {
+		var apidata = $('#spyytable').bootstrapTable('getSelections');
+		var data = $("#spyyapiSp").bootstrapTable('getSelections');
+		var appcode = apidata[0].appcode;
+		var bdzt = 3;
+		//var interface_id=[];
+		//for(var i=0;i<data.length;i++){
+		//	interface_id.push(data[i]['id'])
+		//}
+
+		if (pyyAllApis.length == 0) {
+			alert("请选择你不给予通过的Api接口!");
+		} else {
+			$.ajax({
+				url: './updateInterfaceBdByCode',
+				type: 'POST',
+				dataType: "json",
+				data: { "appcode": appcode, "bdzt": bdzt, "interface_id": spyyAllApis },
+				success: function (result) {
+					alert("不给予通过完成");
+					$("#spyyapiSp").bootstrapTable('refresh');
+				}
+
+			});
+		}
+	});
+
+	function clearForm(form) {
+		// input清空
+		$(':input', form).each(function () {
+			var type = this.type;
+			var tag = this.tagName.toLowerCase(); // normalize case
+			if (type == 'text' || type == 'password' || tag == 'textarea')
+				this.value = "";
+			// 多选checkboxes清空
+			// select 下拉框清空
+			else if (tag == 'select')
+				this.selectedIndex = -1;
+		});
+	}
+
+	var yyxp = function (row) {
+		$('#spxq').modal('show');
+		var id = row.id;
+		var flag = "";
+		var appcode = encodeURIComponent(row.appcode);
+		$.ajax({
+			url: "./listJsapp?appcode=" + appcode,// 跳转到 action
+			type: 'post',
+			cache: false,
+			async: false,
+			success: function (data) {
+				var total = data.result.result.total;
+				if (total > 0) {
+					flag = "1";
+				} else {
+					flag = "0"
+				}
+			}
+		});
+		var url = "/appXq?appcode=" + appcode + "&flag=" + flag + "&type=1";
+		$("#ifspxq").attr("src", url);
+	};
+
+</script>
+
+</html>

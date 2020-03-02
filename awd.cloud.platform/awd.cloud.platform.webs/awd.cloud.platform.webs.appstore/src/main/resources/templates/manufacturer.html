@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>监管应用中心</title>
+<link rel="icon" href="../assets/img/fengche.png" sizes="96x96">
+<!--分页组件 JS CSS 开始-->
+<script type="text/javascript" src="../lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../src/kkpager.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../src/kkpager_orange.css" />
+<!--分页组件 JS CSS 结束-->
+<script src="../js/appjs/global.js"></script>
+<script src="../js/appjs/jquery.min.js"></script>
+<script src="../js/appjs/swiper.min.js"></script>
+<script src="../js/appjs/app.common.js"></script>
+<script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="./js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript"
+	src="./js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="./js/bootstrap-paginator.js"></script>
+<script type="text/javascript" src="./js/zeroModal.min2.js"></script>
+<script type="text/javascript" src="./js/bootstrap-table.js"></script>
+<script type="text/javascript" src="./js/bootstrap-select.js"></script>
+<script type="text/javascript" src="./js/bootstrapValidator.js"></script>
+<script type="text/javascript" src="./js/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript" src="./js/api.js"></script>
+<script type="text/javascript" src="./js/zh_CN.js"></script>
+<script type="text/javascript" src="./style/edlit/dist/summernote.js"></script>
+<script type="text/javascript"
+	src="./style/edlit/dist/lang/summernote-zh-CN.js"></script>
+<script type="text/javascript" src="./style/fileinput/js/fileinput.js"></script>
+<script type="text/javascript" src="./style/fileinput/js/locales/zh.js"></script>
+<script src="./ZTree/js/jquery.ztree.core.min.js"></script>
+<script src="./ZTree/js/jquery.ztree.excheck.min.js"></script>
+<!-- 引入art-template模板 -->
+<script src="../static/js/art-template.js"></script>
+
+<link rel="stylesheet" href="../css/common/header.css">
+<link href="../css/common/icon.css" rel="stylesheet">
+<link href="./style/css/style.css" rel="stylesheet" type="text/css" />
+<link href="./style/css/zzc/zzcstyle.css" rel="stylesheet"
+	type="text/css" />
+	<link rel="stylesheet" type="text/css" href="../src/kkpager_orange.css" />
+	<link href="../css/common/swiper.min.css" rel="stylesheet">
+	<link href="./style/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	
+<!-- 
+	<link rel="stylesheet" type="text/css" href="./style/css/loginDialog.css" />
+	 -->
+<link rel="stylesheet" type="text/css" href="./css/zeroModal.css" />
+<link href="./style/css/icon.css" rel="stylesheet" type="text/css" />
+<link href="./style/bootstrap/bootstrap-select.css" rel="stylesheet"
+	type="text/css" />
+<link href="./style/bootstrap/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="./style/bootstrap/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="./style/edlit/dist/summernote.css" rel="stylesheet"
+	type="text/css" />
+<link href="./style/fileinput/css/fileinput.css" rel="stylesheet"
+	type="text/css" />
+  <!-- ZTree插件css -->
+    <link href="./ZTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+<style type="text/css">
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pageMenu li::selection {
+	background: transparent;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.pageBox {
+	width: 800px;
+	background: #eee;
+	border: 1px solid #ebebeb;
+	padding: 10px;
+	margin: 0 auto;
+}
+
+.pageDiv {
+	width: 80%;
+	background: #fff;
+	padding-left: 1.25%;
+	margin-bottom: 10px;
+}
+
+.pageDiv li {
+	margin-bottom: 10px;
+	border: 1px solid #dbdbdb;
+	width: 23.75%;
+	margin-right: 1.25%;
+	float: left;
+	margin-top: 10px;
+	padding: 1%;
+	text-align: center;
+}
+
+@media screen and (max-width:1200px){
+	.img img{
+       width:150px;
+	}
+	#kkpager .infoTextAndGoPageBtnWrap{
+		float:none;
+	}
+}
+
+.hide {
+	display: none;
+}
+
+.notContent {
+	padding: 15px 0;
+	text-align: center;
+}
+
+.page {
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.pageMenu {
+	display: inline-block;
+	position: relative;
+	left: 20%;
+}
+
+.pageMenu li {
+	border: solid thin #ddd;
+	margin: 3px;
+	float: left;
+	padding: 5px 10px;
+	cursor: pointer;
+	background: #fff;
+}
+
+.pageMenu li.firstPage {
+	
+}
+
+.pageMenu li.prevPage {
+	
+}
+
+.pageMenu li.pageNum {
+	
+}
+
+.pageMenu li.nextPage {
+	
+}
+
+.pageMenu li.lastPage {
+	
+}
+
+.pageMenu li.disabled {
+	background-color: #DDDDDD;
+	cursor: not-allowed;
+}
+
+.pageMenu li.active {
+	border: solid thin #0099FF;
+	background-color: #0099FF;
+	color: white;
+}
+
+.pageMenu li.last {
+	background: transparent;
+	border: 0;
+	position: relative;
+	top: -4px;
+}
+
+.page .keuInput {
+	padding: 0 5px;
+	width: 30px;
+	border: solid thin #ddd;
+	height: 29px;
+	outline: none;
+	text-align: center;
+	font-size: 16px;
+}
+
+.page .btnSure {
+	padding: 4px 8px;
+	border: solid thin #ddd;
+	outline: none;
+	text-align: center;
+	font-size: 16px;
+	background: #fff;
+	position: relative;
+	top: 2px;
+}
+
+.page .btnSure:hover {
+	cursor: pointer;
+}
+
+.pageObj {
+	float: left;
+}
+
+.pl {
+	margin-left: 100px;
+}
+.btn-item-app {
+	vertical-align: middle;
+	letter-spacing: .01785714em;
+	font-family: 'Google Sans', Roboto, Arial, sans-serif;
+	font-size: .875rem;
+	font-weight: 500;
+	line-height: 1.1rem;
+	color: #3c4043;
+	padding: 22px 0 10px 19px;
+	text-shadow: none;
+	cursor: pointer;
+	margin-left: -15px;
+}
+
+.btn-asd-app .btn-item-app-active,.btn-asd-app .btn-item-app-active:hover,.btn-asd-app .btn-item-app-active:focus {
+	background: #1a73e8;
+	-webkit-border-radius: 0 100px 100px 0;
+	border-radius: 0 100px 100px 0;
+	text-shadow: 0 -1px rgba(0, 0, 0, 0.2);
+	color: #fff;
+
+}
+.header-container .header-nr .header-logo .logo-main .logo {
+	-webkit-flex-shrink: 0;
+	flex-shrink: 0;
+	float: left;
+	margin-top: 16px;
+}
+.header-container .header-nr .dper-x-y .x-y-ff-c .hs-set {
+	background: none;
+	cursor: pointer;
+	display: block;
+	height: 24px;
+	text-indent: 0;
+	width: 24px;
+	margin-top: 20px;
+
+}
+.overlay{
+	background-color: rgba(255, 255, 255, 0);
+	text-align:center;
+}
+.overlay>a{
+	color: #000;
+	text-align:center;
+}
+
+.fileinput-upload-button{
+	display:none;
+}
+
+#apiSqScroll::-webkit-scrollbar{
+    display:none;
+}
+/* <!-- 是否自动创建队列 --> */
+.isCreat{
+	position: relative;
+	margin-top: 18px;
+}
+.isCreat input {
+	position: absolute;
+	top: 0;
+	left: 140px;
+	
+}
+.isCreat span {
+	position: absolute;
+	top: 0;
+	left: 156px;
+}
+.modal-footer {
+	border-top: none;
+}
+.save{
+	margin-top: 45px;
+}
+
+.modal-open .modal {
+    /* overflow-y: hidden; */
+}
+.setScroll {
+	/* width: 230px!important; */
+	height: 450px;
+
+	/* background: red; */
+}
+.setScroll>ul {
+	/* background-color: yellow; */
+	padding: 0;
+	height: 450px;
+	overflow-y: scroll;
+}
+.setScroll>ul::-webkit-scrollbar {
+	display: none
+}
+.setScrollContent {
+	width: 868px!important;
+	height: 450px;
+	overflow: hidden;
+}
+.setScrollContentXxdy {
+	width: 1130px!important;
+	height: 450px;
+	overflow: hidden;
+
+}
+.setScrollContentXxdy::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+.setScrollContentXxdy>div {
+	width: 869px;
+	height: 450px;
+	overflow-y: scroll;
+	margin-left: 16px;
+
+}
+.setScrollContent>div {
+	/* width: 869px; */
+	height: 450px;
+	/* overflow-y: scroll; */
+	/* margin-left: 16px; */
+
+}
+.form-horizontal .form-group {
+	margin-left: 0px;
+	/* margin-right: 10px; */
+}
+
+.jiekouDes {
+	display: inline-block!important;
+}
+.jiekouDescr {
+	margin:10px 0 20px 16px;
+}
+</style>
+</head>
+<body style="height: 100%;position:relative;overflow-x:hidden;">
+<% include("/common/header1.html"){}%>
+    <div class="row" style="height: 100%;padding-top: 66px; margin: 0px 10% 0px 5%;">
+    	<div class="col-sm-2 col-md-2 col-lg-2" style="padding-right:0px;height: 128%;background:#F5F5F5;border-right:1px solid #B8B8B8">
+    		<div id="sidebar">
+            <div class="sidebar-inner btn-asd-app">
+				<div id="index" btn-item-app style="font-size:15px;height: 48px;margin-top: 50px;cursor: pointer" class="btn-item-app flex btn-item-app-active" >
+					<p style="float:left;margin-left:7%;margin-top:-3%;">默认</p>
+				</div>
+				<div id="menus" btn-item-app style="font-size:15px;height: 48px;margin-top: 10px;cursor: pointer" class="btn-item-app flex ">
+					<p style="float:left;margin-left:7%;margin-top:-3%;">软件菜单</p>
+				</div>
+				<div id="system" btn-item-app style="font-size:15px;height: 48px;margin-top: 10px;cursor: pointer" class="btn-item-app flex ">
+					<p style="float:left;margin-left:7%;margin-top:-3%;">系统参数</p>
+				</div>
+				<div id="api" btn-item-app style="font-size:15px;height: 48px;margin-top: 10px;cursor: pointer" class="btn-item-app flex ">
+					<p style="float:left;margin-left:7%;margin-top:-3%;">api申请</p>
+				</div>
+				<div btn-item-app style="font-size:15px;height: 48px;margin-top: 10px;cursor: pointer" class="btn-item-app flex " data-toggle="modal" data-target="#addAppModal">
+					<p style="float:left;margin-left:7%;margin-top:-3%;">创建应用</p>
+				</div>
+				<div id="xxdy" btn-item-app style="font-size:15px;height: 48px;margin-top: 10px;cursor: pointer" class="btn-item-app flex ">
+					<p style="float:left;margin-left:7%;margin-top:-3%;">消息订阅申请</p>
+				</div>
+				
+            </div>
+         		</div>
+    		</div>
+    		<div class="col-sm-10 col-md-10 col-lg-10 ">
+    		<div class="row" id="content">
+	    		<div id="wdyyBlock">
+	    		<div class="row form-inline" style="margin: 10px">
+					  <div class="col-xs-6" style="width:100%">
+					   <label>应用名称:
+					    <input type="text" class="form-control" placeholder="" id="appName">
+					    </label>
+					    <label name="radio-inline" class="radio-inline">
+					    <!-- loginname -->
+					      <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" > 全部
+						</label>
+						<label name="radio-inline" class="radio-inline">
+						<!-- type=2-->
+						  <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5" checked> 未发布
+						</label>
+						<label name="radio-inline" class="radio-inline">
+						<!-- type=1 and state='R1' -->
+						  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 审批中
+						</label>
+						<label name="radio-inline" class="radio-inline">
+						<!-- type=1 and state='R1' -->
+						  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 审批未通过
+						</label>
+						<label name="radio-inline" class="radio-inline">
+						<!-- type=1 and state="R2"-->
+						  <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4"> 已上架
+						</label>
+					    <input hidden type="radio" name="inlineRadioOptions" id="inlineRadio7" value="option7">
+					<!-- 	<label class="radio-inline">
+						type=2
+						  <input type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6"> 下架
+						</label> -->&nbsp;&nbsp;&nbsp;&nbsp;
+					     <label class="btn btn-primary" id="query">查询</label>&nbsp;
+					 	 <label class="btn btn-primary" id="setCd" onclick="setMenuForm()">菜单设置</label>
+					 	 <label class="btn btn-primary" id="setCs" onclick="setSysForm()">应用设置</label>
+						  <label class="btn btn-primary" id="setApi" onclick="setApisq()">API申请</label>
+						  <label class="btn btn-primary" id="setXxdy" onclick="setXxdysq()">消息订阅申请</label>
+						  <!-- <label class="btn btn-primary" id="setChaKan" onclick="setLook()"  style="display:none">查看消息队列</label> -->
+
+					  </div>
+				</div>
+				<hr/> 
+		        	<div class="portlet-body " >
+							<!-- <table	class="table table-striped table-bordered table-hover table-full-width"
+								id="table" style="width:100%;height: 100%">
+								<thead>
+									<tr>
+										<th width="12.5%" ><input type="checkbox" id="xcc" class="group-checkable" data-set="#table .checkboxes" /></th>
+										<th width="12.5%">序号</th>										
+										<th class="hidden-xs" width="12.5%" data-field="name">应用名称</th>
+										<th class="hidden-xs" width="12.5%" data-field="version">版本号</th>
+										<th class="hidden-xs" width="12.5%" data-field="type">应用类型</th>
+										<th class="hidden-xs" width="12.5%" data-field="zone">使用范围</th>
+										<th class="hidden-xs" width="12.5%" data-field="memo">描述</th>
+										<th class="hidden-xs" width="12.5%" data-field="url">下载地址</th>
+									</tr>
+								</thead>
+								<tbody>									
+								</tbody>
+								<ul class="pageDiv clearfix" id="apps">
+				 				  </ul>
+							</table> -->
+							<!-- 分页 -->
+							 <div class="pageBox1">
+							    <div class="clear" style="margin: 0;">
+								   <ul class="pageDiv clearfix" id="apps">
+								   </ul>
+								</div>
+						    </div>
+						   
+						    <div style="width:800px;margin:0 auto;">
+								<div id="kkpager"></div>
+							</div>
+							
+					</div>
+		        
+	    	</div>
+    	</div>
+   </div>
+   <!-- api申请的modal -->
+   <div class="modal fade" id="apiSqModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+		  <div class="modal-dialog modal-lg"  id="apiSqScroll"  role="document" aglin="center" style="width: 83%;height: 90%;padding-top: 30px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="model-title" id="deleteApp">API接口申请</h4>
+				</div>
+				 <div class="modal-body form-horizontal" style="overflow: hidden;">
+				 	
+						<div class="UserTree col-xs-6 form-group setScroll" style="float:left;width:21%;">
+   							 <ul id="apiDemo" class="ztree"></ul>
+						</div>
+						<div class=" form-group col-xs-6 setScrollContent" style="margin-left:0px;margin-top:0px;">
+							
+							<div>
+								<div class="form-inline">
+									<!-- 接口描述 -->
+									<label for="" class="jiekouDescr">
+										接口描述:
+										<input type="text" name="" id="" class="form-control" class="jiekouDes" >
+									</label>
+									<!-- 申请状态 -->
+									<label for="">
+										申请状态:
+										<select class="form-control">
+											<option value="">请选择</option>
+											<option value="1">已申请</option>
+											<option value="2">已通过</option>
+											<option value="3">未通过</option>
+											<option value="4">未申请</option>
+										  </select>
+									</label>
+									<button type="button" class="btn btn-primary applyQuery">查询</button>
+									<button type="button" class="btn btn-primary">申请</button>
+								</div>
+								<table style="text-align: center;height: 70%" class="table table-hover table-bordered" id="apisqTable">
+									<thead>
+									<tr>
+										<th width="12.5%" ><input type="checkbox" id="user" class="group-checkable" data-set="#apisqTable .checkboxes" /></th>
+										<th width="12.5%">序号</th>
+										<th class="hidden-xs" width="12.5%" data-field="interfacename">接口名称</th>
+										<th class="hidden-xs" width="12.5%" data-field="interfaceId">接口地址</th>
+										<th class="hidden-xs" width="12.5%" data-field="method">方法</th>
+										<th class="hidden-xs" width="12.5%" data-field="interfaceTypeString">申请状态</th>
+										<th class="hidden-xs" width="12.5%" data-field="interfaceDescription">接口描述</th>
+									</tr>
+									</thead>
+									</table>
+							</div>
+						</div>
+						
+				</div>
+<!--				  <div class="modal-footer center-block">-->
+<!--	       			 <button type="button"  class="btn btn-primary" id="apisqcommit" >申请</button>-->
+<!--	        		 <button type="button" class="btn btn-primary" data-dismiss="modal" id="apisqclose">关闭</button>-->
+<!--	     		 </div>-->
+			</div>
+		</div>
+	</div>
+	<!-- api申请的modal结束 -->
+   <!-- 创建应用 -->
+   	<div class="modal fade" id="addAppModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"   >
+	  <div class="modal-dialog modal-lg" role="document" aglin="center" style="width: 84%;height: 80%">
+	    <div class="modal-content"  >
+	      <div class="modal-header" >
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">新增应用信息</h4>
+	      </div>
+	      <div class="modal-body">
+	       <form class="form-horizontal form-inline"  enctype="multipart/form-data"  role="form" id="addAppForm" action="./addApp" method="post">
+			  <div class="form-group "   style="width:50%;">
+			    <label class="col-sm-3 control-label" for="name" >应用名称<span class="mandatory" style="color:#ff0909;font-size: 18px;">*</span></label>
+			    <div class="col-sm-9" >
+			      <input class="form-control"  style="width:100%;" id="name" name="name" required="required" type="text" placeholder="该输入应用名称...">
+			    </div>
+			  </div>
+			  <div class="form-group "   style="width:50%;">
+			    <label class="col-sm-3 control-label" for="version">应用版本<span class="mandatory" style="color:#ff0909;font-size: 18px;">*</span></label>
+			    <div class="col-sm-9">
+			      <input class="form-control"  style="width:100%" id="version" name="version" required="required" type="text" placeholder="该输入应用版本...">
+			    </div>
+			  </div>
+			  <div class="form-group hidden " style="width:50%;margin-top: 1%">
+			    <label class="col-sm-3 control-label" for="creator">创建人</label>
+			    <div class="col-sm-9">
+			       <input class="form-control"  style="width:100%" name="creator" id="creator"  disable="true" readonly="true" required="required" type="text"  value=${user.loginname} placeholder="该输入创建人...">  
+			    </div>
+			  </div>
+			   <div class="form-group  " style="width:50%;margin-top: 1%">
+			    <label class="col-sm-3 control-label" for="creator" style="margin-top:1%;">icon图标</label>
+			    <div class="col-sm-9">
+			       <select class="form-control selectpicker show-tick"  style="width:100%" name="icon" id="icon"   required="required" type="text" > 
+						<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/zhpt.png' class='avatar'>" value="zhpt.png"></option>
+						<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/yysz.png' class='avatar'>" value="yysz.png"></option>
+						<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/yysc.png' class='avatar'>" value="yysc.png"></option>
+						<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/yypt.png' class='avatar'>" value="yypt.png"></option>
+						<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/ywgl.png' class='avatar'>" value="ywgl.png"></option>
+						<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/xkgl.png' class='avatar'>" value="xkgl.png"></option>
+						<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/sypt.png' class='avatar'>" value="sypt.png"></option>
+						<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/ldbg.png' class='avatar'>" value="ldbg.png"></option>
+						<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/gjyy.png' class='avatar'>" value="gjyy.png"></option>
+						<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/cxtj.png' class='avatar'>" value="cxtj.png"></option>
+						<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/cwgl.png' class='avatar'>" value="cwgl.png"></option>
+						<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/bb.png' class='avatar'>" value="bb.png"></option>
+					 	<option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_1.png' class='avatar'>" value="564d7872c74bb_1.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_2.png' class='avatar'>"value="564d7872c74bb_2.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_3.png' class='avatar'>"value="564d7872c74bb_3.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_4.png' class='avatar'>"value="564d7872c74bb_4.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_5.png' class='avatar'>"value="564d7872c74bb_5.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_6.png' class='avatar'>"value="564d7872c74bb_6.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_7.png' class='avatar'>"value="564d7872c74bb_7.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_8.png' class='avatar'>"value="564d7872c74bb_8.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_9.png' class='awidth'>"value="icon/564d7872c74bb_9.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_10.png' class='avatar'>"value="icon/564d7872c74bb_10.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_11.png' class='avatar'>"value="icon/564d7872c74bb_11.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_12.png' class='avatar'>"value="icon/564d7872c74bb_12.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_13.png' class='avatar'>"value="icon/564d7872c74bb_13.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_14.png' class='avatar'>"value="564d7872c74bb_14.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_15.png' class='avatar'>"value="icon/564d7872c74bb_15.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_16.png' class='avatar'>"value="icon/564d7872c74bb_16.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_17.png' class='avatar'>"value="icon/564d7872c74bb_17.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_18.png' class='avatar'>"value="icon/564d7872c74bb_18.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_19.png' class='avatar'>"value="icon/564d7872c74bb_19.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_20.png' class='avatar'>"value="icon/564d7872c74bb_20.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_21.png' class='avatar'>"value="icon/564d7872c74bb_21.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_22.png' class='avatar'>"value="icon/564d7872c74bb_22.png"></option>
+				       <option data-content="<img style='width:7.5%;height:6%;' src='../images/icon/564d7872c74bb_23.png' class='avatar'>"value="icon/564d7872c74bb_23.png"></option>
+			       </select>
+			    </div>
+			  </div>
+			  <div class="form-group " style="width:50%;margin-top: 1%">
+			    <label class="col-sm-3 control-label" for="url">应用URL<span class="mandatory" style="color:#ff0909;font-size: 18px;">*</span></label>
+			    <div class="col-sm-9">
+			      <input class="form-control" style="width:100%" name="url" id="url" rows="2" required="required" placeholder="http://192.168.4.99:9090" />
+			    </div>
+			  </div>
+			    <div class="form-group" style="width:50%;margin-top: 2%">
+			    <label class="col-sm-3 control-label" for="zone">使用范围<span class="mandatory" style="color:#ff0909;font-size: 18px;">*</span></label>
+			    <div class="col-sm-9" >
+	 	     	 <select class="form-control selectpicker " style="width:100%"  multiple id="zone" name="zone"  title="请选择">
+					  <option value="1">看守所</option>
+					  <option value="2">拘留所</option>	
+					  <option value="3">戒毒所</option>
+					  <option value="4">收容教育</option>
+					  <option value="5">监护医疗所</option>
+					  <option value="6">强制医疗所</option>
+					  <option value="9">其他</option>
+				  </select>
+			    </div>
+			  </div>
+			  <div class="form-group" style="width:50%;margin-top: 1%">
+			    <label class="col-sm-3 control-label" for="type" style="margin-left:-1.3%;">应用类型</label>
+			    <div class="col-sm-9" style="margin-left:1.3%;">
+			      <select class="form-control selectpicker" id="type" name="type" style="width:100%;">
+					  <option value="1">web应用</option>
+					  <option value="2">exe应用程序</option>
+				  </select>
+			    </div>
+			  </div>
+			   <div class="form-group " style="width:50%;margin-top: 2%">
+				   <label class="col-sm-3 control-label" for="browversion" style="font-size:12px;">浏览器版本<span class="mandatory" style="color:#ff0909;font-size: 18px;">*</span></label>
+				   <div class="col-sm-9">
+					   <input class="form-control" style="width:100%" name="browversion" id="browversion" rows="2" required="required" placeholder="请输入浏览器版本..." />
+				   </div>
+			   </div>
+			   <div class="form-group " style="width:50%;margin-top: 1%">
+				   <label class="col-sm-3 control-label" for="sysversion">系统版本<span class="mandatory" style="color:#ff0909;font-size: 18px;">*</span></label>
+				   <div class="col-sm-9">
+					   <input class="form-control" style="width:100%" name="sysversion" id="sysversion" rows="2" required="required" placeholder="请输入系统版本..." />
+				   </div>
+			   </div>
+
+			  
+			  <div class="form-group "   style="width:50%;margin-top:2%;">
+			    <label class="col-sm-3 control-label" for="name" >应用岗位<span class="mandatory" style="color:#ff0909;font-size: 18px;">*</span></label>
+			    <div class="col-sm-9" >
+			     <select class="form-control selectpicker" id="role" name="role" style="width:100%" title="请选择">
+					  <option value="11">监管岗位</option>
+					  <option value="01">收押岗位</option>
+					  <option value="03">管教岗位</option>
+					  <option value="04,05">医务岗位</option>
+					  <option value="07">财务岗位</option>
+					  <option value="06">巡控岗位</option>
+					  <option value="10">综合岗位</option>
+					  <option value="08">领导岗位</option>
+					  <option value="0">其他</option>
+				  </select>
+			    </div>
+			  </div>
+			  <div class="form-group hidden"  id="div2"  style="width:50%;">
+			    <label class="col-sm-3 control-label" for="exefile">应用程序</label>
+			   <div class="col-sm-9">
+			      <input class="form-control " type="file" style="width:100%" name="exefile" id="exefile"  accept=".exe,.rar,.zip,.tar"  />
+			    </div>
+			  </div>
+			  
+	  
+			
+			  
+			  
+			  <div >
+			  
+			  </div>
+			  
+			   <div class="form-group " id="intro" style="width:114%;margin-top: 1%;margin-left:-17.8%;">
+			    <label class="col-sm-3 control-label" for="desc">应用简介</label>
+			    <div class="col-sm-9" style="padding-left:21px;">
+			      <input class="form-control summernote"  name="desc" id="desc" >
+			    </div>
+			  </div>
+			  <div class="form-group" style="width:114%;margin-top: 1%;margin-left:-17.8%;">
+			    <label for="pic1" class="col-sm-3 control-label">选择图片</label>
+			    <div class="col-sm-9" align="center" style="padding-left:21px;">
+			  	<input type="file" style="width: 90%;height: 60%" name="file" style="float:left" id="pic1" accept="image/*" multiple class="file-loading form-control" data-show-preview="true" data-min-file-count="3" >
+			  	</div>
+			  </div>
+			<!--   <div class="form-group" class="col-sm-2 control-label">
+			    <label for="pic2" class="col-sm-2 control-label">图片2</label>
+			    <div class="col-sm-10">
+				    <input type="file" name="file" id="pic2" accept="image/* ">
+    			</div>
+			  </div>
+			  <div class="form-group">
+			    <label for="pic3" class="col-sm-2 control-label">图片3</label>
+			    <div class="col-sm-10">
+				    <input type="file" id="pic3" name="file" accept="image/*" >
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="icon" class="col-sm-2 control-label">选择图标 </label>
+			    <div class="col-sm-10">
+				    <input type="file" id="icon" name="icon" accept="image/*" >
+			    </div>
+			  </div> -->
+			<!-- 是否自动创建队列 -->
+			<div class="isCreat">
+				<input type="checkbox">
+				<span>自动创建队列</span>
+			</div>
+	      <div class="modal-footer center-block save">
+	        <button type="button"  class="btn btn-primary" id="addAppBtn" >保存</button>
+	        <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancle">取消</button>
+	      <!--   <input type="submit"  class="btn btn-default"  value="保存"> -->
+	      </div>
+			</form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!--消息订阅申请的modal-->
+	<div class="modal fade" id="xxdySqModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+		<div class="modal-dialog modal-lg"  id="apiSqScroll"  role="document" aglin="center" style="width: 83%;height: 90%;padding-top: 30px;">
+		  <div class="modal-content">
+			  <div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				  </button>
+				  <h4 class="model-title" id="deleteApp">消息订阅申请</h4>
+			  </div>
+			   <div class="modal-body form-horizontal">
+				   
+					  <div class="xxdy-top" style="margin-left: 450px;">
+						  <label class="cxcs" style="float: left;margin-top: 6px;">
+							  消息名称：
+						  </label>
+						<input type="text" class="form-control" placeholder="" style="width:30%;float: left;" id="businessname">
+						<label class="btn btn-primary" style="margin-left: 30px;" id="xxdyQuery">查询</label>&nbsp;
+						<label class="btn btn-primary" style="margin-left: 60px;" onclick="edit()">订阅</label>&nbsp;
+					  </div>
+					  <div class=" form-group setScrollContentXxdy" style="margin-left:200px;margin-top:30px;overflow:auto;">
+						  <div>
+							  <table style="text-align: center;height: 70%;margin-top: 30px;" class="table table-hover table-bordered" id="xxdysqTable">
+								  <thead>
+								  <tr>
+									  <th width="12.5%">序号</th>
+									  <th class="text-center" width="12.5%" data-field="appname">监所</th>
+									  <th class="text-center" width="12.5%" data-field="msgtype">消息类型</th>
+									  <th class="text-center" width="12.5%" data-field="rolecode">角色代码</th>
+									  <th class="text-center" width="12.5%" data-field="businessid">消息编号</th>
+									  <th class="text-center" width="12.5%" data-field="businessname">消息名称</th>
+								  </tr>
+								  </thead>
+								  </table>
+						  </div>
+					  </div>
+					  
+			  </div>
+			  <!-- 申请关闭按钮先不要 -->
+				<div class="modal-footer center-block">
+					  <!-- <button type="button"  class="btn btn-primary" id="apisqcommit" >申请</button>
+				   <button type="button" class="btn btn-primary" data-dismiss="modal" id="apisqclose">关闭</button> -->
+				</div>
+		  </div>
+	  </div>
+  </div>
+
+	<div class="modal fade" id="publishSucc" tabindex="-1" role="dialog" 
+		aria-labelledby="myModalLabel" >
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="model-title" id="deleteApp">提示</h4>
+				</div>
+				<div class="modal-body">
+						<div class="form-group" value=$()>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;应用创建成功</p>	
+						</div>
+						<div class="modal-footer center-block">
+						<input type="button" class="btn btn-primary" id="sure" data-dismiss="modal" value="确定"/>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="publishFail" tabindex="-1" role="dialog" 
+		aria-labelledby="myModalLabel" >
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="model-title" id="deleteApp">提示</h4>
+				</div>
+				<div class="modal-body">
+						<div class="form-group" value=$()>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;应用创建失败请联系管理员</p>	
+						</div>
+						<div class="modal-footer center-block">
+						<input type="button" class="btn btn-primary" id="fail" data-dismiss="modal" value="确定"/>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	 <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+        <div class="modal-content" style="width:44%;height:33%;left:28%;top:10%;">
+           <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+                <p id="MyModalcontent" style="letter-spacing:2px;text-align:center;margin-top:7%;font-size:20px;"></p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" style="position:absolute;top:68%;left:44%;">关闭</button>            
+            </div>
+	</div>
+	
+	<!-- 设置系统参数modal开始 -->
+	<div class="modal fade" id="setSystemModal" role="dialog" aria-labelledby="setSystemLabel" aria-hidden="true"> 
+		<div class="modal-dialog modal-lg" role="document" aglin="center" style="width: 50%;height: 80%">
+			<div class="modal-content"  >
+			<div class="modal-header" >
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="setSystemLabel">系统参数</h4>
+			</div>
+			<div class="modal-body">
+			<form class="form-horizontal form-inline"  enctype="multipart/form-data"  role="form" id="setSystemForm" action="./addSetting" method="post">
+				<div class="form-group "  style="width:100%;">
+					<label class="col-sm-2 control-label" for="appname" >应用名称</label>
+					<div class="col-sm-10" >
+						<input hidden style="width:100%;" id="appcode" name="appcode" type="text">
+						<input class="form-control" readonly style="width:100%;" id="appname" name="appname" required="required" type="text" placeholder="该输入应用名称...">
+					</div>
+				</div>
+					<div class="form-group" style="width:100%;margin-top: 2%">
+					<label class="col-sm-2 control-label" for="setting">系统设置</label>
+					<div class="col-sm-10" >
+					<textarea class="form-control" style="width:100%;" id="setting" name="setting" rows="20" placeholder='progroup:分组名称；protype：属性类型；proname：属性名称；prolist：属性值列表；provalue：属性值例。例：[{"progroup":"CONFIG","protype":"1","proname":"menue_type","prolist":"菜单样式","provalue":"1:经典,2:WIN10"},{"progroup":"CONFIG","protype":"2","proname":"auto_search","prolist":"自动查询","provalue":"0:不自动,1:自动"},...]'></textarea>
+					</div>
+				</div>
+			<div class="modal-footer center-block">
+				<button type="button"  class="btn btn-primary" id="setSystemBtn" >保存</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" id="cancle">取消</button>
+			<!--   <input type="submit"  class="btn btn-default"  value="保存"> -->
+			</div>
+				</form>
+			</div>
+			</div>
+		</div>
+	</div>
+	<!-- 设置系统参数modal结束 -->
+
+
+<div class="modal fade" id="setMenusModal" role="dialog" aria-labelledby="setMenusLabel" aria-hidden="true"> 
+     <div class="modal-dialog modal-lg" role="document" aglin="center" style="width: 50%;height: 80%">
+	    <div class="modal-content"  >
+	      <div class="modal-header" >
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="setMenusLabel">系统菜单</h4>
+	      </div>
+	      <div class="modal-body">
+	       <form class="form-horizontal form-inline"  enctype="multipart/form-data"  role="form" id="setMenusForm" action="" method="post">
+			  <div class="form-group "  style="width:100%;">
+			    <label class="col-sm-2 control-label" for="menu_appname" >应用名称</label>
+			    <div class="col-sm-10" >
+			    <input hidden style="width:100%;" id="menu_appcode" name="appcode" type="text">
+			      <input class="form-control" readonly style="width:100%;" id="menu_appname" name="appname" required="required" type="text">
+			    </div>
+			  </div>
+			  <div class="form-group" style="width:100%;margin-top: 1%;margin-left:0.2%">
+			    <div class="form-group "  style="width:100%;">
+			    <label class="col-sm-2 control-label" for="menus" >菜单列表<span class="mandatory" style="color:#ff0909;font-size: 18px;">*</span></label>
+			    <div class="col-sm-10" >
+			      <textarea class="form-control" style="width:100%;" id="menus" name="menus" rows="20" placeholder='menu:菜单编号；parent：父菜单；menuname：菜单名称；url：菜单地址 。例：[{"menu":"TEST01001","parent":"测试管理","menuname":"测试菜单1","url":"/xx_test1/index.html"},{"menu":"TEST01002","parent":"测试管理","menuname":"测试菜单2","url":"/xx_test2/index.html"},...]'></textarea>
+			    </div>
+			  </div>
+			  </div>
+	      <div class="modal-footer center-block">
+	        <button type="button"  class="btn btn-primary" id="setMenusBtn" >保存</button>
+	        <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancle">取消</button>
+	      <!--   <input type="submit"  class="btn btn-default"  value="保存"> -->
+	      </div>
+			</form>
+	      </div>
+	    </div>
+	  </div>
+</div>
+</div>
+<div>  <!-- ajax 状态码 非200 弹出窗-->
+	<div class="modal fade" tabindex="-1" id="awdConfirmModal" >
+		<div class="modal-dialog" >
+			<div class="modal-content" style="width:50%;left:33%;">
+				<div class="modal-header">
+					<h4 id="awdConfirmModalTitle" class="modal-title">提示</h4>
+				</div>
+				<div class="modal-body">
+					<p id="awdConfirmModalContent" style="color:cornflowerblue;font-size:1.5rem;text-align: center;">请求状态码非200时弹出此框</p>
+				</div>
+				<div class="modal-footer">
+					<button id="awdConfirmModalSure" type="button " class="btn btn-primary" data-dismiss="modal" style="padding:6px 24px">确认</button>
+					<button id="awdConfirmModalCancel" type="button" class="btn btn-default"  data-dismiss="modal" style="padding:6px 24px;margin-left:34px;">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+
+function getParameter(name) { 
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+	var r = window.location.search.substr(1).match(reg); 
+	if (r!=null) return unescape(r[2]); return null;
+}
+
+$(document).ready(function(){
+	$("[btn-item-app]").on("click", function () {
+		$(this).addClass("btn-item-app-active");
+		$(this).siblings().removeClass("btn-item-app-active");
+	});
+	$("#setCd").hide();
+	$("#setCs").hide();
+	$("#setApi").hide();
+	$("#setXxdy").hide();
+	publish();
+	//icon选择框事件,并赋初值
+	$("#icon").val("../images/icon/564d7872c74bb_1.png")
+	$('#icon').change(function(){
+		$("#icon").attr("background-img",$('#icon').val());
+	});
+	//初始化文件上传插件
+	var oFileInput = new FileInput();
+    oFileInput.Init("pic1", "./getPicAddress");
+    $('#pic1').fileinput({
+        language: 'zh',
+        allowedFileExtensions:  ['jpg', 'png', 'jpeg', 'gif', 'bmp'],
+        allowedPreviewTypes : ['image', 'html', 'text', 'video', 'audio', 'flash'],
+        uploadAsync: true, //默认异步上传
+        dropZoneTitle: "上传图片640 * 350分辨率效果更好",
+        // 这个配置就是解决办法了,初始化时限制图片大小
+        previewSettings: {
+            image: {width: "10px", height: "10px"},
+        },
+    });
+    //富文本编辑器初始化
+	 $('.summernote').summernote({
+	        height: 200,
+	        tabsize: 2,
+	        lang: 'zh-CN'
+	    });
+	searchAPP();
+	  query(0,12);
+	  $('#query').on('click',function(){
+		  query(0,12);
+	  })
+	  //点击保存
+	  $("#addAppBtn").on("click",function(){
+		  var sHTML =  $('.summernote').summernote('code')
+		  $("#desc").val(sHTML);
+	  $('#addAppForm').bootstrapValidator('validate');	
+	  if(!$('#addAppForm').data('bootstrapValidator').isValid()){
+		  return;
+	  }else{
+		  //上传照片
+		$("#pic1").fileinput("upload").on("filebatchuploadsuccess", function(event, data, previewId, index) {
+		 	setTimeout(function(){
+				  var zone=$('#zone').val();
+					 // $("#content").html("1");
+					 // $("#myModal").modal();
+					  $("#addAppForm").ajaxSubmit({
+						  type:"post",
+						  //url:'',
+						  url:"./addApp?zone="+zone,
+						  dataType:"json",
+						  success:function(data){
+							  if(data.status==200){
+									$('#publishSucc').modal('show') 
+									$("#publishSucc").on('hidden.bs.modal',function(){
+										 $("#addAppBtn").attr("data-dismiss","modal");
+										$('#addAppModal').modal('hide');
+									})
+									
+							  }else{
+								  $('#publishFail').modal('show');
+								  $("#publishFail").on('hidden.bs.modal',function(){
+										 $("#addAppBtn").attr("data-dismiss","modal");
+										$('#addAppModal').modal('hide');
+									})
+							
+							  }
+						  } ,
+						  error:function(){
+							  $('#publishFail').modal('show');
+							  $("#publishFail").on('hidden.bs.modal',function(){
+									 $("#addAppBtn").attr("data-dismiss","modal");
+									$('#addAppModal').modal('hide');
+								})
+						  }
+					  }); 
+			},1000) 
+		}).on("filebatchuploaderror", function(event, data, previewId, index) {
+			$('#publishFail').modal('show');
+			 $("#publishFail").on('hidden.bs.modal',function(){
+				 $("#addAppBtn").attr("data-dismiss","modal");
+				$('#addAppModal').modal('hide');
+			})
+		})
+		
+
+	  }
+	}); 
+	 $("#addAppModal").on("hidden.bs.modal",function(){
+		 window.location.reload();
+	 })
+  
+  showHide();
+  validata();
+	//刷新当前页
+	$("#index").on("click",function(){
+		
+		window.location.reload();
+		
+	});
+	//系统菜单
+	$("#menus").on("click",function(){
+		$("#setCs").hide();
+		$("#setApi").hide();
+		$("#setXxdy").hide();
+		$("#setCd").show();
+		// $("#setChaKan").hide();
+		ycCheckBox();
+		$("#inlineRadio4").prop("checked",true);
+		appid = "";
+		query(0,12);
+	});
+	// 系统参数
+	$("#system").on("click",function(){
+		$("#setCd").hide();
+		$("#setApi").hide();
+		$("#setXxdy").hide();
+		$("#setCs").show();
+		// $("#setChaKan").hide();
+		ycCheckBox();
+		$("#inlineRadio4").prop("checked",true);
+		appid = "";
+		query(0,12);
+	});
+	//api申请-默认查询除审核未通过以外的应用
+	$("#api").on("click",function(){
+		$("#setCs").hide();
+		$("#setCd").hide();
+		$("#setApi").show();
+		$("#setXxdy").hide();
+		// $("#setChaKan").hide();
+		ycCheckBox();
+		$("#inlineRadio7").prop("checked",true);
+		appid = "";
+		queryApi(0,12);
+	});
+
+    //消息订阅申请-默认查询除审核未通过以外的应用
+	$("#xxdy").on("click",function(){
+		$("#setCs").hide();
+		$("#setCd").hide();
+		$("#setApi").hide();
+		$("#setXxdy").show();
+		// $("#setChaKan").hide();
+		ycCheckBox();
+		$("#inlineRadio7").prop("checked",true);
+		appid = "";
+		query(0,12);
+	});
+
+	$("#xxdyQuery").on("click",function(){
+		xxdyQuery(0,10);
+	});
+
+
+
+
+
+	//点击保存系统参数
+	$("#setSystemBtn").on("click",function(){
+		$('#setSystemForm').bootstrapValidator('validate');	
+		if(!$('#setSystemForm').data('bootstrapValidator').isValid()){
+			return;
+		}else{
+			$("#setSystemForm").ajaxSubmit({
+				type:"post",
+				url:"./addSetting",
+				dataType:"json",
+				success:function(data){
+					if(data.status==200){
+						$("#MyModalcontent").html("设置成功！");
+						$("#myModal").modal();
+						$("#setSystemBtn").attr("data-dismiss","modal");
+						$('#setSystemModal').modal('hide');
+					}else{
+						$("#MyModalcontent").html(data.message);
+						$("#myModal").modal();
+						$("#setSystemBtn").attr("data-dismiss","modal");
+						$('#setSystemModal').modal('hide');
+					}
+				}  
+			});
+		}
+	})
+	
+	//点击保存应用菜单
+	$("#setMenusBtn").on("click",function(){
+		$('#setMenusForm').bootstrapValidator('validate');	
+		if(!$('#setMenusForm').data('bootstrapValidator').isValid()){
+			return;
+		}else{
+			$("#setMenusForm").ajaxSubmit({
+				type:"post",
+				url:"./addMenus",
+				dataType:"json",
+				success:function(data){
+					if(data.status==200){
+						$("#MyModalcontent").html("设置成功！");
+						$("#myModal").modal();
+						$("#setMenusBtn").attr("data-dismiss","modal");
+						$('#setMenusModal').modal('hide');
+					}else{
+						$("#MyModalcontent").html(data.message);
+						$("#myModal").modal();
+						$("#setMenusBtn").attr("data-dismiss","modal");
+						$('#setMenusModal').modal('hide');
+					}
+				}  
+			});
+		}
+	})
+	saveApiSq();
+	
+	$('input[name="inlineRadioOptions"]').on("click",function(){
+		query(0,12);
+	})
+	
+});
+
+//表单验证
+var validata=function(){
+	  $('#addAppForm').bootstrapValidator({
+	      message: '这个值没有被验证',
+	      excluded : [':disabled'],
+	      feedbackIcons: {
+	        /*  valid: 'glyphicon glyphicon-ok',
+	          invalid: 'glyphicon glyphicon-remove',
+	          validating: 'glyphicon glyphicon-refresh'*/
+	      },
+	      fields: {
+	       	name: {
+	              validators: {
+	                  notEmpty: {
+	                      message: '应用名称是必填项'
+	                  }
+	              }
+	      	},
+	      	version: {
+	              validators: {
+	                  notEmpty: {
+	                      message: '应用版本是必填项'
+	                  }
+	              }
+	      	},
+	      	url: {
+	              validators: {
+	                  notEmpty: {
+	                      message: '应用url是必填项'
+	                  }
+	              }
+	      	},
+	    	zone: {
+	    		 validators: {
+	                 notEmpty: {
+	                     message: '请选择应用使用范围'
+	                 },
+	                 callback: {//用于select的校验
+	                     callback: function(value, validator) {
+	                         if (value == 8) {//"请选择"
+	                                 return false;
+	                             } else {
+	                                 return true;
+	                             }
+	                     }
+	                 }
+	             }
+	    	},
+			  browversion: {
+				  validators: {
+					  notEmpty: {
+						  message: '浏览器版本是必填项'
+					  }
+				  }
+			  },
+			  sysversion: {
+				  validators: {
+					  notEmpty: {
+						  message: '系统版本是必填项'
+					  }
+				  }
+			  },
+	         }
+	      });
+	  $('#setSystemForm').bootstrapValidator({
+		    message: '这个值没有被验证',
+		    excluded : [':disabled'],
+		    fields: {
+			  	setting: {
+		           validators: {
+		               notEmpty: {
+		                   message: '系统设置是必填项'
+		               }
+		           }
+			    },
+		    }
+		})
+	  $('#setMenusForm').bootstrapValidator({
+		    message: '这个值没有被验证',
+		    excluded : [':disabled'],
+		    fields: {
+			    menus: {
+		           validators: {
+		               notEmpty: {
+		                   message: '菜单列表是必填项'
+		               }
+		           }
+			    },
+		    }
+		})
+	
+}
+//选择应用类型显示隐藏exeurl
+var showHide = function(){
+	$("#type").on('change',function(){
+		var val=$('#type').val();
+		if(val==2){
+			$('#div1').attr("class","form-group ");
+			$('#div2').attr("class","form-group ");
+			$('#exeurl').attr("name","exeurlyz");
+		//	$('#exeurl').attr("required","required");
+			$("#addAppForm").data('bootstrapValidator').addField('exeurlyz', {
+							validators: {
+								callback: { /*自定义，可以在这里与其他输入项联动校验*/
+									callback: function(value, validator, $field) {
+										if(value == 0){
+											return false;
+										}else{
+											return true;
+										}
+									}
+								}
+							}
+						});
+		}else{
+			$('#exeurl').removeAttr("required");
+			//$('#exeurl').attr("name","exeurl");
+			$('#div1').attr("class","form-group hidden");
+			$('#div2').attr("class","form-group hidden");
+		
+		}
+		
+	})
+}
+//点击查询
+function query(pageIndex,pageSize){
+	if(pageSize == undefined){
+		pageSize = 12;
+	}
+	if(pageIndex == undefined){
+		pageIndex = 0;
+	} 
+    var querydata = querydata + '&page=' + pageIndex +'&rows=' + pageSize;
+	var data = $("input[name='inlineRadioOptions']:checked").val();
+	 var name  =$("#appName").val();
+	 console.log(name)
+	 $.ajax({
+         url: "./getApp?options="+data+"&name="+name,// 跳转到 action
+         data: querydata,
+         type: 'get',
+         cache: false,
+         async: false,
+         success: function (data) {
+        	errorSolve(data);//status 500 处理
+         	var totalRecords = data.result.total;
+         	var totalPage;
+         	if(totalRecords % pageSize == 0){
+         		totalPage = Math.floor(totalRecords/pageSize);
+         	}else{
+         		totalPage = Math.floor(totalRecords/pageSize) + 1;
+         	} 
+         	loadAppImg(data.result.data);
+         	//加载分页插件
+     		init_kkpager(pageSize,totalPage,totalRecords);
+         },
+		 error:function(data){
+		 }
+     });
+}
+
+//点击查询api
+function queryApi(pageIndex,pageSize){
+	if(pageSize == undefined){
+		pageSize = 12;
+	}
+	if(pageIndex == undefined){
+		pageIndex = 0;
+	}
+	var querydata = querydata + '&page=' + pageIndex +'&rows=' + pageSize;
+	var data = $("input[name='inlineRadioOptions']:checked").val();
+	var name  =$("#appName").val();
+	$.ajax({
+		url: "./getApp?options="+data+"&name="+name,// 跳转到 action
+		data: querydata,
+		type: 'get',
+		cache: false,
+		async: false,
+		success: function (data) {
+			var totalRecords = data.result.total;
+         	var totalPage;
+         	if(totalRecords % pageSize == 0){
+         		totalPage = Math.floor(totalRecords/pageSize);
+         	}else{
+         		totalPage = Math.floor(totalRecords/pageSize) + 1;
+         	} 
+         	loadAppImg(data.result.data);
+         	//加载分页插件
+     		init_kkpager(pageSize,totalPage,totalRecords);
+		},
+		error:function(data){
+		}
+	});
+}
+//订阅请求
+	function edit(){
+                // 获取当前行
+                    var row=$("#xxdysqTable").bootstrapTable('getSelections');
+					if(row.length>0){
+					var str="";
+					for(var i=0;i<row.length;i++){
+						str =row[i].routingkey + "," +str; 
+					}
+					str = str.substring(0,str.length-1);
+					console.log(str)
+					var appcode = $("#appcode").val();
+					console.log(appcode)
+            Ewin.confirm({ message: "确认要订阅吗？" }).on(function (e) {
+                if (!e) {
+                    return;
+                }
+                $.ajax({
+                    type: "post",
+                    url: "/message/saveXxDy",
+                    data: {
+						"appcode":appcode,
+						"routingkey":str,
+					},
+                    success: function (data, status) {
+                        if (status == "success") {
+						$("#MyModalcontent").html("订阅成功，请等待管理员审批");
+					    $("#myModal").modal();
+						xxdyQuery(1,10);
+                        }
+                    },
+                    error: function () {
+                        $("#MyModalcontent").html("订阅失败，请等待管理员审批");
+					    $("#myModal").modal();
+                    },
+                    complete: function () {
+
+                    }
+
+                });
+            });
+	}else{
+		$("#MyModalcontent").html("请选择数据");
+			   $("#myModal").modal();
+	}
+                }
+
+//消息订阅申请点击查询
+function xxdyQuery(pageIndex,pageSize){
+	// <!--点击节点加载表格数据-->
+		    $("#xxdysqTable").bootstrapTable('destroy');
+            var appcode = $("#appcode").val();
+			var businessname = $("#businessname").val();
+            
+            //var bootstrapTableDataLength;	//定义一个上级变量，存放当前加载的行数据的长度
+            
+            $('#xxdysqTable').bootstrapTable({
+            	url: "/message/getXxlx",       //请求后台的URL（*）
+            	method: 'GET',                      //请求方式（*）
+            	toolbar: '#toolbar',              //工具按钮用哪个容器
+            	striped: true,                      //是否显示行间隔色
+            	cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            	pagination: true,                   //是否显示分页（*）
+            	sortable: true,                     //是否启用排序
+            	sortOrder: "asc",                   //排序方式
+            	sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+            	pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+            	pageSize: 10,                     //每页的记录行数（*）
+            	pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+            	search: false,                      //是否显示表格搜索
+            	strictSearch: true,
+            	showColumns: false,                  //是否显示所有的列（选择显示的列）
+            	showRefresh: false,               //是否显示刷新按钮
+            	singleSelect: false,				//开启行单选
+            	minimumCountColumns: 2,             //最少允许的列数
+            	clickToSelect: true,                //是否启用点击选中行
+            	//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+            	uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+            	showToggle: false,                   //是否显示详细视图和列表视图的切换按钮
+            	cardView: false,                    //是否显示详细视图
+            	detailView: false,                  //是否显示父子表
+            	//得到查询的参数
+            	queryParams : function (params) {
+            		//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+            		var temp = {
+            			rows: params.limit,                         //页面大小
+            			page: (params.offset / params.limit) + 1,   //页码
+            			sort: params.sort,      //排序列名
+            			sortOrder: params.order,//排位命令（desc，asc）
+						appcode:appcode,
+						businessname:businessname
+            		};
+            		return temp;
+            	},
+            	responseHandler: function(res) {
+            		return {
+            			"total": res.result.total,//总页数
+            			"rows": res.result.data
+            		};
+            	},
+            	columns: [{
+            		checkbox: true ,
+            		visible: true ,           //是否显示复选框
+            		  formatter: function (i,row) {            // 每次加载 checkbox 时判断当前 row 的 id 是否已经存在全局 Set() 里
+                          if($.inArray(row.id,overAllIds)!=-1){    // 因为 Set是集合,需要先转换成数组  
+                              return {
+                                  checked : true               // 存在则选中
+                              }
+                          }
+                      } 
+            	},{
+            		title: '序号',
+            		align: 'center',
+            		valign: 'bottom',
+            		formatter: function(value, row, index) {
+            			var pageSize = $('#xxdysqTable').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+            			var pageNumber = $('#xxdysqTable').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+            			return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+            		}
+            	},
+            		{
+            			field: 'appname',
+						align: 'center',
+            			title: '监所',
+            			sortable: true
+            		},{
+            			field: 'msgtype',
+						align: 'center',
+            			title: '消息类型',
+            			sortable: true
+            		}, {
+            			field: 'rolecode',
+            			title: '角色代码',
+						align: 'center',
+            			sortable: true,
+            		}, {
+            			field: 'businessid',
+						align: 'center',
+            			title: '消息编号',
+            			sortable: true
+            		}, {
+            			field: 'businessname',
+						align: 'center',
+            			title: '消息名称',
+            			sortable: true
+            		}],
+            	onLoadSuccess: function () {
+				},
+            	onLoadError: function () {
+            		showTips("数据加载失败！");
+            	},
+            });
+}
+
+
+
+
+//弹出框封装
+(function ($) {
+
+window.Ewin = function () {
+	var html = '<div id="[Id]" class="modal fade" role="dialog" aria-labelledby="modalLabel">' +
+						  '<div class="modal-dialog modal-sm">' +
+							  '<div class="modal-content">' +
+								  '<div class="modal-header">' +
+									  '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>' +
+									  '<h4 class="modal-title" id="modalLabel">[Title]</h4>' +
+								  '</div>' +
+								  '<div class="modal-body">' +
+								  '<p>[Message]</p>' +
+								  '</div>' +
+								   '<div class="modal-footer">' +
+	'<button type="button" class="btn btn-default cancel" data-dismiss="modal">[BtnCancel]</button>' +
+	'<button type="button" class="btn btn-primary ok" data-dismiss="modal">[BtnOk]</button>' +
+'</div>' +
+							  '</div>' +
+						  '</div>' +
+					  '</div>';
+
+
+	var dialogdHtml = '<div id="[Id]" class="modal fade" role="dialog" aria-labelledby="modalLabel">' +
+						  '<div class="modal-dialog">' +
+							  '<div class="modal-content">' +
+								  '<div class="modal-header">' +
+									  '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>' +
+									  '<h4 class="modal-title" id="modalLabel">[Title]</h4>' +
+								  '</div>' +
+								  '<div class="modal-body">' +
+								  '</div>' +
+							  '</div>' +
+						  '</div>' +
+					  '</div>';
+	var reg = new RegExp("\\[([^\\[\\]]*?)\\]", 'igm');
+	var generateId = function () {
+		var date = new Date();
+		return 'mdl' + date.valueOf();
+	}
+	var init = function (options) {
+		options = $.extend({}, {
+			title: "操作提示",
+			message: "提示内容",
+			btnok: "确定",
+			btncl: "取消",
+			width: 200,
+			auto: false
+		}, options || {});
+		var modalId = generateId();
+		var content = html.replace(reg, function (node, key) {
+			return {
+				Id: modalId,
+				Title: options.title,
+				Message: options.message,
+				BtnOk: options.btnok,
+				BtnCancel: options.btncl
+			}[key];
+		});
+		$('body').append(content);
+		$('#' + modalId).modal({
+			width: options.width,
+			backdrop: 'static'
+		});
+		$('#' + modalId).on('hide.bs.modal', function (e) {
+			$('body').find('#' + modalId).remove();
+		});
+		return modalId;
+	}
+
+	return {
+		alert: function (options) {
+			if (typeof options == 'string') {
+				options = {
+					message: options
+				};
+			}
+			var id = init(options);
+			var modal = $('#' + id);
+			modal.find('.ok').removeClass('btn-success').addClass('btn-primary');
+			modal.find('.cancel').hide();
+
+			return {
+				id: id,
+				on: function (callback) {
+					if (callback && callback instanceof Function) {
+						modal.find('.ok').click(function () { callback(true); });
+					}
+				},
+				hide: function (callback) {
+					if (callback && callback instanceof Function) {
+						modal.on('hide.bs.modal', function (e) {
+							callback(e);
+						});
+					}
+				}
+			};
+		},
+		confirm: function (options) {
+			var id = init(options);
+			var modal = $('#' + id);
+			modal.find('.ok').removeClass('btn-primary').addClass('btn-success');
+			modal.find('.cancel').show();
+			return {
+				id: id,
+				on: function (callback) {
+					if (callback && callback instanceof Function) {
+						modal.find('.ok').click(function () { callback(true); });
+						modal.find('.cancel').click(function () { callback(false); });
+					}
+				},
+				hide: function (callback) {
+					if (callback && callback instanceof Function) {
+						modal.on('hide.bs.modal', function (e) {
+							callback(e);
+						});
+					}
+				}
+			};
+		},
+		dialog: function (options) {
+			options = $.extend({}, {
+				title: 'title',
+				url: '',
+				width: 800,
+				height: 550,
+				onReady: function () { },
+				onShown: function (e) { }
+			}, options || {});
+			var modalId = generateId();
+
+			var content = dialogdHtml.replace(reg, function (node, key) {
+				return {
+					Id: modalId,
+					Title: options.title
+				}[key];
+			});
+			$('body').append(content);
+			var target = $('#' + modalId);
+			target.find('.modal-body').load(options.url);
+			if (options.onReady())
+				options.onReady.call(target);
+			target.modal();
+			target.on('shown.bs.modal', function (e) {
+				if (options.onReady(e))
+					options.onReady.call(target, e);
+			});
+			target.on('hide.bs.modal', function (e) {
+				$('body').find(target).remove();
+			});
+		}
+	}
+}();
+})(jQuery);
+
+
+var publish = function(){
+	 $("#apps").on('click',":button",function(){
+		 var value = $(this).attr("name");
+		 var data = {
+				 "value":value
+		 }
+		$.ajax({
+			url:"./publishApp",
+			type:"POST",
+			data:data,
+			success:function(result){
+				errorSolve(result);//status 500 处理
+				//$("#content").html("发布成功");
+				if(result.status==200){
+					$("#MyModalcontent").html("发布成功");
+				    $("#myModal").modal();
+					query(0,12);
+				}else{
+					$("#MyModalcontent").html(result.message);
+				    $("#myModal").modal();
+				}
+			}
+		})
+	 })
+	
+	
+}
+
+function applyPage(appId){
+	$.ajax( {
+		url:serverInfo.serverURL+serverInfo.appInfo,// 跳转到 action
+		data:{id:appId},
+		type:'get',
+		cache:false,
+		async:false,
+		success:function(data) {
+			errorSolve(data);//status 500 处理
+			if(data){
+				$("#content > div[id='applyBlock']").show();
+				$("#content > div[id!='applyBlock']").hide();
+			}else{
+				$("#content").html("该应用暂时无法申请接口！");
+				$("#myModal").modal();
+				return;
+			}
+		}
+	});
+}
+
+function releaseApi(appId){
+}
+
+function searchAPP(){
+	var data = $("input[name='inlineRadioOptions']:checked").val();
+	 $('#table').bootstrapTable("destroy")
+	 var name  =$("#appName").val();
+	 $('#table').bootstrapTable({
+          url: "./getApp?options="+data+"&name="+name,                      //请求后台的URL（*）
+          method: 'GET',                      //请求方式（*）
+          cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+          pagination: true,                   //是否显示分页（*）
+          sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+          pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+          pageSize: 10,                     //每页的记录行数（*）
+          pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+          strictSearch: true,
+          uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+          //得到查询的参数
+          queryParams : function (params) {
+              //这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+              var temp = {   
+                  rows: params.limit,                         //页面大小
+                  page: (params.offset / params.limit) + 1,   //页码
+              };
+              return temp;
+          },
+          responseHandler: function(res) {
+                          return {
+       		   			   "total": res.result.total,//总页数
+                       	   "rows": res.result.data
+                           };
+                      },
+          onLoadSuccess: function (res) {
+        	  $("#apps ul>li").remove();
+        	  var val = res.rows;
+              var ulEle;
+              for(var i=0;i < val.length;i++){
+                  if (i % 4 == 0) {
+                      ulEle = $("<ul></ul>").appendTo($("#apps")); 
+                  }
+                  var app = val[i];
+                  var id = app['id'];
+
+                  var appEle = $("<li style='float:left;margin-left:10px;margin-top:10px;width:50px,height:30px;border:1px solid black'><div class='img' style=''><a href='#' onclick='_iframe(" + id + ")'><img width='250px' height='112' src='"+app.pic1 + "' /></a>"
+                      + "<div class='overlay' ><a href='#' class='lnColor'>" + app['name'] + "</a>"
+                      + "<p><a class='close-overlay hidden'>x</a></p></div></div>"
+                      + "<p>"+"<br/><br/><div style='margin-left:45%;'>" + app['createtime'] + "</div></p>"
+                      + "</li>").appendTo(ulEle);
+              }
+              
+          },
+          onLoadError: function (data) {
+          },
+          onDblClickRow: function (row, $element) {
+              var id = row.ID;
+              EditViewById(id, 'view');
+          },
+      });
+	}
+	
+//init
+var init_kkpager = function(pageSize,totalPage,totalRecords){
+	var pageNo = getParameter('pno');
+	if(!pageNo){
+		pageNo = 1;
+	}
+	//生成分页
+	kkpager.generPageHtml({
+		pno : pageNo,
+		//总页码
+		total : totalPage,
+		//总数据条数
+		totalRecords : totalRecords,
+		mode : 'click',//默认值是link，可选link或者click
+		click : function(click_page){
+
+			// do something
+			var data = $("input[name='inlineRadioOptions']:checked").val();
+			 var name  =$("#appName").val();
+			//手动选中按钮
+			//this.selectPage(click_page);
+			//return false;
+	        var querydata = '&page=' + (click_page-1) +'&rows=' + pageSize;
+	        //searchAPP(click_page-1,pageSize,totalPage,totalRecords);
+	       $.ajax({
+	            url:  "./getApp?options="+data+"&name="+name,// 跳转到 action
+	            data: querydata,
+	            type: 'get',
+	            cache: false,
+	            async: false,
+	            success: function (data) {
+	            	loadAppImg(data.result.data);
+	            	kkpager.generPageHtml({
+	            		pno : click_page,
+	            		//总页码
+	            		total : totalPage,
+	            		//总数据条数
+	            		totalRecords : totalRecords,
+	            	},true)
+	            },
+			   error:function(data){
+			   }
+	        });
+		}
+	},true);
+}
+
+
+
+var loadAppImg = function(app_data){
+	 $("#apps ul li").remove();
+     var ulEle;
+     for(var i=0;i < app_data.length;i++){
+         if (i % 4 == 0) {
+             ulEle = $("<ul></ul>").appendTo($("#apps"));
+         }
+         var app = app_data[i];
+         var id = app['id'];
+         var appcode = app['appcode'];
+         var a = app['appcode'] + "," + app['name'];
+         var data = $("input[name='inlineRadioOptions']:checked").val();
+         if(data !="option5"){
+        	 var appEle = $("<li id='app"+id+"' ondblclick='_iframe(\"" + id + "\",\""+ appcode +"\")' onclick='checkApp(\""+ id +"\")'><div class='img'><img width='190px' height='100px' src='"+ app['pic1'] + "' />"
+        			 + "<div class='overlay' style='background:none'>" + app['name'] 
+    	             + "</div></div>"
+    	             + "</br><p><div style='margin-left:45%;'>" + app['createtime'] + "</div></p>"
+    	             + "<input hidden id='"+id+"' name='appcheck' value='"+a+"' type='radio'/></li>").appendTo(ulEle);
+         }else{
+        	 var appEle = $("<li ondblclick='_iframe(\"" + id + "\",\""+ appcode +"\")'><div class='img'><img width='190px' height='100px' src='"+ app['pic1'] + "' />"
+        			 + "<div class='overlay' style='background:none'>" + app['name'] 
+    	             + "</div><input style='float:right;margin-top:15%;' type='button' value='发布' class='btn btn-primary' name='"+appcode+","+app['creator']+","+app['version']+","+app['id']+"' ></div>"
+    	             + "<p>"+"<br/><br/><div style='margin-left:45%;margin-top:17%;'>" + app['createtime'] + "</div></p>"
+    	             + "</li>").appendTo(ulEle);
+         }
+     }
+}
+
+function _iframe(id,appcode) {
+	var flag = "";
+	var appcode = encodeURIComponent(appcode);
+	$.ajax({
+        url: "./listJsapp?appcode="+appcode,// 跳转到 action
+        type: 'post',
+        cache: false,
+        async: false,
+        success: function (data) {
+        	var total = data.result.result.total;
+        	if(total>0){
+        		flag = "1";
+        	}else{
+        		flag = "0"
+        	}
+        }
+    });
+    zeroModal.show({
+        title: '应用详情',
+        iframe: true,
+        top: '30px',            
+        url: '/appModel?id='+id+"&appcode=" + appcode+"&flag="+flag,
+        width: '80%',
+        height: '90%',
+        cancel: true,
+        esc: true,
+    });
+}
+
+//初始化fileinput
+var FileInput = function () {
+    var oFile = new Object();
+
+    //初始化fileinput控件（第一次初始化）
+    oFile.Init = function(ctrlName, uploadUrl) {
+    var control = $('#' + ctrlName);
+
+    //初始化上传控件的样式
+    control.fileinput({
+        language: 'zh', //设置语言
+        uploadUrl: uploadUrl, //上传的地址
+        allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+        browseClass: "btn btn-primary", //按钮样式     
+        uploadAsync: false, //默认异步上传
+        maxFileCount: 3, //表示允许同时上传的最大文件个数
+        maxFileSize: 2000,//文件大小kb
+          //minImageWidth: 50, //图片的最小宽度
+
+          //minImageHeight: 50,//图片的最小高度
+
+         //maxImageWidth: 1000,//图片的最大宽度	
+
+     	 //maxImageHeight: 1000,//图片的最大高度
+        enctype: 'multipart/form-data',
+        validateInitialCount:true,
+        showRemove : true, 
+        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+        msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+        showUpload:true,
+        previewSettings: {
+        	 image: {width: "50px", height: "100px"},
+        },
+        layoutTemplates :{
+             actionDelete:'', //去除上传预览的缩略图中的删除图标
+            actionUpload:'',//去除上传预览缩略图中的上传图片；
+            actionZoom:''   //去除上传预览缩略图中的查看详情预览的缩略图标。
+        }
+		    })
+}
+    return oFile;
+};
+
+var ycCheckBox = function(){
+	$("[name='radio-inline']").css('display','none');
+}
+var appid;
+var checkApp = function(id){
+	$('#'+id).prop("checked",true);
+	$("#app"+appid).css("box-shadow","none");
+	appid = id;
+	//box-shadow:5px 2px 6px #000 inset;
+	$("#app"+id).css("box-shadow","5px 2px 6px #778899");
+}
+
+var setSysForm = function(){
+	var app = $('input[name="appcheck"]:checked').val();
+	if(app == undefined){
+		$("#MyModalcontent").html("请选择一个应用");
+	    $("#myModal").modal();
+	}else{
+		var appcode = app.split(",")[0];
+		var appname = app.split(",")[1];
+		$("#setSystemModal").modal();
+		$("#appname").val(appname);
+		$("#appcode").val(appcode);
+	}
+}
+
+// API申请
+var setApisq = function(){
+	var app = $('input[name="appcheck"]:checked').val();
+	if(app == undefined){
+		$("#MyModalcontent").html("请选择一个应用");
+	    $("#myModal").modal();
+	}else{
+		var appcode = app.split(",")[0];
+		var appname = app.split(",")[1];
+		$("#apiSqModel").modal();
+		$("#appname").val(appname);
+		$("#appcode").val(appcode);
+	}
+}
+
+// 消息订阅申请
+var setXxdysq = function(){
+	var app = $('input[name="appcheck"]:checked').val();
+	if(app == undefined){
+		$("#MyModalcontent").html("请选择一个应用");
+	    $("#myModal").modal();
+	}else{
+		var appcode = app.split(",")[0];
+		console.log("appcode="+appcode)
+		var appname = app.split(",")[1];
+		$("#xxdySqModel").modal();
+		$("#appname").val(appname);
+		$("#appcode").val(appcode);
+		xxdyQuery(0,10);
+	}
+}
+
+
+//队列查看
+var setLook=function(){
+	var app = $('input[name="appcheck"]:checked').val();
+	if(app == undefined){
+		$("#MyModalcontent").html("请选择一个应用");
+	    $("#myModal").modal();
+	}else{
+		var appcode = app.split(",")[0];
+		var appname = app.split(",")[1];
+		$("#applyLookModel").modal();
+		// $("#appname").val(appname);
+		// $("#appcode").val(appcode);
+		
+
+	}
+}
+
+
+var saveApiSq = function(appcede,interfaceid){
+	$("#apisqclose").on("click",function(){
+	     $("#apisqTable").bootstrapTable('destroy');
+	});
+	$("#apisqcommit").on("click",function(){
+		var data =  $('#apisqTable').bootstrapTable('getSelections');
+		var appcode = $("#appcode").val();
+	 	if(overAllIds.length != 0){
+			var list2=[];
+			for(var i=0;i<overAllIds.length;i++){
+				var list1=[];
+
+				list1.push(overAllIds[i]);
+				list1.push(appcode);
+				list2.push(list1);
+			}
+			$.ajax({
+				url:'saveInterfaceBinding?num='+overAllIds.length,
+				type:'post',
+				data:{"value":list2},
+				success:function(res){
+					errorSolve(res);//status 500 处理
+					if(res.status == '200'){
+						$("#MyModalcontent").html("申请成功，请等待管理员审批");
+					    $("#myModal").modal();
+					}
+					 $.fn.zTree.init($("#apiDemo"), setting, treeNodes);
+					 $("#apisqTable").bootstrapTable('refresh');
+					 overAllIds = new Array(); 
+				},
+				error:function(){
+					$("#MyModalcontent").html("申请失败，请联系管理员");
+				    $("#myModal").modal();
+				}
+			})
+			
+		}else{
+			$("#MyModalcontent").html("请选择想要申请的接口");
+			   $("#myModal").modal();
+		} 
+		
+	})
+		
+}
+
+var setMenuForm = function(){
+	var app = $('input[name="appcheck"]:checked').val();
+	if(app == undefined){
+		$("#MyModalcontent").html("请选择一个应用");
+	    $("#myModal").modal();
+	}else{
+		var appcode = app.split(",")[0];
+		var appname = app.split(",")[1];
+		$("#setMenusModal").modal();
+		$("#menu_appname").val(appname);
+		$("#menu_appcode").val(appcode);
+	}
+}
+
+// <!-- ***************************api申请ztree和表格加载****************************** -->
+var overAllIds = new Array();                // 全局保存选中行的对象
+var zTree;
+var treeNodes;
+var setting = {
+        isSimpleData : true, //数据是否采用简单 Array 格式，默认false
+        treeNodeKey : "name", //在isSimpleData格式下，当前节点id属性
+        treeNodeParentKey : "pid", //在isSimpleData格式下，当前节点的父节点id属性
+        showLine : true, //是否显示节点间的连线
+        callback :{
+            onClick : clickFun,
+            onExpand: clickFun
+        },
+        //checkable : true //每个节点上是否显示 CheckBox
+        };
+        
+         function clickFun(event, treeId, treeNode, clickFlag) {  
+        	$("#apisqcommit").removeClass("hidden");
+            // 判断是否父节点  
+            if(treeNode.isParent){ 
+            	  var appcode = encodeURIComponent($("#appcode").val());
+                $.ajax({
+                    url: "/getApiTree?pid="+treeNode.pid+"&appcode="+appcode,//请求的action路径
+                    error: function () {//请求失败处理函数
+                        alert('请求失败');
+                    },
+                    success:function(data){ //添加子节点到指定的父节点
+						var jsondata= eval(data);
+                        if(jsondata == null || jsondata == ""){
+                            //末节点的数据为空   所以不再添加节点  这里可以根据业务需求自己写
+                            //$("#treeFrame").attr("src",treeNode.url);
+                        }else{
+                            var treeObj = $.fn.zTree.getZTreeObj("apiDemo");
+                            treeObj.expandAll();
+                            //treeNode.halfCheck = false;
+                          	var nodes = treeObj.getSelectedNodes();
+                            for (var i=0, l=nodes.length; i < l; i++) {
+	                     		//删除选中的子节点
+	                       		treeObj.removeChildNodes(nodes[i]);
+                       		}
+                            var parentZNode = treeObj.getNodeByParam("pid", treeNode.pid, null);//获取指定父节点
+                            newNode = treeObj.addNodes(parentZNode,jsondata, false);
+ 						}
+                    }
+               	});
+            }else{
+            	$("#apisqcommit").attr("class","btn btn-primary hidden");
+            }
+            // <!--点击节点加载表格数据-->
+            $("#apisqTable").bootstrapTable('destroy');
+            var appcode = encodeURIComponent($("#appcode").val());
+            
+            //var bootstrapTableDataLength;	//定义一个上级变量，存放当前加载的行数据的长度
+            
+            $('#apisqTable').bootstrapTable({
+            	url: "/getInterface?pid="+treeNode.pid+"&id="+treeNode.id+"&appcode="+appcode,       //请求后台的URL（*）
+            	method: 'GET',                      //请求方式（*）
+            	toolbar: '#toolbar',              //工具按钮用哪个容器
+            	striped: true,                      //是否显示行间隔色
+            	cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            	pagination: true,                   //是否显示分页（*）
+            	sortable: true,                     //是否启用排序
+            	sortOrder: "asc",                   //排序方式
+            	sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+            	pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+            	pageSize: 5,                     //每页的记录行数（*）
+            	pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+            	search: false,                      //是否显示表格搜索
+            	strictSearch: true,
+            	showColumns: true,                  //是否显示所有的列（选择显示的列）
+            	showRefresh: true,               //是否显示刷新按钮
+            	singleSelect: false,				//开启行单选
+            	minimumCountColumns: 2,             //最少允许的列数
+            	clickToSelect: true,                //是否启用点击选中行
+            	//height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+            	uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+            	showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
+            	cardView: false,                    //是否显示详细视图
+            	detailView: false,                  //是否显示父子表
+            	//得到查询的参数
+            	queryParams : function (params) {
+            		//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+            		var temp = {
+            			rows: params.limit,                         //页面大小
+            			page: (params.offset / params.limit) + 1,   //页码
+            			sort: params.sort,      //排序列名
+            			sortOrder: params.order //排位命令（desc，asc）
+            		};
+            		return temp;
+            	},
+            	responseHandler: function(res) {
+            		return {
+            			"total": res.result.total,//总页数
+            			"rows": res.result.data
+            		};
+            	},
+            	columns: [{
+            		checkbox: true ,
+            		visible: true ,           //是否显示复选框
+            		  formatter: function (i,row) {            // 每次加载 checkbox 时判断当前 row 的 id 是否已经存在全局 Set() 里
+            			// if($.inArray(row.id,overAllIds)!=-1){    // 因为 Set是集合,需要先转换成数组
+                        //       return {
+                        //           checked : true               // 存在则选中
+                        //       }
+                        //   }
+					    if (row.bdzt == 1 || row.bdzt == 2){
+					    	return {
+					    		checked : true
+							}
+						}
+                      }
+            	},{
+            		title: '序号',
+            		align: 'center',
+            		valign: 'bottom',
+            		formatter: function(value, row, index) {
+            			var pageSize = $('#apisqTable').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+            			var pageNumber = $('#apisqTable').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+            			return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+            		}
+            	},
+            		{
+            			field: 'interfaceName',
+            			title: '接口名称',
+            			sortable: true
+            		},{
+            			field: 'interfaceId',
+            			title: '接口地址',
+            			sortable: true
+            		}, {
+            			field: 'method',
+            			title: '方法',
+            			sortable: true,
+            		}, {
+            			field: 'bdzt',
+            			title: '申请状态',
+            			sortable: true,
+						formatter: function(value, row, index) {
+            				if(row.bdzt == 1){
+            					return "已申请";
+							}else if(row.bdzt == 2){
+            					return "通过";
+							}else if (row.bdzt == 3){
+            					return "未通过";
+							}else{
+            					return "未申请";
+							}
+						}
+            		},
+            		{
+            			field: 'interfaceDescription',
+            			title: '接口描述',
+            			sortable: true
+            		}],
+            	onLoadSuccess: function (data) {
+            		console.log(data);
+            		var datas = data.rows;
+            		for (var i=0;i<datas.length;i++){
+            			if (datas[i].bdzt == 1 || datas[i].bdzt == 2){
+						}
+					}
+				},
+				
+				// onClickRow当用户点击某一行的时候触发
+            	onClickRow:function(row,$element){
+ 					var treeObj = $.fn.zTree.getZTreeObj("apiDemo");
+            		var nodes = treeObj.getSelectedNodes();
+            		var rows = $('#apisqTable').bootstrapTable('getData',true);//获取当前页的行数据
+					console.log(rows)
+            		if(rows == null || rows == undefined || rows.length != 1){	//表示加载的数据都不是有且只有一条
+            			return;
+            		}
+            		var checkbox = $element.find("input[type='checkbox']")[0];
+            		var flag = checkbox.checked;
+            		console.log(flag);
+            		if(!flag){
+	            			var appcode = $("#appcode").val();
+			            	var list2=[];
+			            	console.log(row);
+			            	list2.push(row.interfaceId);
+			            	list2.push(appcode);
+
+
+            			//checkbox.checked = true;
+
+	            		awd.confirm("","是否申请该API接口?",function(){
+			            	$.ajax({
+								url:'saveInterfaceBinding?num='+"null",
+								type:'post',
+								data:{"value":list2},
+								success:function(res){
+									errorSolve(res);//status 500 处理
+									if(res.status == '200'){
+										$("#MyModalcontent").html("申请成功，请等待管理员审批");
+										$("#myModal").modal();
+									}
+									$.fn.zTree.init($("#apiDemo"), setting, treeNodes);
+									$("#apisqTable").bootstrapTable('refresh');
+									overAllIds = new Array();
+								},
+								error:function(){
+									$("#MyModalcontent").html("申请失败，请联系管理员");
+									$("#myModal").modal();
+								}
+							})
+	            		});
+					}else{
+            		}
+        		},
+            	onLoadError: function () {
+            		showTips("数据加载失败！");
+            	},
+            });
+        }
+
+$(function(){
+        $.ajax({
+            async : false,
+            cache:false,
+            type: 'GET',
+            dataType : "json",
+            url: "/getApiTree?node="+"p",//请求的action路径
+            error: function () {//请求失败处理函数
+                alert('请求失败');
+            },
+            success:function(data){ //请求成功后处理函数。
+            	treeNodes = eval(data); //把后台封装好的简单Json格式赋给treeNodes
+        	}
+        });
+    });
+
+
+//初始化节点
+$(document).ready(function(){
+	$.fn.zTree.init($("#apiDemo"), setting, treeNodes);
+	$("#apiSqModel").on("show.bs.modal",function(){
+		$.fn.zTree.init($("#apiDemo"), setting, treeNodes);	
+		$("#apisqTable").bootstrapTable('destroy');
+		overAllIds = new Array(); 
+	})
+});
+
+Array.prototype.remove = function(val) { 
+	var index = this.indexOf(val); 
+	if (index > -1) { 
+	this.splice(index, 1); 
+	} 
+	};
+
+var  examine=function(type,datas){            // 操作类型，选中的行
+    if(type.indexOf('uncheck')==-1){    
+        $.each(datas,function(i,v){        // 如果是选中则添加选中行的 interfaceId
+            overAllIds.push(v.interfaceId);
+        });
+    }else{
+        $.each(datas,function(i,v){        
+            overAllIds.remove(v.interfaceId);     // 删除取消选中行的 interfaceId
+        });
+    }
+}
+
+var errorSolve = function(data){
+	if(data.status == 500){
+		var msg = "请求错误！"
+		if(data.message != null && data.message != undefined){
+			msg = data.message;
+		}
+		$("#myModal h4").html("警告");
+		$("#MyModalcontent").html(msg);
+		$("#myModal").modal();
+		return;
+	}
+}
+
+var awd = {
+	confirm:function(title,msg,callback){
+		$('#awdConfirmModalTitle').html(title==""||title==undefined?"提示":title);
+		$('#awdConfirmModalContent').html(msg);
+		$('#awdConfirmModal').modal('show');
+		$('#awdConfirmModalSure').off("click").on('click',function(){
+			callback();
+		});
+	}
+}
+
+
+
+
+$('#apisqTable').on('uncheck.bs.table check.bs.table check-all.bs.table uncheck-all.bs.table',function(e,rows){
+    var datas = $.isArray(rows) ? rows : [rows];        // 点击时获取选中的行或取消选中的行
+    examine(e.type,datas);                                 // 保存到全局 Set() 里
+})
+
+
+ 
+
+
+// <!-- ***************************api申请ztree和表格加载****************************** -->
+
+
+
+   
+</script>
+</html>

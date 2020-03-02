@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>会见人数分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class="hjfx">
+        <div class="button">
+            <div id="changeBar">表格</div> 
+        </div>
+        <div  id="hjrsfx"></div>
+        <div cellspacing="0" class="tableBar">
+            <div class="hjfxTable">
+                <div>会见人数分析</div>
+            </div>
+            <div class='cs'>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;"></div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">北京市</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">东城区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">西城区</div style="width:80px;">
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">朝阳区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">丰台区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">石景山区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">海淀区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">门头沟区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">房山区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">通州区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">顺义区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">昌平区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">大兴区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">平谷区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">怀柔区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">密云区</div>
+                <div style="width:100px;text-align:center;border:1px solid #d48265;">延庆区</div>
+            </div>
+        <table style="width:1354px;height:50px;margin-left:70px;" cellspacing="0">
+            <tbody id='tbodyResult'></tbody>  
+        </table>
+        </div>
+    </div>
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+var tbody = window.document.getElementById("tbodyResult")
+$("#changeBar").on("click",function(){
+    if($(this).text()=="表格"){
+        $(this).text("图表");
+        $.ajax({
+            url: '/kssdp/select_kss_hjrs',
+            type: "get",
+            dataType: "json",
+            success: function (res) {
+                var jshj = '';
+                var lshj = '';
+                var tx = '';
+                var all='';
+                var data = res.result
+
+            for (var i=0;i< data.jshj.length;i++) {   
+                jshj += "<td style='width:80px;height:50px;text-align:center;border:1px solid #d48265;'>" + data.jshj[i] + "</td>";
+            } 
+                var _jshj = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #d48265">家属会见</td>'+  jshj + "</tr>"
+            for (var i=0;i< data.lshj.length;i++) {   
+                lshj += "<td style='width:80px;height:50px;text-align:center;border:1px solid #d48265;'>" + data.lshj[i] + "</td>";
+            }
+                var _lshj = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #d48265">律师会见</td>' + lshj + "</tr>"
+            for (var i=0;i< data.tx.length;i++) {   
+                tx += "<td style='width:80px;height:50px;text-align:center;border:1px solid #d48265;'>" + data.tx[i] + "</td>";
+            }
+                var _tx = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #d48265">提讯</td>' + tx + "</tr>"
+            for (var i=0;i< data.all.length;i++) {   
+                all += "<td style='width:80px;height:50px;text-align:center;border:1px solid #d48265;'>" + data.all[i] + "</td>";
+            }
+                var _all = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #d48265">总数</td>' + all + "</tr>"
+            
+            tbody.innerHTML = _jshj + _lshj +  _tx + _all; 
+            },error(error){
+                console.log(error)
+            }
+        })
+        //
+        $('#hjrsfx').css('visibility',"hidden")
+        $('.tableBar').css('visibility',"visible")
+    }else{
+        $(this).text("表格");
+        $('#hjrsfx').css('visibility',"visible")
+        $('.tableBar').css('visibility',"hidden")
+    }
+})
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/zdEcharts/hjrsfx/hjrsfx');
+</script>
+<style> 
+     *{ 
+        padding:0;
+        margin:0;
+    }
+    #hjrsfx{
+        margin-top:60px;
+        width: 100%;
+        height: 642px;
+    }
+    .hjfx{
+        width:100%;
+        height:710px;
+        border:1px solid #11183c;
+        background:#ffffff;
+    }
+    .button{
+        width:120px;
+        float:right;
+        margin-top:10px;
+        height:50px;
+        line-height:50px;
+        color:#fff;
+    }
+    #changeBar{
+        width:70px;
+        height:38px;
+        line-height:38px;
+        text-align:center;
+        background:#d48265;
+        border-radius: 13px;
+        cursor:pointer;
+    }
+    .hjfxTable{
+        width:1350px;
+        text-align:center;
+        height:50px;
+        border:1px solid #d48265;
+        font-size: 23px;
+        line-height:50px;
+        margin-left: 70px;
+        color:#d48265;
+        border-top:2px solid #d48265;
+        border-left:2px solid #d48265;
+        border-right:2px solid #d48265;
+    }
+    .tableBar{
+        visibility: hidden;
+        width:100%;
+        height:600px;
+        color: #d48265;
+        position: fixed;
+        top:60px;
+        left:0;
+    }
+    .cs{
+        margin-top:-1px;
+        display:flex;
+        width:1354px;
+        height:40px;
+        line-height:40px;
+        margin-left: 70px;
+        border-top:1px solid #d48265;
+        color:#d48265;
+    }
+    #tbodyResult{
+        width:1352px;
+        margin-left: 70px;
+        height:600px;
+    }
+</style>
+</body>
+</html>

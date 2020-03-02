@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_GbjyDao">
+
+    <select id="gbjyDt" parameterType="String" resultType="java.util.HashMap">
+        select
+              jsh,
+              tbr,
+              rsrq,
+              gyqx,
+              thnr
+                   from thjy
+
+
+        <where>
+            <if test="starttime != null and starttime != ''">
+                thkssj = #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and thjssj = #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <select id="gbjyZt" parameterType="String" resultType="java.util.HashMap">
+        select
+              t.tbrq,
+              t.fzmj,
+              t.thr
+
+              from thjy t
+                  left join jbxx j
+                  on t.rybh = j.rybh
+
+
+        <where>
+            <if test="state != null and state != ''">
+                t.state = #{state}
+            </if>
+            <if test="xm != null and xm != ''">
+                and t.fzmj = #{xm}
+            </if>
+            <if test="starttime != null and starttime != ''">
+                and t.rsrq = #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and rsrq = #{endtime}
+            </if>
+            <if test="starttime1 != null and starttime1 != ''">
+                and cssj = #{starttime1}
+            </if>
+            <if test="endtime1 != null and endtime1 != ''">
+                and cssj = #{endtime1}
+            </if>
+
+        </where>
+    </select>
+
+</mapper>

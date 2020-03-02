@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: ${hostname:awd-mis-logs-server}
+  cloud:
+    inetutils:
+      preferred-networks: ${hostip:192.168.4.24}
+    config:
+      uri: ${config.serviceUrl:http://192.168.4.107:3000}
+      label: ${config.lable:awd-mis-servers-manager}
+      profile: ${config.profile:dev}
+  http:
+    multipart:
+      maxFileSize: 20MB
+      maxRequestSize: 20MB
+
+tracker_server:
+  url: ${tracker_server_url:192.168.4.109:22122}
+    
+#  data:
+#    elasticsearch:
+#      # 集群名
+#      cluster-name: elasticsearch
+#      # 连接节点,注意在集群中通信都是9300端口，否则会报错无法连接上！
+#      cluster-nodes: 192.168.4.109:9300
+#      # 是否本地连接
+#      local: false
+#      repositories:
+#        # 仓库中数据存储
+#        enabled: true
+
+
+
+#########################feign配置######################
+#awd:
+#  api:
+#    manager: AWD-MIS-MANAGER-SERVER-TEST

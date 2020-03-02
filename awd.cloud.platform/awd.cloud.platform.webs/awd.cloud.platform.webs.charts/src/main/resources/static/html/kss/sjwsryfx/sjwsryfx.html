@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>送监未收人员分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class='sjwsry'>
+        <div class="button">
+            <div id="changeBar">表格</div> 
+        </div>
+        <div id="sjwsryfx"></div>
+        <div cellspacing="0" class="tableBar">
+            <div class="sjwsryTable">
+                <div>送监未收人员分析</div>
+            </div>
+            <div class='cs'>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);"></div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">北京市</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">东城区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">西城区</div style="width:80px;">
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">朝阳区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">丰台区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">石景山区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">海淀区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">门头沟区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">房山区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">通州区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">顺义区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">昌平区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">大兴区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">平谷区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">怀柔区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">密云区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">延庆区</div>
+            </div>
+                <table style="width:1352px;height:50px;margin-left:70px;" cellspacing="0">
+                    <tbody id='tbodyResult'></tbody>  
+                </table>
+        </div>
+    </div>
+<!-- <div style="width: 1550px;height: 700px;" id="sjwsryfx"></div> -->
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+    var tbody = window.document.getElementById("tbodyResult")
+    $("#changeBar").on("click",function(){
+        // console.log(1547)
+        if($(this).text()=="表格"){
+            $(this).text("图表");
+            $.ajax({
+                url: '/kssqsfx/tswsfxCount',
+                type: "get",
+                dataType: "json",
+                success: function (res) {
+                    console.log(res,789)
+                    var data = res.result;
+                    var wsrs = '';
+                    var tsjyws = '';
+                    var tsljsws = '';
+                    var tssgsws = '';
+                    var tsakyyws = '';
+                    var qttsws = '';
+                    for (var i=0;i< data.wsrs.length;i++) {   
+                        wsrs += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.wsrs[i] + "</td>";
+                    } 
+                    var wsrss = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">未收人数</td>'+  wsrs + "</tr>"
+                    for (var i=0;i< data.tsjyws.length;i++) {   
+                        tsjyws += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.tsjyws[i] + "</td>";
+                    } 
+                    var tsjywss = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">投送监狱未收</td>'+  tsjyws + "</tr>"
+                    for (var i=0;i< data.tsljsws.length;i++) {   
+                        tsljsws += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.tsljsws[i] + "</td>";
+                    } 
+                    var tsljswss = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">投送劳教所未收</td>'+  tsljsws + "</tr>"
+                    for (var i=0;i< data.tssgsws.length;i++) {   
+                        tssgsws += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.tssgsws[i] + "</td>";
+                    } 
+                    var tssgswss = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">投送少管所未收</td>'+  tssgsws + "</tr>"
+                    for (var i=0;i< data.tsakyyws.length;i++) {   
+                        tsakyyws += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.tsakyyws[i] + "</td>";
+                    } 
+                    var tsakyywss = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">投送安康医院未收</td>'+  tsakyyws + "</tr>"
+                    for (var i=0;i< data.qttsws.length;i++) {   
+                        qttsws += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.qttsws[i] + "</td>";
+                    } 
+                    var qttswss = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">其他投送未收</td>'+  qttsws + "</tr>"
+                    tbody.innerHTML = wsrss + tsjywss + tsljswss + tssgswss + tsakyywss + qttswss;
+                },error(error){
+                    console.log(error,123456)
+                }
+            })
+            $('#sjwsryfx').css('visibility',"hidden")
+            $('.tableBar').css('visibility',"visible")
+
+        }else{
+            $(this).text("表格");
+            $('#sjwsryfx').css('visibility',"visible")
+            $('.tableBar').css('visibility',"hidden")
+        }
+    })
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/kss/sjwsryfx/sjwsryfx');
+</script>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    .sjwsry{
+        width:99%;
+        height:710px;
+        border:1px solid #fff;
+    }
+    .button{
+        width:120px;
+        float:right;
+        margin-top:10px;
+        height:50px;
+        line-height:50px;
+        color:#fff;
+    }
+    #changeBar{
+        width:70px;
+        height:38px;
+        line-height:38px;
+        text-align:center;
+        background:#1bb4f6;
+        border-radius: 13px;
+        cursor:pointer;
+    }
+    .sjwsryTable{
+        width:1348px;
+        text-align:center;
+        height:50px;
+        border:1px solid #fff;
+        font-size: 23px;
+        line-height:50px;
+        margin-left: 70px;
+        border-top:2px solid rgb(0, 136, 201);
+        border-left:2px solid rgb(0, 136, 201);
+        border-right:2px solid rgb(0, 136, 201);
+    }
+    .tableBar{
+        visibility: hidden;
+        width:100%;
+        height:600px;
+        color: #11183c;
+        position: fixed;
+        top:60px;
+        left:0;
+    }
+    .cs{
+        display:flex;
+        width:1352px;
+        height:40px;
+        line-height:40px;
+        margin-left: 70px;
+        border-top:1px solid rgb(0, 136, 201)
+    }
+    #tbodyResult{
+        width:1352px;
+        margin-left: 70px;
+        height:600px;
+    }
+#sjwsryfx{
+    margin-top:60px;
+    width: 100%;
+    height: 620px;
+}
+</style>
+</body>
+</html>

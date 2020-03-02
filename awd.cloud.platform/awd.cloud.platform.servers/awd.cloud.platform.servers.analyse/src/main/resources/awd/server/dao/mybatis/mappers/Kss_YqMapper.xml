@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.YqDao">
+    <select id="rqcxY"  resultType="awd.cloud.platform.servers.analyse.vo.AnalysisResultVO">
+        select
+        k.dz,
+        k.jsbh,
+        count(y.jsbh) as count
+        from kss k
+        LEFT JOIN yq y
+        ON k.jsbh = y.jsbh
+        <where>
+            state='R2'
+            <if test="starttime!=null and starttime!=''">
+                and y.blrq &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!=''">
+                and y.blrq &lt;= #{endtime}
+            </if>
+        </where>
+        GROUP BY dz,kssmc
+    </select>
+
+    <!--延期业务动态-->
+    <select id="yqYwdt" resultType="java.util.HashMap">
+        SELECT
+        count(if(YQYY='1',true,null)) as bpzsxm,
+        count(if(YQYY='2',true,null)) as aqfz,
+        count(if(YQYY='3',true,null)) as lcza,
+        count(if(YQYY='4',true,null)) as jsbjd,
+        count(if(YQYY='5',true,null)) as thza,
+        count(if(YQYY='6',true,null)) as ysyq,
+        count(if(YQYY='7',true,null)) as esyq,
+        count(if(YQYY='8',true,null)) as scqsyq,
+        count(if(YQYY='9',true,null)) as qt,
+        count(*) as zrs
+        FROM yq
+        <where>
+        	yqyy is not null
+            <if test="starttime != null and starttime !=  ''">
+                and date_format(blrq,'%Y-%m-%d' ) &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(blrq,'%Y-%m-%d' ) &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+</mapper>

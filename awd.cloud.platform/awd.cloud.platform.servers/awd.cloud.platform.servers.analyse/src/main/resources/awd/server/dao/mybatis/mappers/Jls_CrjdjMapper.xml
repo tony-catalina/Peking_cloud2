@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_CrjdjDao">
+
+    <select id="crjdjCount" resultType="java.util.HashMap" parameterType="String">
+    select count(id) cjlq,
+    count(drsj) hjlq,
+    count(dcyy=02 or null) tx,
+    count(dcyy=04 or null) lshj,
+    count(dcyy=06 or null) qshj,
+    count(dcyy=08 or null) lscs,
+    count(dcyy!=02 and dcyy!=04 and dcyy!=06 and dcyy!=08  or null) qt
+    from crjdj
+        <where>
+              state = 'R2'
+           <if test="starttime != null and starttime != ''">
+                and date_format(dcsj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(dcsj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

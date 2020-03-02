@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.AYFXDao">
+      <resultMap id="AYFXMapper" type="awd.cloud.platform.servers.analyse.model.kss.DsjPTModel">
+          <result property="code" column="CODE"/>
+      </resultMap>
+
+	<!--案由分析 -->
+    <select id="select_AYFX" resultType="java.util.HashMap">
+            	select  to_code2zh("AJLB", AY) as "mc" ,COUNT(AY) as "sl" from jbxx where STATE = "R8" GROUP BY AY ORDER BY COUNT(AY) desc limit 5
+
+    </select>
+
+</mapper>
+
+
+		<!--select   ifnull((select content from soa_manager.dictionary where CODE=010000 and FIELDNAME="AJLB"),0) as ay1,
+		ifnull(
+
+
+		round(
+		(select COUNT(CODE) from soa_manager.dictionary where  CODE=010000 )/
+		(select COUNT(FIELDNAME) from soa_manager.dictionary where  FIELDNAME="AJLB")
+		*100,2       )
+
+
+		,0)	as zb1,
+		ifnull((select content from soa_manager.dictionary where CODE=010150 and FIELDNAME="AJLB"),0) as ay2,
+		ifnull(
+
+
+		round(
+		(select COUNT(CODE) from soa_manager.dictionary where  CODE=010150 )/
+		(select COUNT(FIELDNAME) from soa_manager.dictionary where  FIELDNAME="AJLB")
+		*100,2       )
+
+
+		,0)	as zb2,
+		ifnull((select content from soa_manager.dictionary where CODE=010100 and FIELDNAME="AJLB"),0) as ay3,
+		ifnull(
+
+
+		round(
+		(select COUNT(CODE) from soa_manager.dictionary where  CODE=010100 )/
+		(select COUNT(FIELDNAME) from soa_manager.dictionary where  FIELDNAME="AJLB")
+		*100,2       )
+
+
+		,0)	as zb3,
+		ifnull((select content from soa_manager.dictionary where CODE=020405 and FIELDNAME="AJLB"),0) as ay4,
+		ifnull(
+
+
+		round (
+		(select COUNT(CODE) from soa_manager.dictionary where  CODE=020405 )/
+		(select COUNT(FIELDNAME) from soa_manager.dictionary where  FIELDNAME="AJLB")
+		*100 ,2      )
+
+
+		,0)	as zb4-->

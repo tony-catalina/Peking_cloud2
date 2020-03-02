@@ -1,0 +1,32 @@
+	<div class='bodymain html5_drag_upload_box desktop' style="background-image:url('./images/wall_page/${userconfig.wall}.jpg');">
+		<img class="background"/>
+		<div class="fileContiner fileList_icon hidden">
+			<%if((config.menu.explorer!)=="1"){%>  
+			<div class="file systemBox menuDefault" data-path=""
+			data-app="eyJ0eXBlIjoiYXBwIiwid2lkdGgiOiIiLCJoZWlnaHQiOiIiLCJjb250ZW50IjoiY29yZS5leHBsb3JlcignJyxMTkcubXlfY29tcHV0ZXIpOyJ9">
+				<div class="ico" filetype="oexe"><img src="./images/file_icon/icon_others/computer.png"/></div>
+				<div class="filename"><span class="title">我的电脑</span></div>
+            </div>            
+			<div class="file systemBox menuRecycleButton"
+			title="回收站"
+			data-app="eyJ0eXBlIjoiYXBwIiwid2lkdGgiOiIiLCJoZWlnaHQiOiIiLCJjb250ZW50IjoiY29yZS5leHBsb3JlcignJTdCdXNlcl9yZWN5Y2xlJTdEJyxMTkcucmVjeWNsZSkifQ==" data-path="">
+				<div class="ico" filetype="oexe"><img src="./images/file_icon/icon_others/recycle.png"/></div>
+				<div class="filename" ><span class="title">回收站</span></div>
+			</div>
+			<%}%>
+			<%if(config.is_root==1){%>
+			<div class="file systemBox menuDefault" data-path=""
+			title="系统设置"
+			data-app="eyJ0eXBlIjoiYXBwIiwid2lkdGgiOiIiLCJoZWlnaHQiOiIiLCJjb250ZW50IjoiY29yZS5zZXR0aW5nKCk7In0=">
+				<div class="ico" filetype="oexe"><img src="./images/file_icon/icon_others/setting.png"/></div>
+				<div class="filename" ><span class="title">系统设置</span></div>
+			</div>
+			<%}%>
+			<div class="file systemBox menuDefault" data-path=""
+			title="应用商店"
+			data-app="eyJ0eXBlIjoiYXBwIiwid2lkdGgiOiIiLCJoZWlnaHQiOiIiLCJjb250ZW50IjoiY29yZS5hcHBTdG9yZSgnQVdELU1JUy1BUFBTVE9SRS1XRUInKTsifQ==">
+				<div class="ico" filetype="oexe"><img src="./images/file_icon/icon_app/13.png"/></div>
+				<div class="filename"><span class="title">应用商店</span></div>
+			</div>
+		</div>
+	</div><!-- html5拖拽上传list -->

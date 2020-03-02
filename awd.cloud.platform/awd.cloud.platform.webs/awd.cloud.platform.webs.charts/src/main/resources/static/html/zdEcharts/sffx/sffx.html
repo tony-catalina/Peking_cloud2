@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>身份分析</title> 
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class='apply-record'>
+        <ul class="tab">
+            <li class='tab-item active'>看守所</li>
+            <li class='tab-item'>拘留所</li>
+        </ul>
+        <div class="content products">
+            <div class="mainCont selected">
+                <div class="button">
+                    <div id="changeBar">表格</div> 
+                </div>
+                <div id="sffx"></div> 
+                <div cellspacing="0" class="tableBar">
+                    <div class="sfTable">
+                        <div>违规情况分析</div>
+                    </div>
+                    <div class='cs'>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f"></div>
+                        <div style="width:102px;text-align:center;border:1px solid #5f5f5f">北京市</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">东城区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">西城区</div style="width:80px;">
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">朝阳区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">丰台区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">石景山区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">海淀区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">门头沟区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">房山区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">通州区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">顺义区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">昌平区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">大兴区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">平谷区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">怀柔区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">密云区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">延庆区</div>
+                    </div>
+                        <table style="width:1352px;height:50px;margin-left:70px;" cellspacing="0">
+                            <tbody id='tbodyResult'></tbody>  
+                        </table>
+                </div>
+            </div>
+            <div class="mainCont">
+                <div class="jlsButton">
+                    <div id="jlsBar">表格</div> 
+                </div>
+                <div id="jlsSffx"></div> 
+                <div cellspacing="0" class="jlsTableBar">
+                    <div class="jlsSfTable">
+                        <div>违规情况分析</div>
+                    </div>
+                    <div class='jlscs'>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f"></div>
+                        <div style="width:102px;text-align:center;border:1px solid #5f5f5f">北京市</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">东城区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">西城区</div style="width:80px;">
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">朝阳区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">丰台区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">石景山区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">海淀区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">门头沟区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">房山区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">通州区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">顺义区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">昌平区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">大兴区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">平谷区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">怀柔区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">密云区</div>
+                        <div style="width:100px;text-align:center;border:1px solid #5f5f5f">延庆区</div>
+                    </div>
+                        <table style="width:1352px;height:50px;margin-left:70px;" cellspacing="0">
+                            <tbody id='jlsTbodyResult'></tbody>  
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+var tbody = window.document.getElementById("tbodyResult")
+var jlsTbody = window.document.getElementById("jlsTbodyResult")
+    $("#changeBar").on("click",function(){
+        if($(this).text()=="表格"){
+            $(this).text("图表");
+            $.ajax({
+                url: '/kssdp/sffx',
+                type: "get",
+                dataType: "json",
+                success: function (res) {
+                    console.log(res,789)
+                    var data = res.result;
+                    var gjgwy = '';
+                    var qyglry = '';
+                    var gr = '';
+                    var nm ='';
+                    var zxxs = '';
+                    var gtgsry = '';
+                    var ltxry = '';
+                    var wyry = '';
+                    var jr ='';
+                    var  qt = '';
+                    for (var i=0;i< data.gjgwy.length;i++) {   
+                        gjgwy += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.gjgwy[i] + "</td>";
+                    } 
+                    var gjgwyfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">国家公务员</td>'+  gjgwy + "</tr>"
+                    for (var i=0;i< data.qyglry.length;i++) {   
+                        qyglry += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.qyglry[i] + "</td>";
+                    } 
+                    var qyglryfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">企业管理人员</td>'+  qyglry + "</tr>"
+                    for (var i=0;i< data.gr.length;i++) {   
+                        gr += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.gr[i] + "</td>";
+                    } 
+                    var grfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">工人</td>'+  gr + "</tr>"
+                    for (var i=0;i< data.nm.length;i++) {   
+                        nm += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.nm[i] + "</td>";
+                    } 
+                    var nmfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">农民</td>'+  nm + "</tr>"
+                    for (var i=0;i< data.gjgwy.length;i++) {   
+                        zxxs += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.zxxs[i] + "</td>";
+                    } 
+                    var zxxsfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">在校学生</td>'+  zxxs + "</tr>"
+                    for (var i=0;i< data.gtgsry.length;i++) {   
+                        gtgsry += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.gtgsry[i] + "</td>";
+                    } 
+                    var gtgsryfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">个体工商人员</td>'+  gtgsry + "</tr>"
+                    for (var i=0;i< data.ltxry.length;i++) {   
+                        ltxry += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.ltxry[i] + "</td>";
+                    } 
+                    var ltxryfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">离退休人员</td>'+  ltxry + "</tr>"
+                    for (var i=0;i< data.wyry.length;i++) {   
+                        wyry += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.wyry[i] + "</td>";
+                    } 
+                    var wyryfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">无业人员</td>'+  wyry + "</tr>"
+                    for (var i=0;i< data.jr.length;i++) {   
+                        jr += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.jr[i] + "</td>";
+                    } 
+                    var jrfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">军人</td>'+  jr + "</tr>"
+                    for (var i=0;i< data.qt.length;i++) {   
+                        qt += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.qt[i] + "</td>";
+                    } 
+                    var qtfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">其他</td>'+  qt + "</tr>"
+                    tbody.innerHTML = gjgwyfx + qyglryfx + grfx + nmfx+ zxxsfx + gtgsryfx + ltxryfx + wyryfx + jrfx + qtfx ;
+                },error(error){
+                    console.log(error,123456)
+                }
+            })
+            $('#sffx').css('visibility',"hidden")
+            $('.tableBar').css('visibility',"visible")
+
+        }else{
+            $(this).text("表格");
+            $('#sffx').css('visibility',"visible")
+            $('.tableBar').css('visibility',"hidden")
+        }
+    })
+    
+    $("#jlsBar").on("click", function () {
+        console.log(444)
+        if ($(this).text() == "表格") {
+            $(this).text("图表");
+            // $.ajax({
+            //     url: '/kssdp/sffx',
+            //     type: "get",
+            //     dataType: "json",
+            //     success: function (res) {
+            //         console.log(res,789)
+            //         var data = res.result;
+            //         var gjgwy = '';
+            //         var qyglry = '';
+            //         var gr = '';
+            //         var nm ='';
+            //         var zxxs = '';
+            //         var gtgsry = '';
+            //         var ltxry = '';
+            //         var wyry = '';
+            //         var jr ='';
+            //         var  qt = '';
+            //         for (var i=0;i< data.gjgwy.length;i++) {   
+            //             gjgwy += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.gjgwy[i] + "</td>";
+            //         } 
+            //         var gjgwyfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">国家公务员</td>'+  gjgwy + "</tr>"
+            //         for (var i=0;i< data.qyglry.length;i++) {   
+            //             qyglry += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.qyglry[i] + "</td>";
+            //         } 
+            //         var qyglryfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">企业管理人员</td>'+  qyglry + "</tr>"
+            //         for (var i=0;i< data.gr.length;i++) {   
+            //             gr += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.gr[i] + "</td>";
+            //         } 
+            //         var grfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">工人</td>'+  gr + "</tr>"
+            //         for (var i=0;i< data.nm.length;i++) {   
+            //             nm += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.nm[i] + "</td>";
+            //         } 
+            //         var nmfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">农民</td>'+  nm + "</tr>"
+            //         for (var i=0;i< data.gjgwy.length;i++) {   
+            //             zxxs += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.zxxs[i] + "</td>";
+            //         } 
+            //         var zxxsfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">在校学生</td>'+  zxxs + "</tr>"
+            //         for (var i=0;i< data.gtgsry.length;i++) {   
+            //             gtgsry += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.gtgsry[i] + "</td>";
+            //         } 
+            //         var gtgsryfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">个体工商人员</td>'+  gtgsry + "</tr>"
+            //         for (var i=0;i< data.ltxry.length;i++) {   
+            //             ltxry += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.ltxry[i] + "</td>";
+            //         } 
+            //         var ltxryfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">离退休人员</td>'+  ltxry + "</tr>"
+            //         for (var i=0;i< data.wyry.length;i++) {   
+            //             wyry += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.wyry[i] + "</td>";
+            //         } 
+            //         var wyryfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">无业人员</td>'+  wyry + "</tr>"
+            //         for (var i=0;i< data.jr.length;i++) {   
+            //             jr += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.jr[i] + "</td>";
+            //         } 
+            //         var jrfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">军人</td>'+  jr + "</tr>"
+            //         for (var i=0;i< data.qt.length;i++) {   
+            //             qt += "<td style='width:100px;height:50px;text-align:center;border:1px solid #5f5f5f;'>" + data.qt[i] + "</td>";
+            //         } 
+            //         var qtfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #5f5f5f">其他</td>'+  qt + "</tr>"
+            //         jlsTbody.innerHTML = gjgwyfx + qyglryfx + grfx + nmfx+ zxxsfx + gtgsryfx + ltxryfx + wyryfx + jrfx + qtfx ;
+            //     },error(error){
+            //         console.log(error,123456)
+            //     }
+            // })
+            $('#jlsSffx').css('visibility', "hidden")
+            $('.jlsTableBar').css('visibility', "visible")
+        } else {
+            $(this).text("表格");
+            $('#jlsSffx').css('visibility', "visible")
+            $('.jlsTableBar').css('visibility', "hidden")
+        }
+    })
+
+    $(function(){
+        $(".apply-record .tab .tab-item").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            $(".products .mainCont").eq($(this).index()).show().siblings().hide();
+        })
+    })
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/zdEcharts/sffx/sffx');
+</script>
+<style>
+    * {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+    .products .mainCont::-webkit-scrollbar {display:none}
+    .apply-record{
+        width: 100%;
+        height:100%;
+    }
+    .apply-record .tab{
+        height:60px;
+        line-height:60px;
+        border-bottom: 1px solid #00bfb7;				
+    }
+    .apply-record .tab .tab-item{
+        list-style:none;
+        display:inline-block;
+        width:100px;
+        text-align:center;
+        font-size:20px;
+        margin-right: -5px;
+        background:#d1beb8;
+    }
+    .apply-record .tab .tab-item.active{
+        color: #fff;
+        background: #8db9bf;
+        margin-right: -5px;
+    }			
+    .products .mainCont { 
+        display: none; 
+        width:100%;
+        overflow-y: scroll;
+        text-align: center;
+    } 
+    .products .mainCont.selected {
+        width:100%;
+        height:670px;
+        display: block; 
+    }
+    #sffx{
+        margin-top:60px;
+        width: 100%;
+        height: 610px;
+    }
+    .button{
+        width:120px;
+        float:right;
+        margin-top:10px;
+        height:50px;
+        line-height:50px;
+        color:#fff;
+    }
+    #changeBar{
+        width:70px;
+        height:38px;
+        line-height:38px;
+        text-align:center;
+        background:#5a99e0;
+        border-radius: 13px;
+        cursor:pointer;
+    }
+    .sfTable{
+        width:1348px;
+        text-align:center;
+        height:50px;
+        color:#5f5f5f;
+        font-size: 23px;
+        line-height:50px;
+        margin-left: 70px;
+        border-top:2px solid #5f5f5f;
+        border-left:2px solid #5f5f5f;
+        border-right:2px solid #5f5f5f;
+    }
+    .tableBar{
+        visibility: hidden;
+        width:100%;
+        height:600px;
+        color: #191e40;
+        position: fixed;
+        top:119px;
+        left:0;
+    }
+    .cs{
+        color:#5f5f5f;
+        display:flex;
+        width:1352px;
+        height:40px;
+        line-height:40px;
+        margin-left: 70px;
+        border-top:1px solid #5f5f5f;
+    }
+    #tbodyResult{
+        width:1352px;
+        margin-left: 70px;
+        height:610px;
+        color:#5f5f5f;
+    }
+    #jlsSffx{
+        margin-top:60px;
+        width: 1564px;
+        height: 610px;
+    }
+    .jlsButton{
+        width:120px;
+        float:right;
+        margin-top:10px;
+        height:50px;
+        line-height:50px;
+        color:#fff;
+    }
+    #jlsBar{
+        width:70px;
+        height:38px;
+        line-height:38px;
+        text-align:center;
+        background:#5a99e0;
+        border-radius: 13px;
+        cursor:pointer;
+    }
+    .jlsSfTable{
+        width:1348px;
+        text-align:center;
+        height:50px;
+        color:#5f5f5f;
+        font-size: 23px;
+        line-height:50px;
+        margin-left: 70px;
+        border-top:2px solid #5f5f5f;
+        border-left:2px solid #5f5f5f;
+        border-right:2px solid #5f5f5f;
+    }
+    .jlsTableBar{
+        visibility: hidden;
+        width:100%;
+        height:600px;
+        color: #191e40;
+        position: fixed;
+        top:119px;
+        left:0;
+    }
+    .jlscs{
+        color:#5f5f5f;
+        display:flex;
+        width:1352px;
+        height:40px;
+        line-height:40px;
+        margin-left: 70px;
+        border-top:1px solid #5f5f5f;
+    }
+    #jlsTbodyResult{
+        width:1352px;
+        margin-left: 70px;
+        height:610px;
+        color:#5f5f5f;
+    }
+</style>
+</body>
+</html>

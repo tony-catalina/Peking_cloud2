@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.Tjdao">
+        <!--提解业务动态-->
+        <select id="tjYwdt" resultType="java.util.HashMap">
+            SELECT
+            count(*) as zrs,
+            count(if( TJYY='1',true,null))as ktsl,
+            count(if( TJYY='2',true,null))as xbpj ,
+            count(if( TJYY='3',true,null))as brxc,
+            count(if( TJYY='4',true,null))as qzqz,
+            count(if( TJYY='5',true,null))as sfjd,
+            count(if( TJYY='6',true,null))as lx,
+            count(if( TJYY='7',true,null))as qt,
+            count(if( TJYY='8',true,null))as flwssd
+            FROM tjdj
+            <where>
+                1=1
+                <if test="starttime != null and starttime !=  ''">
+                    and date_format(TJKSSJ,'%Y-%m-%d') &gt;= #{starttime}
+                </if>
+                <if test="endtime != null and endtime != ''">
+                    and date_format(TJJSSJ,'%Y-%m-%d') &lt;= #{endtime}
+                </if>
+                <if test="jsbh != null and jsbh != ''">
+                    and jsbh = #{jsbh}
+                </if>
+            </where>
+        </select>
+
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.JjxDao">
+
+
+    <select id="queryJjxNum"  parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisResultVO">
+        select
+        k.dz as dz,
+        k.jsbh as jsbh,
+        count(j.jsbh) as count
+        from kss k
+        left join jjx j
+        on k.jsbh = j.jsbh
+        <where>
+            j.state = 'R2'
+            <if test="starttime != null and starttime != ''">
+                and j.blrq &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and j.blrq &lt;= #{endtime}
+            </if>
+        </where>
+        group by dz,jsbh
+    </select>
+
+
+</mapper>

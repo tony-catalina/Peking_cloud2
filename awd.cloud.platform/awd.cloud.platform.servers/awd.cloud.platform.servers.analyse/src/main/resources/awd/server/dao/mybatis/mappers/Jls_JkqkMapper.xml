@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_JkqkDao">
+
+	<select id="jkqkCount" resultType="java.util.HashMap">
+		SELECT WSS as "wss",to_code2zh("JKZK",JKZK) as "jkzk",XL as "xl" ,XY as "xy"
+		from jkqk
+		where   STATE="R8" and jsbh=#{jsbh}and RYBH=#{rybh}  GROUP BY CREATETIME DESC LIMIT 1
+	</select>
+
+</mapper>

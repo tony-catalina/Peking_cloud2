@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.all.ZYRY_rygxDao">
+
+    <resultMap id="jbxxMapper" type="awd.cloud.platform.servers.analyse.model.kss.BJSDY_kssModel">
+        <result property="rybh" column="RYBH"/>
+        <result property="jsbh" column="JSBH"/>
+        <result property="jsh"  column="JSH"/>
+    </resultMap>
+
+   <!-- 本人姓名-->
+ <select id="selectBr" resultType="java.util.LinkedHashMap">
+    select XM as "xm"  from jbxx  where    RYBH = #{rybh}
+ </select>
+
+    <!--父子-->
+    <select id="selectFz" resultType="java.util.LinkedHashMap">
+      select  XM  as "xm" from jshj WHERE BHJRGX="151" AND RYBH= #{rybh}
+   </select>
+
+
+    <!--主管民警名字和警号-->
+    <select id="selectzg"  resultType="java.util.LinkedHashMap">
+       select ZGMJ as "zg", ZGMJJH as "zgjh" from js where JSBH = #{jsbh}  and JSH=#{jsh}
+    </select>
+
+   <!-- 协管民警名字和警号-->
+    <select id="selectxg"  resultType="java.util.LinkedHashMap">
+
+select XGMJ as "xg", XGMJJH as "xgjh" from js where JSBH = #{jsbh}  and JSH=#{jsh}
+    </select>
+    <!-- 民警url-->
+    <select id="selectMjZp"  resultType="java.util.LinkedHashMap">
+        select  ZPURL as "img"  from mjzp where  MJID=#{mjid}
+    </select>
+
+    <!--同案犯号  查下面的同案人-->
+    <select id="selectTafh" resultType="java.util.LinkedHashMap">
+        select  TAFH as "taf" from taf  where RYBH=#{rybh}
+    </select>
+    <!--同案人 姓名  和 人员编号-->
+    <select id="selectTar"  resultType="java.util.LinkedHashMap">
+       select xm as "xm",RYBH as "rybh" from jbxx where JSBH=#{jsbh} and STATE="R8"  and  TABH=#{tabh}
+    </select>
+    <!--同案人或同监 照片 根据人员编号-->
+    <select id="selectImg" resultType="java.util.LinkedHashMap">
+        select PHOTOURL as "img" from photos where 	JSBH=#{jsbh} and STATE="R2"  and  rybh=#{rybh} and TYPE="1"
+    </select>
+
+    <!--同监-->
+    <select id="selectTj" resultType="java.util.LinkedHashMap">
+        select xm  as "xm" ,RYBH  as "rybh" from jbxx where JSH = #{jsh} and JSBH=#{jsbh}
+    </select>
+
+
+
+
+</mapper>
+

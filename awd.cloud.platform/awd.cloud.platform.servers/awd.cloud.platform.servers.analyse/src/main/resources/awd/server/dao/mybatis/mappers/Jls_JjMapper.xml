@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_JjDao">
+
+    <select id="jjCount" resultType="java.util.HashMap" parameterType="String">
+    select count(j.bllx=01 or null) szry,
+    count(j.bllx=01 and jbxx.xb=1 or null) szman, 
+    count(j.bllx=01 and jbxx.xb=2 or null) szwoman,
+    count(j.bllx=03 or null) lssz,
+    count(j.bllx=03 and jbxx.xb=1 or null) lsman,
+     count(j.bllx=03 and jbxx.xb=2 or null) lswoman,
+     count(j.bllx=01 or null)-count(j.bllx=03 or null) as xzsz,
+     count(j.bllx=01 and jbxx.xb=1 or null)-count(j.bllx=03 and jbxx.xb=1 or null) as xzman ,
+     count(j.bllx=01 and jbxx.xb=2 or null)-count(j.bllx=03 and jbxx.xb=2 or null) xzwoman 
+     from jj j left join jbxx jbxx on j.rybh=jbxx.rybh
+        <where>
+              j.state = 'R2' and j.szyj="1"
+           <if test="starttime != null and starttime != ''">
+                and date_format(j.kssj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(j.jssj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and j.jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

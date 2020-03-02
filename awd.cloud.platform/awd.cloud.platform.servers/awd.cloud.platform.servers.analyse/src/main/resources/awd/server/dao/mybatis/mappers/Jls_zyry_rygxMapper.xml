@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_zyry_rygxDao">
+
+
+    <!-- 本人照片地址-->
+    <select id="selectBr" resultType="java.util.HashMap">
+        select(SELECT XM FROM jbxx WHERE rybh=#{rybh} )as "xm", (SELECT PHOTOURL  from photos  where  TYPE="1" and  RYBH =#{rybh})as "url"
+    </select>
+
+    <!--父子-->
+    <select id="selectFz" resultType="java.util.HashMap">
+        select  h.XM as "fz" ,p.PHOTOURL as "url" from  jbxx j  LEFT JOIN jshj s on j.RYBH = s.RYBH  LEFT JOIN photos p on  s.RYBH = p.RYBH
+        LEFT JOIN jshj_hjr h on  s.UUID=h.UUID
+        where  p.TYPE="1"  and  j.RYBH = #{rybh} and h.GX="151"
+    </select>
+
+    <!--主管民警名字-->
+    <select id="selectzg"  resultType="java.util.HashMap">
+        select IFNULL(ZGMJ,"暂未登记主管民警") as "zg"
+        from js
+        where JSBH = #{jsbh}  and JSH=#{jsh}
+    </select>
+
+   <!-- 协管民警名字和照片url-->
+    <select id="selectxg"  resultType="java.util.HashMap">
+        select IFNULL(XGMJ,"暂无协管民警") as "xg"
+        from js
+        where JSBH = #{jsbh}  and JSH=#{jsh}
+    </select>
+
+    <!--同案-->
+    <select id="selectTar"  resultType="java.util.HashMap">
+        select j.xm as "tar",p.PHOTOURL as "tarurl"
+        from jbxx j left join photos p on j.RYBH=p.RYBH
+        where j.RYBH in (select t.RYBH as "tarbh"
+        from jbxx j  LEFT JOIN taf t on j.RYBH=t.TAFH	where j.RYBH=#{rybh} )group by xm
+    </select>
+
+    <!--同监-->
+    <select id="selectTj" resultType="java.util.HashMap">
+        SELECT j.xm as "xm",p.PHOTOURL as "url" ,j.RYBH as "rybh" from jbxx j left join photos p on j.RYBH=p.RYBH where j.rybh in
+        (SELECT rybh from jbxx where JSH in
+        (SELECT jsh from jbxx where RYBH=#{rybh} and STATE="R8"))GROUP BY j.rybh
+    </select>
+
+    <!--风险等级-->
+    <select id="selectFxdj" resultType="java.util.HashMap">
+        select ifnull(FXDJ,0) AS "dj" from jbxx where  RYBH = #{rybh} and STATE = "R8" LIMIT 1
+    </select>
+
+</mapper>
+

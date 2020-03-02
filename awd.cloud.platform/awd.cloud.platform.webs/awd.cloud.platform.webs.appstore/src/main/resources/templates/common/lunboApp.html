@@ -1,0 +1,63 @@
+<!--[if IE]>
+			<div id="demo2" class="slideBox">
+				<ul class="items">
+					<% for(app in lunbolist!){%>
+                    <li>
+						<a href="#">
+						<img onclick="_iframe('${app.id}','${app.appcode}')" src="${app.photoURL}" class="${app.id}">
+						</a>
+					</li>
+					<%}%>
+				</ul>
+			</div>
+<![endif]-->
+
+<![if !IE]>
+<div class="swiper-father">
+	<div class="swiper-container" id="swiper-container-main">
+	    <div class="swiper-wrapper">
+	    <% for(app in lunbolist!){%>
+	        <div class="swiper-slide bg-img-full">
+	            <div class="slide-btm-msg">
+	                    <div class="btm-msg-asd">
+	                        <div class="btm-sf">
+	                            <div class="sf-kz">
+	                                <div class="kz-img">
+	                                    <img class="${app.id}" src="../images/icon/${app.icon}">
+	                                </div>
+	                            </div>
+	                            <div class="sf-pf">
+	                            	<div class="${app.id} pf-txt">${app.name}</div>
+	                       </div>
+	                   </div>
+	                   <div class="btm-btn-asd">
+	                       <div class="btn-ms">
+	                           <div class="ms-nn">
+	                               <div onclick="_iframe('${app.id}','${app.appcode}')" class="nn-txt" style="cursor: pointer">查看详情</div>
+	                           </div>
+	                       </div>
+	                   </div>
+	               </div>
+	           </div>
+	           <div>
+                   <img src="${app.photoURL}" width="680px" height="250px">
+	           </div>
+	    </div>
+	    <%}%>
+		</div>
+	</div>
+	<div class="swiper-pagination"></div>
+	    <div class="swiper-button-prev flex-center">
+	        <svg class="bton-svg" viewBox="4 4 16 16" width="100%" height="100%">
+	            <path d="M15.41,16.59L10.83,12l4.58-4.59L14,6l-6,6l6,6L15.41,16.59z"></path>
+	            <path fill="none" d="M0,0h24v24H0V0z"></path>
+	        </svg>
+	    </div>
+	    <div class="swiper-button-next flex-center">
+	        <svg class="bton-svg" viewBox="4 4 16 16" width="100%" height="100%">
+	            <path d="M15.41,16.59L10.83,12l4.58-4.59L14,6l-6,6l6,6L15.41,16.59z"></path>
+	            <path fill="none" d="M0,0h24v24H0V0z"></path>
+	        </svg>
+	    </div>
+</div>
+<![endif]>

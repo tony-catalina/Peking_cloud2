@@ -1,0 +1,8 @@
+{
+  "name": "awd-api",
+  "version": "0.4.0",
+  "description": "监管云平台resuful接口",
+  "author": "redsand_sgh <redsand_sgh@163.com>",
+  "license": "MIT",
+  "preferGlobal": true
+}

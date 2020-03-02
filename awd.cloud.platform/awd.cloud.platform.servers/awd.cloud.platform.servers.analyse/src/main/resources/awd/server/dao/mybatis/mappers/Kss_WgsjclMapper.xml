@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.WgsjclDao">
+    	 <!-- 违规情况分析 -->
+	 <select id="wgqkfxCount"  resultType="java.util.HashMap">
+	 	select jsbh,count(wglx=1 or null) jqwg,count(wglx=2 or null) jswg,count(wglx=3 or null) rywg from wgsjcl where state="R2" GROUP BY jsbh
+	 </select>
+	<select id="getBzwgrs" resultType="java.util.HashMap">
+		SELECT
+		IF (
+		DAYOFWEEK(WGSJ) = 1,
+		DAYOFWEEK(WGSJ) + 6,
+		DAYOFWEEK(WGSJ) - 1
+		) AS day_of_week,
+		count(*) rs
+		FROM
+		wgsjcl wg,
+		jbxx jb
+		WHERE
+		wg.WGLX = '3'
+		AND jb.JSBH = #{jsbh}
+		AND DXBH = JB.RYBH
+		AND JB.JSH = #{jsh}
+		AND WGSJ &gt;= TIMESTAMP (
+		STR_TO_DATE(#{bzkssj}, "%Y-%m-%d"),
+		"00:00:00"
+		)
+		AND WGSJ &lt;= TIMESTAMP (
+		STR_TO_DATE(#{bzjssj}, "%Y-%m-%d"),
+		"23:59:59"
+		)
+		GROUP BY
+		(DAYOFWEEK(WGSJ))
+		ORDER BY
+		IF (
+		DAYOFWEEK(WGSJ) = 1,
+		DAYOFWEEK(WGSJ) + 6,
+		DAYOFWEEK(WGSJ) - 1
+		)
+	</select>
+	<select id="getBzjswgsj" resultType="java.util.HashMap">
+		SELECT
+		IF (
+		DAYOFWEEK(WGSJ) = 1,
+		DAYOFWEEK(WGSJ) + 6,
+		DAYOFWEEK(WGSJ) - 1
+		) AS day_of_week,
+		clzt,count(*) sjs
+		FROM
+		wgsjcl wg,
+		jbxx jb
+		WHERE
+		jb.JSBH = #{jsbh}
+		AND DXBH = JB.RYBH
+		AND JB.JSH = #{jsh}
+		OR (DXBH = jb.JSH AND JSH = #{jsh})
+		AND WGSJ &gt;= TIMESTAMP (
+		STR_TO_DATE(#{bzkssj}, "%Y-%m-%d"),
+		"00:00:00"
+		)
+		AND WGSJ &lt;= TIMESTAMP (
+		STR_TO_DATE(#{bzjssj}, "%Y-%m-%d"),
+		"23:59:59"
+		)
+		GROUP BY
+		DAYOFWEEK(WGSJ),CLZT
+		ORDER BY
+		IF (
+		DAYOFWEEK(WGSJ) = 1,
+		DAYOFWEEK(WGSJ) + 6,
+		DAYOFWEEK(WGSJ) - 1
+		),CLZT;
+	</select>
+</mapper>

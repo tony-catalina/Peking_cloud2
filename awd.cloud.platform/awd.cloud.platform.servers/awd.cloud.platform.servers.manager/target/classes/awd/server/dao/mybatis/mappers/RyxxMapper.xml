@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.mis.servers.dao.RyxxDao">
+    <resultMap id="RyxxResultMap" type="awd.mis.servers.entity.RyxxEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="jsbh" column="jsbh" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="gcbh" column="gcbh" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="snbh" column="snbh" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="rybh" column="rybh" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="jsh" column="jsh" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="xm" column="xm" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="xmpy" column="xmpy" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="bm" column="bm" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="bmty" column="bmty" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="xb" column="xb" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="csrq" column="csrq" javaType="java.util.Date" jdbcType="DATE"/>		
+		<result property="zjlx" column="zjlx" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="zjh" column="zjh" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="hyzk" column="hyzk" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="mz" column="mz" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="gj" column="gj" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="jg" column="jg" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="hjd" column="hjd" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="hjdxz" column="hjdxz" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="xzd" column="xzd" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="xzdxz" column="xzdxz" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="whcd" column="whcd" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="zy" column="zy" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="zc" column="zc" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="gzdw" column="gzdw" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="sf" column="sf" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="tssf" column="tssf" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="dah" column="dah" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="zzmm" column="zzmm" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="zwbh" column="zwbh" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="jkzk" column="jkzk" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="zuc" column="zuc" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="sg" column="sg" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="bz" column="bz" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="state" column="state" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="creator" column="creator" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>			
+		<result property="updator" column="updator" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>			
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'RyxxResultMap'"/>
+        <bind name="tableName" value="'RYXX'"/>
+    </sql>
+
+    <insert id="insert" parameterType="awd.mis.servers.entity.RyxxEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from app where id =#{id}
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="RyxxResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>  
+    
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select>  
+    
+    
+</mapper>

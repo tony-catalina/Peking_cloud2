@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_DsjPTDao">
+
+    <select id="zyRS_jls" resultType="java.util.HashMap">
+    SELECT DISTINCT
+	ifnull(
+		(
+			SELECT
+				count(STATE )
+			FROM
+				jbxx
+			WHERE
+				STATE  = "R8"
+		),
+		0
+	) AS zy,
+	ifnull(
+		(
+			SELECT
+				count(XB )
+			FROM
+				jbxx
+			WHERE
+				STATE  = "R8"
+			AND XB = 2
+		),
+		0
+	) AS nx,
+	ifnull(
+		(
+			SELECT
+				count(AQDJ)
+			FROM
+				jbxx
+			WHERE
+     STATE  = "R8"
+			AND
+				AQDJ = 2
+		),
+		0
+	) AS yj,
+  ifnull((select count(AQDJ) from jbxx where STATE ="R8" and AQDJ=1),0) as ej,
+  ifnull((select count(AQDJ)from jbxx where STATE ="R8" and AQDJ=9),0) as sj,
+  ifnull((select count(RSRQ)from jbxx where STATE ="R8"  and DATE_FORMAT(RSRQ,"%Y-%m-%d")= DATE_FORMAT(now(),"%Y-%m-%d")),0) as jrrs,
+  ifnull((select count(CSSJ) from jbxx where STATE ="R8" and DATE_FORMAT(CSSJ   ,"%Y-%m-%d") = DATE_FORMAT(NOW(),"%Y-%m-%d")),0)as jrcs,
+  ifnull(
+      round(
+			((select count(AQDJ)from jbxx where STATE ="R8" and AQDJ=2)/(select count(STATE ) from jbxx where STATE ="R8"))*100
+			     ,2  )
+			,0)
+
+			as yjzb,
+  ifnull(
+      round(
+			((select count(AQDJ)from jbxx where STATE ="R8" and AQDJ=1)/(select count(STATE ) from jbxx where STATE ="R8"))*100
+			     ,2  )
+			,0)
+
+			as ejzb,
+
+  ifnull(
+      round(
+			((select count(AQDJ)from jbxx where STATE ="R8" and AQDJ=9)/(select count(STATE ) from jbxx where STATE ="R8"))*100
+			     ,2  )
+			,0)
+
+			as sjzb
+
+    </select>
+
+
+</mapper>

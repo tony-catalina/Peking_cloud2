@@ -1,0 +1,118 @@
+<div class="modal fade" id="apiSpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"   >
+    <div class="modal-dialog modal-lg" role="document" aglin="center" style="width: 71%;height: 75%">
+        <div class="modal-content" style="margin-top:108px;height:100%" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+<table style="text-align: center;height: auto;"
+       class="table table-hover table-bordered" id="menu">
+    <thead>
+    <tr>
+        <th width="18.5%">序号</th>
+        <th class="hidden-xs" width="18.5%" data-field="menu">菜单编号</th>
+        <th class="hidden-xs" width="18.5%" data-field="parent">父菜单</th>
+        <th class="hidden-xs" width="18.5%" data-field="menuname">菜单名称</th>
+    </tr>
+    </thead>
+</table>
+<script>
+    function searchapiSetting(appcode){
+            $("#menu").bootstrapTable({
+                url: "/getMenus?appcode="+appcode,       //请求后台的URL（*）
+                method: 'get',                      //请求方式（*）
+                toolbar: '#toolbar',              //工具按钮用哪个容器
+                striped: true,                      //是否显示行间隔色
+                cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                pagination: true,                   //是否显示分页（*）
+                sortable: true,                     //是否启用排序
+                sortOrder: "asc",                   //排序方式
+                sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+                pageSize: 10,                     //每页的记录行数（*）
+                pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                search: false,                      //是否显示表格搜索
+                strictSearch: true,
+                showColumns: false,                  //是否显示所有的列（选择显示的列）
+                showRefresh: false,               //是否显示刷新按钮
+                singleSelect: true,				//开启行单选
+                minimumCountColumns: 2,             //最少允许的列数
+                clickToSelect: false,                //是否启用点击选中行
+                //height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+                showToggle: false,                   //是否显示详细视图和列表视图的切换按钮
+                cardView: false,                    //是否显示详细视图
+                detailView: false,                  //是否显示父子表
+                //得到查询的参数
+                queryParams : function (params) {
+                    //这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+                    var temp = {
+                        rows: params.limit,                         //页面大小
+                        page: (params.offset / params.limit) + 1,   //页码
+                        sort: params.sort,      //排序列名
+                        sortOrder: params.order //排位命令（desc，asc）
+                    };
+                    return temp;
+                },
+                responseHandler: function(res) {
+                    return {
+                        "total": res.result.total,//总页数
+                        "rows": res.result.data
+                    };
+                },
+                columns: [{
+                    checkbox: false ,
+                    visible: false                  //是否显示复选框
+                }, {
+                    title: '行号',
+                    align: 'center',
+                    valign: 'bottom',
+                    formatter: function(value, row, index) {
+                        var pageSize = $('#menu').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+                        var pageNumber = $('#menu').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+                        return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+                    }
+
+                },
+                    {
+                        field: 'menu',
+                        title: '菜单编号',
+                        sortable: true,
+                        align: 'center',
+
+                    },
+                    {
+                        field: 'parent',
+                        title: '父菜单',
+                        sortable: true,
+                        align: 'center',
+                    },{
+                        field: 'menuname',
+                        title: '菜单名称',
+                        sortable: true,
+                        align: 'center',
+                    }],
+                onLoadSuccess: function () {
+                    $('.pagination-info').css("display","none");
+                    $('.page-list').css("display","none");
+                    $('.pull-right pagination').css("margin-top","-20px");
+                },
+                onLoadError: function () {
+                    showTips("数据加载失败！");
+                },
+                onDblClickRow: function (row, $element) {
+                    var id = row.ID;
+                    EditViewById(id, 'view');
+                },formatNoMatches: function () {
+                    return '暂无数据';
+                }
+
+            });
+    }
+</script>

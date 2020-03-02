@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.BJSDY_kss_zdgzDao">
+
+    <resultMap id="ssqqMapper" type="awd.cloud.platform.servers.analyse.model.kss.BJSDY_kssModel">
+        <result property="jsbh" column="JSBH"/>
+    </resultMap>
+
+    <!--总队重点关注人员-->
+    <select id="select_zdgz" resultType="java.util.HashMap">
+        select DISTINCT j.XM AS "姓名",j.JSH as "监室号",to_code2zh("FXDJ", j.WXDJ) as "风险等级" ,y.SHJB as "列控原因",
+        y.YYZLCS as "管控措施",y.PTMJ as "管控民警" ,p.PHOTOURL as "img"
+				from jbxx j LEFT JOIN jy y on j.JSH = y.JSH LEFT JOIN photos p on j.RYBH = p.RYBH
+        WHERE j.JSBH="110000114"  AND  j.WXDJ='1'
+    </select>
+
+</mapper>

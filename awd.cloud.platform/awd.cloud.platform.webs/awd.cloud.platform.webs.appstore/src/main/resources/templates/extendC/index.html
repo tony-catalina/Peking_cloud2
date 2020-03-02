@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords"
+          content="监管应用中心">
+    <link rel="stylesheet" href="../../css/common/common.css">
+    <link rel="stylesheet" href="../../css/common/header.css">
+    <link rel="icon" href="../../assets/img/fengche.png" sizes="96x96">
+    <link href="../../css/common/icon.css" rel="stylesheet">
+    <link href="./style/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../../css/extendC/app.extend.css">
+    <link href="../css/common/jquery.slideBox.css" rel="stylesheet">
+    <link href="../../css/common/swiper.min.css" rel="stylesheet">
+    <!-- ZTree插件css -->
+    <link href="../ZTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+    <title>监管应用中心</title>
+    <script src="../../js/appjs/global.js"></script>
+    <script src="../../js/appjs/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script src="../../js/appjs/app.common.js"></script>
+    <script src="../../js/appjs/appXq.js"></script>
+    <script src="../../js/appjs/zTree.js"></script>
+
+    <!--[if IE]>
+    <script src="../js/lunbo/jquery.slideBox.js"></script>
+    <![endif]-->
+
+    <![if !IE]>
+    <script src="../../js/appjs/app.extendC.js"></script>
+    <script src="../../js/appjs/swiper.min.js"></script>
+    <![endif]>
+
+    <!-- ZTree插件js -->
+    <script src="../ZTree/js/jquery.ztree.core.min.js"></script>
+    <script src="../ZTree/js/jquery.ztree.excheck.min.js"></script>
+</head>
+<body>
+<!-- 头部 -->
+<input id="userName" type="hidden" value="${userName}"/>
+<input id="appcode"  type="hidden" value="${app.appcode}" />
+<input id="classfic"  type="hidden" value="${app.zone}" />
+<input id="jsbh"  type="hidden" value="${jsbh}" />
+<input id="glybz"  type="hidden" value="${glybz}" />
+<input id="userType"  type="hidden" value="${userType}" />
+<input id="flag"  type="hidden" value="${flag}" />
+<input id="CstTime" type="hidden" value="${app.updatetime}">
+<% include("/common/header1.html"){}%>
+<![if !IE]>
+<div class="extend-app-asd">
+    <div class="app-asd-nr">
+        <div class="asd-nr-xy">
+            <div class="nr-xy-tb">
+                <a href="">首页</a>
+                <span class="xy-tb-txt"></span>${app.name}
+            </div>
+            <div class="nr-xy-sd">
+                <div class="xy-sd-msg" style="position:relative;left:2%;">
+                    <img src="../images/icon/${app.icon}"
+                         class="msg-img">
+                    <div class="xy-sd-app">
+                        <h1 class="sd-app-txt">${app.name}</h1>
+                        <div class="sd-app-th">
+                            <div class="app-th-fw">
+                                <div class="th-fw-s">
+                                    <div class="fw-s-msg fw-s-ft">
+                                        <div class="s-msg-txt">应用岗位：${app.roleString}</div>
+                                    </div>
+                                </div>
+                                <div class="th-fw-s th-fw-ts">
+                                    <div class="fw-s-msg">
+                                        <div class="s-msg-txt">使用范围：${app.zoneString}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="xy-sd-btnsd">
+                    <div class="btn-qy">
+                        <div id="anyc" style="display:none;" class="qy-fw">
+                            <div class="fw-s">
+                                <div><span id="tjan">添加至桌面</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+            <div class="nr-xy-tab">
+                <div class="xy-tab-asd">
+                    <div class="xy-tab xy-tab-ts xy-tab-active" xy-tab tabcontent="tab-ctn-gs">
+                        <div class="tab-qy">
+                            <div class="qy-txt">概述</div>
+                        </div>
+                    </div>
+                    <div class="xy-tab xy-tab-ts" xy-tab tabcontent="tab-ctn-pj">
+                        <div class="tab-qy">
+                            <div class="qy-txt">评价</div>
+                        </div>
+                    </div>
+                    <div class="xy-tab xy-tab-ts" xy-tab tabcontent="tab-ctn-xg">
+                        <div class="tab-qy">
+                            <div class="qy-txt">相关</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content-asd">
+                    <div class="tab-ctn-gs">
+                        <div class="tab-nr tab-ty">
+                            <div class="tab-nr-tp">
+                                <div class="swiper-parent">
+                                    <div class="swiper-container" id="swiper-container-tp">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide bg-img-full">
+	                   							<img src="${pic1}" width="100%" height="280px">
+                                            </div>
+                                            <div class="swiper-slide bg-img-full">
+                                            	<img src="${pic2}" width="100%" height="280px">
+                                            </div>
+                                            <div class="swiper-slide bg-img-full">
+                                            	<img src="${pic3}" width="100%" height="280px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                    <div class="swiper-button-prev flex-center">
+                                        <svg class="spr-svg" viewBox="4 4 16 16" width="100%" height="100%">
+                                            <path d="M15.41,16.59L10.83,12l4.58-4.59L14,6l-6,6l6,6L15.41,16.59z"></path>
+                                            <path fill="none" d="M0,0h24v24H0V0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="swiper-button-next flex-center">
+                                        <svg class="spr-svg" viewBox="4 4 16 16" width="100%" height="100%">
+                                            <path d="M15.41,16.59L10.83,12l4.58-4.59L14,6l-6,6l6,6L15.41,16.59z"></path>
+                                            <path fill="none" d="M0,0h24v24H0V0z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-nr-ct" style="margin-top: 25px;">
+                                <div class="nr-ct-left">
+                                    <div class="ct-left-sec">概述</div>
+                                    <hr class="ct-left-kb">
+                                    <div class="ct-left-nr" style="margin-top: -25px;">
+                                       <pre class="left-nr-lst">
+                                           ${app.memo}
+                                       </pre>
+                                    </div>
+                                </div>
+                                <div class="nr-ct-right">
+                                    <div class="ct-right-qt">其他信息</div>
+
+                                    <div class="ct-right-ver">
+                                        <span class="right-ver-txt">名称</span>
+                                        <span class="right-ver-sz">${app.name}</span>
+                                        <span class="right-ver-txt">开发者</span>
+                                        <span class="right-ver-sz">${app.creator}</span>
+                                        <span class="right-ver-txt">版本</span>
+                                        <span class="right-ver-sz">${app.version}</span>
+                                        <span class="right-ver-txt">浏览器版本</span>
+                                        <span class="right-ver-sz">${app.browversion}</span>
+                                        <span class="right-ver-txt">系统配置</span>
+                                        <span class="right-ver-sz">${app.sysversion}</span>
+                                        <span class="right-ver-txt">上次更新日期</span>
+                                        <span class="right-ver-sz" id="GbtTime"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-ctn-pj">
+                        <div>
+                            <div class="tab-pj tab-ty">
+                                <div class="pj-nr">
+                                    <div class="nr-qy">
+                                        <div class="qy-cz"></div>
+                                        <div class="qy-nr">
+                                            <div class="qy-nr-area">
+                                                <div class="nr-area-zt" id="nrzt"></div>
+                                                <div class="nr-area-page">
+                                                    <div class="page-area">
+                                                    </div>
+                                                    <div style="clear:both"></div>
+                                                </div>
+                                            </div>
+                                            <div class="info-no">没有评论</div>
+                                        </div>
+                                    </div>
+                                    <div class="nr-pj-no">
+                                        <div class="pj-no-asd">
+                                            <div class="pj-no-icon">
+                                                <span class="no-icon-txt"></span></div>
+                                            <div>
+                                                <div class="pj-no-txt">其他用户尚未发布任何评价。</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-ctn-xg">
+                    	<div>
+                            <div class="tab-xg-nr tab-ty">
+                                <div>
+                                    <div class="ja-ha-Va">
+                                        <div class="ja-ha">
+                                            <div id="xgApp" class="ja-nr">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                         </div>
+                    </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+	<div  class="modal-content" style="width:44%;height:33%;left:28%;top:10%;">
+		<div class="modal-header">
+     		<h4 class="modal-title" id="myModalLabel">提示</h4>
+ 		</div>
+		<p id="content" style="letter-spacing:2px;text-align:center;margin-top:7%;font-size:20px;"></p>
+		<button type="button" class="btn btn-primary" data-dismiss="modal" style="position:absolute;top:68%;left:44%;">关闭</button>            
+    </div>
+</div>
+<div class="modal fade" id="AppCodemyModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+	<div  class="modal-content" style="width:70%;height:50%;left:18%;top:15%;">
+		<div class="modal-header">
+     		<h4 class="modal-title" id="myModalLabel">AppCode</h4>
+ 		</div>
+		<p id = "appCodecontext" class="s-msg-txt" style=" font-size:25px;width:92%;border:1px;word-wrap:break-word;margin-left: 4%; "></p>
+		<textarea id="input" style="position: absolute;top: 0;left: 0;opacity: 0;z-index: -10;"></textarea>
+		<button type="button" id="copyText" class="btn btn-primary" style="position:absolute;top:75%;left:42%;">复制</button>            
+		<button type="button" class="btn btn-primary" data-dismiss="modal" style="position:absolute;top:75%;left:52%;">关闭</button>            
+    </div>
+</div>
+                <![endif]>
+
+      <!-- IE浏览器应用详情页面-->
+     <!--[if IE]>
+                <div class="extend-app-asd">
+                    <div class="app-asd-nr">
+                        <div class="asd-nr-xy" >
+                            <div class="nr-xy-tb" style="font-size:20px;">
+                                <a href="">首页</a>
+                                <span class="xy-tb-txt"></span>${app.name}
+                            </div>
+                            <div class="nr-xy-sd">
+                                <div class="xy-sd-msg">
+                                    <img src="../images/icon/${app.icon}"
+                                         class="msg-img" style="float:left;width:100px;height:90px;">
+                                    <div class="xy-sd-app" style="float:left;margin-top:5px;">
+                                        <h1 class="sd-app-txt" style="font-size:2rem;">${app.name}</h1>
+                                        <div class="sd-app-th" style="margin-top:25px;">
+                                            <div class="app-th-fw">
+                                                <div class="th-fw-s" style="float:left;">
+                                                    <div class="fw-s-msg fw-s-ft">
+                                                        <div class="s-msg-txt" style="font-size:1.7rem">应用岗位：${app.roleString}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="th-fw-s th-fw-ts" style="float:left;">
+                                                    <div class="fw-s-msg">
+                                                        <div class="s-msg-txt" style="font-size:1.7rem">使用范围：${app.zoneString}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="nr-xy-tab">
+                                <div class="xy-tab-asd" style="margin-top:100px;margin-left:500px">
+                                    <div class="xy-tab xy-tab-ts xy-tab-active" xy-tab tabcontent="tab-ctn-gs" style="float:left;">
+                                        <div class="tab-qy">
+                                            <div class="qy-txt" style="font-size:2rem;">概述</div>
+                                        </div>
+                                    </div>
+                                    <div class="xy-tab xy-tab-ts" xy-tab tabcontent="tab-ctn-pj" style="float:left">
+                                        <div class="tab-qy">
+                                            <div class="qy-txt" style="font-size:2rem;">评价</div>
+                                        </div>
+                                    </div>
+                                    <div class="xy-tab xy-tab-ts" xy-tab tabcontent="tab-ctn-xg" style="float:left;">
+                                        <div class="tab-qy">
+                                            <div class="qy-txt" style="font-size:2rem;">相关</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-content-asd" style="margin-top:0px">
+                                    <div class="tab-ctn-gs">
+                                        <div class="tab-nr tab-ty">
+                                            <div class="tab-nr-tp">
+                                                <div class="swiper-parent">
+                                                    <div class="slideBox" id="AppPic" style="margin-left:30%;width:40%;height:500px;">
+                                                        <ul class="items">
+                                                            <li class="">
+                                                                <img src="${app.pic1}" width="100%" height="300px">
+                                                            </li>
+                                                            <li class="">
+                                                                <img src="${app.pic2}" width="100%" height="300px">
+                                                            </li>
+                                                            <li class="">
+                                                                <img src="${app.pic3}" width="100%" height="300px">
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-nr-ct">
+                                                <div class="nr-ct-left" style="float:left;">
+                                                    <div class="ct-left-sec">概述</div>
+                                                    <hr class="ct-left-kb">
+                                                    <div class="ct-left-nr" style="">
+                                                    <pre class="left-nr-lst" style="width:70%;font-size:1.5rem;">
+                                                     ${app.memo}
+                                                       </pre>
+                                                    </div>
+                                                </div>
+                                                <div class="nr-ct-right" style="float:left;margin-left:-20%;margin-top:0%;font-size:1.5rem;">
+                                                    <div class="ct-right-qt">其他信息</div>
+
+                                                    <div class="ct-right-ver">
+                                                        <span class="right-ver-txt" style="font-size:1.5rem;">名称</span>
+                                                        <span class="right-ver-sz" style="font-size:1.5rem;">${app.name}</span>
+                                                        <span class="right-ver-txt" style="font-size:1.5rem;">开发者</span>
+                                                        <span class="right-ver-sz" style="font-size:1.5rem;">${app.creator}</span>
+                                                        <span class="right-ver-txt" style="font-size:1.5rem;">版本</span>
+                                                        <span class="right-ver-sz" style="font-size:1.5rem;">${app.version}</span>
+                                                        <span class="right-ver-txt" style="font-size:1.5rem;">浏览器版本</span>
+                                                        <span class="right-ver-sz" style="font-size:1.5rem;">${app.browversion}</span>
+                                                        <span class="right-ver-txt" style="font-size:1.5rem;">系统配置</span>
+                                                        <span class="right-ver-sz" style="font-size:1.5rem;">${app.sysversion}</span>
+                                                        <span class="right-ver-txt" style="font-size:1.5rem;">上次更新日期</span>
+                                                        <span class="right-ver-sz" style="font-size:1.5rem;" id="GbtTime"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-ctn-pj">
+                                        <div>
+                                            <div class="tab-pj tab-ty">
+                                                <div class="pj-nr">
+                                                    <div class="nr-qy">
+                                                        <div class="qy-cz"></div>
+                                                        <div class="qy-nr" style="margin-left:35%;">
+                                                            <div class="qy-nr-area">
+                                                                <div class="nr-area-zt" id="nrzt" ></div>
+                                                                <div class="nr-area-page" >
+                                                                    <div class="page-area">
+                                                                    </div>
+                                                                    <div style="clear:both"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="info-no">没有评论</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="nr-pj-no">
+                                                        <div class="pj-no-asd">
+                                                            <div class="pj-no-icon">
+                                                                <span class="no-icon-txt"></span></div>
+                                                            <div>
+                                                                <div class="pj-no-txt">其他用户尚未发布任何评价。</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-ctn-xg" style="margin-left:10%;">
+                                        <div>
+                                            <div class="tab-xg-nr tab-ty">
+                                                <div>
+                                                    <div class="ja-ha-Va">
+                                                        <div class="ja-ha">
+                                                            <div id="xgApp" class="ja-nr" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <style>
+                        .extend-app-asd .app-asd-nr .asd-nr-xy .nr-xy-tab .tab-content-asd .tab-ctn-pj .tab-pj .pj-nr .nr-qy .qy-nr .qy-nr-area .nr-area-zt .zt-msg .zt-msg-user .user-tx{
+                            width:70px;
+                            height:70px;
+                            float:left;
+                            margin-top:30px;
+                        }
+                        .extend-app-asd .app-asd-nr .asd-nr-xy .nr-xy-tab .tab-content-asd .tab-ctn-pj .tab-pj .pj-nr .nr-qy .qy-nr .qy-nr-area .nr-area-zt .zt-msg .zt-msg-info .info-user{
+                            float:left;
+                        }
+                        .extend-app-asd .app-asd-nr .asd-nr-xy .nr-xy-tab .tab-content-asd .tab-ctn-pj .tab-pj .pj-nr .nr-qy .qy-nr .qy-nr-area .nr-area-zt .zt-msg .zt-msg-info .info-user .user-name{
+                            font-size:18px;
+                            float:left;
+                            margin-top:30px;
+                        }
+                        .extend-app-asd .app-asd-nr .asd-nr-xy .nr-xy-tab .tab-content-asd .tab-ctn-pj .tab-pj .pj-nr .nr-qy .qy-nr .qy-nr-area .nr-area-zt .zt-msg .zt-msg-info .info-user .info-time{
+                            font-size:18px;
+                            float:left;
+                            margin-top:30px;
+                        }
+                        .extend-app-asd .app-asd-nr .asd-nr-xy .nr-xy-tab .tab-content-asd .tab-ctn-pj .tab-pj .pj-nr .nr-qy .qy-nr .qy-nr-area .nr-area-zt .zt-msg .zt-msg-info .info-user .info-pf{
+                            font-size:18px;
+                        }
+                        .extend-app-asd .app-asd-nr .asd-nr-xy .nr-xy-tab .tab-content-asd .tab-ctn-pj .tab-pj .pj-nr .nr-qy .qy-nr .qy-nr-area .nr-area-zt .zt-msg .zt-msg-info .info-user .info-ts{
+                            font-size:20px;
+                            margin-top:60px;
+                        }
+
+                    </style>
+
+     <![endif]-->
+
+<% include("/common/loginmodal.html"){}%>
+<script type="text/javascript">
+
+    /** CST时间格式转换GMT时间格式**/
+    var CstTime = $("#CstTime").val();
+    var GbtTime = dateFormat(CstTime,'yyyy-MM-dd');
+    $("#GbtTime").append(GbtTime);
+
+
+</script>
+</body>
+</html>

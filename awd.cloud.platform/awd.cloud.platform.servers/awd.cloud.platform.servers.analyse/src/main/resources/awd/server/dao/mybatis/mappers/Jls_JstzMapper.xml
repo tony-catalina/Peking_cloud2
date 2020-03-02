@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_JstzDao">
+
+    <select id="jstzCount" resultType="java.util.HashMap" parameterType="String">
+   	select count(tjyy=1 or null) dj,count(id) tczrs,count(tjyy=5 or null) glxy,
+   	count(tjyy=4 or null) aqxy,count(tjyy!=1 and tjyy!=5 and tjyy!=4  or null) qt,
+   	(select count(id) from jstz where jzyj="2" or sldyj="2")wtczrs from jstz
+        <where>
+              state = 'R2' and jzyj="1" and sldyj="1"
+           <if test="starttime != null and starttime != ''">
+                and date_format(blrq,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(blrq,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <select id="queryJstzNum"  parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisJlsResultVO">
+        select
+        j.dz,
+        j.jsbh,
+        count(t.jsbh) as count
+        from jls j
+        left join jstz t
+        on j.jsbh = t.jsbh
+        <where>
+            t.state = 'R2'
+            <if test="starttime!=null and starttime!=''">
+                and t.tzsj &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!=''">
+                and t.tzsj &lt;= #{endtime}
+            </if>
+        </where>
+        group by dz,jsbh
+    </select>
+
+</mapper>

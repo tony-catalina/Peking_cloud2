@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.JSJLDao">
+
+    <resultMap id="JSJLMapper" type="awd.cloud.platform.servers.analyse.model.kss.DsjPTModel">
+        <result property="jsbh" column="JSBH"/>
+        <result property="xm" column="XM"/>
+    </resultMap>
+
+
+    <!--1kss今日监所警力部署所领导-->
+    <select id="select_jSJL_sld" resultType="java.util.HashMap">
+
+    select SLD as "sld"   FROM zbdj where JSBH=#{jsbh} and DATE_FORMAT(ZBRQ,"%Y-%m-%d")=DATE_FORMAT(NOW(),"%Y-%m-%d")
+    </select>
+
+    <!--值班人数-->
+    <select id="select_jSJL_zbrs" resultType="java.util.HashMap">
+
+      select ZBRS as "zbrs" FROM zbkq where JSBH=#{jsbh}  and DATE_FORMAT(ZBSJ,"%Y-%m-%d")=DATE_FORMAT(NOW(),"%Y-%m-%d")
+    </select>
+
+    <!--手机号-->
+    <select id="select_jSJL_sjh" resultType="java.util.HashMap">
+         select SJH  as "sjh" FROM mjjbxx where JSBH=#{jsbh} and XM= #{xm}
+    </select>
+
+
+    <!--2jls今日监所警力部署所领导-->
+    <select id="select_jls_jSJL_sld" resultType="java.util.HashMap">
+
+    select SLD as "sld"   FROM zbdj where JSBH=#{jsbh} and DATE_FORMAT(ZBRQ,"%Y-%m-%d")=DATE_FORMAT(NOW(),"%Y-%m-%d")
+    </select>
+    <!--手机号-->
+    <select id="select_jls_jSJL_sjh" resultType="java.util.HashMap">
+         select SJH  as "sjh" FROM mj_jbxx where JSBH=#{jsbh} and XM= #{xm}
+    </select>
+
+</mapper>
+

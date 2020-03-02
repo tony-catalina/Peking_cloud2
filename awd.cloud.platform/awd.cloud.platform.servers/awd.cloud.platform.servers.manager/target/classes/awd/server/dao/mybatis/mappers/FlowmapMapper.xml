@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.mis.servers.dao.FlowmapDao">
+    <resultMap id="FlowmapResultMap" type="awd.mis.servers.entity.FlowmapEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="jsbh" column="jsbh" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="mapname" column="mapname" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result property="mapkey" column="mapkey" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result property="version" column="version" javaType="java.lang.Integer" jdbcType="DECIMAL"/>						
+		<result property="mapmutex" column="mapmutex" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="timelimit" column="timelimit" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="monthlylimit" column="monthlylimit" javaType="java.lang.Integer" jdbcType="DECIMAL"/>		
+		<result property="memo" column="memo" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="flag" column="flag" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="creator" column="creator" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>			
+		<result property="updator" column="updator" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>		
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'FlowmapResultMap'"/>
+        <bind name="tableName" value="'FLOWMAP'"/>
+    </sql>
+
+    <insert id="insert" parameterType="awd.mis.servers.entity.FlowmapEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from app where id =#{id}
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="FlowmapResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>  
+    
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select>  
+    
+     <select id="queryForId"  resultType="String">        
+		 select id from flowmap where mapname = #{mapname}	
+    </select>  
+    
+    
+</mapper>

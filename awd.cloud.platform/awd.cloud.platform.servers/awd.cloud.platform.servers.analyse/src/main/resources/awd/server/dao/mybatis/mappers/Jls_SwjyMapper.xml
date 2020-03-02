@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_SwjyDao">
+
+    <select id="swjyCount" resultType="java.util.HashMap" parameterType="String">
+    select count(j.CRJBJ=09 or null) jywg,count(s.ZDZYJ="1" and s.SZYJ="1" or null) jysf ,count(s.id) swjydj
+from swjy s left join jbxx j on s.rybh=j.rybh 
+        <where>
+              s.state = 'R2'
+           <if test="starttime != null and starttime != ''">
+                and date_format(s.qmsj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(s.qmsj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and s.jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+<!-- 	大屏医疗管理 -->
+	<select id="dpylgl" resultType="java.util.HashMap" parameterType="String">
+	select count(id) "重病号",
+	(select count(id) from snjy where DATE_FORMAT(JSSJ,'%Y-%m-%d %H:%i:%s') &lt; DATE_FORMAT(now(),'%Y-%m-%d %H:%i:%s') and jsbh = #{jsbh}) "所内就医" ,
+	(select count(locate("公安",jzyy) or null) from swjy sw left join jbxx j on sw.rybh = j.rybh where j.CRJBJ = "09" and zdzyj = "1" and szyj="1" and hssj is null and sw.jsbh = #{jsbh}) "公安医院住院",
+	(select count(locate("公安",jzyy) = 0 or null) from swjy sw left join jbxx j on sw.rybh = j.rybh where j.CRJBJ = "09" and zdzyj = "1" and szyj="1" and hssj is null and sw.jsbh = #{jsbh}) "其他住院" 
+	 from jbxx
+	<where>
+            state="R8" and bhlx = "2"
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+	</select>
+	
+	<!--     每月抱病 -->
+ 	<select id="swjyBym" resultType="java.util.LinkedHashMap" parameterType="String">
+	 	select count(id) sl,
+	 	substring(jsh,1,2) jq,
+	 	DATE_FORMAT(BLRQ,"%Y/%m") month from swjy 
+	 	<where>
+	           BLRQ between date_sub(now(),interval 6 month) and date_add(NOW(),interval 1 month) and zdzyj = "1" and szyj = "1"
+	          <if test="jsbh != '' and jsbh != null">
+	              and jsbh = #{jsbh}
+	          </if>
+	    </where>
+	 	GROUP BY DATE_FORMAT(BLRQ,"%Y/%m") ,substring(jsh,1,2)+"%"
+ 	 </select>
+
+
+    <!--2jls 总队全市出所就医-->
+    <select id="select_jls_QSCSJY" resultType="java.util.HashMap">
+        SELECT  ifnull((select COUNT(id or null ) from SWJY  where   state = "R2" and ZDZYJ="1" and SZYJ="1" and DATE_FORMAT(BLRQ ,"%Y-%m-%d")= DATE_FORMAT(now(),"%Y-%m-%d")),0) as swjy,
+        ifnull((select count(id or null) from SWJY where BLLX="2" and  state = "R2" and ZDZYJ="1" and SZYJ="1" and DATE_FORMAT(BLRQ ,"%Y-%m-%d")= DATE_FORMAT(now(),"%Y-%m-%d")  ),0) as mqzy,
+        ifnull((select count( id or null) from SWJY where JZYY like "%公安医院%" and  state = "R2" and ZDZYJ="1" and SZYJ="1" and DATE_FORMAT(BLRQ ,"%Y-%m-%d")= DATE_FORMAT(now(),"%Y-%m-%d") ),0) as gayy
+
+    </select>
+	
+</mapper>

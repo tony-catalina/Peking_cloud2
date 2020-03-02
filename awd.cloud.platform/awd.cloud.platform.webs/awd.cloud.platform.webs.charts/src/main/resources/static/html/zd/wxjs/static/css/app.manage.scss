@@ -1,0 +1,349 @@
+@import "./app.base";
+$w: 1880;
+$h: 992;
+
+.dper-app {
+  background-image: url("../assets/img/manage/bg.manage.jpg");
+}
+.child-header-img {
+  background-image: url('./../assets/img/main/bg.box.head.png');
+}
+.prison-msg-img {
+  background-image: url("./../assets/img/manage/bg.msg.png");
+}
+.icon-msg-img {
+  background-image: url("./../assets/img/manage/icon.msg.png");
+}
+.left-msg-img {
+  background-image: url("./../assets/img/manage/bg.l.t.0.png");
+}
+.right-msg-img {
+  background-image: url("./../assets/img/manage/bg.l.t.1.png");
+}
+.child-left-img {
+  background-image: url("./../assets/img/manage/bg.c.1.png");
+}
+.child-right-img {
+  background-image: url("./../assets/img/manage/bg.c.0.png");
+}
+.gauge-pointer-img {
+  background-image: url("./../assets/img/manage/icon.gauge.pointer.png");
+}
+.gauge-bg-img {
+  background-image: url("./../assets/img/manage/bg.gague.png");
+}
+.sex-cont-img {
+  background-image: url("./../assets/img/manage/bg.sex.body.png");
+}
+.sex-type-0 {
+  background-image: url("./../assets/img/manage/bg.body.0.png");
+}
+.sex-type-1 {
+  background-image: url("./../assets/img/manage/bg.body.1.png");
+}
+@for $i from 0 to 6 {
+  .sex-right-img-#{$i}{
+    background-image: url("./../assets/img/manage/bg.body.line.#{$i}.png");
+  }
+}
+@mixin boxHead($bh){
+  .child-header {
+    height: cptSize(38,$bh);
+  }
+  .child-cont {
+    height: cptSize($bh - 38, $bh);
+    background-color: rgba(11,21,81,.6);
+  }
+}
+@mixin lcSide($bw,$ssh,$sih,$sh){
+  .head {
+    height: cptSize($ssh,$sh);
+    i {
+      width: cptSize(8,$bw);
+      background-color: #008aff;
+    }
+    span {
+      left: cptSize(16,$bw);
+    }
+  }
+  .body {
+    margin-top: cptSize(12, $bw);
+    height: cptSize($sh - $ssh - 12,$sh);
+    .inside-swiper {
+      height: cptSize(27, $sih);
+    }
+    .child-itm {
+      width: cptSize(230, $bw);
+      .child-left {
+        width: cptSize(92,230);
+      }
+      .child-right {
+        width: cptSize(139,230);
+        span {
+          left: cptSize(8,139);
+        }
+      }
+    }
+    .child-itm:nth-child(1) {
+      float: left;
+    }
+    .child-itm:nth-child(2) {
+      float: right;
+    }
+  }
+}
+@mixin sexBox($sw,$bw,$sh,$bh,$lw,$lh,$t,$l){
+  top: cptSize($t,$bh);
+  left: cptSize($l,$bw);
+  width: cptSize($sw,$bw);
+  height: cptSize($sh,$bh);
+  .sex-left {
+    width: cptSize(140,$sw);
+    height: cptSize(38,$sh);
+  }
+  .sex-right {
+    width: cptSize($lw,$sw);
+    height: cptSize($lh,$sh);
+  }
+}
+.content-box {
+  .public-w {
+    width: cptSize(512,$w);
+  }
+  .left {
+    .l-top {
+      height: cptSize(438,$h);
+      @include boxHead(438);
+      .child-cont {
+        padding: cptSize(16,512);
+        .left-img {
+          width: cptSize(140,480);
+          .prison-person-size {
+            height: cptSize(196,368);
+          }
+          .prison-msg {
+            bottom: cptSize(60,368);
+            height: cptSize(102,368);
+            .icon-msg {
+              width: cptSize(37, 140);
+              height: cptSize(27, 102);
+              transition: all .3s;
+              &:hover {
+                animation: msgAn .3s linear;
+              }
+            }
+          }
+        }
+        .right-list {
+          width: cptSize(300,480);
+          height: cptSize(360,368);
+          .swiper-slide:last-child {
+            .left-msg {
+              opacity: 0;
+            }
+          }
+          .msg-box {
+            height: cptSize(27,30);
+            .left-msg {
+              width: cptSize(92,300);
+            }
+            .right-msg {
+              width: cptSize(209,300);
+              > span {
+                left: cptSize(8,209);
+              }
+            }
+          }
+        }
+      }
+    }
+    .l-center {
+      height: cptSize(258,$h);
+      margin-top: cptSize(23,512);
+      margin-bottom: cptSize(23,512);
+      @include boxHead(258);
+      .child-cont {
+        padding: cptSize(16,512);
+        .side-top {
+          height: cptSize(64,188);
+          @include lcSide(480,24,28,64);
+        }
+        .side-bottom {
+          height: cptSize(100,188);
+          margin-top: cptSize(24,480);
+          @include lcSide(480,24,32,100);
+        }
+      }
+    }
+    .l-bottom {
+      height: cptSize(250,$h);
+      @include boxHead(250);
+    }
+  }
+  .right {
+    .r-top{
+      height: cptSize(484,$h);
+      @include boxHead(484);
+    }
+    .r-bottom{
+      height: cptSize(484,$h);
+      margin-top: cptSize(12,512);
+      @include boxHead(484);
+      .head {
+        height: cptSize(44,446);
+      }
+      .child-itm:nth-child(1) {
+        width: cptSize(84,512);
+      }
+      .child-itm:nth-child(2) {
+        width: cptSize(92,512);
+      }
+      .child-itm:nth-child(3) {
+        width: cptSize(180,512);
+      }
+      .child-itm:nth-child(4) {
+        width: cptSize(156,512);
+      }
+      .body {
+        height: cptSize(378, 446);
+        .swiper-slide {
+          .child-itm:nth-child(3) {
+            .circle-box {
+              width: cptSize(14,180);
+              padding-top: cptSize(14,180);
+              border-radius: 50%;
+              border: 1px solid #00aeff;
+              .circle-side {
+                width: cptSize(8,14);
+                padding-top: cptSize(8,14);
+                border-radius: 50%;
+                background-color: #00aeff;
+              }
+            }
+            .circle-line-top {
+              width: cptSize(2,180);
+              height: 50%;
+              background-color: #00aeff;
+            }
+            .circle-line-bottom {
+              width: cptSize(2,180);
+              height: 50%;
+              background-color: #00aeff;
+            }
+          }
+        }
+        .swiper-slide:first-child {
+          .circle-line-top {
+            opacity: 0;
+          }
+        }
+        .swiper-slide:last-child {
+          .circle-line-bottom {
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+  .center {
+    margin-left: cptSize(512,$w);
+    margin-right: cptSize(512,$w);
+    .gauge-box {
+      width: cptSize(360,856);
+      height: cptSize(250,$h);
+      .gauge-itm {
+        width: cptSize(250,360);
+        padding-top: cptSize(125,360);
+      }
+      .gauge-pointer {
+        width: cptSize(21,250);
+        height: cptSize(73,125);
+        transform: translate(-50%,14%) rotate(-90deg);
+        transform-origin: 50% 83%;
+        transition: all .4s;
+      }
+      .detail-msg {
+        width: cptSize(87,250);
+        padding-top: cptSize(40,250);
+        background-color: #040b19;
+        border: 1px solid #073250;
+      }
+      .detail-name {
+        transform: translate(-50%,240%);
+      }
+    }
+    .c-tl-gauge {
+      .number-itm:nth-child(1){
+        top: cptSize(130,125);
+        left: cptSize(40,250);
+      }
+      .number-itm:nth-child(2){
+        top: cptSize(46,125);
+        left: cptSize(46,250);
+      }
+      .number-itm:nth-child(3){
+        top: cptSize(20,125);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .number-itm:nth-child(4){
+        top: cptSize(46,125);
+        left: cptSize(182,250);
+      }
+      .number-itm:nth-child(5){
+        top: cptSize(130,125);
+        left: cptSize(186,250);
+      }
+    }
+    .c-tr-gauge {
+      .number-itm:nth-child(1){
+        top: cptSize(130,125);
+        left: cptSize(30,250);
+      }
+      .number-itm:nth-child(2){
+        top: cptSize(20,125);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .number-itm:nth-child(3){
+        top: cptSize(130,125);
+        left: cptSize(186,250);
+      }
+    }
+    .sex-body {
+      .sex-cont {
+        top: cptSize(112,$h);
+        width: cptSize(320,856);
+        height: cptSize(838,$h);
+      }
+    }
+    .legend-box {
+      .sex-itm:nth-child(1) {
+        @include sexBox(250,856,60,$h,108,31,302,100);
+      }
+      .sex-itm:nth-child(2) {
+        @include sexBox(250,856,60,$h,110,33,451,126);
+      }
+      .sex-itm:nth-child(3) {
+        @include sexBox(250,856,60,$h,110,33,639,160);
+      }
+      .sex-itm:nth-child(4) {
+        @include sexBox(250,856,132,$h,107,98,290,508);
+      }
+      .sex-itm:nth-child(5) {
+        @include sexBox(212,856,62,$h,73,31,400,510);
+      }
+      .sex-itm:nth-child(6) {
+        @include sexBox(290,856,80,$h,154,42,512,478);
+      }
+    }
+  }
+}
+@keyframes msgAn {
+  from {
+    transform: translate(-50%,-50%) rotate(-6deg);
+  }
+  to{
+    transform: translate(-50%,-50%) rotate(6deg);
+  }
+}

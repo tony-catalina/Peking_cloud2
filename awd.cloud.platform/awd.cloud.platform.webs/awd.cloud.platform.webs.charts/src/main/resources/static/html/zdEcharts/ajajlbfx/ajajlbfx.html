@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案件类别分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class="ajajlb">  
+        <div id="ajajlbfx"></div>
+        <div class="btn">
+            <div id="csBtn"></div>
+        </div>
+        
+    </div>
+<!-- <div id="ajlbfx"></div> -->
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+    var echartData=[{
+        name: '北京市',jsbh:1100001}, {
+        name: '东城区',jsbh:110101111}, {
+        name: '西城区',jsbh:110102111}, {
+        name: '朝阳区',jsbh:110105111}, {
+        name: '丰台区',jsbh:110106111}, {
+        name: '石景山区',jsbh:110107111},{
+        name: '海淀区',jsbh:110108111}, { 
+        name: '门头沟区',jsbh:110109111}, {
+        name: '房山区',jsbh:110111111},{
+        name: '通州区',jsbh:110112111}, {
+        name: '顺义区',jsbh:110113111}, {
+        name: '昌平区',jsbh:110221111}, {
+        name: '大兴区',jsbh:110224111}, {
+        name: '平谷区',jsbh:110226111}, {
+        name: '怀柔区',jsbh:110227111}, {
+        name: '密云区',jsbh:110228111}, {
+        name: '延庆区',jsbh:110229111}]
+        for(var i=0;i<echartData.length;i++){
+            $('#csBtn').append('<input type="button" id="button" style="float:left;margin-right:20px;border: none;outline:none;width:71px;height:30px;margin-top:30px;text-align:center;border-radius:12px;color:#031f2d;background:#39b3c3" onclick="csBtn('+i+')" style="color:#fff;" value="'+echartData[i].name+'">')
+        }
+        function csBtn(i){
+            $.ajax({
+            url:'/kssdp/ajlb?jsbh='+echartData[i].jsbh,
+            type:"get",
+            dataType:"json",
+            success:function (res) {
+            // console.log(res,1111111) 
+            var myChar = echarts.init(document.getElementById('ajajlbfx'));
+            // console.log(echartData[i].jsbh,1)
+            // console.log(echartData[i].name,2)
+            // console.log(res[i].value,3)
+            var option={
+                legend: {
+                    data: [echartData[i].name],
+                    textStyle: {
+                        color: "#fff",
+                        fontSize: 22,
+                    },
+                },
+                series: [{
+                    name:[echartData[i].name],
+                    label:{
+                        normal: {
+                            formatter: function(params, ticket, callback) {
+                                var total = 0;
+                                var percent = 0;
+                                res.forEach(function(value, index, array) {
+                                    total += (value.value)*1;
+                                });
+                                if(total==0){
+                                    percent = 0
+                                }else{
+                                    percent = ((params.value / total) * 100).toFixed(1);
+                                }
+                                return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                            },
+                        },
+                    },
+                    data: res
+                }]
+            }
+            myChar.setOption(option);
+            },error:function (error) {
+                console.log(error)
+            }
+        });
+    }
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/zdEcharts/ajajlbfx/ajajlbfx');
+</script>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    .ajajlb{
+        display:flex;
+        background:#031f2d;
+    }
+    .btn{
+        width: 20%;
+        height: 730px;
+        color:white;
+        background:#031f2d;
+        /* padding-top:150px; */
+    }
+    #csBtn{
+        margin-top:100px;
+        width:60%;
+        /* height: 730px; */
+    }
+    #csbtn:last-child{
+        border:1px solid red;
+    }
+    #ajajlbfx{
+        width: 80%;
+        height: 730px;
+        /* border:1px solid green; */
+    }
+</style>
+</body>
+</html>

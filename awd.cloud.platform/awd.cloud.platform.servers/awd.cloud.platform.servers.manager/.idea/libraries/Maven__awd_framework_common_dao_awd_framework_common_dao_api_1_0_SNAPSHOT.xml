@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: awd.framework.common.dao:awd.framework.common.dao.api:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/common/dao/awd.framework.common.dao.api/1.0-SNAPSHOT/awd.framework.common.dao.api-1.0-20200113.055531-9.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/common/dao/awd.framework.common.dao.api/1.0-SNAPSHOT/awd.framework.common.dao.api-1.0-20200113.055531-9-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/common/dao/awd.framework.common.dao.api/1.0-SNAPSHOT/awd.framework.common.dao.api-1.0-20200113.055531-9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

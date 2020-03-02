@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>民警在职时长分析</title> 
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class='mjzzsc'>
+        <div class="button">
+            <div id="changeBar">表格</div> 
+        </div>
+        <div id="mjzzscfx"></div>
+        <div cellspacing="0" class="tableBar">
+            <div class="mjzzscTable">
+                <div>民警在职时长分析</div>
+            </div>
+            <div class='cs'>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);"></div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">北京市</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">东城区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">西城区</div style="width:80px;">
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">朝阳区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">丰台区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">石景山区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">海淀区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">门头沟区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">房山区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">通州区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">顺义区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">昌平区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">大兴区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">平谷区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">怀柔区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">密云区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">延庆区</div>
+            </div>
+                <table style="width:1352px;height:50px;margin-left:70px;" cellspacing="0">
+                    <tbody id='tbodyResult'></tbody>  
+                </table>
+        </div>
+    </div>
+      
+      <script type="text/javascript" src="/js/seajs/sea.js"></script>
+      <script type="text/javascript">
+        var tbody = window.document.getElementById("tbodyResult")
+        $("#changeBar").on("click",function(){
+            console.log(11111111)
+            if($(this).text()=="表格"){
+                $(this).text("图表");
+                $.ajax({
+                    url: '/kssdp/zzscfx',
+                    type: "get",
+                    dataType: "json",
+                    success: function (res) {
+                        // console.log(res,789)
+                        var data = res.result;
+                        var marchBut = '';
+                        var marchSix = '';
+                        var sixYear = '';
+                        var yearThree = '';
+                        var threeYear = '';
+                        for (var i=0;i< data.length;i++) {   
+                            marchBut += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data[i].data[0] + "</td>";
+                        } 
+                        var marchButt = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">3月以下</td>'+  marchBut + "</tr>"
+                        for (var i=0;i< data.length;i++) {   
+                            marchSix += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data[i].data[1] + "</td>";
+                        } 
+                        var marchSix = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">3月-6月</td>'+  marchSix + "</tr>"
+                        for (var i=0;i< data.length;i++) {   
+                            sixYear += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data[i].data[2] + "</td>";
+                        } 
+                        var sixYear = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">6月-1年</td>'+  sixYear + "</tr>"
+                        for (var i=0;i< data.length;i++) {   
+                            yearThree += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data[i].data[3] + "</td>";
+                        } 
+                        var yearThree = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">1年-3年</td>'+  yearThree + "</tr>"
+                        for (var i=0;i< data.length;i++) {   
+                            threeYear += "<td style='width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data[i].data[4] + "</td>";
+                        } 
+                        var threeYear = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">3年以上</td>'+  threeYear + "</tr>"
+                        tbody.innerHTML = marchButt+ marchSix + sixYear + yearThree + threeYear;
+                    },error(error){
+                        console.log(error)
+                    }
+                })
+                $('#mjzzscfx').css('visibility',"hidden")
+                $('.tableBar').css('visibility',"visible")
+            }else{
+                $(this).text("表格");
+                $('#mjzzscfx').css('visibility',"visible")
+                $('.tableBar').css('visibility',"hidden")
+            }
+        })
+          seajs.config({
+              base: "/js",
+              preload: ["jquery.min.js"],
+              map:[
+                  [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+              ]
+          });
+          seajs.use('awd/zdEcharts/mjzzscfx/mjzzscfx');
+      </script>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    #mjzzscfx{
+        margin-top:60px;
+        width: 100%;
+        height: 642px;
+        overflow:hidden;
+    }
+    .mjzzsc{
+        width:100%;
+        height:710px;
+    }
+    .button{
+        width:120px;
+        float:right;
+        margin-top:10px;
+        height:50px;
+        line-height:50px;
+        color:#fff;
+    }
+    #changeBar{
+        width:70px;
+        height:38px;
+        line-height:38px;
+        text-align:center;
+        background:#1bb4f6;
+        border-radius: 13px;
+        cursor:pointer;
+    }
+    .mjzzscTable{
+        width:1348px;
+        text-align:center;
+        height:50px;
+        border:1px solid #fff;
+        font-size: 23px;
+        line-height:50px;
+        margin-left: 70px;
+        border-top:2px solid rgb(0, 136, 201);
+        border-left:2px solid rgb(0, 136, 201);
+        border-right:2px solid rgb(0, 136, 201);
+    }
+    .tableBar{
+        visibility: hidden;
+        width:100%;
+        height:600px;
+        color: #11183c;
+        position: fixed;
+        top:60px;
+        left:0;
+    }
+    .cs{
+        display:flex;
+        width:1352px;
+        height:40px;
+        line-height:40px;
+        margin-left: 70px;
+        border-top:1px solid rgb(0, 136, 201)
+    }
+    #tbodyResult{
+        width:1352px;
+        margin-left: 70px;
+        height:600px;
+    }
+</style>
+</body>
+</html>

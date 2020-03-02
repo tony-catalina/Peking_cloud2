@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.mis.servers.dao.ZirisDao">
+    <resultMap id="ZirisResultMap" type="awd.mis.servers.entity.ZirisEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="jsbh" column="jsbh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="rybh" column="rybh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="hmwzbh" column="hmwzbh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="hmtx" column="hmtx" javaType="[B" jdbcType="LONGVARBINARY"/>
+
+		<result property="hmtz" column="hmtz" javaType="[B" jdbcType="LONGVARBINARY"/>
+
+		<result property="hmtxurl" column="hmtxurl" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="hmtzurl" column="hmtzurl" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="state" column="state" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="scbz" column="scbz" javaType="java.lang.String" jdbcType="CHAR"/>
+
+		<result property="creator" column="creator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+		<result property="updator" column="updator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+		<result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'ZirisResultMap'"/>
+        <bind name="tableName" value="'z_iris'"/>
+        <bind name="resultJbxxMapId" value="'JbxxInfoResultMap'"/>
+        <bind name="jbxxName" value="'JBXX'"/>
+    </sql>
+    
+	<!--循环查找表字段是否含有rybh，有的话就自动生成jbxxList 方法，没有就不生成-->
+	<select id="jbxxlist"  resultType="java.util.HashMap" >
+   		<include refid="config"/>
+	    <trim>
+	        select jbxx.snbh as snbh,jbxx.XM as xm,jbxx.XB as xb,jbxx.JSH as jsh,
+	        <include refid="BasicMapper.buildSelectField"/>
+	        from  ${tableName} z_iris ,jbxx jbxx
+	        <where>
+	            <include refid="BasicMapper.buildWhere"/>
+	            <include refid="JbxxMapper.buildJbxxWhere"/>
+	            and z_iris.rybh=jbxx.rybh
+	        </where>
+	        <include refid="BasicMapper.buildSortField"/>
+	    </trim>
+    </select>
+    
+    <select id="jbxxcount"  resultType="int">
+	    <include refid="config"/>
+	    <trim>
+	        select count(0) as total
+	        from  z_iris z_iris ,jbxx jbxx
+	        <where>
+	            <include refid="BasicMapper.buildWhere"/>
+	            <include refid="JbxxMapper.buildJbxxWhere"/>
+	            and z_iris.rybh=jbxx.rybh
+	        </where>
+	        <include refid="BasicMapper.buildSortField"/>
+	    </trim>
+    </select>
+    
+
+    <insert id="insert" parameterType="awd.mis.servers.entity.ZirisEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from z_iris where id =#{id}
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="ZirisResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>
+
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select>
+
+ </mapper>

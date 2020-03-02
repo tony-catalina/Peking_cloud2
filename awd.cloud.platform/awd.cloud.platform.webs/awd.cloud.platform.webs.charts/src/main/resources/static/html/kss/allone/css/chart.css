@@ -1,0 +1,519 @@
+html {
+    background: #1e365f;
+}
+body {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background: url("../images/chart-bg.png") no-repeat;
+    background-size: cover;
+}
+.page {
+    background: url("../images/chart-bg.png") no-repeat;
+    background-size: cover;
+}
+.header {
+    margin-top: 30px;
+    width: 100%;
+    overflow: hidden;
+}
+.header .h-title {
+    width: 50%;
+    float: left;
+    line-height: 64px;
+    padding-left: 86px;
+    background: url("../images/logo.png") no-repeat;
+    margin-left: 25px;
+    font-size: 36px;
+}
+.header .current-time {
+    line-height: 64px;
+    margin-right: 76px;
+    float: right;
+    font-size: 26px;
+}
+.header .hd-rt {
+    line-height: 64px;
+    margin-right: 76px;
+    float: right;
+    font-size: 26px;
+}
+.header .weather-box {
+    line-height: 74px;
+    margin-right: 76px;
+    float: right;
+    font-size: 26px;
+}
+.header .weather-box .weather-icon {
+    width: 74px;
+    height: 74px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.header .weather-box .weather-icon.sun-icon {
+    background: url("../images/sun.png") no-repeat;
+}
+.header .weather-box .weather-icon.cloud-icon {
+    background: url("../images/cloud.png") no-repeat;
+}
+.header .weather-box .weather-icon.thunder-icon {
+    background: url("../images/thunder.png") no-repeat;
+}
+.header .weather-box .weather-icon.rain-icon {
+    background: url("../images/rain.png") no-repeat;
+}
+.header .weather-box .weather-icon.overcast-icon {
+    background: url("../images/overcast.png") no-repeat;
+}
+.header .weather-box .weather-icon.snow-icon {
+    background: url("../images/snow.png") no-repeat;
+}
+.header .weather-box span {
+    margin-left: 10px;
+}
+.header .weather-box .temp {
+    color: #ffff00;
+}
+
+/*page 1*/
+#radarChart {
+    width: 492px;
+    height: 360px;
+    margin-left: 60px;
+    float: left;
+}
+.table-box {
+    width: 1346px;
+    height: 340px;
+    border: 1px solid #c87e00;
+    float: left;
+    margin-top: 20px;
+    font-size: 26px;
+}
+.table-box thead {
+    background: url("../images/table-bg.png");
+    background-size: cover;
+    height: 94px;
+}
+.table-box tr {
+    height: 47px;
+    line-height: 47px;
+}
+.table-box th, .table-box td {
+    border-right: 1px solid #c87e00;
+    border-bottom: 1px solid #c87e00;
+    text-align: center;
+}
+.table-box .biaoTou {
+    position: relative;
+    width: 170px;
+}
+.table-box .biaoTou:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 1px solid #c87e00;
+    width: 192px;
+    height: 1px;
+    transform:rotate(29deg);
+    -ms-transform:rotate(29deg); 	/* IE 9 */
+    -moz-transform:rotate(29deg); 	/* Firefox */
+    -webkit-transform:rotate(29deg); /* Safari 和 Chrome */
+    -o-transform:rotate(29deg); 	/* Opera */
+    transform-origin: 0 0;
+}
+
+.footer {
+    width: 100%;
+    float: left;
+}
+.tip-box {
+    float: left;
+    margin-left: 20px;
+}
+.tip-box .t-title{
+    font-size: 30px;
+    line-height: 72px;
+    padding-left: 60px;
+    background: url("../images/police-icon.png") no-repeat;
+    margin: 20px 0;
+}
+.tip-box .t-title.system-title {
+    background: url("../images/system-icon.png") no-repeat -8px 8px;
+}
+.tip-box .t-title.doc-title {
+    background: url("../images/doc-icon.png") no-repeat 0 8px;
+}
+.item-box li {
+    width: 380px;
+    box-sizing: border-box;
+    padding: 5px 30px;
+    margin-bottom: 20px;
+    line-height: 36px;
+    border-radius: 10px;
+    font-size: 22px;
+    margin-left: 70px;
+    background: #358600;
+}
+.item-box li.bg-c1 {
+    background: #358600;
+}
+.item-box li.bg-c2 {
+    background: #c87e00;
+}
+.item-box li.bg-c3 {
+    background: #606060;
+}
+.item-box li.bg-c4 {
+    background: #003caa;
+}
+
+.chart-box {
+    margin-top: 120px;
+
+    overflow: hidden;
+}
+#pieChart {
+    width: 680px;
+    height: 430px;
+    float: left;
+}
+#barChart {
+    width: 580px;
+    height: 475px;
+    float: left;
+    margin-left: 120px;
+}
+/*page 1 end*/
+
+/*page 2*/
+.count-box {
+    margin-left: 50px;
+    font-size: 22px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.count-box .left-count {
+    width: 1100px;
+    margin-right: 14px;
+    float: left;
+}
+.count-box .main-count {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.count-box .count-info {
+    float: left;
+}
+.count-box .rt-info {
+    float: right;
+}
+.left-count .pic-box {
+    width: 100%;
+    height: 258px;
+    box-sizing: border-box;
+    border: 1px solid #c87e00;
+    border-radius: 20px;
+    text-align: center;
+    padding: 9px 50px;
+    white-space: nowrap;
+}
+.left-count .pic-box li {
+    width: 160px;
+    height: 240px;
+    display: inline-block;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+.left-count .pic-box li + li {
+    margin-left: 40px;
+}
+.pic-box .img-box{
+    width: 100%;
+    height: 175px;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    background-color: #6a3906;
+    position: relative;
+}
+.pic-box .img-box img {
+    width: 100%;
+    height: 100%;
+}
+.pic-box .img-box .tag-icon {
+    width: 86px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 34px;
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+}
+.pic-box .detail-box{
+    margin-top: 5px;
+    width: 100%;
+    height: 60px;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    background-color: #535353;
+    color: #000;
+    line-height: 25px;
+    padding: 5px 0;
+}
+.pic-box .detail-box.shiqu {
+    background-color: #ff0000;
+}
+
+.pic-box .level-c1 .img-box {
+    border: 1px solid #ff0000;
+}
+.pic-box .level-c1 .detail-box {
+    border: 1px solid #ff0000;
+}
+.pic-box .level-c2 .img-box {
+    border: 1px solid #ffff00;
+}
+.pic-box .level-c2 .detail-box {
+    border: 1px solid #ffff00;
+}
+.pic-box .level-c4 .img-box {
+    border: 1px solid #00ff00;
+}
+.pic-box .level-c3 .detail-box{
+    border: 1px solid #00ff00;
+}
+.count-box .count-num {
+    font-size: 43px;
+    margin: 0 10px;
+}
+
+.count-box .right-info {
+    font-size: 26px;
+    float: right;
+    margin-right: 40px;
+}
+.count-box .right-info p {
+    width: 100%;
+    line-height: 52px;
+    height: 52px;
+}
+.right-info .pie-box {
+    width: 224px;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.right-info .pie-box .pie-wrap {
+    width: 224px;
+    height: 224px;
+    margin-top: 36px;
+}
+.pie-box .percent-num {
+    line-height: 224px;
+    width: 100%;
+    height: 224px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 30px;
+}
+.count-box .right-info .count-num {
+    font-size: 52px;
+}
+
+.middle-box {
+    float: left;
+    margin-top: 46px;
+    margin-left: 30px;
+}
+.middle-box #barChart2 {
+    width: 500px;
+    height: 300px;
+    margin-left: 20px;
+}
+.page2 .item-box li {
+    width: 520px;
+    margin-left: 0;
+}
+.item-data {
+    padding-left: 30px;
+    background: url("../images/item-icon.png") no-repeat 0 8px;
+    line-height: 36px;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.m2-box {
+    margin-left: 40px;
+}
+.info-box {
+    margin-bottom: 30px;
+}
+.info-box .m-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.info-box .ul-wrap {
+    width: 560px;
+    border: 1px solid #c87e00;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 18px 20px 8px;
+    font-size: 25px;
+    background-color: #3a4a66;
+}
+.info-box .item-data {
+    margin-bottom: 10px;
+}
+.m3-box {
+    margin-left: 50px;
+}
+.m3-box #barChart3 {
+    width: 666px;
+    height: 580px;
+}
+/*page 2 end*/
+
+/*page 3*/
+.line-box {
+    width: 345px;
+    height: 330px;
+    float: left;
+    margin-left: 65px;
+    margin-top: 40px;
+    background-color: #313a4a;
+    border-radius: 10px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.page3 #lineChart {
+    width: 325px;
+    height: 330px;
+}
+.page3 .pie-box {
+    width: 1500px;
+    height: 350px;
+    text-align: center;
+    float: left;
+    margin-top: 40px;
+}
+.page3 .pie-item-box {
+    width: 284px;
+    height: 350px;
+    display: inline-block;
+    position: relative;
+}
+.page3 .pie-item-box .score-num {
+    position: absolute;
+    font-size: 93px;
+    width: 284px;
+    text-align: center;
+    top: 84px;
+}
+.page3 .pie-item-box + .pie-item-box {
+    margin-left: 85px;
+}
+.page3 .pie-chart {
+    width: 284px;
+    height: 350px;
+}
+.page3 .chart-box {
+    margin-top: 30px;
+}
+.page3 #page3BarChart {
+    width: 620px;
+    height: 512px;
+    float: left;
+    margin-left: 120px;
+}
+.page3 .info-wrap {
+    float: left;
+    margin-left: 88px;
+}
+.page3 .info-box .m-title {
+    margin-bottom: 33px;
+}
+.page3 .info-box ul {
+    width: 544px;
+    height: 447px;
+}
+.page3 .info-box .item-data {
+    padding-left: 0;
+    background: none;
+}
+/*page 3 end*/
+
+/*page 4*/
+.page4 #page4LineChart1 {
+    width: 325px;
+    height: 330px;
+}
+.page4 .bar-box {
+    margin-top: 40px;
+    width: 1440px;
+    height: 330px;
+    float: left;
+}
+.page4 #barChart4 {
+    width: 1440px;
+    height: 330px;
+}
+.page4 #page4LineChart2 {
+    width: 788px;
+    height: 526px;
+    float: left;
+    margin-left: 70px;
+}
+.page4 .info-wrap {
+    width: 569px;
+    height: 526px;
+    float: left;
+    margin-left: 10px;
+}
+.page4 .level3-box {
+    height: 138px;
+    margin-bottom: 10px;
+}
+.page4 .level3-box .img-box {
+    width: 100px;
+    height: 138px;
+    position: relative;
+    background-color: #560909;
+    text-align: center;
+    float: left;
+}
+.level3-box .img-box img {
+    width: 100%;
+    height: 100%;
+}
+.level3-box .name-box{
+    position: absolute;
+    bottom: 0;
+    left: 17px;
+    font-size: 21px;
+    border: 1px solid #fff;
+    width: 66px;
+    height: 34px;
+    line-height: 34px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.level3-box .level3-info {
+    float: left;
+    margin-left: 20px;
+    font-size: 23px;
+    line-height: 40px;
+    width: 372px;
+}
+.page4 .chart-box {
+    margin-top: 40px;
+}
+/*page 4 end*/

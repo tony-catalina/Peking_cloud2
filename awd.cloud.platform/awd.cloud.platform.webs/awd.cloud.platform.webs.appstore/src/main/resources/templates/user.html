@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>监管应用中心</title>
+<link rel="icon" href="../assets/img/fengche.png" sizes="96x96">
+
+<script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap-table.js"></script>
+<script type="text/javascript"
+	src="./js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript"
+	src="./js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="./js/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript" src="./js/api.js"></script>
+<script src="../js/appjs/global.js"></script>
+<script src="../js/appjs/jquery.min.js"></script>
+<script src="../js/appjs/swiper.min.js"></script>
+<script src="../js/appjs/app.common.js"></script>
+<script type="text/javascript" src="./js/zzc/modernizr.js"></script>
+<script type="text/javascript" src="../lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../src/kkpager.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../src/kkpager_orange.css" />
+
+<script type="text/javascript" src="./js/zeroModal.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/zeroModal.css" />
+
+<link href="./style/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../css/app.css">
+<link rel="stylesheet" href="../css/common/common.css">
+<link rel="stylesheet" href="../css/common/header.css">
+<link href="../css/common/icon.css" rel="stylesheet">
+<link href="../css/common/swiper.min.css" rel="stylesheet">
+<link href="./style/css/zzc/zzcstyle.css" rel="stylesheet"
+	type="text/css" />
+<link href="./style/css/icon.css" rel="stylesheet" type="text/css" />
+<link href="./style/bootstrap/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="./style/bootstrap/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" type="text/css" />
+<base>
+<!-- 翻页样式 -->
+    <style type="text/css">
+    	ul,li{margin: 0;padding: 0;list-style: none;}
+    	.pageMenu li::selection{background:transparent;}
+    	.clearfix{zoom:1;}
+		.clearfix:after{content:"";display: block;clear: both;}
+		.pageBox{width:800px;background: #eee;border:1px solid #ebebeb;padding: 10px;margin: 0 auto;}
+		.pageDiv{width: 89%;background: #fff;padding-left: 1.25%;margin-bottom: 10px;}
+		.pageDiv li{margin-bottom: 10px;border:1px solid #dbdbdb;width: 21.5%;margin-right: 1.25%;float:left;margin-top: 10px;padding: 1%;text-align: center;}
+		.hide{display: none;}
+		.notContent{padding: 15px 0;text-align: center;}
+
+		.page{text-align: center;width: 100%;margin: 0 auto;}
+		.pageMenu{display: inline-block;position: relative;left: 20%;}
+		
+		.pageMenu li{border: solid thin #ddd;margin: 3px;float: left;padding: 5px 10px;cursor: pointer;background: #fff;}
+		.pageMenu li.firstPage{}
+		.pageMenu li.prevPage{}
+		.pageMenu li.pageNum{}
+		.pageMenu li.nextPage{}
+		.pageMenu li.lastPage{}
+		.pageMenu li.disabled{ background-color: #DDDDDD;   cursor: not-allowed;}
+		.pageMenu li.active{ border: solid thin #0099FF;background-color: #0099FF;color: white;}
+		.pageMenu li.last{background: transparent;border:0;position: relative;top: -4px;}
+		.page .keuInput{padding: 0 5px;width: 30px;border: solid thin #ddd;height: 29px;outline: none;text-align: center;font-size: 16px;}
+		.page .btnSure{padding: 4px 8px;border: solid thin #ddd;outline: none;text-align: center;font-size: 16px;background: #fff;position: relative;top: 2px;}
+		.page .btnSure:hover{cursor: pointer;}
+		.pageObj{float: left;}
+		.pl{margin-left: 160px;}
+    </style>
+
+<style type="text/css">
+.table th {
+	text-align: center;
+}
+
+sup {
+	background: #FF4500;
+	color: white;
+	border-radius: 5px;
+	padding: 0px 3px; /*左右边距*/
+}
+</style>
+</head>
+<body style="height: 100%">
+<% include("/common/header1.html"){}%>
+<input id="jsbh" type="hidden" value="${user.jsbh}">
+	<div style="margin-top: 65px;height: 100%;" class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 " style="width: 100%;">
+			<div style="margin-left: 11.5%;"><span style="font-size: 24px;">已安装应用</span>
+			</div>
+			<br/>
+			<div class="row" align="right">
+				<div id="wdyyBlock">
+					<ul class="pageDiv clearfix" id="user_apps"></ul>
+				</div>
+				<div style="width:800px;margin:0 auto;">
+					<div id="kkpager"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript">
+
+$(document).ready(function () {
+    if (Modernizr.touch) {
+        // show the close overlay button
+        $(".close-overlay").removeClass("hidden");
+        // handle the adding of hover class when clicked
+
+        $(".img").click(function (e) {
+            if (!$(this).hasClass("hover")) {
+                $(this).addClass("hover");
+            }
+        });
+        // handle the closing of the overlay
+        $(".close-overlay").click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if ($(this).closest(".img").hasClass("hover")) {
+                $(this).closest(".img").removeClass("hover");
+            }
+        });
+    } else {
+        // handle the mouseenter functionality
+        $(".img").mouseenter(function () {
+            $(this).parent().addClass("lnstyle");
+            $(this).addClass("hover");
+        })
+        // handle the mouseleave functionality
+            .mouseleave(function () {
+                $(this).parent().removeClass("lnstyle");
+                $(this).removeClass("hover");
+            });
+    }
+    var pageIndex = 0;
+    var pageSize = 12;
+    searchAPP(pageIndex,pageSize);
+    
+});
+
+	//查找应用
+	var searchAPP = function(pageIndex,pageSize) {
+		if(pageSize == undefined){
+			pageSize = 1;
+		}
+		if(pageIndex == undefined){
+			pageIndex = 0;
+		} 
+	    var querydata = {
+	    		"namelike" : "",
+	    		"rolename" : "",
+	    		"jsbh" : $('#jsbh').val(),
+	    		"pageIndex" : pageIndex,
+	    		"pageSize" : pageSize
+	    }
+	    $.ajax({
+	        //url: serverInfo.serverURL + serverInfo.searchAPP,// 跳转到 action
+	        url: '/getAppEntyListByJsbh',// 跳转到 action
+	        data: querydata,
+	        type: 'post',
+	        cache: false,
+	        async: false,
+	        success: function (data) {
+	        	var totalRecords = data.result.total;
+	        	var totalPage;
+	        	if(totalRecords % pageSize == 0){
+	        		totalPage = Math.floor(totalRecords/pageSize);
+	        	}else{
+	        		totalPage = Math.floor(totalRecords/pageSize) + 1;
+	        	} 
+	        	loadAppImg(data.result.data);
+	        	//加载分页插件
+	    		init_kkpager(pageSize,totalPage,totalRecords);
+	        }
+	    });
+	}
+	
+	//init
+	var init_kkpager = function(pageSize,totalPage,totalRecords){
+		//生成分页
+		kkpager.generPageHtml({
+			pno : 1,
+			//总页码
+			total : totalPage,
+			//总数据条数
+			totalRecords : totalRecords,
+			mode : 'click',//默认值是link，可选link或者click
+			click : function(click_page){
+				// do something
+				//手动选中按钮
+				this.selectPage(click_page);
+				//return false;
+				var querydata = {
+		    		"namelike" : "",
+		    		"rolename" : "",
+		    		"jsbh" : $('#jsbh').val(),
+		    		"pageIndex" : click_page - 1,
+		    		"pageSize" : pageSize
+		    	}
+		       $.ajax({
+		            //url: serverInfo.serverURL + serverInfo.searchAPP,// 跳转到 action
+		            url: '/getAppEntyListByJsbh',// 跳转到 action
+		            data: querydata,
+		            type: 'post',
+		            cache: false,
+		            async: false,
+		            success: function (data) {
+		            	loadAppImg(data.result.data);
+		            }
+		        }); 
+			}
+		},true);
+	}
+	
+	var loadAppImg = function(app_data){
+		 $("#user_apps ul>li").remove();
+	     var ulEle;
+	     for(var i=0;i < app_data.length;i++){
+	         if (i % 4 == 0) {
+	             ulEle = $("<ul></ul>").appendTo($("#user_apps"));
+	         }
+	         var app = app_data[i];
+	         var id = app['id'];
+	         var appcode = app['appcode'];
+	         var appEle = $("<li ><div class='img'><a href='#' class='loadApp' custom='"+id+"' appcode='"+appcode+"'><img width='92%' height='145' src='"+ app['pic1'] + "' /></a>"
+	             /*  + "<div class='overlay'><a href='#' class='lnColor'>" + app['name'] + "</a>" */
+	             + "<a class='close-overlay hidden'>x</a></div></div>"
+	             +"<p><div align='left' style='font-family: STHeiti;font-size:1.2rem;'><img src='images/icon/Appname.png' style='width:15px;height:15px;'>&nbsp;应用名称："+app['name']+"</div></p>"
+	             +"<p ><div align='left' style='font-family: STHeiti;font-size:1.2rem;'><img src='images/icon/AppType.png' style='width:17px;height:17px;'>"+(app['typeString']==null||app['typeString']==''?"无数据":app['typeString'])+"/"+(app['roleString']==null||app['roleString']==''?"无数据":app['roleString'])+"/"+(app['zoneString']==null||app['zoneString']==''?"无数据":app['zoneString'])+"</div></p>"
+	             /* +"<p ><div align='left' style='font-family: STHeiti;font-size:1.6rem;'><img src='images/icon/Appimg.png' style='width:17px;height:17px;'>"+(app['roleString']==null||app['roleString']==''?"无数据":app['roleString'])+"</div></p>"
+	             +"<p><div align='left'  style='font-family: STHeiti;font-size:1.6rem;'><img src='images/icon/Appscope.png' style='width:17px;height:17px;'>"+(app['zoneString']==null||app['zoneString']==''?"无数据":app['zoneString'])+"</div></p>" */
+	            /*  + "<p>" + app['name'] + "<br/>★★★★★  (1775)</p>" */
+	             + "<p><div style='margin-left:60%;font-family: STHeiti;font-size:1.2rem;'>("+app['mount']+")次安装</div></p>"
+	             + "</li>").appendTo(ulEle);
+	         bindAction();
+	     }
+	}
+	
+	var bindAction = function(){
+		$("a.loadApp").off("click").on(//单击事件
+				"click",
+				function() {
+					var id = $(this).attr("custom");
+					var appcode = $(this).attr("appcode");
+					iframeById(id,appcode);
+		});
+	}
+	
+	function iframeById(id,appcode) {
+		var appcode = encodeURIComponent(appcode);
+		var flag = "";
+    	$.ajax({
+            url: "./listJsapp?appcode="+appcode,// 跳转到 action
+            type: 'post',
+            cache: false,
+            async: false,
+            success: function (data) {
+            	var total = data.result.result.total;
+            	if(total>0){
+            		flag = "1";
+            	}else{
+            		flag = "0"
+            	}
+            }
+        });
+	    zeroModal.show({
+	        title: '应用详情',
+	        iframe: true,
+	        top: '30px',            
+	        //url: '/appModel_user_app?id='+id,
+	        url: '/appModel?id='+id+"&appcode=" + appcode+"&flag="+flag,
+	        width: '80%',
+	        height: '90%',
+	        cancel: true,
+	        esc: true,
+	    });
+	}
+</script>
+</html>

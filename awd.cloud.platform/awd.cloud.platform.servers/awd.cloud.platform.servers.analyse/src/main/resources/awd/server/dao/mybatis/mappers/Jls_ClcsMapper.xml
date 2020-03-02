@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_ClcsDao">
+
+
+    <select id="ClcsInfo" parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisJlsResultVO">
+        select
+        k.dz,
+        k.jsbh,
+        count(j.jsbh) as count
+        from jls k
+        left join clcs j
+        on k.jsbh = j.jsbh
+        <where>
+            <if test="starttime != null">
+                and j.cssj &gt;= #{starttime}
+            </if>
+            <if test="endtime != null">
+                and j.cssj &lt;= #{endtime}
+            </if>
+        </where>
+        group by dz,JLSMC
+    </select>
+
+    <!--期满出所-->
+    <select id="qmcsYwdt" parameterType="String" resultType="java.util.HashMap">
+        select count(if(j.state='R7' and j.csyy='20',true,null))as xmsf
+        from jbxx j left join clcs c on j.rybh = c.rybh
+        <where>
+            <if test="starttime != null and starttime != ''">
+                and date_format(j.cssj,'%Y-%m-%d %H:%i:%s') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(j.cssj,'%Y-%m-%d %H:%i:%s') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and j.jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <!--期满出所-拟出所-->
+    <select id="ncsrsYwdt" parameterType="String" resultType="java.util.HashMap">
+        select count(if(j.state='R8' and date_format(j.gyqx,'%Y-%m-%d') = DATE_FORMAT(DATE_ADD(NOW(),INTERVAL 1 DAY),'%Y-%m-%d'),true,null)) as mtcs,
+        count(if(j.state='R8' and date_format(j.gyqx,'%Y-%m-%d') = DATE_FORMAT(DATE_ADD(NOW(),INTERVAL 2 DAY),'%Y-%m-%d'),true,null)) as htcs
+        from jbxx j left join clcs c on j.rybh = c.rybh
+        <where>
+            <if test="jsbh != null and jsbh != ''">
+                and j.jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <!--期满出所-->
+    <select id="tqjcYwdt" parameterType="String" resultType="java.util.HashMap">
+        select count(if(j.state='R7',true,null))as sum,count(if(j.state='R7' and j.csyy='20',true,null))as jlqm,
+        count(if(j.state='R7' and j.csyy='21',true,null))as tqjc,count(if(j.state='R7' and j.csyy='22',true,null))as zldjy,
+        count(if(j.state='R7' and j.csyy='23',true,null))as zsrjy,count(if(j.state='R7' and j.csyy='24',true,null))as zsngj,
+        count(if(j.state='R7' and j.csyy='25',true,null))as zjd,count(if(j.state='R7' and j.csyy='26',true,null))as zxsjl,
+        count(if(j.state='R7' and j.csyy='27',true,null))as zdb,count(if(j.state='R7' and j.csyy='28',true,null))as lsjydz,
+        count(if(j.state='R7' and j.csyy='30',true,null))as tp,count(if(j.state='R7' and j.csyy='31',true,null))as sw,
+        count(if(j.state='R7' and j.csyy='32',true,null))as zbs,count(if(j.state='R7' and j.csyy='33',true,null))as zws,
+        count(if(j.state='R7' and j.csyy='99',true,null))as qt
+        from jbxx j left join clcs c on j.rybh = c.rybh
+        <where>
+            c.CSBLLX="2"
+            <if test="starttime != null and starttime != ''">
+                and date_format(j.cssj,'%Y-%m-%d %H:%i:%s') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(j.cssj,'%Y-%m-%d %H:%i:%s') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and j.jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

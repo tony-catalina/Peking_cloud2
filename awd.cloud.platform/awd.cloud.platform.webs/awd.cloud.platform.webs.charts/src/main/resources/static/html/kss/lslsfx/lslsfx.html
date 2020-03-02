@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>临时离所分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body > 
+    <div class='lsls'>
+        <div class="button">
+            <div id="changeBar">表格</div> 
+            <!-- <div id="resetBar">图表</div> -->
+        </div>
+        <div id="lslsfx"></div>
+        <div cellspacing="0" class="tableBar">
+            <div class="lslsTable">
+                <div>临时离所分析</div>
+            </div>
+            <div class='cs'>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);"></div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">北京市</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">东城区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">西城区</div style="width:80px;">
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">朝阳区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">丰台区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">石景山区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">海淀区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">门头沟区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">房山区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">通州区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">顺义区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">昌平区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">大兴区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">平谷区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">怀柔区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">密云区</div>
+                <div style="width:100px;text-align:center;border:1px solid rgb(0, 136, 201);">延庆区</div>
+            </div>
+        <table style="width:1354px;height:50px;margin-left:70px;" cellspacing="0">
+            <tbody id='tbodyResult'></tbody>  
+        </table>
+        </div>
+    </div>
+<!-- <div id="lslsfx"></div> -->
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+    var tbody = window.document.getElementById("tbodyResult")
+        $("#changeBar").on("click",function(){
+            if($(this).text()=="表格"){
+                $(this).text("图表")
+                $.ajax({
+                    url: '/kssqsfx/lslsfxCount',
+                    type: "get",
+                    dataType: "json",
+                    success: function (res) {
+                        console.log(res,11111111);
+                        var lsls = '';
+                        var kt = '';
+                        var gjf = '';
+                        var tqfx = '';
+                        var kbfx = '';
+                        var zyfx = '';
+                        var ldfx = '';
+                        var qtfx = '';
+                        var data = res.result
+                        console.log(data,8888888)
+                        // var result = res.result.value
+                        
+                        for (var i=0;i< data.lslsrs.length;i++) {   
+                            lsls += "<td style='width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.lslsrs[i] + "</td>";
+                        } 
+                        var lslsrsFx = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">临时离所人数</td>'+  lsls + "</tr>"
+                        // $("#tbodyResult").append(lslsrsFx);
+                        for (var i=0;i< data.ktsl.length;i++) {   
+                            kt += "<td style='width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.ktsl[i]+ "</td>";
+                        }
+                        var ktslFx = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">开庭审理</td>' + kt + "</tr>"
+                        // $("#tbodyResult").append(ktslFx);
+                          for (var i=0;i< data.gjfba.length;i++) {   
+                              gjf += "<td style='width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.gjfba[i] + "</td>";
+                          }
+                          var gjfbaFx = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">公检法办案</td>' + gjf + "</tr>" 
+                          for (var i=0;i< data.tq.length;i++) {   
+                              tqfx += "<td style='width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.tq[i] + "</td>";
+                          }
+                          var tqFx = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">探亲</td>' + tqfx + "</tr>" 
+                          for (var i=0;i< data.kb.length;i++) {   
+                              kbfx += "<td style='width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.kb[i] + "</td>";
+                          }
+                          var kbFx = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">看病</td>' + kbfx + "</tr>" 
+                          for (var i=0;i< data.zy.length;i++) {   
+                              zyfx += "<td style='width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.zy[i] + "</td>";
+                          }
+                          var zyFx = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">住院</td>' + zyfx + "</tr>" 
+                          for (var i=0;i< data.ld.length;i++) {   
+                              ldfx += "<td style='width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.ld[i] + "</td>";
+                          }
+                          var ldFx = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">劳动</td>' + ldfx + "</tr>"
+                          for (var i=0;i< data.qt.length;i++) {   
+                              qtfx += "<td style='width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.qt[i] + "</td>";
+                          }
+                          var qtFx = "<tr style='height:50px;width:1352px;margin-left:70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">其他</td>' + qtfx + "</tr>"
+                        
+                          tbody.innerHTML = lslsrsFx + ktslFx+ gjfbaFx + tqFx + kbFx + zyFx + ldFx + qtFx; 
+
+                    },error:function(error){
+                        console.log(error)
+                    }
+                })
+                $('#lslsfx').css('visibility',"hidden")
+                $('.tableBar').css('visibility',"visible")
+                console.log(11155448);
+               
+            }else{
+                $('#lslsfx').css('visibility',"visible")
+                $('.tableBar').css('visibility',"hidden")
+                $(this).text("表格") 
+               
+            }
+        })
+        seajs.config({
+            base: "/js",
+            preload: ["jquery.min.js"],
+            map:[
+                [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+            ]
+        });
+        seajs.use('awd/kss/lslsfx/lslsfx');
+</script>
+<style> 
+    *{
+        padding:0; 
+        margin:0;
+    }
+    .lsls{
+        width:100%;
+        height:710px;
+        background:#11183c;
+        border:1px solid #11183c;
+    }
+    .button{
+        width:120px;
+        float:right;
+        margin-right:50px;
+        height:50px;
+        margin-top:10px;
+        line-height:50px;
+        display:flex;
+        color:#fff;
+    }
+    #changeBar{
+        width:70px;
+        height:38px;
+        line-height:38px;
+        text-align:center;
+        background:#1bb4f6;
+        border-radius: 13px;
+        cursor:pointer;
+        /* border:1px solid pink; */
+    }
+    /* #resetBar{
+        width:50px;
+        height:38px;
+        text-align:center;
+        line-height:38px;
+        background:#1bb4f6;
+        border-radius: 0px 13px 13px 0px;
+        cursor:pointer;
+        border:1px solid hotpink;
+    } */
+    #lslsfx{
+        margin-top:60px;
+        width: 100%;
+        height: 600px;
+        border:1px solid #11183c;
+    }
+    .lslsTable{
+        width:1350px;
+        text-align:center;
+        height:50px;
+        border:1px solid #fff;
+        font-size: 23px;
+        line-height:50px;
+        margin-left: 70px;
+        border:1px solid rgb(0, 136, 201);
+
+    }
+    .tableBar{
+        visibility: hidden;
+        width:100%;
+        height:600px;
+        color: #fff;
+        position: fixed;
+        top:60px;
+        left:0;
+    }
+    .cs{
+        display:flex;
+        width:1352px;
+        height:40px;
+        line-height:40px;
+        margin-left: 70px;
+        border-top:1px solid rgb(0, 136, 201)
+    }
+    .table{
+        /* width:1354px;
+        height:50px;
+        margin-left:70px; */
+    }
+    #tbodyResult{
+        width:1352px;
+        margin-left: 70px;
+        height:600px;
+    }
+</style>
+
+</body>
+</html>

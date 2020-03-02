@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.JwzxjlDao">
+    <select id="jwzxjlInfo" parameterType="String" resultType="java.util.HashMap">
+        select
+        k.dz,
+        k.kssmc,
+        k.jsbh,
+        count(j.jsbh) as count
+        from kss k
+        left join jwzxjl j
+        on k.jsbh=j.jsbh
+        <where>
+            <if test="starttime != null">
+                and j.sqsj &gt;={starttime}
+            </if>
+            <if test="endtime != null">
+                and j.sqsj &lt;={endtime}
+            </if>
+        </where>
+        group by dz,kssmc
+    </select>
+
+    <!--监外执行业务动态  -->
+    <select id="jwzxjlYwdt" resultType="java.util.HashMap">
+        select count(SQYY is NOT NULL or sqyy = '')as zrs,
+        count(if(sqyy='1', true,null)) as  jb,
+        count(if(sqyy='2', true,null)) as  ye,
+        count(if(sqyy='3', true,null)) as  zl
+        from jwzxjl
+        <where>
+            1=1
+            <if test="starttime != null and starttime != ''">
+                and date_format(sqsj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(sqsj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh !=null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

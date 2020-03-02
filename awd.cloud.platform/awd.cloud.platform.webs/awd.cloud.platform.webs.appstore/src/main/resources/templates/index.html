@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../assets/img/fengche.png" sizes="96x96">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/common/common.css">
+    <link rel="stylesheet" href="../css/common/header.css">
+    <link rel="stylesheet" type="text/css" href="../src/kkpager_orange.css" />
+    <link href="../css/common/icon.css" rel="stylesheet">
+    <link href="../css/common/jquery.slideBox.css" rel="stylesheet">
+    <link href="./style/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!-- ZTree插件css -->
+    <link href="../ZTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+    <title>监管应用中心 </title>
+    <script src="../js/appjs/global.js"></script>
+    <script type="text/javascript" src="../src/kkpager.min.js"></script>
+    <script src="../js/appjs/jquery.min.js"></script>>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script src="../js/lunbo/jquery.slideBox.js"></script>
+    <script src="../js/appjs/selectivizr-min.js"></script>
+    <!-- ZTree插件js -->
+    <script src="../ZTree/js/jquery.ztree.core.min.js"></script>
+    <script src="../ZTree/js/jquery.ztree.excheck.min.js"></script>
+    <script src="../js/appjs/swiper.min.js"></script>
+    <link href="../css/common/swiper.min.css" rel="stylesheet">
+    <style type="text/css">
+    .title{font-size:24px;text-align:center}
+    </style>
+</head>
+<body>
+<!-- 头部 -->
+<% include("/common/header1.html"){}%>
+<!-- 内容 -->
+<div class="dper-main-sy" id="dper-main-sy">
+    <!-- 左边 -->
+    <div class="main-left">
+        <% include("/common/leftnr.html"){}%>
+    </div>
+    <!-- 右边 -->
+    <div class="main-right">
+        <div class="right-nr">
+            <div class="nr-asd">
+                <!-- 轮播 -->
+                <div>
+                     <% include("/common/lunboApp.html"){}%> 
+                </div>
+                <!-- 各种模块 -->
+                <div id="kssfm" style="display:none;width: 100%">
+                    <div class="moudle-msg">
+                        <div class="msg-ft">
+                            <div class="ft-s">
+                                <div class="ft-s-txt">看守所</div>
+                            </div>
+                            <div class="ft-hh">
+                                <a href="#" class="hh-all" data-toggle="modal" value="看守所" classfics="1" data-target="#addAppModal">
+                                    <div class="all-btn">
+                                        <div class="all-nr">
+                                            <div class="all-nr-txt">
+                                                <div>查看全部</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--<div class="msg-sd">热门游戏的配套扩展程序</div>-->
+                    </div>
+                </div>
+                <div id="kssAppList" style="display:none;visibility: visible">
+                                                                
+                </div>
+                <div id="jlsfm" style="display:none;">
+                    <div class="moudle-msg">
+                        <div class="msg-ft">
+                            <div class="ft-s">
+                                <div class="ft-s-txt">拘留所</div>
+                            </div>
+                            <div class="ft-hh">
+                                <a href="#" class="hh-all" data-toggle="modal" value="拘留所" classfics="2" data-target="#addAppModal">
+                                    <div class="all-btn">
+                                        <div class="all-nr">
+                                            <div class="all-nr-txt">
+                                                <div>查看全部</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--<div class="msg-sd">热门游戏的配套扩展程序</div>-->
+                    </div>
+                </div>
+                <div id="jlsAppList" style="display:none;visibility: visible">
+                                                                
+                </div>
+                <div id="jdsfm" style="display:none;">
+                    <div class="moudle-msg">
+                        <div class="msg-ft">
+                            <div class="ft-s">
+                                <div class="ft-s-txt">戒毒所</div>
+                            </div>
+                            <div class="ft-hh">
+                               <a href="#" class="hh-all" data-toggle="modal" value="戒毒所" classfics="3" data-target="#addAppModal">
+                                    <div class="all-btn">
+                                        <div class="all-nr">
+                                            <div class="all-nr-txt">
+                                                <div>查看全部</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a> 
+                                </div>
+                        </div>
+                        <!--<div class="msg-sd">热门游戏的配套扩展程序</div>-->
+                    </div>
+                </div>
+                <div id="jdsAppList" style="display:none;visibility: visible">
+                                                                
+                </div>
+                <div id="srjyfm" style="display:none;">
+                    <div class="moudle-msg">
+                        <div class="msg-ft">
+                            <div class="ft-s">
+                                <div class="ft-s-txt">收容教育</div>
+                            </div>
+                            <div class="ft-hh">
+                             <a href="#" class="hh-all" data-toggle="modal" value="安康医院" classfics="4" data-target="#addAppModal">
+                                    <div class="all-btn">
+                                        <div class="all-nr">
+                                            <div class="all-nr-txt">
+                                                <div>查看全部</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a> 
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="srjyAppList" style="display:none;visibility: visible">
+                                                                
+                </div>
+                <div id="jhylsfm" style="display:none;">
+                    <div class="moudle-msg">
+                        <div class="msg-ft">
+                            <div class="ft-s">
+                                <div class="ft-s-txt">监护医疗所</div>
+                            </div>
+                            <div class="ft-hh">
+                             <a href="#" class="hh-all" data-toggle="modal" value="安康医院" classfics="5" data-target="#addAppModal">
+                                    <div class="all-btn">
+                                        <div class="all-nr">
+                                            <div class="all-nr-txt">
+                                                <div>查看全部</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a> 
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="jhylsAppList" style="display:none;visibility: visible">
+                                                                
+                </div>
+                <div id="qzylsfm" style="display:none;">
+                    <div class="moudle-msg">
+                        <div class="msg-ft">
+                            <div class="ft-s">
+                                <div class="ft-s-txt">强制医疗所</div>
+                            </div>
+                            <div class="ft-hh">
+                             <a href="#" class="hh-all" data-toggle="modal" value="安康医院" classfics="6" data-target="#addAppModal">
+                                    <div class="all-btn">
+                                        <div class="all-nr">
+                                            <div class="all-nr-txt">
+                                                <div>查看全部</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a> 
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="qzylsAppList" style="display:none;visibility: visible">
+                                                                
+                </div>
+                <div id="jgzdfm" style="display:none;">
+                    <div class="moudle-msg">
+                        <div class="msg-ft">
+                            <div class="ft-s">
+                                <div class="ft-s-txt">监管总队</div>
+                            </div>
+                            <div class="ft-hh">
+                              <a href="#" class="hh-all" data-toggle="modal" classfics="0" value="监管总队" data-target="#addAppModal">
+                                    <div class="all-btn">
+                                        <div class="all-nr">
+                                            <div class="all-nr-txt">
+                                                <div>查看全部</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a> 
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="jgzdAppList" style="display:none;visibility: visible">
+                                                                
+                </div>
+                <div id="qtfm" style="display:none;">
+                    <div class="moudle-msg">
+                        <div class="msg-ft">
+                            <div class="ft-s">
+                                <div class="ft-s-txt">其他</div>
+                            </div>
+                            <div class="ft-hh">
+                               <a href="#" class="hh-all" data-toggle="modal" classfics="9" value="其他" data-target="#addAppModal">
+                                    <div class="all-btn">
+                                        <div class="all-nr">
+                                            <div class="all-nr-txt">
+                                                <div>查看全部</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a> 
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                
+               <!--     查看更多 -->
+            <div class="modal fade" id="addAppModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"   >
+	  			<div class="modal-dialog modal-lg" role="document" aglin="center" style="width: 81%;height: 85%">
+	    			<div class="modal-content" style="margin-top:100px;height:100%" >
+	    			<div class="modal-header" >
+	    			<header class="tenant-model-header">
+	    			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          				  <h4 class="modal-title"></h4>
+        			</header>
+        			</div>
+        			<div class="row form-inline" style="margin-top:10px;margin-left:32%">
+	        			<div class="col-xs-6" style="width:100%">
+							<label>
+						   		<input type="text" class="form-control" id="appNamefm" placeholder="请输入应用名称...">
+						    </label>
+						    &nbsp;&nbsp;&nbsp;&nbsp;
+						    <label class="btn btn-primary" id="queryfm">查询</label>&nbsp;
+						</div>
+					</div>
+        			<div aglin="center" id="allapp" class="Allapps" style="visibility: visible;margin-left:7%;height:71%;">
+               		</div>
+               		<div style="width:800px;margin:0 auto;">
+					<!-- <div id="kkpager" style="padding:20px 0px 0px 5px !important;"></div> -->
+					<div id="kkpager"></div>
+					</div>
+	    			</div>
+	    		</div>
+	    	</div>
+                <div id="qtAppList" style="display:none;visibility: visible">
+                                                                
+                </div>
+            </div>
+            <div class="show-more">
+                <!-- <div class="shwo-more-txt">查看更多内容</div>
+                <div class="show-more-loading">
+                    <div class="more-loading">
+                        <div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div>  <!-- ajax 状态码 非200 弹出窗-->
+        <div class="modal fade" tabindex="-1" id="unseccessfulPost" >
+            <div class="modal-dialog" >
+                <div class="modal-content" style="width:50%;left:33%;">
+                    <div class="modal-header">
+                        <h4 class="modal-title">提示</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p style="color:cornflowerblue;font-size:1.5rem;">请求状态码非200时弹出此框</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button " class="btn btn-primary" data-dismiss="modal" style="padding:6px 24px">确认</button>
+                        <button type="button" class="btn btn-default"  data-dismiss="modal" style="padding:6px 24px;margin-left:34px;">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- loginmodal -->
+<% include("/common/loginmodal.html"){}%>
+<script type="text/javascript" src="../js/appjs/app.common.js"></script>
+<script type="text/javascript" src="../js/appjs/app.js"></script>
+<script type="text/javascript" src="../js/appjs/appIndex.js"></script>
+<script type="text/javascript" src="../js/appjs/zTree.js"></script>
+</body>
+</html>

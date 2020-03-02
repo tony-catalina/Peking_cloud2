@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.LshjDao">
+    <select id="lshjInfo" parameterType="String" resultType="java.util.HashMap">
+        select
+        k.dz,
+        k.kssmc,
+        k.jsbh,
+        count(j.jsbh) as count
+        from kss k
+        left join lshj j
+        on k.jsbh = j.jsbh
+        <where>
+
+            <if test="hjsj!=null and hjsj!=''">
+                and j.hjsj &gt;= #{hjsj}
+            </if>
+            <if test="jssj!=null and jssj!=''">
+                and j.jssj &lt;= #{jssj}
+            </if>
+        </where>
+        group by dz,kssmc
+    </select>
+
+<!--    上位机版本律师会见-->
+    <select id="swj_lshjInfo" parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisResultVO">
+        select
+        k.dz,
+        k.jsbh,
+        count(j.jsbh) as count
+        from kss k
+        left join lshj j
+        on k.jsbh = j.jsbh
+        <where>
+
+            <if test="hjsj!=null and hjsj!=''">
+                and j.hjsj &gt;= #{hjsj}
+            </if>
+            <if test="jssj!=null and jssj!=''">
+                and j.jssj &lt;= #{jssj}
+            </if>
+        </where>
+        group by dz,kssmc
+    </select>
+
+    <select id="getLshjCount" resultType="Integer">
+        select count(*) as count from lshj
+        <where>
+            state = "R2"
+            <if test="jsbh!=null and jsbh!=''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

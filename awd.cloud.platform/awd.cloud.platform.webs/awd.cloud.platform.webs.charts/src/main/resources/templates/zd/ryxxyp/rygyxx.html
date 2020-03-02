@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="img/core-img/favicon.ico">
+    <!-- These plugins only need for the run this page -->
+    <link rel="stylesheet" href="css/default-assets/notification.css">
+    <link rel="stylesheet" href="css/c3.min.css">
+    <!-- Master Stylesheet [If you remove this CSS file, your file will be broken undoubtedly.] -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="vertical-dark">
+<div class="container-fluid" style='width:100%;'>
+    <div class="row">
+        <div class="col-md-6 col-xl-3 mb-30">
+            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="200ms">
+                <div class="card-body">
+                    <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between">
+                        <h6 class="text-black">关押期限分析</h6>
+                        <div class="dashboard-dropdown">
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                    <a class="dropdown-item popwin" href="#" url="html/zdEcharts/gyqxfx/gyqxfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                    <a class="dropdown-item" href="#"><i class="ti-settings"></i> 模型设置</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <img src="./js/images/gyqxfx.png" alt=""class="imgs"/>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 mb-30">
+            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="300ms">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                            <h6 class="text-black">超期羁押分析</h6>
+                            <div class="dashboard-dropdown">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                        <a class="dropdown-item popwin" href="#" url="html/zdEcharts/cqjyqkfx/cqjyqkfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="./js/images/cqjyqkfx.png" alt=""class="imgs"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 mb-30">
+            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="400ms">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                            <h6 class="text-black">重点人员分析</h6>
+                            <div class="dashboard-dropdown">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                        <a class="dropdown-item popwin start" href="#" url="html/zdEcharts/zdryfx/zdryfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="./js/images/zdryfx.png" alt="" class="imgs"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 mb-30">
+            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="500ms">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                            <h6 class="text-black">人员就医情况分析</h6>
+                            <div class="dashboard-dropdown">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                        <a class="dropdown-item popwin" href="#" url="html/zdEcharts/ryjyqkfx/ryjyqkfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="./js/images/ylqkfx.png" alt="" class="imgs"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-xl-3 mb-30">
+            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="200ms">
+                <div class="card-body">
+                    <div class="sparkline-chart">
+                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                            <h6 class="text-black">涉黑涉恶人员统计分析</h6>
+                            <div class="dashboard-dropdown">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                        <a class="dropdown-item popwin" href="#" url="html/zdEcharts/shserytj/shserytj.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="./js/images/shserytj.png" alt="" class="imgs"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 mb-30">
+            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="300ms">
+                <div class="card-body">
+                    <div class="sparkline-chart">
+                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                            <h6 class="text-black">留所服刑分析</h6>
+                            <div class="dashboard-dropdown">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                        <a class="dropdown-item popwin" href="#" url="html/zdEcharts/lsfxfx/lsfxfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="./js/images/lsfxfx.png" alt="" class="imgs"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 mb-30">
+            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="300ms">
+                <div class="card-body">
+                    <div class="sparkline-chart">
+                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                            <h6 class="text-black">违规情况分析</h6>
+                            <div class="dashboard-dropdown">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                        <a class="dropdown-item popwin" href="#" url="html/zdEcharts/wgqkfx/wgqkfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="./js/images/wgqkfx.png" alt="" class="imgs"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 mb-30">
+            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="300ms">
+                <div class="card-body">
+                    <div class="sparkline-chart">
+                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                            <h6 class="text-black">人员管理情况分析</h6>
+                            <div class="dashboard-dropdown">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                        <a class="dropdown-item popwin" href="#" url="html/zdEcharts/ryglqkfx/ryglqkfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="./js/images/ryglqkfx.png" style="height:155px;" alt="" class="imgs"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        
+        <div class="col-12 col-md-4 mb-30">
+            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="300ms">
+                <div class="card-body">
+                    <div class="sparkline-chart">
+                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                            <h6 class="text-black">在所状态</h6>
+                            <div class="dashboard-dropdown">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                        <a class="dropdown-item popwin" href="#" url="html/zdEcharts/zsztfx/zsztfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="./js/images/zsztfx.png" style="height:230px;" alt="" class="imgs"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-30">
+            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="300ms">
+                <div class="card-body">
+                    <div class="sparkline-chart">
+                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                            <h6 class="text-black">会见人数分析</h6>
+                            <div class="dashboard-dropdown">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                        <a class="dropdown-item popwin" href="#" url="html/zdEcharts/hjrsfx/hjrsfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="./js/images/hjrsfx.png" style="height: 231px;" alt="" class="imgs"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-30">
+            <div class="card bg-boxshadow full-height wow fadeInUp" data-wow-delay="300ms">
+                <div class="card-body">
+                    <div class="sparkline-chart">
+                        <div class="notifications-card-heading border-bottom d-flex align-items-center justify-content-between" style="width: 100%">
+                            <h6 class="text-black">吸毒人员分析</h6>
+                            <div class="dashboard-dropdown">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dashboardDropdown20">
+                                        <a class="dropdown-item popwin" href="#" url="html/zdEcharts/xdryfx/xdryfx.html"><i class="ti-pencil-alt"></i> 预览</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="./js/images/xdryfx.png" alt="" class="imgs"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="footer-area d-flex align-items-center flex-wrap">
+        <!-- Copywrite Text -->
+        <div class="copywrite-text">
+            <!-- <p>Admetro &copy; 2019 created by <a href="https://themeforest.net/user/designing-world">Designing World</a></p> -->
+        </div>
+    </footer>
+</div>
+</div>
+<script type="text/javascript" src="js/seajs/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        base: "./js",
+        preload: ["plugins/jquery/jquery-3.3.1.min","admetro.bundle.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('pages/show');
+</script>
+</body>
+</html>

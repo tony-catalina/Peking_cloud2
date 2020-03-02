@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深挖犯罪</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class="swfx">
+        <div class="button">
+            <div id="changeBar">表格</div> 
+        </div>
+        <div  id="swfzfx"></div>
+        <div cellspacing="0" class="tableBar">
+            <div class="swfxTable">
+                <div>深挖犯罪</div>
+            </div>
+            <div class='cs'>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;"></div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">北京市</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">东城区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">西城区</div style="width:80px;">
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">朝阳区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">丰台区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">石景山区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">海淀区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">门头沟区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">房山区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">通州区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">顺义区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">昌平区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">大兴区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">平谷区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">怀柔区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">密云区</div>
+                <div style="width:100px;text-align:center;border:1px solid #62a0a8;">延庆区</div>
+            </div>
+        <table style="width:1354px;height:50px;margin-left:70px;" cellspacing="0">
+            <tbody id='tbodyResult'></tbody>  
+        </table>
+        </div>
+    </div>
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+var tbody = window.document.getElementById("tbodyResult")
+$("#changeBar").on("click",function(){
+    if($(this).text()=="表格"){
+        $(this).text("图表");
+        $.ajax({
+            url: '/kssdp/swfz',
+            type: "get",
+            dataType: "json",
+            success: function (res) {
+                var tbjd = '';
+                var jj = '';
+                var zs = '';
+                var rest=[];
+                var data = res.result
+
+                for(var i=0;i<data.jj.length;i++)
+                {
+                    rest[i] = data.jj[i] + data.tbjd[i];
+                }
+
+                console.log(rest,111111)
+               
+                for (var i=0;i< data.jj.length;i++) {   
+                    jj += "<td style='width:90px;height:50px;text-align:center;border:1px solid #62a0a8;'>" + data.jj[i] + "</td>";
+                } 
+                var jjfx = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#62a0a8;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #62a0a8">检举揭发</td>'+  jj + "</tr>"
+                for (var i=0;i< data.tbjd.length;i++) {   
+                    tbjd += "<td style='width:90px;height:50px;text-align:center;border:1px solid #62a0a8;'>" + data.tbjd[i] + "</td>";
+                }
+                var tbjdfx = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#62a0a8;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #62a0a8">坦白交代</td>' + tbjd + "</tr>"
+                for (var i=0;i< data.tbjd.length;i++) {   
+                    zs += "<td style='width:90px;height:50px;text-align:center;border:1px solid #62a0a8;'>" + rest[i] + "</td>";
+                }
+                var _zs = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#62a0a8;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #62a0a8">总数</td>' + zs + "</tr>"
+               
+                tbody.innerHTML = jjfx + tbjdfx + _zs; 
+            },error(error){
+                console.log(error)
+            }
+        })
+        
+        $('#swfzfx').css('visibility',"hidden")
+        $('.tableBar').css('visibility',"visible")
+    }else{
+        $(this).text("表格");
+        $('#swfzfx').css('visibility',"visible")
+        $('.tableBar').css('visibility',"hidden")
+    }
+})
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/zdEcharts/swfzfx/swfzfx');
+</script>
+<style> 
+     *{ 
+        padding:0;
+        margin:0;
+    }
+    #swfzfx{
+        margin-top:60px;
+        width: 100%;
+        height: 642px;
+    }
+    .swfx{
+        width:100%;
+        height:710px;
+        border:1px solid #62a0a8;
+        background:#ffffff;
+    }
+    .button{
+        width:120px;
+        float:right;
+        margin-top:10px;
+        height:50px;
+        line-height:50px;
+        color:#fff;
+    }
+    #changeBar{
+        width:70px;
+        height:38px;
+        line-height:38px;
+        text-align:center;
+        background:#62a0a8;
+        border-radius: 13px;
+        cursor:pointer;
+    }
+    .swfxTable{
+        width:1350px;
+        text-align:center;
+        height:50px;
+        border:1px solid #62a0a8;
+        font-size: 23px;
+        line-height:50px;
+        margin-left: 70px;
+        color:#62a0a8;
+        border-top:2px solid #62a0a8;
+        border-left:2px solid #62a0a8;
+        border-right:2px solid #62a0a8;
+    }
+    .tableBar{
+        visibility: hidden;
+        width:100%;
+        height:600px;
+        color: #62a0a8;
+        position: fixed;
+        top:60px;
+        left:0;
+    }
+    .cs{
+        margin-top:-1px;
+        display:flex;
+        width:1354px;
+        height:40px;
+        line-height:40px;
+        margin-left: 70px;
+        border-top:1px solid #62a0a8;
+        color:#62a0a8;
+    }
+    #tbodyResult{
+        width:1352px;
+        margin-left: 70px;
+        height:600px;
+    }
+</style>
+</body>
+</html>

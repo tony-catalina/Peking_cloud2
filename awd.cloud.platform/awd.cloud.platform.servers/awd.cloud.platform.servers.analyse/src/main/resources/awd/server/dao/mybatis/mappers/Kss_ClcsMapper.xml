@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.ClcsDao">
+    <select id="ClcsInfo" parameterType="String" resultType="java.util.HashMap">
+        select
+        k.dz,
+        k.kssmc,
+        k.jsbh,
+        count(j.jsbh) as count
+        from kss k
+        left join clcs j
+        on k.jsbh = j.jsbh
+        <where>
+            <if test="starttime != null">
+                and j.cssj &gt;= #{starttime}
+            </if>
+            <if test="endtime != null">
+                and j.cssj &lt;= #{endtime}
+            </if>
+        </where>
+        group by dz,kssmc
+    </select>
+
+<!--    出所查询上位机版本-->
+    <select id="swj_clcsInfo" parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisResultVO">
+        select
+        k.dz,
+        k.jsbh,
+        count(j.jsbh) as count
+        from kss k
+        left join clcs j
+        on k.jsbh = j.jsbh
+        <where>
+            <if test="starttime != null">
+                and j.cssj &gt;= #{starttime}
+            </if>
+            <if test="endtime != null">
+                and j.cssj &lt;= #{endtime}
+            </if>
+        </where>
+        group by dz,kssmc
+    </select>
+
+    <!--出所业务动态-->
+    <select id="clcsYwdt" parameterType="String" resultType="java.util.HashMap">
+        select  count(if(state='R7',true,null))as zrs,
+        count(if(state='R7' and csyy='05',true,null))as xmsf,
+        count(if(state='R7' and csyy='06',true,null))as casf,
+        count(if(state='R7' and csyy='09',true,null))as qbhs,
+        count(if(state='R7' and csyy='13',true,null))as js,
+        sum(case when state='R7' and
+        CSYY!='05' and CSYY !='06' and CSYY !='09' and csyy!='13'
+        then 1 else 0 end) as qt
+        from jbxx j
+        <where>
+            1=1
+            <if test="starttime != null and starttime != ''">
+                and date_format(j.cssj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(j.cssj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and j.jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

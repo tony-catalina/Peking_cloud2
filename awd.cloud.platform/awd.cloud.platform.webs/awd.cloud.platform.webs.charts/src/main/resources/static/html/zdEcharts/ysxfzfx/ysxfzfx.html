@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员涉嫌犯罪情况分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class="ysxfx">
+        <div class="button">
+            <div id="changeBar">表格</div> 
+        </div>
+        <div  id="ysxfzfx"></div>
+        <div cellspacing="0" class="tableBar">
+            <div class="ysxfxTable">
+                <div>员涉嫌犯罪情况分析</div>
+            </div>
+            <div class='cs'>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;"></div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">北京市</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">东城区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">西城区</div style="width:80px;">
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">朝阳区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">丰台区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">石景山区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">海淀区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">门头沟区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">房山区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">通州区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">顺义区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">昌平区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">大兴区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">平谷区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">怀柔区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">密云区</div>
+                <div style="width:100px;text-align:center;border:1px solid #61a0a8;">延庆区</div>
+            </div>
+        <table style="width:1354px;height:50px;margin-left:70px;" cellspacing="0">
+            <tbody id='tbodyResult'></tbody>  
+        </table>
+        </div>
+    </div>
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+var tbody = window.document.getElementById("tbodyResult")
+$("#changeBar").on("click",function(){
+    if($(this).text()=="表格"){
+        $(this).text("图表");
+        $.ajax({
+            url: '/kssdp/yzblfz',
+            type: "get",
+            dataType: "json",
+            success: function (res) {
+                var data = res.result
+                var gysh = '';
+                var fmdp = '';
+                var qj = '';
+                var gysr = '';
+                var qiangjie = '';
+                var fh = '';
+                var bz = '';
+                var td = ''; 
+                for (var i=0;i< data.gysh.length;i++) {   
+                    gysh += "<td style='width:90px;height:50px;text-align:center;border:1px solid #61a0a8;'>" + data.gysh[i] + "</td>";
+                }
+                var _gysh = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#61a0a8;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #61a0a8">故意伤害致人重伤或死亡</td>' + gysh + "</tr>"
+                for (var i=0;i< data.fmdp.length;i++) {   
+                    fmdp += "<td style='width:90px;height:50px;text-align:center;border:1px solid #61a0a8;'>" + data.fmdp[i] + "</td>";
+                } 
+                var _fmdp = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#61a0a8;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #61a0a8">贩卖毒品</td>'+  fmdp + "</tr>"
+                for (var i=0;i< data.qj.length;i++) {   
+                    qj += "<td style='width:90px;height:50px;text-align:center;border:1px solid #61a0a8;'>" + data.qj[i] + "</td>";
+                }
+                var _qj = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#61a0a8;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #61a0a8">强奸</td>' + qj + "</tr>"
+                for (var i=0;i< data.gysr.length;i++) {   
+                    gysr += "<td style='width:90px;height:50px;text-align:center;border:1px solid #61a0a8;'>" + data.gysr[i] + "</td>";
+                }
+                var _gysr = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#61a0a8;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #61a0a8">故意杀人</td>' + gysr + "</tr>"
+                for (var i=0;i< data.qiangjie.length;i++) {   
+                    qiangjie += "<td style='width:90px;height:50px;text-align:center;border:1px solid #61a0a8;'>" + data.qiangjie[i] + "</td>";
+                }
+                var _qiangjie = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#61a0a8;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #61a0a8">抢劫</td>' + qiangjie + "</tr>"
+                for (var i=0;i< data.fh.length;i++) {   
+                    fh += "<td style='width:90px;height:50px;text-align:center;border:1px solid #61a0a8;'>" + data.fh[i] + "</td>";
+                } 
+                var _fh = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#61a0a8;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #61a0a8">放火</td>'+  fh + "</tr>"
+                for (var i=0;i< data.bz.length;i++) {   
+                    bz += "<td style='width:90px;height:50px;text-align:center;border:1px solid #61a0a8;'>" + data.bz[i] + "</td>";
+                }
+                var _bz = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#61a0a8;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #61a0a8">爆炸</td>' + bz + "</tr>"
+                for (var i=0;i< data.td.length;i++) {   
+                    td += "<td style='width:90px;height:50px;text-align:center;border:1px solid #61a0a8;'>" + data.td[i] + "</td>";
+                }
+                var _td = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#61a0a8;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #61a0a8">投毒</td>' + td + "</tr>"
+               
+                tbody.innerHTML = _gysh + _fmdp + _qj + _gysr + _qiangjie + _fh + _bz + _td ; 
+            },error(error){
+                console.log(error)
+            }
+        })
+        //
+        $('#ysxfzfx').css('visibility',"hidden")
+        $('.tableBar').css('visibility',"visible")
+    }else{
+        $(this).text("表格");
+        $('#ysxfzfx').css('visibility',"visible")
+        $('.tableBar').css('visibility',"hidden")
+    }
+})
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/zdEcharts/ysxfzfx/ysxfzfx');
+</script>
+<style> 
+     *{ 
+        padding:0;
+        margin:0;
+    }
+    #ysxfzfx{
+        margin-top:60px;
+        width: 100%;
+        height: 642px;
+    }
+    .ysxfx{
+        width:100%;
+        height:710px;
+        border:1px solid #ffffff;
+        background:#ffffff;
+    }
+    .button{
+        width:120px;
+        float:right;
+        margin-top:10px;
+        height:50px;
+        line-height:50px;
+        color:#fff;
+    }
+    #changeBar{
+        width:70px;
+        height:38px;
+        line-height:38px;
+        text-align:center;
+        background:#61a0a8;
+        border-radius: 13px;
+        cursor:pointer;
+    }
+    .ysxfxTable{
+        width:1350px;
+        text-align:center;
+        height:50px;
+        border:1px solid #61a0a8;
+        font-size: 23px;
+        line-height:50px;
+        margin-left: 70px;
+        color:#61a0a8;
+        border-top:2px solid #61a0a8;
+        border-left:2px solid #61a0a8;
+        border-right:2px solid #61a0a8;
+    }
+    .tableBar{
+        visibility: hidden;
+        width:100%;
+        height:600px;
+        color: #61a0a8;
+        position: fixed;
+        top:60px;
+        left:0;
+    }
+    .cs{
+        margin-top:-1px;
+        display:flex;
+        width:1354px;
+        height:40px;
+        line-height:40px;
+        margin-left: 70px;
+        border-top:1px solid #61a0a8;
+        color:#61a0a8;
+    }
+    #tbodyResult{
+        width:1352px;
+        margin-left: 70px;
+        height:600px;
+    }
+</style>
+</body>
+</html>

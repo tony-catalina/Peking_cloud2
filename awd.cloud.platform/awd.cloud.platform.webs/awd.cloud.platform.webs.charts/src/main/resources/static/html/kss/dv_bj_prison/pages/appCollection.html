@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>北京市智慧监管平台（总队级）</title>
+  <link rel="stylesheet" href="../static/utils/pace/pace.min.css">
+  <link rel="stylesheet" href="../static/css/app.collection.css">
+  <script src="../static/utils/pace/pace.min.js"></script>
+  <script src="../static/utils/requirejs/require.min.js" data-main="./../static/config/rconfig"></script>
+<style>
+  .dper-app .content-box .public-w .p-bottom .roll-box .roll-itm:nth-child(1) {
+    width: 52.40625%;
+}
+.dper-app .content-box .public-w .p-bottom .roll-box .roll-itm:nth-child(1) .roll-name-box {
+    width: 45.294118%;
+}
+.dper-app .content-box .public-w .p-bottom .roll-box .roll-itm:nth-child(1) .roll-cont {
+    width: 53.705882%;
+}
+.dper-app .content-box .public-w .p-bottom .roll-box .roll-itm:nth-child(2) {
+    width: 42.59375%;
+}
+.dper-app .content-box .public-w .p-bottom .roll-box .roll-itm:nth-child(2) .roll-cont {
+    width: 63.116279%;
+}
+.dper-app .content-box .public-w .p-bottom .roll-box .roll-itm:nth-child(2) .roll-cont .roll-inside-box .roll-itm {
+  width: 11.636364%;
+}
+
+</style>
+</head>
+
+<body class="dper-overh">
+  <div class="dper-app font-18 bg-img-cover dper-full-h dper-por dper-overh co-white" data-hidden id="app">
+    <!-- 页头 -->
+    <div class="dper-head bg-img-full dper-overh">
+      <ul class="dper-menus dper-box dper-menus-left fl">
+        <li class="dper-menu font-16">
+          <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+          <!-- <a class="malign-center-text align-center dper-fw" href="/html/zd/mapall/index.html">首页</a> -->
+          <!-- <a class="malign-center-text align-center dper-fw" href="../../../zd/wxjs/pages/appIndex.html">首页</a> -->
+          <a class="malign-center-text align-center dper-fw" href="#" onclick="jump()">首页</a>
+        </li>
+        <li class="dper-menu font-16 active">
+          <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+          <a class="malign-center-text align-center dper-fw" href="javascript:void(0);">五型监所</a>
+        </li>
+        <li class="dper-menu font-16">
+          <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+          <a class="malign-center-text align-center dper-fw" href="#">在押人员</a>
+        </li>
+        <li class="dper-menu font-16">
+          <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+          <a class="malign-center-text align-center dper-fw" href="#">安全管控</a>
+        </li>
+      </ul>
+      <div class="dper-time-ctt fr">
+        <p class="dper-time align-center malign-center-text">
+          <span class="dper-time-t co-0058 font-14">----年--月--日</span><br>
+          <span class="dper-time-b co-0058 font-24 dper-fw"> --:--:--</span>
+        </p>
+      </div>
+      <ul class="dper-menus dper-box dper-menus-right fr align-right">
+        <li class="dper-menu font-16">
+          <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+          <a class="malign-center-text align-center dper-fw" href="#">队伍管理</a>
+        </li>
+        <li class="dper-menu font-16">
+          <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+          <a class="malign-center-text align-center dper-fw" href="#">民警执法</a>
+        </li>
+        <li class="dper-menu font-16">
+          <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+          <a class="malign-center-text align-center dper-fw" href="#">讼诉保障</a>
+        </li>
+      </ul>
+    </div>
+    <div class="content-box dper-box dper-por dper-clear z-level-2 dper-overh">
+      <div class="public-w left fl dper-full-h">
+        <div class="p-top">
+          <div class="child-header child-header-img bg-img-full dper-por">
+            <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+          </div>
+          <div class="child-cont font-16" dper-v id="box0">
+            <div class="top-child-itm top-pie">
+              <div class="pie-itm fl"></div>
+              <div class="pie-itm fl"></div>
+              <div class="pie-itm fl"></div>
+            </div>
+            <div class="top-child-itm top-bar"></div>
+            <div class="top-child-itm top-label dper-por">
+              <div class="cont-box malign-center dper-full-h dper-box"></div>
+            </div>
+          </div>
+        </div>
+        <div class="p-bottom">
+          <div class="child-header child-header-img bg-img-full dper-por">
+            <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+          </div>
+          <div class="child-cont" dper-v id="box1">
+            <div class="chart-box dper-full-h"></div>
+            <span class="small-value malign-tl dper-cursor z-level-4 align-center font-14"></span>
+            <span class="big-value malign-tl font-30 dper-cursor z-level-4"></span>
+            <span class="big-write malign-bl font-16"></span>
+            <div class="fit-line fit-line-img bg-img-full malign-tl z-level-1"></div>
+          </div>
+        </div>
+      </div>
+      <div class="public-w right fr dper-full-h">
+        <div class="p-top">
+          <div class="child-header child-header-img bg-img-full dper-por">
+            <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+          </div>
+          <div class="child-cont" dper-v id="box2">
+            <div class="top-bar"></div>
+            <div class="bottom-label"></div>
+          </div>
+        </div>
+        <div class="p-bottom">
+          <div class="child-header child-header-img bg-img-full dper-por">
+            <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+          </div>
+          <div class="child-cont" dper-v id="box3">
+            <div class="roll-box co-00c0ff font-14">
+              <div class="roll-itm fl dper-por dper-full-h">
+                <div class="roll-name-box dper-por dper-full-h">
+                  <span class="roll-write malign-center-text text-overflow-e roll-left"></span>
+                </div>
+                <div class="roll-cont roll-cont-left malign-center-right dper-full-h dper-fw co-white dper-cursor">
+                  <div class="roll-inside-box malign-center-left dper-full-w"></div>
+                </div>
+              </div>
+              <div class="roll-itm fl dper-por dper-full-h">
+                <div class="roll-name-box dper-por dper-full-h">
+                  <span class="roll-write malign-center-text text-overflow-e roll-right"></span>
+                </div>
+                <div class="roll-cont roll-cont-right malign-center-right dper-full-h dper-fw co-white">
+                  <div class="roll-inside-box malign-center-left dper-full-w"></div>
+                </div>
+              </div>
+            </div>
+            <div class="pie-bar-chart"></div>
+          </div>
+        </div>
+      </div>
+      <div class="center dper-full-h">
+        <div class="c-top dper-full-w dper-por z-level-2">
+          <div class="child-cont center-circle-img bg-img-full malign-center-top">
+            <div class="inside-box malign-tl dper-full-w dper-full-h">
+              <div class="inside-child dper-full-h z-level-6" dper-v id="box6"></div>
+              <span class="malign-center co-blue-head font-24 dper-fw la-title" id="la-title"></span>
+              <div
+                class="collection-center-circle collection-center-circle-img malign-center bg-img-full dper-full-w dper-full-h z-level-1">
+                <div class="light-itm malign-center bg-img-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="c-bottom">
+          <div class="child-header child-header-img bg-img-full dper-por z-level-1">
+            <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+            <!--          <div class="other-unit other-unit-img malign-center-left bg-img-full"></div>-->
+          </div>
+          <div class="child-cont" dper-v id="box7"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pop-box malign-bl dper-full-w z-level-6 dper-overh" id="pop">
+      <div class="back-btn pop-back-img malign-tr bg-img-full dper-cursor">
+        <span class="back-write font-18 malign-center-right z-level-1">返回</span>
+        <div class="malign-center dper-cursor dper-full-w dper-full-h z-level-6" id="backBtn"></div>
+      </div>
+      <div class="list-box pop-list-img bg-img-full malign-center">
+        <div class="inside-box malign-tl">
+          <div class="table-box dper-full-h" dper-v id="listPop">
+            <div class="table-header font-24 dper-fw co-4cc3fc"></div>
+            <div class="table-body dper-overh font-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    function jump() {
+      var url = ''
+      $.ajax({
+        url: "/getusers",
+        success: function (reult) {
+          // console.log(reult)
+          if (reult.jsbh == "110000000"||reult.yjsbh=="110000000") {
+            window.location.href = "/html/zd/mapall/index.html"
+          } else {
+            window.location.href = "../../../zd/wxjs/pages/appIndex.html"
+          }
+        }
+      })
+    }
+  </script>
+</body>
+
+</html>

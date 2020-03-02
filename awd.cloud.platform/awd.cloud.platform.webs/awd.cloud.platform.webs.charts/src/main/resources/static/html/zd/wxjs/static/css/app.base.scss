@@ -1,0 +1,103 @@
+// 重置
+@import "../utils/reset/reset";
+// 工具
+@import "../utils/dper/dperSass/dper.utils";
+// 公共
+@import "../utils/dper/dperSass/dper.utils.common";
+@import "cssUtils/col";
+@import "./cssUtils/animate.min.css";
+@import "./cssUtils/swiper.min.css";
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+html {
+  background-color: #122b63;
+  min-width: 1366px;
+  min-height: 768px;
+}
+$w: 1920;
+$h:1080;
+$width: 1880;
+$height: 1012;
+.dper-app {
+  background-image: url("../assets/img/dper.main.bg.jpg");
+  .dper-head {
+    height: cptSize(68,$h);
+    background-image: url("../assets/img/base/dper.main.title.png");
+    .dper-menus {
+      width: cptSize(528,$w);
+      height: 100%;
+      white-space: nowrap;
+      .dper-menu {
+        position: relative;
+        display: inline-block;
+        height: 100%;
+        cursor: pointer;
+        .dper-bg-ms {
+          width: 100%;
+          height: cptSize(40,68);
+          background-image: url("../assets/img/base/dper.main.menu.png");
+        }
+        a {
+          color: #7ca0e2;
+        }
+      }
+      .active {
+        .dper-bg-ms {
+          background-image: url("../assets/img/base/dper.main.menu.active.png");
+        }
+        a {
+          color: #fff;
+        }
+      }
+      .dper-menu:hover {
+        .dper-bg-ms {
+          background-image: url("../assets/img/base/dper.main.menu.active.png");
+        }
+        a {
+          color: #fff;
+        }
+      }
+    }
+    .dper-menus-left {
+      padding-left: cptSize(28,$w);
+      .dper-menu {
+        width: cptSize(174, 500);
+        margin-left: cptSize(-22, 500);
+      }
+      .dper-menu:first-child {
+        margin-left: 0;
+      }
+    }
+    .dper-menus-right {
+      .dper-menu {
+        width: cptSize(174, 528);
+        .dper-bg-ms {
+          -webkit-transform: translate(-50%, -50%) rotateY(180deg);
+          -moz-transform: translate(-50%, -50%) rotateY(180deg);
+          -ms-transform: translate(-50%, -50%) rotateY(180deg);
+          -o-transform: translate(-50%, -50%) rotateY(180deg);
+          transform: translate(-50%, -50%) rotateY(180deg);
+        }
+      }
+      .dper-menu {
+        margin-left: cptSize(-22, 528);
+      }
+      .dper-menu:last-child {
+        margin-right: 0;
+      }
+    }
+    .dper-time-ctt {
+      position: relative;
+      width: cptSize(174,$w);
+      height: 100%;
+    }
+  }
+  .content-box {
+    height: cptSize($height,$h);
+    padding: cptSize(20,$w);
+    padding-top: 0;
+  }
+}

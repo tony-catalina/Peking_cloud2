@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: awd.framework.expands:awd.framework.expands.rabbitmq:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/expands/awd.framework.expands.rabbitmq/1.0-SNAPSHOT/awd.framework.expands.rabbitmq-1.0-20200113.112510-34.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/expands/awd.framework.expands.rabbitmq/1.0-SNAPSHOT/awd.framework.expands.rabbitmq-1.0-20200113.112510-34-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/expands/awd.framework.expands.rabbitmq/1.0-SNAPSHOT/awd.framework.expands.rabbitmq-1.0-20200113.112510-34-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

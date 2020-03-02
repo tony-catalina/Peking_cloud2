@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全市监管总体概况</title>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" href="static/utils/pace/pace.min.css">
+    <link rel="stylesheet" href="static/utils/dper/dper.utils.css">
+    <link rel="stylesheet" href="static/css/app.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1322985_o3sbvij7opr.css">
+    <script src="static/utils/pace/pace.min.js"></script>
+    <script src="static/utils/requirejs/require.js" data-main="./static/config/rconfig"></script>
+    <!-- 星空 -->
+    <script src="./static/utils/start/prefixfree.min.js"></script>
+    <script src="./static/utils/start/stopExecutionOnTimeout.js"></script>
+
+    <style class="cp-pen-styles">
+        body {
+            background-size: 100%;
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);
+            }
+
+            100% {
+                transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(-360deg);
+            }
+        }
+
+        .stars {
+            transform: perspective(500px);
+            transform-style: preserve-3d;
+            position: absolute;
+            bottom: 0;
+            perspective-origin: 50% 100%;
+            left: 50%;
+            animation: rotate 90s infinite linear;
+        }
+
+        .star {
+            width: 3px;
+            height: 3px;
+            background: #7397a9;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: 0 0 -300px;
+            transform: translate3d(0, 0, -300px);
+            backface-visibility: hidden;
+        }
+
+        .star2 {
+            width: 3px;
+            height: 3px;
+            background: #f00;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: 0 0 -300px;
+            transform: translate3d(0, 0, -300px);
+            backface-visibility: hidden;
+        }
+
+        .fxone {
+            color: #FF0000 !important;
+        }
+
+        .fxtwo {
+            color: #D6A710 !important;
+        }
+
+        .fxthree {
+            color: #27B783 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dper-app dper-por dper-overh" style="display: none;" id="app">
+        <!-- 页头 -->
+        <div class="dper-head bg-img-full dper-overh font-20 lg-mmp-sb">
+            <ul class="dper-menus dper-box dper-menus-left fl" style="width: 20.95%;">
+                <li class="dper-menu active">
+                    <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+                    <a href="./index.html" class="malign-center-text align-center dper-fw">首页</a>
+                </li>
+                <li class="dper-menu">
+                    <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+                    <a href="/html/kss/dv_bj_prison/pages/appCollection.html"
+                        class="malign-center-text align-center dper-fw">五型监所</a>
+                </li>
+                <li class="dper-menu">
+                    <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+                    <a href="#" class="malign-center-text align-center dper-fw">在押人员</a>
+                </li>
+                <li class="dper-menu">
+                    <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+                    <a href="#" class="malign-center-text align-center dper-fw">安全管控</a>
+                </li>
+            </ul>
+
+            <ul class="dper-menus dper-box dper-menus-right fr align-right">
+                <li class="dper-menu">
+                    <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+                    <a href="#" class="malign-center-text align-center dper-fw">队伍管理</a>
+                </li>
+                <li class="dper-menu">
+                    <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+                    <a href="#" class="malign-center-text align-center dper-fw">规范执法</a>
+                </li>
+                <li class="dper-menu">
+                    <div class="dper-bg-ms malign-center bg-img-full dper-amt"></div>
+                    <a href="#" class="malign-center-text align-center dper-fw">诉讼保障</a>
+                </li>
+            </ul>
+        </div>
+        <!-- 主内容 -->
+        <div class="dper-wrap dper-overh z-level-4">
+            <!-- 左边-->
+            <div class="dper-sct dper-sct-l fl dper-box lg-mmp-sb" id="tab">
+                <div class="dper-asd-1 dper-bg-co dper-box dper-clear">
+                    <div class="tab-title font-16 co-white">
+                    </div>
+                    <div class="tab-body">
+                        <div class="t-b-left fl">
+                        </div>
+                        <div class="t-b-right fr">
+                        </div>
+                    </div>
+                </div>
+                <div class="dper-asd-tpl dper-asd-2 dper-box">
+                    <div class="dper-mhd bg-img">
+                        <!--                            <span class="dper-mhdtl font-22 dper-fw dper-fit">全市看守所办案环节分布情况</span>-->
+                        <span class="dper-mhdtl font-22 dper-fw">全市监所安全管控情况</span>
+                    </div>
+                    <div class="dper-mctt dper-bg-co co-white font-14" dper-v id="dper-dissta-jb">
+                        <div class="dper-lgds dper-lgds-l fl dper-full-h">
+                            <div class="list-header dper-por co-3dd4">
+                                <span class="malign-center-text text-overflow-e dper-fw font-16">单独关押情况</span>
+                            </div>
+                            <div class="list-body dper-overh"></div>
+                        </div>
+                        <div class="dper-lgds dper-lgds-r fr dper-full-h">
+                            <div class="list-header dper-por co-3dd4">
+                                <span class="malign-center-text text-overflow-e dper-fw font-16">使用械具情况</span>
+                            </div>
+                            <div class="list-body dper-overh"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dper-asd-tpl dper-asd-3 dper-box">
+                    <div class="dper-mhd bg-img">
+                        <span class="dper-mhdtl font-22 dper-fw">全市监所羁押分布情况</span>
+                    </div>
+                    <div class="dper-mctt dper-bg-co" dper-v id="dper-dissta-area"></div>
+                </div>
+                <div class="dper-asd-tpl dper-asd-4 dper-box dper-overh dper-cursor" id="popBtn0">
+                    <div class="dper-mhd bg-img">
+                        <span class="dper-mhdtl font-22 dper-fw">执法质量考评</span>
+                    </div>
+                    <div class="dper-mctt dper-bg-co" dper-v id="dper-dissta-state">
+                        <div class="dper-chart"></div>
+                        <div class="lg-pie-legend dper-full-h malign-center-left dper-overh font-14 co-white">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右边-->
+            <div class="dper-sct dper-sct-r fr dper-box lg-mmp-sb">
+                <div class="dper-asd-tpl dper-asd-1 dper-overh dper-box">
+                    <div class="dper-mhd bg-img">
+                        <span class="dper-mhdtl font-22 dper-fw">今日监所警力部署情况</span>
+                    </div>
+                    <div class="dper-cont dper-bg-co dper-overh" dper-v id="cond"></div>
+                </div>
+                <div class="dper-asd-tpl dper-asd-2 dper-box dper-overh dper-cursor" id="popBtn1">
+                    <div class="dper-mhd bg-img">
+                        <span class="dper-mhdtl font-22 dper-fw">今日全市出所就医情况</span>
+                    </div>
+                    <!--<div class="dper-mctt dper-bg-co" dper-v id="dper-sta-ar"></div>-->
+                    <div class="dper-mctt dper-bg-co" id="rank">
+                        <div class="dper-zzqkpm dper-zzqkpm-l dper-box fl">
+                            <div class="dper-zhd bg-img">
+                                <span
+                                    class="malign-center-text dper-box co-3dd4 font-16 dper-fw text-overflow-e">全市出所就医情况</span>
+                            </div>
+                            <div class="dper-zctt lg-left">
+                                <div class="dper-zview dper-overh">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dper-zzqkpm dper-zzqkpm-r dper-box fr">
+                            <div class="dper-zhd bg-img">
+                                <span
+                                    class="malign-center-text dper-box co-3dd4 font-16 dper-fw text-overflow-e">当日出所就医排名</span>
+                            </div>
+                            <div class="dper-zctt lg-right">
+                                <div class="dper-zview dper-overh font-16">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dper-asd-tpl dper-asd-3 dper-box">
+                    <div class="dper-mhd bg-img">
+                        <span class="dper-mhdtl font-22 dper-fw">全市被监管人员收押情况</span>
+                    </div>
+                    <div class="dper-mctt hmp-css dper-bg-co dper-overh dper-por dper-cursor" dper-v id="dper-sta-da">
+                        <div class="wrapper-box malign-tl dper-full-w dper-full-h dper-cursor z-level-2">
+                            <div class="line-itm dper-full-h"></div>
+                            <div class="line-itm dper-full-h"></div>
+                            <div class="line-itm dper-full-h"></div>
+                        </div>
+                        <div class="year-btn malign-tr font-16 co-white z-level-6">
+                            <div class="year-itm fl dper-cursor dper-full-h dper-por active" data-name="日">
+                                <span class="malign-center-text">日</span>
+                            </div>
+                            <div class="year-itm fl dper-cursor  dper-full-h dper-por" data-name="月">
+                                <span class="malign-center-text">月</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dper-asd-tpl dper-asd-4 dper-box dper-overh">
+                    <div class="dper-mhd bg-img">
+                        <span class="dper-mhdtl font-22 dper-fw">全市被监管人员案由分析情况</span>
+                    </div>
+                    <div class="dper-mctt dper-bg-co dper-por dper-overh font-16 dper-fw" dper-v id="dper-sta-gf">
+                        <div class="wrapper-box dper-full-w dper-full-h malign-tl dper-cursor">
+                            <div class="chart-box dper-full-h dper-por">
+                                <div class="dper-chart"></div>
+                                <div class="dper-legend">
+                                </div>
+                                <span class="malign-center-top rb-title-write co-white">看守所</span>
+                            </div>
+                            <div class="chart-box dper-full-h dper-por">
+                                <div class="dper-chart"></div>
+                                <div class="dper-legend">
+                                </div>
+                                <span class="malign-center-top rb-title-write co-white">拘留所</span>
+                            </div>
+                            <div class="chart-box dper-full-h dper-por">
+                                <div class="dper-chart"></div>
+                                <div class="dper-legend">
+                                </div>
+                                <span class="malign-center-top rb-title-write co-white">看守所</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 中边-->
+            <div class="dper-sct-c dper-box dper-por" id="btnBox">
+                <div class="dper-dymn lg-mmp-sb">
+                    <div class="mmp-inside dper-full-h" id="mmpSb">
+                        <div class="dper-bnzs fl dper-por">
+                            <span class="font-28 co-white malign-center-right co-blue-changevtl font-Mf"> 关押量</span>
+                        </div>
+                        <div class="dper-nms fl inside-box" id="numAnimate">
+                        </div>
+                        <div class="dper-unit fl" style="width: 15%;"></div>
+                    </div>
+                </div>
+                <!-- 上海市地图 -->
+                <div class="map-box dper-por map-0 bg-img-full" id="mapBg">
+                    <div class="dper-map" dper-v id="dper-map"></div>
+                    <i class="iconfont icon-star_full font-24 malign-tl co-f00 dper-cursor z-level-10"
+                        id="starFull"></i>
+                    <div class="star-detail-msg malign-tl z-level-10 co-white font-16" id="starMsg"></div>
+                </div>
+                <!-- 小地图 -->
+                <div class="cut-box lg-cut-child map-small-0 bg-img-full dper-cursor" data-number="0" data-off="true">
+                </div>
+                <!-- 小地图 -->
+                <div class="cut-box-other lg-cut-child map-small-2 malign-tr bg-img-full dper-cursor" data-number="1"
+                    data-off="true"></div>
+                <!-- 点击弹框 -->
+                <div class="btn-pop bg-img-full" id="pop">
+                    <div class="child malign-center" id="shpdxq">
+                        <div class="header font-16 co-white font-weight" id="pdxq">
+                        </div>
+                        <div class="cont">
+                            <div class="list-l list">
+                                <div class="img-box">
+                                    <div class="img">
+                                        <div class="img-child bg-img-full malign-center"></div>
+                                    </div>
+                                    <p class="co-87d0 p-odd font-14 " id="sjyl">设计押量：</p>
+                                    <br />
+                                    <!-- <p class="co-c74b p-even font-16 font-weight post-data">150人</p> -->
+                                    <p class="co-87d0 p-odd font-14 " id="zbjl">在编警力：</p>
+                                    <!-- <p class="co-c74b p-even font-16 font-weight post-data">120人</p> -->
+                                </div>
+                                <p class="co-87d0 p-public p-top font-12 " id="sld">所领导：
+                                    <!-- <span class="co-white post-data">萌碧萝殿下</span> -->
+                                </p>
+                                <p class="co-87d0 p-public p-center font-12 " id="dh">电话：
+                                    <!-- <span class="co-white post-data">55555555555</span> -->
+                                </p>
+                                <p class="co-87d0 p-public p-bottom font-12 " id="dz">地址：
+                                    <!-- <span class="co-white post-data">上海市嘉定区</span> -->
+                                </p>
+                            </div>
+                            <div class="list-r list">
+                                <div class="r-child" dper-v id="radar-pop"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 弹层 -->
+                <div class="dper-cityprm bg-img-full dper-overh lg-mmp-sb" dper-v id="dper-map-area">
+                    <p class="dper-chd">
+                        <a href="/html/zd/wxjs/pages/appIndex.html"><span
+                                class="dper-chdti malign-center-text dper-fw co-white font-20">高安市</span></a>
+                    </p>
+
+                    <div class="dper-cvi">
+                        <div class="dper-cvi-ctt dper-box">
+                            <div class="dper-cleft fl">
+                                <div class="dper-cleftctt malign-center-text align-left">
+                                    <div class="dper-cleft-itm">
+                                        <label class="dper-txt align-right font-18 co-white">在押总数: </label>
+                                        <span class="dper-val font-24 co-white dper-fw" id="zyzs"></span>
+                                    </div>
+                                    <div class="dper-cleft-itm">
+                                        <label class="dper-txt align-right font-18 co-white">男: </label>
+                                        <span class="dper-val font-24 co-white dper-fw"></span>
+                                    </div>
+                                    <div class="dper-cleft-itm">
+                                        <label class="dper-txt align-right font-18 co-white">女: </label>
+                                        <span class="dper-val font-24 co-white dper-fw"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dper-cleft fl">
+                                <div class="dper-cleftctt malign-center-text align-left">
+                                    <div class="dper-cleft-itm">
+                                        <label class="dper-txt align-right font-18 co-white">正在提审: </label>
+                                        <span class="dper-val font-24 co-white dper-fw"></span>
+                                    </div>
+                                    <div class="dper-cleft-itm">
+                                        <label class="dper-txt align-right font-18 co-white">正在律师会见: </label>
+                                        <span class="dper-val font-24 co-white dper-fw"></span>
+                                    </div>
+                                    <div class="dper-cleft-itm">
+                                        <label class="dper-txt align-right font-18 co-white">正在家属会见: </label>
+                                        <span class="dper-val font-24 co-white dper-fw"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dper-cleft fl">
+                                <div class="dper-cleftctt malign-center-text align-left">
+                                    <div class="dper-cleft-itm">
+                                        <label class="dper-txt align-right font-18 co-white fxone">一级风险: </label>
+                                        <span class="dper-val font-24 co-white dper-fw"></span>
+                                    </div>
+                                    <div class="dper-cleft-itm">
+                                        <label class="dper-txt align-right font-18 co-white fxtwo">二级风险: </label>
+                                        <span class="dper-val font-24 co-white dper-fw"></span>
+                                    </div>
+                                    <div class="dper-cleft-itm">
+                                        <label class="dper-txt align-right font-18 co-white fxthree">三级风险: </label>
+                                        <span class="dper-val font-24 co-white dper-fw"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dper-pop-box z-level-99 malign-center-bottom dper-full-w co-white dper-overh" id="popBox">
+            <div class="back-btn pop-back-btn malign-tr bg-img-full dper-cursor" id="backBtn">
+                <span class="back-write font-18 malign-center-right">返回</span>
+            </div>
+            <div class="list-box pop-list-img bg-img-full malign-center">
+                <div class="inside-box malign-tl">
+                    <div class="table-box dper-full-h" dper-v id="listPop">
+                        <div class="table-header font-24 dper-fw co-4cc3fc"></div>
+                        <div class="table-body dper-overh font-20"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 星空 -->
+    <div class="dper-sky">
+        <div class="stars"></div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $("#mapBg").mouseover(function () {
+        var strify = localStorage.getItem("idjsbhxf")
+        $.ajax({
+            url: '/zddp/select_GQSXX' + "?strify=" + strify, //地址
+            dataType: 'json', //数据类型
+            type: 'GET', //类型
+            timeout: 5000, //超时
+
+            //请求成功
+            success: function (res) {
+                console.log(res,1111222)
+                var result1 = res.mapResp[1].r
+                            localStorage.setItem("idzyzs",result1.zyzs)
+                            localStorage.setItem("idman",result1.man)
+                            localStorage.setItem("idwoman",result1.woman)
+                            localStorage.setItem("idzats",result1.zats)
+                            localStorage.setItem("idlshj",result1.lshj)
+                            localStorage.setItem("idjshj",result1.jshj)
+                            localStorage.setItem("idyj",result1.yj)
+                            localStorage.setItem("idej",result1.ej)
+                            localStorage.setItem("idsj",result1.sj)
+                var result = res.mapResp[0].l
+                // localStorage.setItem("sld",result.sld)
+                // localStorage.getItem("sld")
+                // var sld=localStorage.getItem("sld")
+                var str = '',
+                    str1 = '',
+                    str2 = '',
+                    str3 = '',
+                    str4 = '',
+                    str5 = '',
+                    str6 = '';
+                // console.log(res.mapResp[0].l)
+
+                // console.log(result)
+                str +=
+                    '<p class="co-c74b p-even font-16 font-weight post-data" style="margin-top:15px;">' +
+                    result.sjyl + '人' + '</p>';
+                $("#sjyl").append(str);
+                str1 +=
+                    '<p class="co-c74b p-even font-16 font-weight post-data" style="margin-top:15px;">' +
+                    result.zbjl + '人' +
+                    '</p>';
+                $("#zbjl").append(str1);
+                str2 += '<span class="co-white post-data">' + result.sld +
+                    '</span>';
+                $("#sld").append(str2);
+                str3 += '<span class="co-white post-data">' + result.dh +
+                    '</span>';
+                $("#dh").append(str3);
+                str4 += '<span class="co-white post-data">' + result.dz +
+                    '</span>';
+                $("#dz").append(str4);
+                str5 += '<p>' + result.name +
+                    '</p>';
+                $("#pdxq").append(str5);
+                
+            },
+            //失败/超时
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    console.log('請求超時');
+                    setTimeout(function () {
+                        console.log('重新请求');
+                    }, 5000);
+                }
+                //alert(errorThrown);
+            }
+        })
+        $("#dz span").empty();
+        $("#dh span").empty();
+        // $("#dz").empty();
+        $("#sjyl p").empty();
+        $("#zbjl p").empty();
+        $("#sld span").empty();
+        $("#pdxq p").text("");
+    });
+</script>

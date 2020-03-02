@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_SwdjDao">
+
+    <select id="swdjDt" parameterType="String" resultType="java.util.HashMap">
+        select
+              swsj,
+              swdd,
+              swjdjl,
+              swjddw,
+              swtzr,
+              operator
+                     from  swdj
+
+        <where>
+            <if test="starttime != null and starttime != ''">
+                tbrq = #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and tbrq = #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <select id="swdj" parameterType="String" resultType="java.util.HashMap">
+        select count(sfjd) as swdj,count(sfjd='1' or null) as swdjjd
+        from swdj
+        <where>
+            <if test="starttime != null and starttime != ''">
+                and date_format(swsj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(swsj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+</mapper>

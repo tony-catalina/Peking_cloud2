@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.mis.servers.dao.InterfaceDao">
+    <resultMap id="InterfaceResultMap" type="awd.mis.servers.entity.InterfaceEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="interfaceName" column="interface_Name" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="interfaceDescription" column="interface_Description" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="interfaceType" column="interface_Type" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="interfaceId" column="interface_Id" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="method" column="method" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="sfqy" column="sfqy" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="creator" column="creator" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>		
+		<result property="updator" column="updator" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>		
+		<result property="kfzd" column="kfzd" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="tablename" column="tablename" javaType="java.lang.String" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="InterfaceMap" type="awd.mis.servers.model.InterfaceModel">
+        <result property="id" column="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="interfaceName" column="interface_Name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="interfaceDescription" column="interface_Description" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="interfaceType" column="interface_Type" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="interfaceId" column="interface_Id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="method" column="method" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="sfqy" column="sfqy" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="creator" column="creator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="updator" column="updator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="bdzt" column="bdzt" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="ibdId" column="ibdId" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="tablename" column="tablename" javaType="java.lang.String" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'InterfaceResultMap'"/>
+        <bind name="tableName" value="'interface'"/>
+    </sql>
+
+    <insert id="insert" parameterType="awd.mis.servers.entity.InterfaceEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from app where id =#{id}
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="InterfaceResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>  
+    
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select>  
+    
+      <!-- 根据绑定的ppcode查询该api详细信息 -->
+    <select id="selectByappcode" parameterType="String" resultMap="InterfaceMap">
+    	select distinct interface.*,interfacebinding.id as ibdId from interface inner JOIN interfacebinding on interface.INTERFACE_ID=interfacebinding.INTERFACE_ID where interfacebinding.APPCODE=#{appcode}
+    	<if test="bdzt != '' and bdzt != null ">
+    	and interfacebinding.bdzt='${bdzt}'
+    	</if>
+        and interface.sfqy='1'
+    	limit ${start},${end}
+    </select>
+    <!-- 分页总记录数 -->
+     <select id="selectByappcodeCount" parameterType="String" resultType="int">
+    	select distinct count(1) from 
+    		(select distinct interface.* from interface inner JOIN interfacebinding on interface.INTERFACE_ID=interfacebinding.INTERFACE_ID where interfacebinding.APPCODE=#{appcode}
+    			<if test="bdzt != '' and bdzt != null ">
+    			and interfacebinding.bdzt='${bdzt}'
+    			</if>
+                and interface.sfqy='1'
+    		) a
+    </select>
+
+	<!-- 获取api节点父菜单种类 -->
+	<select id="getApiParentNode" resultMap="InterfaceResultMap">
+		select DISTINCT interface_type from interface
+	</select>
+
+    <select id="getTableGroup" parameterType="java.lang.String" resultType="java.lang.String">
+        select tablename from interface where INTERFACE_TYPE=#{type} and sfqy='1' GROUP BY tablename
+    </select>
+    <!-- 获取接口信息与appcode对应的接口绑定状态   -->
+    <select id="selectInterfaceAndBdzt" parameterType="java.util.Map" resultMap="InterfaceMap">
+        select interface.*,(select bdzt from interfacebinding where interface.INTERFACE_ID = interfacebinding.INTERFACE_ID and interfacebinding.APPCODE=#{appcode}) bdzt,
+        (select id as ibdId from interfacebinding where interface.INTERFACE_ID = interfacebinding.INTERFACE_ID and interfacebinding.APPCODE=#{appcode}) ibdId
+        from interface
+        where sfqy='1'
+        <if test="interfaceType!=null and interfaceType!='' and interfaceType!='undefined'">
+            and INTERFACE_TYPE='${interfaceType}'
+        </if>
+        <if test="id!=null and id!='' and id!='undefined'">
+            and interface.id=#{id}
+        </if>
+        <if test="description!=null and description!='' and description!='undefined'">
+            and interface.INTERFACE_DESCRIPTION like '%${description}%'
+        </if>
+        <if test="tablename!=null and tablename!='' and tablename!='undefined'">
+            and interface.tablename = #{tablename}
+        </if>
+        order by bdzt desc
+        limit ${start},${end}
+    </select>
+    <!-- 获取对应interface_type对应的接口总数 -->
+    <select id="selectInterfaceCount" parameterType="java.util.Map" resultType="int">
+        select count(1) from interface where sfqy='1' and INTERFACE_TYPE='${interfaceType}'
+        <if test="id!=null and id!='' and id!='undefined'">
+            and interface.id=#{id}
+        </if>
+        <if test="description!=null and description!='' and description!='undefined'">
+            and interface.INTERFACE_DESCRIPTION like '%${description}%'
+        </if>
+    </select>
+</mapper>

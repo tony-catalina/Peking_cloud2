@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_JbxxDao">
+
+	<!-- 超期==上位机版本-->
+	<select id="swj_cqjyCount"  parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisJlsResultVO">
+		select
+		k.dz,
+		k.jsbh,
+		count(j.jsbh) as count
+		from jls k
+		left join jbxx j
+		on k.jsbh = j.jsbh
+		<where>
+			((j.state='R8' and date_format(j.gyqx,"%Y%m%d") &lt; date_format(now(),"%Y%m%d")) or (j.state='R7' and date_format(j.gyqx,"%Y%m%d") &lt; date_format(j.cssj,"%Y%m%d") ))
+			<if test="starttime != null and starttime != ''">
+				and j.rsrq &gt;= #{starttime}
+			</if>
+			<if test="endtime != null and endtime != ''">
+				and j.rsrq &lt;= #{endtime}
+			</if>
+		</where>
+		group by dz,jsbh
+	</select>
+
+	<!-- 离婚=上位机版本 -->
+	<select id="swj_hyzklh" resultType="java.util.HashMap">
+		select count(id or null) sl,jsbh from jbxx
+		<where>
+			hyzk = "4"
+			<if test="starttime != null and starttime !=  ''">
+				and date_format(RSRQ,'%Y-%m-%d' ) &gt;= date_format(#{starttime},'%Y-%m-%d' )
+			</if>
+			<if test="endtime != null and endtime != ''">
+				and date_format(RSRQ,'%Y-%m-%d' ) &lt;=date_format(#{endtime},
+				'%Y-%m-%d' )
+			</if>
+		</where>
+		GROUP BY jsbh
+	</select>
+
+
+	<!-- 丧偶=上位机版本 -->
+	<select id="swj_hyzkso" resultType="java.util.HashMap">
+		select count(id or null) sl,jsbh from jbxx
+
+		<where>
+			hyzk = "3"
+			<if test="starttime != null and starttime !=  ''">
+				and date_format(RSRQ,'%Y-%m-%d' ) &gt;= date_format(#{starttime},   '%Y-%m-%d' )
+			</if>
+			<if test="endtime != null and endtime != ''">
+				and date_format(RSRQ,'%Y-%m-%d' ) &lt;=date_format(#{endtime},
+				'%Y-%m-%d' )
+			</if>
+		</where>
+		GROUP BY jsbh
+	</select>
+	<!-- 生理缺陷=上位机版本 -->
+	<select id="swj_jkzkslqx" resultType="java.util.HashMap">
+		select count(id or null) sl,jsbh from jkqk
+
+		<where>
+			jkzk = "4"
+			<if test="starttime != null and starttime !=  ''">
+				and date_format(RSRQ,'%Y-%m-%d' ) &gt;= date_format(#{starttime},   '%Y-%m-%d' )
+			</if>
+			<if test="endtime != null and endtime != ''">
+				and date_format(RSRQ,'%Y-%m-%d' ) &lt;=date_format(#{endtime},
+				'%Y-%m-%d' )
+			</if>
+		</where>
+		GROUP BY jsbh
+	</select>
+	<!-- 残疾=上位机版本 -->
+	<select id="swj_jkzkcj" resultType="java.util.HashMap">
+		select count(id or null) sl,jsbh from jkqk
+
+		<where>
+			jkzk = "5"
+			<if test="starttime != null and starttime !=  ''">
+				and date_format(RSRQ,'%Y-%m-%d' ) &gt;= date_format(#{starttime},   '%Y-%m-%d' )
+			</if>
+			<if test="endtime != null and endtime != ''">
+				and date_format(RSRQ,'%Y-%m-%d' ) &lt;=date_format(#{endtime},
+				'%Y-%m-%d' )
+			</if>
+		</where>
+		GROUP BY jsbh
+	</select>
+
+
+	<!--//-->
+
+	<!-- 离婚 -->
+	<select id="hyzklh" resultType="java.util.HashMap">
+		select count(id or null) sl,jsbh from jbxx where hyzk = "4" and state="R8" GROUP BY jsbh
+	</select>
+	<!-- 丧偶 -->
+	<select id="hyzkso" resultType="java.util.HashMap">
+		select count(id or null) sl,jsbh from jbxx where hyzk = "3" and state="R8" GROUP BY jsbh
+	</select>
+	<!-- 生理缺陷 -->
+	<select id="jkzkslqx" resultType="java.util.HashMap">
+		SELECT
+		count( j.id OR NULL ) sl,
+		j.jsbh
+		FROM
+		jbxx j LEFT JOIN jkqk k on j.RYBH=k.RYBH
+
+		WHERE
+		k.JKZK = "4"
+		AND j.state = "R8"
+		GROUP BY
+		j.jsbh
+	</select>
+	<!-- 残疾 -->
+	<select id="jkzkcj" resultType="java.util.HashMap">
+		SELECT
+		count( j.id OR NULL ) sl,
+		j.jsbh
+		FROM
+		jbxx j LEFT JOIN jkqk k on j.RYBH=k.RYBH
+		WHERE
+		k.jkzk = "5"
+		AND j.state = "R8"
+		GROUP BY
+		j.jsbh
+	</select>
+
+	<select id="queryClgyfxNum"  parameterType="String" resultType="java.util.HashMap">
+		select   d.rl, d.jsbh,d.dz as dz ,d.jlsmc as jsbhString,
+		count(a.jsbh) as sjrl,
+		(count(a.jsbh)/d.rl*100) as zb
+		from jls d LEFT JOIN jbxx a on d.jsbh=a.jsbh
+
+		<where>
+			a.STATE not in ('R3','R9')
+			<if test="starttime != null and starttime != ''">
+				and a.rsrq &gt;= #{starttime}
+			</if>
+			<if test="endtime != null and endtime != ''">
+				and a.rsrq &lt;= #{endtime}
+			</if>
+		</where>
+		group by jsbh,jsbhString,dz
+		ORDER BY d.JSBH
+	</select>
+
+	<select id="ZdryInfo" parameterType="String" resultType="java.util.HashMap">
+		select distinct d.jsbh as jsbh,d.jlsmc as jsbhString,d.dz as dz,IFNULL(t.nan,0) man,IFNULL(t.NV,0) woman,IFNULL(t.qt,0) qt
+		from jls d left join (select j.jsbh ,
+		sum(case when j.xb='1' then 1 else 0 end) as nan,
+		sum(case when j.xb='2' then 1 else 0 end) as nv,
+		sum(case when j.xb not in ('1','2') then 1 else 0 end) as qt
+		from jbxx j,zdzy z
+		<where>
+		j.state not in ('R3','R9') and j.zdzy='1' and j.rybh=z.rybh
+			<if test="starttime != null and starttime != ''">
+				and j.rsrq &gt;= #{starttime}
+			</if>
+			<if test="endtime != null and endtime != ''">
+				and j.rsrq &lt;= #{endtime}
+			</if>
+		</where>
+		group by j.jsbh order by j.jsbh)t on d.jsbh=t.jsbh
+		group by jsbh,jsbhString,dz
+		order by d.jsbh
+	</select>
+
+	<!-- 拘留所查看违规程度 -->
+	<select id="select_wgcd" resultType="java.util.LinkedHashMap">
+		select  COUNT(wgqk="0011" or null )as "qw",COUNT(wgqk="0012" or null )as "zd", COUNT(wgqk="0013" or wgqk="0014" or null )as "yz",
+		COUNT(wgqk or null) as "all"  from wgsjcl
+		where JSBH=#{jsbh} and state ="R2"
+	</select>
+	
+	<select id="select_wglx" resultType="java.util.LinkedHashMap">
+		select jsbh, COUNT(WGLX="1" or null ) as "监区违规", COUNT(WGLX="2" or null ) as "监室违规", COUNT(WGLX="3" or null ) as "人员违规" from xsjl
+		<where>
+			state ="R2"
+			<if test=" starttime !=null and starttime !='' ">
+				and date_format(jlsj,'%Y-%m-%d') &gt;=date_format(#{starttime},'%Y-%m-%d')
+			</if>
+			<if test=" endtime !=null and endtime !='' ">
+				and date_format(jlsj,'%Y-%m-%d') &lt;=date_format(#{endtime},'%Y-%m-%d')
+			</if>
+		</where>
+		GROUP BY JSBH
+	</select>
+
+	<select id="swj_wglx" parameterType="String" resultType="java.util.HashMap">
+		select distinct d.jsbh as jsbh,d.jlsmc as jsbhString,d.dz as dz,IFNULL(t.jqwg,0) jqwg,IFNULL(t.jswg,0) jswg,IFNULL(t.rywg,0) rywg,IFNULL(t.qt,0) qt
+		from jls d left join (select j.jsbh ,
+		sum(case when j.WGLX='1' then 1 else 0 end) as jqwg,
+		sum(case when j.WGLX='2' then 1 else 0 end) as jswg,
+		sum(case when j.WGLX='3' then 1 else 0 end) as rywg,
+		sum(case when j.WGLX not in('1','2','3') then 1 else 0 end) as qt
+		from xsjl j
+		<where>
+			j.state ='R2'
+			<if test="starttime != null and starttime != ''">
+				and j.jlsj &gt;= #{starttime}
+			</if>
+			<if test="endtime != null and endtime != ''">
+				and j.jlsj &lt;= #{endtime}
+			</if>
+		</where>
+		group by j.jsbh order by j.jsbh)t on d.jsbh=t.jsbh
+		group by jsbh,jsbhString,dz
+		order by d.jsbh
+	</select>
+
+	<!-- 超期-->
+	<select id="cqjyCount"  resultType="java.util.HashMap">
+		SELECT count(id) sl,jsbh FROM jbxx where state="R8" and date_format(gyqx,"%Y%m%d") &lt; date_format(now(),"%Y%m%d") GROUP BY jsbh
+	</select>
+
+	<!-- 各个所在押 -->
+	<select id="alljbxxCount"  resultType="java.util.HashMap">
+		SELECT count(id) sl,jsbh FROM jbxx where state="R8" GROUP BY jsbh
+	</select>
+
+	<!-- jls关押期限分析统计 -->
+	<select id="queryGyqxNum"  parameterType="String" resultType="java.util.HashMap">
+		SELECT m.jsbh,m.jsbhString,m.dz,IFNULL(sum(m.one), 0) one, IFNULL(sum(m.two), 0) two,
+		IFNULL(sum(m.three), 0) three,IFNULL(sum(m.four), 0) four,IFNULL(sum(m.five), 0) five
+		FROM (select distinct a.jsbh as jsbh, a.jlsmc as jsbhString,a.dz as dz,t.one one, t.two two,t.three three,t.four four,t.five five
+		from jls a left join (select b.jsbh as jsbh ,
+		sum(case when b.gyqx &lt;= DATE_ADD(b.rsrq,INTERVAL 3 month) or b.gyqx is null then 1 else 0 end) as one,
+		sum(case when b.gyqx &gt; DATE_ADD(b.rsrq,INTERVAL 3 month) and
+		b.gyqx &lt;= DATE_ADD(b.rsrq,INTERVAL 6 month) then 1 else 0 end) as two,
+		sum(case when b.gyqx  &gt; DATE_ADD(b.rsrq,INTERVAL 6 month) and
+		b.gyqx &lt;= DATE_ADD(b.rsrq,INTERVAL 1 year) then 1 else 0 end) as three,
+		sum(case when b.gyqx  &gt;DATE_ADD(b.rsrq,INTERVAL 1 year) and
+		b.gyqx &lt;= DATE_ADD(b.rsrq,INTERVAL 3 year) then 1 else 0 end) as four,
+		sum(case when b.gyqx &gt; DATE_ADD(b.rsrq,INTERVAL 3 year) then 1 else 0 end) as five
+		from jbxx b
+		<where>
+			b.STATE not in ('R3','R9')
+			<if test=" starttime !=null and starttime !='' ">
+				and date_format(b.RSRQ,'%Y-%m-%d')  &gt;=date_format(#{starttime},'%Y-%m-%d')
+			</if>
+			<if test=" endtime !=null and endtime !='' ">
+				and date_format(b.RSRQ,'%Y-%m-%d') &lt;=date_format(#{endtime},'%Y-%m-%d')
+			</if>
+		</where>
+		group by b.jsbh) t on a.jsbh = t.jsbh
+		order by a.jsbh) m
+		GROUP BY m.jsbh,m.jsbhString,m.dz
+	</select>
+
+	<select id="jls_rscx" parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisJlsResultVO">
+		select
+		k.dz,
+		k.jsbh,
+		count(j.jsbh) as count
+		from jls k
+		LEFT JOIN jbxx j
+		ON k.jsbh = j.jsbh
+		<where>
+			j.state in ("R7","R8")
+			<if test="starttime!=null and starttime!=''">
+				and j.rsrq &gt;= #{starttime}
+			</if>
+			<if test="endtime!=null and endtime!=''">
+				and j.rsrq &lt;= #{endtime}
+			</if>
+		</where>
+		GROUP BY k.dz,k.jsbh
+	</select>
+
+
+    <select id="zcrsCount" resultType="java.util.HashMap" parameterType="awd.framework.common.entity.Entity">
+     select count(rybh) rszrs,
+		(select count(rybh) from jbxx where state="R8") gyzl,
+		COUNT(xb=1 or null) AS man,
+		COUNT(xb=2 or null) AS woman,
+		COUNT(rsxz=10 or null) AS xzjl,
+		COUNT(rsxz=11 or null) AS sfjl,
+		COUNT(rsxz=12 or null) AS zajl,
+		COUNT(rsxz=14 or null) AS lsjy,
+		COUNT(rsxz=16 or null) AS bszr,
+		COUNT(rsxz=15 or null) AS wszr,
+		COUNT(rsxz=18 or null) AS wjr,
+		COUNT(rsxz!=10 and rsxz!=11 and rsxz!=12 and rsxz!=14 and rsxz!=15 and rsxz!=15 or null) AS rsyyqt,
+		COUNT(whcd &lt;40 or null) AS dzys,
+		COUNT(whcd &gt; 39 and whcd &lt; 70  or null) AS gz,
+		COUNT(whcd &gt; 69 and whcd &lt; 80  or null) AS cz,
+		COUNT(whcd &gt; 79 and whcd &lt; 90  or null) AS xx,
+		COUNT(whcd=90 or null) AS wm,
+		(select count(id) from xyr where state="R2" and czzt="06") yth,
+		(select count(rybh) from jbxx 
+		 <where>
+              HJD like "110%" and state = 'R8'
+           <if test="starttime != null and starttime != ''">
+                and date_format(rsrq,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(rsrq,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+		) bsr,
+		(select count(rybh) from jbxx 
+		 <where>
+              HJD not like "110%" and state = 'R8'
+           <if test="starttime != null and starttime != ''">
+                and date_format(rsrq,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(rsrq,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+		) wsr,
+		count(gj!=156 and gj!=158 and gj!=344 and gj!=446 or null) wgr from jbxx
+        <where>
+              state = 'R8'
+           <if test="starttime != null and starttime != ''">
+                and date_format(rsrq,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(rsrq,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+	
+    <select id="zyrsQuery" resultType="int">
+        select count(*) from  jbxx  where state="R8"
+    </select>
+    
+    <select id="jsxkh" parameterType="String" resultType="java.util.HashMap">
+       select count(DATE_FORMAT(RSRQ,"%Y-%m-%d")!=DATE_FORMAT(CREATETIME,"%Y-%m-%d") or null) rsbhgsj,
+       count(id) rskhsj,(select count(id) from clcs
+       <where>
+        state="R2" and jzyj="1" and szyj="1" and fgjldyj="1"
+            <if test="starttime != null and starttime != ''">
+                and DATE_FORMAT(CREATETIME,"%Y-%m") = #{starttime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+        ) cskhsj,
+       (select count(DATE_FORMAT(ncsrq,"%Y-%m-%d")!=DATE_FORMAT(cssj,"%Y-%m-%d")) from clcs
+        <where>
+        state="R2" and jzyj="1" and szyj="1" and fgjldyj="1"
+            <if test="starttime != null and starttime != ''">
+                and DATE_FORMAT(CREATETIME,"%Y-%m") = #{starttime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+        ) csbhgsj from jbxx 
+        <where>
+        state="R8"
+            <if test="starttime != null and starttime != ''">
+                and DATE_FORMAT(CREATETIME,"%Y-%m") = #{starttime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+	
+	<!-- 大屏在所人员 -->
+	<select id="dpzsry" parameterType="String" resultType="java.util.LinkedHashMap">
+		select count(DATE_FORMAT(rsrq,"%Y%m%d") = DATE_FORMAT(now(),"%Y%m%d") and state="R8" or null) "今日入所",
+		count(xb=1 and state="R8" or null) "女",count(xb=2 and state="R8" or null) "男",
+		count(xb!=1 and xb!=2 and state="R8" or null) "未知性别",
+		count(DATE_FORMAT(cssj,"%Y%m%d") = DATE_FORMAT(now(),"%Y%m%d") or null) "今日出所",
+		count(gj!=156 and gj!=158 and gj!=344 and gj!=446 and state="R8" or null) "外籍人员",
+		count(state="R8" or null) "在押总数",count(fxdj = 1 and state="R8" or null) "一级风险",
+		count(fxdj = 2 and state="R8" or null) "二级风险",
+		count(fxdj = 3 and state="R8" or null) "三级风险" from jbxx 
+ 			<where>
+            <if test="jsbh != null and jsbh != ''">
+                jsbh = #{jsbh}
+            </if>
+        </where>
+	 </select>
+	 
+	 <!-- 大屏安全管理 -->
+	<select id="dpaqgl" parameterType="String" resultType="java.util.HashMap">
+			select count(jj = 02 or null) "加载械具",
+			count(ygry = 02 or null) "严管人员",count(ay = 1301 or null) "涉恐",
+			count(ay = 1458 or ay = 1459 or ay = 1461 or ay = 1462 or ay = 1463 or ay = 1465 or ay=1466 or null) "涉毒",
+			count(zdzy = 1 or null) "重点人员" from jbxx
+		<where>
+		state="R8"
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+	 </select>
+	 
+	 	<!-- 提讯会见 -->
+	 	<select id="dptxhj" parameterType="String" resultType="java.util.HashMap">
+		 	select count(crjbj = 02 or null) "提讯",count(crjbj = 06 or null) "家属会见",count(crjbj = 04 or null) "律师会见" from jbxx
+		 	<where>
+				state="R8"
+	            <if test="jsbh != null and jsbh != ''">
+	                and jsbh = #{jsbh}
+	            </if>
+	        </where>
+	 	 </select>
+	 	 
+	 	 <!-- 大屏关押期限 -->
+	 	<select id="dpcqjy" parameterType="String" resultType="java.util.HashMap">
+	 		select count(DATE_FORMAT(gyqx,"%Y%m%d")&lt;DATE_FORMAT(now(),"%Y%m%d") or null) "超期",
+	 		count(DATE_FORMAT(gyqx,"%Y%m%d") &lt;=DATE_FORMAT(date_add(now(), interval 3 day),"%Y%m%d") and DATE_FORMAT(gyqx,"%Y%m%d")&gt;=DATE_FORMAT(now(),"%Y%m%d") or null) "三天内到期" 
+	 		from jbxx
+	 		<where>
+				state="R8"
+	            <if test="jsbh != null and jsbh != ''">
+	                and jsbh = #{jsbh}
+	            </if>
+	        </where>
+	 	</select>
+	 	
+	 	
+	 	 <!-- 大屏诉讼情况分类 -->
+	 	<select id="dprsxz" parameterType="String" resultType="java.util.HashMap">
+	 		select count(rsxz = 10 or null) "行政拘留",
+	 		count(rsxz = 11 or null) "司法拘留",
+	 		count(rsxz = 12 or null) "拘留审查",
+	 		count(rsxz = 13 or null) "现场拘留",
+	 		count(rsxz = 14 or null) "临时寄拘",
+	 		count(rsxz = 15 or null) "外省市转入",
+	 		count(rsxz = 16 or null) "本省市转入",
+	 		count(rsxz = 17 or null) "异地拘留",
+	 		count(rsxz = 18 or null) "外国籍人待遣",
+	 		count(rsxz = 19 or null) "港澳台居民待遣",
+	 		count(rsxz = 20 or null) "撤销出所治疗",
+	 		count(rsxz not in (10,11,12,13,14,15,16,17,18,19,20,21) or null) "其他" from jbxx
+	 		<where>
+				state="R8"
+	            <if test="jsbh != null and jsbh != ''">
+	                and jsbh = #{jsbh}
+	            </if>
+	        </where>
+	 	</select>
+	 	
+	 	<!-- 大屏案由分类 -->
+	 	<select id="dpajlb" parameterType="String" resultType="java.util.HashMap">
+	 	select count(ay in (1312,1315,4102,4107) or null) "殴打他人",
+	 	count(ay in (1441,3302) or null) "无证驾驶",
+	 	count(ay in (1120,1121) or null) "寻衅滋事",
+	 	count(ay in (1456,1457,1466) or null) "参与赌博",
+	 	count(ay in (1204,1208,1211,1222,1325) or null) "盗窃",
+	 	count(ay in (1402) or null) "阻碍执行职务",
+	 	count(ay in (13,1314) or null) "侵犯人身权利、财产权利",
+	 	count(ay in (1458,1459,1461,1462,1463,1465,1466,4212,4213) or null) "毒品违法活动",
+	 	count(ay not in (1312,1315,4102,4107,1441,3302,1120,1121,1456,1457,1466,1204,1208,1211,1222,1325,1402,13,1314,1458,1459,1461,1462,1463,1465,1466,4212,4213,11,1102,1103,1107,1108,1117,1118,1119) or null) "其他" ,
+	 	count(ay in (11,1102,1103,1107,1108,1117,1118,1119) or null) "扰乱公共秩序"
+	 	from jbxx
+	 	<where>
+				state="R8"
+	            <if test="jsbh != null and jsbh != ''">
+	                and jsbh = #{jsbh}
+	            </if>
+	        </where>
+	 	</select>
+	 	
+	 	<!-- 分所大屏各监区滑动卡牌 -->
+	 	<select id="dpjqhdkp" parameterType="String" resultType="java.util.HashMap">
+	 	select substring(jsh,1,2) name,
+	 	count(state="R8" or null) val0,
+	 	count(xb = 2 and state="R8" or null) val01,
+	 	count(DATE_FORMAT(rsrq,"%Y%m%d") = DATE_FORMAT(now(),"%Y%m%d") and state="R8" or null) val1,
+	 	count(DATE_FORMAT(cssj,"%Y%m%d") = DATE_FORMAT(now(),"%Y%m%d") or null) val11,count(fxdj = 1 or null) val2,
+	 	count(fxdj = 2 or null) val3,count(fxdj = 3 or null) val4 from jbxx 
+	 		<where>
+	            <if test="jsbh != null and jsbh != ''">
+	               jsbh = #{jsbh}
+	            </if>
+	        </where>
+	 	GROUP BY substring(jsh,1,2)+"%"
+	 	</select>
+    <!--在押人员中间一块-->
+	<select id="dpzyryFxys" resultType="java.util.HashMap">
+		select if(ay in(1458,1459,1461,1462,1463,1465,1466,4212,4213),1,0) "涉毒人员",
+		if((select count(*) from jbxx where zjh in (select zjh from jbxx where RYBH= #{rybh}))&gt;1,1,0) "多次入所",
+		if(ay in (9903,9904,9905,4209,4210,1119),1,0) "涉爆人员",
+		if(ay = 1316,1,0) "涉嫌故意伤害",
+		if(BHLX in (2,3,4,5),1,0 )"健康情况",
+		if((select count(*) from wgsjcl where DXBH = #{rybh})&gt;0,1,0) "违规行为",
+		if(tssf = 20,1,0) "宗教信仰",
+		if(gj!=156 and gj!=158 and gj!= 344 and gj!= 446,1,0) "外籍",
+		if(mz!=01,1,0) "少数民族" from jbxx
+		where state="R8" and RYBH = #{rybh}
+	</select>
+	<!--违法行为弹框-->
+	<select id="select_ajfx" resultType="java.util.HashMap">
+		SELECT WGQKCON as "sj",WGQK as "lx",to_code2zh("WGCLZT", CLZT) as "jg",CLR as "clr"
+		from wgsjcl
+		where dxbh=#{rybh}
+	</select>
+   <!--查看所内就医-->
+    <select id="select_snjy" resultType="java.util.HashMap">
+	SELECT ZZ as "zz",JCJG as "zd",ZZJG as "cl",ZDYS as "ys" from snjy n where RYBH=#{rybh}
+    </select>
+   <!--查看所外就医-->
+	<select id="select_swjy" resultType="java.util.HashMap">
+		SELECT JBMC as "zz",YSYJ as "zd",JBMC as "cl",YSQM as "ys" from swjy where RYBH=#{rybh}
+	</select>
+
+
+	<!--拘留所在押人员关押量分析分析-->
+	<select id="zyrygyl" resultType="java.util.HashMap">
+		SELECT count(xb=1 or null) as "man",count(xb=2 or null) as "woman",count(xb=0 or null) as "unknow",count(id) as "zs",jsbh
+		from jbxx
+		where STATE="R8" GROUP BY JSBH
+	</select>
+
+	<select id="">
+
+	</select>
+
+	<!--户籍地分析-->
+	<select id="hjdfx" resultType="java.util.HashMap">
+		SELECT count(HJD like "%11%" or null) as "bs",
+		count(HJD not like "%11%" or null) as "ws",
+		count(GJ not like "156" and GJ not like "158" and GJ not like "344" and GJ not like "446" or null) as "wg",
+		jsbh from jbxx where STATE="R8" GROUP BY JSBH
+	</select>
+
+	<!--国籍分析-->
+    <select id="gjfx" resultType="java.util.HashMap">
+	    SELECT count(GJ ="156" or null) as "zg",
+	    count(GJ="158" or null) as "zgtw",
+	    count(GJ="344" or null) as "zgxg",
+	    count(GJ="446" or null) as "zgam",
+	    count(GJ not like "156" and GJ not like "158" and GJ not like "344" and GJ not like "446" or null) as "wg",
+	    jsbh from jbxx where STATE="R8" GROUP BY JSBH
+    </select>
+
+	<!--年龄分析-->
+	<select id="nlfx" resultType="java.util.HashMap">
+		select count(YEAR(CURDATE()) -YEAR(CSRQ) &lt;  18 or null) as "sn",count(YEAR(CURDATE()) -YEAR(CSRQ) &gt; 18 and YEAR(CURDATE()) -YEAR(CSRQ) &lt;  25 or null) as "qn",count(YEAR(CURDATE()) -YEAR(CSRQ) &gt; 25 and YEAR(CURDATE()) -YEAR(CSRQ) &lt;  35 or null) as "zn",count(YEAR(CURDATE()) -YEAR(CSRQ) &gt; 35 or null) as "zln",jsbh
+		from jbxx where STATE="R8" GROUP BY jsbh
+	</select>
+
+	<!--文化程度分析-->
+	<select id="whcd" resultType="java.util.HashMap">
+		SELECT count(WHCD="87" or null) as "wm" ,
+		count(WHCD in (80,81,88,89) or null)as "xx",
+		count(WHCD in (60,61,62,63,68,68,70,71,72,73,78,79)or null)as "zx",
+		count(WHCD in (10,11,19,20,21,28,29,30,31,38,39) or null)as "dzys",jsbh
+		FROM jbxx WHERE STATE="R8"
+		GROUP BY jsbh
+	</select>
+
+	<!--身份分析-->
+	<select id="sffx" resultType="java.util.HashMap">
+		SELECT count(SF=01 or null )as "gjgwy",
+		count(SF=02 or null )as "qyglry",
+		count(SF=04 or null)as "gr",
+		count(sf=05 or null)as "nm",
+		count(sf=07 or null)as "zxxs",
+		count(sf=06 or null)as "gtgsry",
+		count(sf=08 or null)as "ltxry",
+		count(sf=09 or null)as "wyry",
+		count(sf=10 or null)as "jr",
+		count(sf=99 or null)as "qt",JSBH as "jsbh"
+		from jbxx WHERE STATE="R8" GROUP BY JSBH
+	</select>
+
+	<!--健康情况分析-->
+	<select id="jkqkfx" resultType="java.util.HashMap">
+		SELECT count(JKZK=1 or null) as "jkhlh",
+		count(JKZK=2 or null) as "ybhjr",
+		count(JKZK=3 or null) as "yb",
+		count(JKZK=4 or null) as "slqx",
+		count(JKZK=5 or null) as "cf",JSBH as "jsbh"
+		from jkqk
+		WHERE STATE="R8" GROUP BY JSBH
+	</select>
+	<!--病号分析-->
+	<select id="bhfx" resultType="java.util.HashMap">
+		SELECT count(BHLX=2 or null) as "zdbh",
+		count(BHLX=3 or null) as "ptbh",
+		count(BHLX=1 or null) as "jk",JSBH as "jsbh"
+		from jbxx WHERE STATE="R8" GROUP BY JSBH
+	</select>
+</mapper>

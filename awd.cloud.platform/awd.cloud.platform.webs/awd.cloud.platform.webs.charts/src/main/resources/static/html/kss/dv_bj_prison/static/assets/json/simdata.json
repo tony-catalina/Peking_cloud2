@@ -1,0 +1,1677 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "index":{
+      "lt":{
+        "name":"重大一、二、三级风险对象详情",
+        "t": {
+          "name": "一、二级风险对象详情",
+          "list": [
+            {
+              "name": "一级风险",
+              "id": "0",
+              "type": "0",
+              "msg": "#504_172077靠墙坐，看电视",
+              "time": "2019/07/19  17:35:21"
+            },
+            {
+              "name": "一级风险",
+              "id": "1",
+              "type": "0",
+              "msg": "#504_172077靠墙坐",
+              "time": "2019/07/19  17:35:21"
+            },
+            {
+              "name": "二级风险",
+              "id": "2",
+              "type": "1",
+              "msg": "#504_172077靠墙坐，看电视",
+              "time": "2019/07/19  17:35:21"
+            },
+            {
+              "name": "一级风险",
+              "id": "3",
+              "type": "0",
+              "msg": "#504_172077靠墙坐",
+              "time": "2019/07/19  17:35:21"
+            },
+            {
+              "name": "二级风险",
+              "id": "4",
+              "type": "1",
+              "msg": "#504_172077靠墙坐，看电视",
+              "time": "2019/07/19  17:35:21"
+            },
+            {
+              "name": "二级风险",
+              "id": "5",
+              "type": "1",
+              "msg": "#504_172077靠墙坐，看电视",
+              "time": "2019/07/19  17:35:21"
+            }
+          ]
+        },
+        "b":{
+          "name": "一、二级风险对象详情",
+          "list": [
+            {
+              "name": "黄建辉",
+              "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQ5NTIwRjMyQUY3QjExRTk4MTNFRTU4REYwM0ZDODExIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQ5NTIwRjMxQUY3QjExRTk4MTNFRTU4REYwM0ZDODExIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCABMAEADASIAAhEBAxEB/8QAdQAAAgMBAQEAAAAAAAAAAAAAAwUCBAYAAQcBAAMBAQAAAAAAAAAAAAAAAAACAwEEEAACAgECBAQEBwEAAAAAAAABAgADESExQRIEBWEiMkJxsVIjUYGhweFiExQRAQEBAAMBAAAAAAAAAAAAAAABESExAkH/2gAMAwEAAhEDEQA/ANNEndO6f8/26vXxP0/zL3X9WOkqL+7ZfjMK7tYxZjljvNkDrLGsPMxyTBwtdZY4l09CTqs3RhcIem56GD1nDCetWU0I1kcRg2Xb+4p1i4PlsG4/cRlPn9LtS4dDqus3dFourWwbMMxLATd+GUQf2iHp6RY2Bwml7zXzUhvpaJ+3JzBvE/pDeGzsaqmpfVGNSrjyQTs6j7ag4lhDjeTUVuo6ZHGW0iW/pwuqHIj8sGODKxdmyGXAzj4+M2XGWM4GwdZreyWFqCp9hmd6ygVsMe6aHsaFaST7m+UpbsTM76hbWyHiJne3ryhlO4bE1EVW0f5WFhs8S9G89ihcCAsYA4ziFzgQLEbmIoC2FfAOTLLAMsrHlOoxmF58iAKeurLlFG5bE1NFK0IEXQCKaOnN1obgmseR4n6dKnVjyhvwMtwdroinnIA8ZrIXZkGrG+JXPMDkbQhv0wwMmqiaQTmcWkWv4KDAplmBb05gDnoUIQsfcZdkEZWHkII8JOURIn7jbwwB8pVOWOW11nNjGsiucSnGKcfF8DInqtjfaeJnGslOYwFj82g2g2GFxCtvINAKYLVtlCVMaUd04Wj8xFjbwZnRMwlx/9k=",
+              "msg": "#413_171987糖尿病、高血糖、高血压、高龄；二甲双胍缓释片0.25tid，珍菊降压片1片/天，3次/天",
+              "time": "2019/07/19  17:35:21"
+            },
+            {
+              "name": "唐桂",
+              "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQ5NTIwRjM2QUY3QjExRTk4MTNFRTU4REYwM0ZDODExIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQ5NTIwRjM1QUY3QjExRTk4MTNFRTU4REYwM0ZDODExIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCABMAEADASIAAhEBAxEB/8QAdgAAAgMBAQAAAAAAAAAAAAAABAUCAwYBAAEAAwEAAAAAAAAAAAAAAAAAAQIDABAAAgECBAIIBQUBAAAAAAAAAQIAEQMhMRIEQVFxobHhIjITBWGBkdFCwfFScrJDEQEBAAMBAQAAAAAAAAAAAAAAARExEgJx/9oADAMBAAIRAxEAPwDSwTe71NmmpsSfKvPuhcy3ux9bdaOCKPvMyi/7nudzgp0LyX75xcbbviQTHVm3TKGBDBk3LNol22arqU/SONl7vctMLe5xU/lxH3HXC2QmA3rIcUMHQ8tSrBwGU1ByM7Evsl0m21pv+Zw6DHUYj0y99a7q4TzHYJpnbQpY8IguUuXWcCmqlemCjHUZcqwxRWAVKglV1UhtsjlSKo6+GZpAnKnAGE3moCQNRg2L0quknGZlvtQ03rg5qD1x7Em0f0bpFK6tIr9Y7jROoXF1qV5iIh5sZoIn3Nr07tRk2M1HymqgCROLACSQ0EqKgtWKomuZUzrACQQBTXnJ3DhAyvbrruiOou2KVZn+UYx4n629At7bJAcfjn0Q2Kfd916Vv00PjbP+vfDsucIKwy5ys2umUoagGXi9ziLSuLbxrjOu8i94nKC3GKqWrSkDWtBtbfp2xXM4mEQLZbxdwtK+MeYfqPhDZREo3fuq2wVteJufDv7JnrrtcYsxqTnO8BT4f5NeqQ6eUeYJcmO0ao0HNeyGaIqSvqYeapy747XLHOSq80q9OBbw5IOOfRGmFIn3Fan+VDT6QTbXQVSUbkRhGW291u28H8Y6+PH5RTbro8da1w6OMmOHy7f3lkPj/9k=",
+              "msg": "#413_171987糖尿病、高血糖、高血压、高龄；二甲双胍缓释片0.25tid，珍菊降压片1片/天，3次/天",
+              "time": "2019/07/19  17:35:21"
+            },
+            {
+              "name": "黄建辉",
+              "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQ5NTIwRjMyQUY3QjExRTk4MTNFRTU4REYwM0ZDODExIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQ5NTIwRjMxQUY3QjExRTk4MTNFRTU4REYwM0ZDODExIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCABMAEADASIAAhEBAxEB/8QAdQAAAgMBAQEAAAAAAAAAAAAAAwUCBAYAAQcBAAMBAQAAAAAAAAAAAAAAAAACAwEEEAACAgECBAQEBwEAAAAAAAABAgADESExQRIEBWEiMkJxsVIjUYGhweFiExQRAQEBAAMBAAAAAAAAAAAAAAABESExAkH/2gAMAwEAAhEDEQA/ANNEndO6f8/26vXxP0/zL3X9WOkqL+7ZfjMK7tYxZjljvNkDrLGsPMxyTBwtdZY4l09CTqs3RhcIem56GD1nDCetWU0I1kcRg2Xb+4p1i4PlsG4/cRlPn9LtS4dDqus3dFourWwbMMxLATd+GUQf2iHp6RY2Bwml7zXzUhvpaJ+3JzBvE/pDeGzsaqmpfVGNSrjyQTs6j7ag4lhDjeTUVuo6ZHGW0iW/pwuqHIj8sGODKxdmyGXAzj4+M2XGWM4GwdZreyWFqCp9hmd6ygVsMe6aHsaFaST7m+UpbsTM76hbWyHiJne3ryhlO4bE1EVW0f5WFhs8S9G89ihcCAsYA4ziFzgQLEbmIoC2FfAOTLLAMsrHlOoxmF58iAKeurLlFG5bE1NFK0IEXQCKaOnN1obgmseR4n6dKnVjyhvwMtwdroinnIA8ZrIXZkGrG+JXPMDkbQhv0wwMmqiaQTmcWkWv4KDAplmBb05gDnoUIQsfcZdkEZWHkII8JOURIn7jbwwB8pVOWOW11nNjGsiucSnGKcfF8DInqtjfaeJnGslOYwFj82g2g2GFxCtvINAKYLVtlCVMaUd04Wj8xFjbwZnRMwlx/9k=",
+              "msg": "#413_171987糖尿病、高血糖、高血压、高龄；二甲双胍缓释片0.25tid，珍菊降压片1片/天，3次/天",
+              "time": "2019/07/19  17:35:21"
+            },
+            {
+              "name": "唐桂",
+              "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQ5NTIwRjM2QUY3QjExRTk4MTNFRTU4REYwM0ZDODExIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQ5NTIwRjM1QUY3QjExRTk4MTNFRTU4REYwM0ZDODExIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCABMAEADASIAAhEBAxEB/8QAdgAAAgMBAQAAAAAAAAAAAAAABAUCAwYBAAEAAwEAAAAAAAAAAAAAAAAAAQIDABAAAgECBAIIBQUBAAAAAAAAAQIAEQMhMRIEQVFxobHhIjITBWGBkdFCwfFScrJDEQEBAAMBAQAAAAAAAAAAAAAAARExEgJx/9oADAMBAAIRAxEAPwDSwTe71NmmpsSfKvPuhcy3ux9bdaOCKPvMyi/7nudzgp0LyX75xcbbviQTHVm3TKGBDBk3LNol22arqU/SONl7vctMLe5xU/lxH3HXC2QmA3rIcUMHQ8tSrBwGU1ByM7Evsl0m21pv+Zw6DHUYj0y99a7q4TzHYJpnbQpY8IguUuXWcCmqlemCjHUZcqwxRWAVKglV1UhtsjlSKo6+GZpAnKnAGE3moCQNRg2L0quknGZlvtQ03rg5qD1x7Em0f0bpFK6tIr9Y7jROoXF1qV5iIh5sZoIn3Nr07tRk2M1HymqgCROLACSQ0EqKgtWKomuZUzrACQQBTXnJ3DhAyvbrruiOou2KVZn+UYx4n629At7bJAcfjn0Q2Kfd916Vv00PjbP+vfDsucIKwy5ys2umUoagGXi9ziLSuLbxrjOu8i94nKC3GKqWrSkDWtBtbfp2xXM4mEQLZbxdwtK+MeYfqPhDZREo3fuq2wVteJufDv7JnrrtcYsxqTnO8BT4f5NeqQ6eUeYJcmO0ao0HNeyGaIqSvqYeapy747XLHOSq80q9OBbw5IOOfRGmFIn3Fan+VDT6QTbXQVSUbkRhGW291u28H8Y6+PH5RTbro8da1w6OMmOHy7f3lkPj/9k=",
+              "msg": "#413_171987糖尿病、高血糖、高血压、高龄；二甲双胍缓释片0.25tid，珍菊降压片1片/天，3次/天",
+              "time": "2019/07/19  17:35:21"
+            }
+          ]
+        }
+      },
+      "lb": {
+        "name": "被监管人员违规信息",
+        "t":{
+          "list": [
+            {
+              "name": "值班不规范",
+              "value": 0.2
+            },
+            {
+              "name": "擅自娱乐",
+              "value": 0.54
+            },
+            {
+              "name": "打架斗殴",
+              "value": 0.1
+            },
+            {
+              "name": "私藏物品",
+              "value": 0.16
+            }
+          ]
+        },
+        "b": {
+          "name": "件",
+          "min": 0,
+          "list": [
+            {
+              "name": "2019/01",
+              "value": 90
+            },
+            {
+              "name": "2019/02",
+              "value": 45
+            },
+            {
+              "name": "2019/03",
+              "value": 90
+            },
+            {
+              "name": "2019/04",
+              "value": 30
+            },
+            {
+              "name": "2019/05",
+              "value": 70
+            },
+            {
+              "name": "2019/06",
+              "value": 50
+            },
+            {
+              "name": "至今",
+              "value": 100
+            }
+          ]
+        }
+      },
+      "rt":{
+        "name": "诉讼情况分类与犯罪类型分析",
+        "t": [
+          {
+            "name": "刑事拘留",
+            "value": 222
+          },
+          {
+            "name": "逮捕",
+            "value": 333
+          },
+          {
+            "name": "公安补充侦察",
+            "value": 711
+          },
+          {
+            "name": "检查补充侦察",
+            "value": 282
+          },
+          {
+            "name": "一审",
+            "value": 255
+          },
+          {
+            "name": "二审",
+            "value": 987
+          },
+          {
+            "name": "审查起诉",
+            "value": 102
+          },
+          {
+            "name": "发回重申讯",
+            "value": 172
+          },
+          {
+            "name": "死刑复核",
+            "value": 112
+          },
+          {
+            "name": "待执行",
+            "value": 123
+          },
+          {
+            "name": "已决",
+            "value": 307
+          }
+        ],
+        "b": {
+          "sum": 100,
+          "list": [
+            {
+              "name": "杀人类案件",
+              "value": 92
+            },
+            {
+              "name": "抢劫类案件",
+              "value": 82
+            },
+            {
+              "name": "职务类案件",
+              "value": 79
+            },
+            {
+              "name": "国安类案件",
+              "value": 70
+            },
+            {
+              "name": "经济类案件",
+              "value": 63
+            },
+            {
+              "name": "诈骗类案件",
+              "value": 60
+            },
+            {
+              "name": "盗窃类案件",
+              "value": 55
+            },
+            {
+              "name": "毒品类案件",
+              "value": 43
+            },
+            {
+              "name": "故意伤害案",
+              "value": 29
+            },
+            {
+              "name": "其他",
+              "value": 14
+            }
+          ]
+        }
+      },
+      "rc":{
+        "name": "被监管人员违规程度分析",
+        "list": [
+          {
+            "id": 0,
+            "type": 0,
+            "rule": "轻",
+            "name": "轻微违规情况",
+            "person": 123,
+            "deci": 44
+          },
+          {
+            "id": 1,
+            "type": 1,
+            "rule": "中",
+            "name": "一般违规情况",
+            "person": 343,
+            "deci": 33
+          },
+          {
+            "id": 2,
+            "type": 2,
+            "rule": "重",
+            "name": "严重违规情况",
+            "person": 552,
+            "deci": 54
+          }
+        ]
+      },
+      "rb":{
+        "name": "各监区报病情况趋势图",
+        "min": 0,
+        "list": [
+          {
+            "name": "一监区",
+            "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAYAAABrGwT5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkVDRENCNkY2QUVCNzExRTk5NzBGRkY2NEM0RDdCOUUwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkVDRENCNkY3QUVCNzExRTk5NzBGRkY2NEM0RDdCOUUwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RUNEQ0I2RjRBRUI3MTFFOTk3MEZGRjY0QzREN0I5RTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RUNEQ0I2RjVBRUI3MTFFOTk3MEZGRjY0QzREN0I5RTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7kAizbAAAAhElEQVR42pyQPQ5AQBCFx0bpOOsAej+n0GloKWntXdCrZR2HmjfJqERhXvI1M+/LZja4yookGahBDCJ65wAejGDhgZFFDyaQfIgkc97P0qcQpKClf+H+xi83pEvNslXK1pA+Acu7UvYsO6XsjHz98FPk/vzc3IECrOD8EE7Z59KnW4ABAFIJFmavJoVZAAAAAElFTkSuQmCC",
+            "list": [
+              {
+                "name": "2019/01",
+                "value": 123
+              },
+              {
+                "name": "2019/02",
+                "value": 321
+              },
+              {
+                "name": "2019/03",
+                "value": 123
+              },
+              {
+                "name": "2019/04",
+                "value": 321
+              },
+              {
+                "name": "2019/05",
+                "value": 123
+              },
+              {
+                "name": "2019/06",
+                "value": 321
+              },
+              {
+                "name": "至今",
+                "value": 123
+              }
+            ]
+          },
+          {
+            "name": "二监区",
+            "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAYAAABrGwT5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkVDNEZBMzVCQUVCNzExRTlBRTk3QjM1QUIwMTEwMUZEIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkVDNEZBMzVDQUVCNzExRTlBRTk3QjM1QUIwMTEwMUZEIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RUM0RkEzNTlBRUI3MTFFOUFFOTdCMzVBQjAxMTAxRkQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RUM0RkEzNUFBRUI3MTFFOUFFOTdCMzVBQjAxMTAxRkQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4N0xl3AAAAg0lEQVR42pyQPQ5AQBCFx0bpOBxA7+ccytVS0nIX9GpZx7E1b5JRiWLnJV8z875sZqN7b0hSAgsykNA3F3BgAhsPjCwGsID8RySZ836VPsWgAB2FhfsHv9ySLpblVCmnhvSJWD6VsmN5Vsqzka8fA0Xur+/NPajBDvyP4GVfSZ8eAQYAILsWvVWWYFYAAAAASUVORK5CYII=",
+            "list": [
+              {
+                "name": "2019/01",
+                "value": 234
+              },
+              {
+                "name": "2019/02",
+                "value": 432
+              },
+              {
+                "name": "2019/03",
+                "value": 234
+              },
+              {
+                "name": "2019/04",
+                "value": 432
+              },
+              {
+                "name": "2019/05",
+                "value": 234
+              },
+              {
+                "name": "2019/06",
+                "value": 432
+              },
+              {
+                "name": "至今",
+                "value": 234
+              }
+            ]
+          },
+          {
+            "name": "三监区",
+            "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAYAAABrGwT5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkVCOUExNENEQUVCNzExRTlCMzgzRDY1RDc0QTMwOTY0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkVCOUExNENFQUVCNzExRTlCMzgzRDY1RDc0QTMwOTY0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RUI5QTE0Q0JBRUI3MTFFOUIzODNENjVENzRBMzA5NjQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RUI5QTE0Q0NBRUI3MTFFOUIzODNENjVENzRBMzA5NjQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7TV0ceAAAAg0lEQVR42pyQPQ5AQBCFZzdKt8EB9H7OQktJa2vXsHq1cBxq3iSjEoV5ydfMvC+bWRNdI0lyUIEEhPTOATYwgJkHVhYdmED6IZLMee+lTwHIQEP/wv2VX65Jl4rlWCnHlvQxLO9KeWPZKWVn5ev7nyL3/XNzC0qwgPNDOGVfSJ9uAQYARTAWYcogOPoAAAAASUVORK5CYII=",
+            "list": [
+              {
+                "name": "2019/01",
+                "value": 109
+              },
+              {
+                "name": "2019/02",
+                "value": 542
+              },
+              {
+                "name": "2019/03",
+                "value": 325
+              },
+              {
+                "name": "2019/04",
+                "value": 210
+              },
+              {
+                "name": "2019/05",
+                "value": 100
+              },
+              {
+                "name": "2019/06",
+                "value": 320
+              },
+              {
+                "name": "至今",
+                "value": 432
+              }
+            ]
+          },
+          {
+            "name": "四监区",
+            "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAYAAABrGwT5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkVCMDFDM0VEQUVCNzExRTlCMEYzQkMzODlBMzFGQTE0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkVCMDFDM0VFQUVCNzExRTlCMEYzQkMzODlBMzFGQTE0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RUIwMUMzRUJBRUI3MTFFOUIwRjNCQzM4OUEzMUZBMTQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RUIwMUMzRUNBRUI3MTFFOUIwRjNCQzM4OUEzMUZBMTQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4N8FHJAAAAfklEQVR42mJkOP+fAQp8gbgQiE2BmIcBE3wB4tNA3AfEW0ACjFDNLUBczUA8aAXiGpBmHyBjMwPpwI8JSBQxkAcKQTZ/AjJ4ydD8mYmBfMAI0nyGTM2nQZr7ydTczwQN6VYSNYLUb4b5uQaI/YF4PxB/xaHhK1TeD6qeASDAANDmG46UoZgrAAAAAElFTkSuQmCC",
+            "list": [
+              {
+                "name": "2019/01",
+                "value": 90
+              },
+              {
+                "name": "2019/02",
+                "value": 180
+              },
+              {
+                "name": "2019/03",
+                "value": 80
+              },
+              {
+                "name": "2019/04",
+                "value": 50
+              },
+              {
+                "name": "2019/05",
+                "value": 120
+              },
+              {
+                "name": "2019/06",
+                "value": 300
+              },
+              {
+                "name": "至今",
+                "value": 20
+              }
+            ]
+          }
+        ]
+      },
+      "ct": [
+        {
+          "name": "出所治疗",
+          "lname": "社会医院",
+          "lvalue": 5,
+          "rname": "市监医院",
+          "rvalue": 2
+        },
+        {
+          "name": "出所住院",
+          "lname": "社会医院",
+          "lvalue": 3,
+          "rname": "市监医院",
+          "rvalue": 1
+        }
+      ],
+      "cc": [
+        {
+          "id": 0,
+          "type": 0,
+          "name": "雷文斌",
+          "area": "市监医院治疗",
+          "number": "313/1719745",
+          "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjBEOERENzNFQUY3QTExRTk4MTY2ODE2NDM4MTkwRTAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjBEOERENzNEQUY3QTExRTk4MTY2ODE2NDM4MTkwRTAwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+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"
+        },
+        {
+          "id": 1,
+          "type": 1,
+          "name": "雷文斌",
+          "area": "市监医院治疗",
+          "number": "313/1719745",
+          "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjIzNEI4QTI4QUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjIzNEI4QTI3QUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCACbAG4DASIAAhEBAxEB/8QAdwAAAQUBAAAAAAAAAAAAAAAAAAECAwQFBgEBAQEBAAAAAAAAAAAAAAAAAAECAxAAAgECBAQEBQMFAAAAAAAAAAECEQMhMRIEQVEyE2GxIgVxgaFSM5HB0fDhQnKCEQEBAQEBAQEBAAAAAAAAAAAAARECITFhQf/aAAwDAQACEQMRAD8A6WgUFABKBQDM32+VqNIdQF+d2EMZNFK77jahlic5d3E7jq2Q1A6Gfu0f8UJb92i+pHPVCoHWWN/au+DLsZRllicNUtWN5Oy6p4AdjQKGdtN+r2DwZpAJQKCgAAAAZvuO47UaJ4s5i5NzbbL/ALpOt1ozaAIAtB6g2AygUJe2xHBgxEFSTQxjiBJauu26o6rY3+5Cj4HHmn7duXbmovJgdWAidcRQAQUrbu527UpeAHL7y53bsmsqkdu05EaNPbQoiXxqTaZDacy5CzGPAkSHVoY10w3QhrtxfAkqBFQStJrIpXNvTI0mRtVLqYw5woMi9LqjR3MKqpmm5dcrMdptJudtNlkz/bJOVhVNAqAq7yHcsyj4Fogv3Y216uIHHpYmvZjpjiUe3pu6eFTT01RmunMRyvxjhUcr8PmJLRHqoLGVt9NCeNJlJPIV0GxSCaIqOV2KzZC78a0RK7MXmRu1FZIvieor2MWZVMTYceBn2beu4k8qljHTp9jb0WYouDY0oqZDjTAKO+i2lLkXhk464uL4kWXKwLsVqjJcy0iGaawea/YmiYdiO0pZoFZUVRYIkQoEaVMhk61Hr1ZDbkWsSKhntlcxdQlZo6rChYjihJF1MQtFWzbXql4luRHYtuT0/cwf1s7SvbVSyNjFRVFwHG3HfdAABUU7+21tyjmUoqmBsmTJUk14ma3zQhXkIJJpYsw6I6SqqOiXDmNm5tp8BHfVRveTdCrixbWAkgi+QjZERSxNLa7XteqWZStR1XIrxNo3HPqgAA0wAAAAzNytM/jiaZm73rXwM341z9Q1BpMhUuZMjDqa40yGu3UnwEbKuoox0oa2LJ0IHIiNDZQrJz5GmQbaChbVOOJOdI40AAFQABXubq3bemUvU+HECS7djZjrm6JGTLcLcy1x6ckUPc93356Y9MPqyfbR0wSM9NcpJRG1lHInpUZShh1R9xiO4yykmMnRAVW28xUh9NTHSVAjW2t2N22tL6cH4NFk5DvT217XB58OfgzqbN6N+KnB1TOrjUwAAHI7j3G9ewb0rlHAbtFTVd+xUXxlh5VKZftR07WUvun5Rf8AJYlUa1Niw6xRjGjs51WnkZ6b5aaEaqCH0OboZQjceZMNaAZFDZktCKSAyt11Ise335xbhB0cl6eWrh+uXzKu4lqm/AbYemaZ1jj19b2394hLC8tD/VfyjSW6tOOrXHSuNUcjvFpvzS+6XmVygNO16trJfbPzjTzMw0dl+O78I/Dq8+QjN+M4khNwaks0RyGcQ06GzuI3FhnyLSdTnbHWur/nM3oZKv1/tgc66z9SUEoOQjIpjKO63Kt+mPV5FyWT/pnP3M3n+/zLEv4a2Ps4yREWdp+RfLzR0jhS71Uvz/2ZWJ95+eda9Tzz+mBXCv/Z"
+        },
+        {
+          "id": 2,
+          "type": 2,
+          "name": "雷文斌",
+          "area": "市监医院治疗",
+          "number": "313/1719745",
+          "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjIzNEI4QTI0QUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjIzNEI4QTIzQUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+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"
+        },
+        {
+          "id": 3,
+          "type": 3,
+          "name": "雷文斌",
+          "area": "市监医院治疗",
+          "number": "313/1719745",
+          "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjBEOERENzNFQUY3QTExRTk4MTY2ODE2NDM4MTkwRTAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjBEOERENzNEQUY3QTExRTk4MTY2ODE2NDM4MTkwRTAwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCACbAG4DASIAAhEBAxEB/8QAdQAAAQUBAAAAAAAAAAAAAAAABQABAgMEBgEAAwEAAAAAAAAAAAAAAAAAAAECAxAAAgECAwUGBwEBAQAAAAAAAAECEQMhMQRBUWESBXGRoSIyE/CBscHRQlIUcqIRAQEBAQEBAQAAAAAAAAAAAAABEQIxIVH/2gAMAwEAAhEDEQA/AOloKg4gBqCoICavq6i+Sx5n/Wz5b/oAF7lyFpVm1FcTFPqumjgm5dkWcvcuyuS5pvmlxI1GHULq+meba7Ys0W9dp7npnH54fU44iwDvIyjL0tPsJUOChdlbdYNxfBhfTdbnDC6udb1g/wAPwEHTUFQz6bVW9THmtuu9bV2mkAagqDiAEMOC+qav2LfKvVPLs2sAH9T6hzt2rb8v7Pfw7AJWo1aiGDjkRwI41BxPDIDQaIFsbc55IaVpxzEE7F+VianB0kvijOs0XUY6pUa5ZrZ+DjKULbd2dqSlF0aAO+HB/T9YtVDH1x9SCAAxyfWZ82oa3JHWHHdVddROvD6AA6pJMrZONuU/SgCyoiXsyWdSdnTyuukcltDTxCMavAI2dFXGfcbrGkVtcd5sUEibVzlkjYSVEqFFzTRYTZRJELBbulSTpmD1EP3EBrq5ZMuVn1G3pdx278d0qxZ1pyXS7Tu31uh5vjvOtKQRyHWI8uob30fgdec71mMbnLci06eV0719wAJCNWg5bgoqiBFheaK4hlJtURNacqZWnely1wCVqxG2qJGFaaf6ySZOMb9t4yqhHojQVCEJ1zJuVBKRoUzwVSq+3PJtdhmWnn+0nQeFtWSaeKBOqjSQU9lwxTqgdrPUuwJ6m+CvQoUjOW3BB4GdMtxs2kpOkrnmp9PAJls0ZKqoA7llTjyzx47Q6CNVHllTY/uTWnP4C6e3S81/NQzFNLAw248t2faglDEVVGO77ri2pNNZKPjiR0ruuLlKT4KVPmE1Ai7dQCuO8lddEJ5kbmKJUqnGWKjRSpX8GKxO9Nusmqf0tu7AIxjzdpb7VSk2MsHKS8xg1dvmnBbHKgXcKIH6hVcf+0KCtUIc048ZLHaGQZpFWfYEyp4m+w5h1dtOktm03EZRUlR5MaJcc5dXJdT2SVO7II22V6vTOMVJ5RkvwNbdCa1jbUjLIhFjXatYCNXHzMncWBUrk1+uHbj3DyvSawTfgBntPFmlGJTbeVGaVLACK4wbJe5djH+ay+xruyG02mdxuezKoQq2aO3ypy3m0ilRURItlv3SEIQyZtYq2pA2DwDMoqSaeTAsoO23F5omr5XKdFiUz1NXyxVRV5lQgrDS5quvAlayEXnNqpKcePYVKHGg0oNbRqw3vStuk+8ujeUsij2nJUr4DQg7eeYkpye0K6ONLS41fiCoQd2SitodjFRSSyRUR1UhCEUghCEAIGa1pzSWaQRlJRTbyRz8JudyTebxJqufUquvE0RWBVKHMRVxwwkS0Xu2pZ4EHaS2sg7ovdqBasWGRnbbdCcrtcENGNMXmBtuhaUpJ50CZzspOEk1gwxptR70cfUs/wAlRn161CEIpJEJzUFzSdEYbvUYR9Ccn3Iw3b872M+5ZCPEtRqpXnTKK2fkptqk6719Cupos4tJ7RKjRFVxIuO8uSpgRkiVof5oSyRD/JCOw0J0GnOuQBm5UsETcScY1ZarblllvAMNyHMm91PFjQnK21KODRs1EVGCitr+zMM9xXiL9F7Gsjcwl5ZeHyZrOcSNX+m5ycn/AK2/GwacYE6uhNMhD1FjpXb4iUg8yyJFk0BCdp+5HzerePK29mJXpjaO4c1m9t7hKy2aRMXw/qqNlLi/AtoSQkVEUN1SfMtyX1MDxYS1maBrzFTSWBIqLRB//9k="
+        },
+        {
+          "id": 4,
+          "type": 4,
+          "name": "雷文斌",
+          "area": "市监医院治疗",
+          "number": "313/1719745",
+          "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjIzNEI4QTI4QUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjIzNEI4QTI3QUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCACbAG4DASIAAhEBAxEB/8QAdwAAAQUBAAAAAAAAAAAAAAAAAAECAwQFBgEBAQEBAAAAAAAAAAAAAAAAAAECAxAAAgECBAQEBQMFAAAAAAAAAAECEQMhMRIEQVEyE2GxIgVxgaFSM5HB0fDhQnKCEQEBAQEBAQEBAAAAAAAAAAAAARECITFhQf/aAAwDAQACEQMRAD8A6WgUFABKBQDM32+VqNIdQF+d2EMZNFK77jahlic5d3E7jq2Q1A6Gfu0f8UJb92i+pHPVCoHWWN/au+DLsZRllicNUtWN5Oy6p4AdjQKGdtN+r2DwZpAJQKCgAAAAZvuO47UaJ4s5i5NzbbL/ALpOt1ozaAIAtB6g2AygUJe2xHBgxEFSTQxjiBJauu26o6rY3+5Cj4HHmn7duXbmovJgdWAidcRQAQUrbu527UpeAHL7y53bsmsqkdu05EaNPbQoiXxqTaZDacy5CzGPAkSHVoY10w3QhrtxfAkqBFQStJrIpXNvTI0mRtVLqYw5woMi9LqjR3MKqpmm5dcrMdptJudtNlkz/bJOVhVNAqAq7yHcsyj4Fogv3Y216uIHHpYmvZjpjiUe3pu6eFTT01RmunMRyvxjhUcr8PmJLRHqoLGVt9NCeNJlJPIV0GxSCaIqOV2KzZC78a0RK7MXmRu1FZIvieor2MWZVMTYceBn2beu4k8qljHTp9jb0WYouDY0oqZDjTAKO+i2lLkXhk464uL4kWXKwLsVqjJcy0iGaawea/YmiYdiO0pZoFZUVRYIkQoEaVMhk61Hr1ZDbkWsSKhntlcxdQlZo6rChYjihJF1MQtFWzbXql4luRHYtuT0/cwf1s7SvbVSyNjFRVFwHG3HfdAABUU7+21tyjmUoqmBsmTJUk14ma3zQhXkIJJpYsw6I6SqqOiXDmNm5tp8BHfVRveTdCrixbWAkgi+QjZERSxNLa7XteqWZStR1XIrxNo3HPqgAA0wAAAAzNytM/jiaZm73rXwM341z9Q1BpMhUuZMjDqa40yGu3UnwEbKuoox0oa2LJ0IHIiNDZQrJz5GmQbaChbVOOJOdI40AAFQABXubq3bemUvU+HECS7djZjrm6JGTLcLcy1x6ckUPc93356Y9MPqyfbR0wSM9NcpJRG1lHInpUZShh1R9xiO4yykmMnRAVW28xUh9NTHSVAjW2t2N22tL6cH4NFk5DvT217XB58OfgzqbN6N+KnB1TOrjUwAAHI7j3G9ewb0rlHAbtFTVd+xUXxlh5VKZftR07WUvun5Rf8AJYlUa1Niw6xRjGjs51WnkZ6b5aaEaqCH0OboZQjceZMNaAZFDZktCKSAyt11Ise335xbhB0cl6eWrh+uXzKu4lqm/AbYemaZ1jj19b2394hLC8tD/VfyjSW6tOOrXHSuNUcjvFpvzS+6XmVygNO16trJfbPzjTzMw0dl+O78I/Dq8+QjN+M4khNwaks0RyGcQ06GzuI3FhnyLSdTnbHWur/nM3oZKv1/tgc66z9SUEoOQjIpjKO63Kt+mPV5FyWT/pnP3M3n+/zLEv4a2Ps4yREWdp+RfLzR0jhS71Uvz/2ZWJ95+eda9Tzz+mBXCv/Z"
+        },
+        {
+          "id": 5,
+          "type": 5,
+          "name": "雷文斌",
+          "area": "市监医院治疗",
+          "number": "313/1719745",
+          "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjIzNEI4QTI0QUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjIzNEI4QTIzQUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+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"
+        },
+        {
+          "id": 6,
+          "type": 6,
+          "name": "雷文斌",
+          "area": "市监医院治疗",
+          "number": "313/1719745",
+          "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjBEOERENzNFQUY3QTExRTk4MTY2ODE2NDM4MTkwRTAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjBEOERENzNEQUY3QTExRTk4MTY2ODE2NDM4MTkwRTAwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+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"
+        },
+        {
+          "id": 7,
+          "type": 7,
+          "name": "雷文斌",
+          "area": "市监医院治疗",
+          "number": "313/1719745",
+          "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjIzNEI4QTI4QUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjIzNEI4QTI3QUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCACbAG4DASIAAhEBAxEB/8QAdwAAAQUBAAAAAAAAAAAAAAAAAAECAwQFBgEBAQEBAAAAAAAAAAAAAAAAAAECAxAAAgECBAQEBQMFAAAAAAAAAAECEQMhMRIEQVEyE2GxIgVxgaFSM5HB0fDhQnKCEQEBAQEBAQEBAAAAAAAAAAAAARECITFhQf/aAAwDAQACEQMRAD8A6WgUFABKBQDM32+VqNIdQF+d2EMZNFK77jahlic5d3E7jq2Q1A6Gfu0f8UJb92i+pHPVCoHWWN/au+DLsZRllicNUtWN5Oy6p4AdjQKGdtN+r2DwZpAJQKCgAAAAZvuO47UaJ4s5i5NzbbL/ALpOt1ozaAIAtB6g2AygUJe2xHBgxEFSTQxjiBJauu26o6rY3+5Cj4HHmn7duXbmovJgdWAidcRQAQUrbu527UpeAHL7y53bsmsqkdu05EaNPbQoiXxqTaZDacy5CzGPAkSHVoY10w3QhrtxfAkqBFQStJrIpXNvTI0mRtVLqYw5woMi9LqjR3MKqpmm5dcrMdptJudtNlkz/bJOVhVNAqAq7yHcsyj4Fogv3Y216uIHHpYmvZjpjiUe3pu6eFTT01RmunMRyvxjhUcr8PmJLRHqoLGVt9NCeNJlJPIV0GxSCaIqOV2KzZC78a0RK7MXmRu1FZIvieor2MWZVMTYceBn2beu4k8qljHTp9jb0WYouDY0oqZDjTAKO+i2lLkXhk464uL4kWXKwLsVqjJcy0iGaawea/YmiYdiO0pZoFZUVRYIkQoEaVMhk61Hr1ZDbkWsSKhntlcxdQlZo6rChYjihJF1MQtFWzbXql4luRHYtuT0/cwf1s7SvbVSyNjFRVFwHG3HfdAABUU7+21tyjmUoqmBsmTJUk14ma3zQhXkIJJpYsw6I6SqqOiXDmNm5tp8BHfVRveTdCrixbWAkgi+QjZERSxNLa7XteqWZStR1XIrxNo3HPqgAA0wAAAAzNytM/jiaZm73rXwM341z9Q1BpMhUuZMjDqa40yGu3UnwEbKuoox0oa2LJ0IHIiNDZQrJz5GmQbaChbVOOJOdI40AAFQABXubq3bemUvU+HECS7djZjrm6JGTLcLcy1x6ckUPc93356Y9MPqyfbR0wSM9NcpJRG1lHInpUZShh1R9xiO4yykmMnRAVW28xUh9NTHSVAjW2t2N22tL6cH4NFk5DvT217XB58OfgzqbN6N+KnB1TOrjUwAAHI7j3G9ewb0rlHAbtFTVd+xUXxlh5VKZftR07WUvun5Rf8AJYlUa1Niw6xRjGjs51WnkZ6b5aaEaqCH0OboZQjceZMNaAZFDZktCKSAyt11Ise335xbhB0cl6eWrh+uXzKu4lqm/AbYemaZ1jj19b2394hLC8tD/VfyjSW6tOOrXHSuNUcjvFpvzS+6XmVygNO16trJfbPzjTzMw0dl+O78I/Dq8+QjN+M4khNwaks0RyGcQ06GzuI3FhnyLSdTnbHWur/nM3oZKv1/tgc66z9SUEoOQjIpjKO63Kt+mPV5FyWT/pnP3M3n+/zLEv4a2Ps4yREWdp+RfLzR0jhS71Uvz/2ZWJ95+eda9Tzz+mBXCv/Z"
+        },
+        {
+          "id": 8,
+          "type": 8,
+          "name": "雷文斌",
+          "area": "市监医院治疗",
+          "number": "313/1719745",
+          "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjIzNEI4QTI0QUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjIzNEI4QTIzQUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+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"
+        },
+        {
+          "id": 9,
+          "type": 9,
+          "name": "雷文斌",
+          "area": "市监医院治疗",
+          "number": "313/1719745",
+          "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjBEOERENzNFQUY3QTExRTk4MTY2ODE2NDM4MTkwRTAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjBEOERENzNEQUY3QTExRTk4MTY2ODE2NDM4MTkwRTAwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+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"
+        },
+        {
+          "id": 10,
+          "type": 10,
+          "name": "雷文斌",
+          "area": "市监医院治疗",
+          "number": "313/1719745",
+          "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjIzNEI4QTI4QUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjIzNEI4QTI3QUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCACbAG4DASIAAhEBAxEB/8QAdwAAAQUBAAAAAAAAAAAAAAAAAAECAwQFBgEBAQEBAAAAAAAAAAAAAAAAAAECAxAAAgECBAQEBQMFAAAAAAAAAAECEQMhMRIEQVEyE2GxIgVxgaFSM5HB0fDhQnKCEQEBAQEBAQEBAAAAAAAAAAAAARECITFhQf/aAAwDAQACEQMRAD8A6WgUFABKBQDM32+VqNIdQF+d2EMZNFK77jahlic5d3E7jq2Q1A6Gfu0f8UJb92i+pHPVCoHWWN/au+DLsZRllicNUtWN5Oy6p4AdjQKGdtN+r2DwZpAJQKCgAAAAZvuO47UaJ4s5i5NzbbL/ALpOt1ozaAIAtB6g2AygUJe2xHBgxEFSTQxjiBJauu26o6rY3+5Cj4HHmn7duXbmovJgdWAidcRQAQUrbu527UpeAHL7y53bsmsqkdu05EaNPbQoiXxqTaZDacy5CzGPAkSHVoY10w3QhrtxfAkqBFQStJrIpXNvTI0mRtVLqYw5woMi9LqjR3MKqpmm5dcrMdptJudtNlkz/bJOVhVNAqAq7yHcsyj4Fogv3Y216uIHHpYmvZjpjiUe3pu6eFTT01RmunMRyvxjhUcr8PmJLRHqoLGVt9NCeNJlJPIV0GxSCaIqOV2KzZC78a0RK7MXmRu1FZIvieor2MWZVMTYceBn2beu4k8qljHTp9jb0WYouDY0oqZDjTAKO+i2lLkXhk464uL4kWXKwLsVqjJcy0iGaawea/YmiYdiO0pZoFZUVRYIkQoEaVMhk61Hr1ZDbkWsSKhntlcxdQlZo6rChYjihJF1MQtFWzbXql4luRHYtuT0/cwf1s7SvbVSyNjFRVFwHG3HfdAABUU7+21tyjmUoqmBsmTJUk14ma3zQhXkIJJpYsw6I6SqqOiXDmNm5tp8BHfVRveTdCrixbWAkgi+QjZERSxNLa7XteqWZStR1XIrxNo3HPqgAA0wAAAAzNytM/jiaZm73rXwM341z9Q1BpMhUuZMjDqa40yGu3UnwEbKuoox0oa2LJ0IHIiNDZQrJz5GmQbaChbVOOJOdI40AAFQABXubq3bemUvU+HECS7djZjrm6JGTLcLcy1x6ckUPc93356Y9MPqyfbR0wSM9NcpJRG1lHInpUZShh1R9xiO4yykmMnRAVW28xUh9NTHSVAjW2t2N22tL6cH4NFk5DvT217XB58OfgzqbN6N+KnB1TOrjUwAAHI7j3G9ewb0rlHAbtFTVd+xUXxlh5VKZftR07WUvun5Rf8AJYlUa1Niw6xRjGjs51WnkZ6b5aaEaqCH0OboZQjceZMNaAZFDZktCKSAyt11Ise335xbhB0cl6eWrh+uXzKu4lqm/AbYemaZ1jj19b2394hLC8tD/VfyjSW6tOOrXHSuNUcjvFpvzS+6XmVygNO16trJfbPzjTzMw0dl+O78I/Dq8+QjN+M4khNwaks0RyGcQ06GzuI3FhnyLSdTnbHWur/nM3oZKv1/tgc66z9SUEoOQjIpjKO63Kt+mPV5FyWT/pnP3M3n+/zLEv4a2Ps4yREWdp+RfLzR0jhS71Uvz/2ZWJ95+eda9Tzz+mBXCv/Z"
+        },
+        {
+          "id": 11,
+          "type": 11,
+          "name": "雷文斌",
+          "area": "市监医院治疗",
+          "number": "313/1719745",
+          "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjIzNEI4QTI0QUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjIzNEI4QTIzQUY3QTExRTk5NjJCODYzNUUxOEZBN0QwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+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"
+        }
+      ],
+      "cb": [
+        {
+          "name": "拘留所",
+          "val0": 6,
+          "val01": 5,
+          "val1": 5,
+          "val11": 1,
+          "val2": 6,
+          "val21": 51,
+          "val3": 2,
+          "val31": 30,
+          "val4": 1,
+          "val41": 19
+        },
+        {
+          "name": "看守所",
+          "val0": 6,
+          "val01": 3,
+          "val1": 5,
+          "val11": 1,
+          "val2": 6,
+          "val21": 52,
+          "val3": 2,
+          "val31": 30,
+          "val4": 1,
+          "val41": 18
+        },
+        {
+          "name": "戒毒所",
+          "val0": 10,
+          "val01": 7,
+          "val1": 5,
+          "val11": 2,
+          "val2": 7,
+          "val21": 49,
+          "val3": 2,
+          "val31": 30,
+          "val4": 1,
+          "val41": 21
+        }
+      ]
+    },
+    "manage": {
+      "lt":{
+        "name": "基本信息",
+        "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTcxODUzZWEtODZlZi1hNDQwLTg2Y2EtODUzZWRiZWExMTdiIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjBEOERENzNFQUY3QTExRTk4MTY2ODE2NDM4MTkwRTAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjBEOERENzNEQUY3QTExRTk4MTY2ODE2NDM4MTkwRTAwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc0OTFjZjhkLTJmOTItZGY0OC05NDYxLTYzMTNhMDZjNmNmNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDphNzE4NTNlYS04NmVmLWE0NDAtODZjYS04NTNlZGJlYTExN2IiLz4gPC9yZGY6RGVzY3JpcHRpb24+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",
+        "msg": "短信关注",
+        "msgList": [
+          {
+            "name": "姓名：",
+            "msg": "渣渣辉"
+          },
+          {
+            "name": "编号：",
+            "msg": "310614527123611"
+          },
+          {
+            "name": "性别：",
+            "msg": "男"
+          },
+          {
+            "name": "年龄：",
+            "msg": "40"
+          },
+          {
+            "name": "民族：",
+            "msg": "汉族"
+          },
+          {
+            "name": "学历：",
+            "msg": "大专"
+          },
+          {
+            "name": "籍贯：",
+            "msg": "中国"
+          },
+          {
+            "name": "政治面貌：",
+            "msg": "群众"
+          },
+          {
+            "name": "宗教信仰：",
+            "msg": "佛教"
+          },
+          {
+            "name": "婚姻状况：",
+            "msg": "已婚"
+          },
+          {
+            "name": "家庭住址：",
+            "msg": "广西省柳州市南区临城花园"
+          },
+          {
+            "name": "",
+            "msg": "4-4-201"
+          }
+        ]
+      },
+      "lc":{
+        "name": "人员情况",
+        "t": {
+          "name": "案件情况",
+          "list": [
+            {
+              "name": "入所原因：",
+              "value": "故意伤害"
+            },
+            {
+              "name": "入所时间：",
+              "value": "2018-7-27"
+            }
+          ]
+        },
+        "b": {
+          "name": "身体状况",
+          "list": [
+            {
+              "name": "体表伤情：",
+              "value": "无"
+            },
+            {
+              "name": "身体状况：",
+              "value": "健康"
+            },
+            {
+              "name": "心跳：",
+              "value": "80"
+            },
+            {
+              "name": "血压：",
+              "value": "120/80"
+            }
+          ]
+        }
+      },
+      "lb":{
+        "name": "风险画像",
+        "unit": "人",
+        "list": [
+          {
+            "name": "涉爆",
+            "value": 12
+          },
+          {
+            "name": "涉恐",
+            "value": 13
+          },
+          {
+            "name": "涉黑",
+            "value": 11
+          }
+        ]
+      },
+      "rt":{
+        "name": "人员关系",
+        "list": [
+          {
+            "name": "渣渣辉",
+            "type": 0,
+            "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YjE2ZWFkNGYtZGUyZC0wYTQ1LTllNTEtMDQwNjc4YjdmYmY3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjY0MEQ4NEY5QjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY0MEQ4NEY4QjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAwNjIxOWJmLTkzZjEtZjY0ZS05YzYyLThhNThiOTMzZjMzOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpiMTZlYWQ0Zi1kZTJkLTBhNDUtOWU1MS0wNDA2NzhiN2ZiZjciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCABFAEgDASIAAhEBAxEB/8QBGwAAAwEBAQEBAQEBAQAAAAAAAQACAwQFBgcICQoLAQEBAQEBAQEBAQEBAQAAAAAAAQIDBAUGBwgJCgsQAAICAQMCAwQHBgMDBgIBNQEAAhEDIRIxBEFRIhNhcTKBkbFCoQXRwRTwUiNyM2LhgvFDNJKishXSUyRzwmMGg5Pi8qNEVGQlNUUWJnQ2VWWzhMPTdePzRpSkhbSVxNTk9KW1xdXl9VZmdoaWprbG1ub2EQACAgAFAQYGAQMBAwUDBi8AARECIQMxQRJRYXGBkSITMvChsQTB0eHxQlIjYnIUkjOCQySisjRTRGNzwtKDk6NU4vIFFSUGFiY1ZEVVNnRls4TD03Xj80aUpIW0lcTU5PSltcXV5fVWZnaG/9oADAMBAAIRAxEAPwD3yWJTA5RI0+dORzy2j4RyXvWs9xzbg2n1ZJ24xuLx5s0of3Jbb7PZKsGMyA+EW/MZMsssjKRsl3yVfhRzdXbVvwPXj1uOOm4H3guuLJPJ5sRsfv46vgRxTmaiLejps8ukyWRp9oM9zuIsqP8AK3z4H0UOrlDTKK9r3RmJCw89RyRurBeXXppWPgP3MhX0wZuXXXFHrBXGE9wsK84OknH1eQgbRzLROLHsFBxy+bMB4PVGns8El4nJYtsz6qN4Zj/CX5jDgM5DwL9RniMkDHxD5GLBGXlPZ4NnZI7MMI446Vq+Z1widQ9vpxrb2twyYY/AO7zR0aPcw/246/ZCzjuFFGOoxER2DZIeqOLOXpiYSOM9lROo5Ykd9FfR/v8AZ9dDltx7QEVmPueuJcM3llfiR+o/UOo4u3nbbuLXV94SXzc/kybvF2zdZjhoJbj7Hys3USzSHYdnizsjfdXc1fDv08t0yXzvVyHSh70iUsUhKPblytTo9D6OJdHzsPW456E7T7Xu5FgvQ5HN1HxwHtVA8+YDnaFe/wDjx7P3Jx3nt/UHR1WLfE+L4OeU5GpHTwfqCHzeq6Tf5g4TVlxfgaah8keCRTN173bJiMTRDnQebq1qdE50OyMfU1HzefNQNfSiGQ4+GKJ5cccTbeABRD19NLIDUDp4dnMYJXRFPs9L05jGjpfPteyrHqZxtafTXX7GvS4to3Hkq9sY0rOfq5DjhxCWTSq4Rs8/qPS+0+VP0r0tVfUvh/8AQtDi9f41MvJ+/wDtdYel3J+j8yqr/m+GpH/1vGYPW6f0fs8+17xSq8b67+J0rpt4GgVVeJ0P/9k="
+          },
+          {
+            "name": "任古雪",
+            "type": 1,
+            "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YjE2ZWFkNGYtZGUyZC0wYTQ1LTllNTEtMDQwNjc4YjdmYmY3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjVCRURBMjQyQjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjVCRURBMjQxQjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAwNjIxOWJmLTkzZjEtZjY0ZS05YzYyLThhNThiOTMzZjMzOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpiMTZlYWQ0Zi1kZTJkLTBhNDUtOWU1MS0wNDA2NzhiN2ZiZjciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCAAuAC8DASIAAhEBAxEB/8QBGwAAAwEBAQEBAQEBAQAAAAAAAQACAwQFBgcICQoLAQEBAQEBAQEBAQEBAQAAAAAAAQIDBAUGBwgJCgsQAAICAQMCAwQHBgMDBgIBNQEAAhEDIRIxBEFRIhNhcTKBkbFCoQXRwRTwUiNyM2LhgvFDNJKishXSUyRzwmMGg5Pi8qNEVGQlNUUWJnQ2VWWzhMPTdePzRpSkhbSVxNTk9KW1xdXl9VZmdoaWprbG1ub2EQACAgAFAQYGAQMBAwUDBi8AARECIQMxQRJRYXGBkSITMvChsQTB0eHxQlIjYnIUkjOCQySisjRTRGNzwtKDk6NU4vIFFSUGFiY1ZEVVNnRls4TD03Xj80aUpIW0lcTU5PSltcXV5fVWZnaG/9oADAMBAAIRAxEAPwD6LLljiiZy0Aflet/FMmYmMDsj7Hs/FOoM5+mOI/W+DyWTjB04RVWe5BJPKYTlA3E07x6achoGpdHKMTLwZIg9fovxSQoZNY/eH39427r0q7ficI8r7XR5ycOTEe0JEfQk5cHS+XFVdeJ53UEnJI+0vTg6WNmVX72OtxenmkPHV26PISCD2cP4mdnjl1a6I6Y+UUR9DnLHuBsNSyAEqZ+S2HGDy5QGOojwdOnNGX9Ev+iXKUjI2Xr6THuE5dowl9Ta/EenM9OW12Qev1/SftEbj8cfvfEwRlGdHR+reLOMJl5jU/Z+rtpPXU8lbWrVpKannk+xyy3KJD2GEe0gfkWdmP7cwB7AXPHtRFdz8NjyIYpZJbYjV+ixdIMeE4x8UgbPtIb6YYgP5ev1vU6SS0NZlrW+JQj/2Q==",
+            "relation": "父子"
+          },
+          {
+            "name": "无情",
+            "type": 2,
+            "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YjE2ZWFkNGYtZGUyZC0wYTQ1LTllNTEtMDQwNjc4YjdmYmY3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjY0MEQ4NEY1QjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY0MEQ4NEY0QjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAwNjIxOWJmLTkzZjEtZjY0ZS05YzYyLThhNThiOTMzZjMzOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpiMTZlYWQ0Zi1kZTJkLTBhNDUtOWU1MS0wNDA2NzhiN2ZiZjciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCAAuAC8DASIAAhEBAxEB/8QBGwAAAwEBAQEBAQEBAQAAAAAAAQACAwQFBgcICQoLAQEBAQEBAQEBAQEBAQAAAAAAAQIDBAUGBwgJCgsQAAICAQMCAwQHBgMDBgIBNQEAAhEDIRIxBEFRIhNhcTKBkbFCoQXRwRTwUiNyM2LhgvFDNJKishXSUyRzwmMGg5Pi8qNEVGQlNUUWJnQ2VWWzhMPTdePzRpSkhbSVxNTk9KW1xdXl9VZmdoaWprbG1ub2EQACAgAFAQYGAQMBAwUDBi8AARECIQMxQRJRYXGBkSITMvChsQTB0eHxQlIjYnIUkjOCQySisjRTRGNzwtKDk6NU4vIFFSUGFiY1ZEVVNnRls4TD03Xj80aUpIW0lcTU5PSltcXV5fVWZnaG/9oADAMBAAIRAxEAPwD6SUhAbpaAPz/Wfi0ydmLyjx7u/wCJZzKXpjgc+98KOM5sm0fP2Bzyxg6unpVnu8ASzZJG5SJ+beLqcuM3GRfTj+HQIePP0E8fmj5h965GOMHr9L+JbqGTv3fXsVfZ+Mwmxb7fS9QZYZ4zzGMq+hitL4vU7Xy/Ssyuj1XT+h52aW6cifF26WETK/tHRjqYbMsh7XLpepiM2zsfreOPN+J6rNe1XuUeR6sRRItrbUSyCb4tjqcww4pSOh7e96HkPOyCMZERFDwbwSon2xl/0S+THMRKybvl9fphuEp9owkfuLlVaumeh3Vsqy6L+x6v4h0pyR3w+IB+OF34SBf0N+f/ABDH0U5HdPZk/wAIJ+mgXthPaeObQv8ATjAMXVE4xN8Pquolmncuz1RxbQRjyCQ8amP/ACLzwwYSf5mUR/0zP/kWJd3mV27/ACObHCWSQjEWS/YYOhOHppY/tzhIfMhz/DY9HHTBLfPuTYP3gPsOjnif/9k=",
+            "relation": "历史管教民警"
+          },
+          {
+            "name": "黄玄",
+            "type": 3,
+            "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YjE2ZWFkNGYtZGUyZC0wYTQ1LTllNTEtMDQwNjc4YjdmYmY3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjY0MEQ4NEZEQjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY0MEQ4NEZDQjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAwNjIxOWJmLTkzZjEtZjY0ZS05YzYyLThhNThiOTMzZjMzOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpiMTZlYWQ0Zi1kZTJkLTBhNDUtOWU1MS0wNDA2NzhiN2ZiZjciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCAAuAC8DASIAAhEBAxEB/8QBGwAAAwEBAQEBAQEBAQAAAAAAAQACAwQFBgcICQoLAQEBAQEBAQEBAQEBAQAAAAAAAQIDBAUGBwgJCgsQAAICAQMCAwQHBgMDBgIBNQEAAhEDIRIxBEFRIhNhcTKBkbFCoQXRwRTwUiNyM2LhgvFDNJKishXSUyRzwmMGg5Pi8qNEVGQlNUUWJnQ2VWWzhMPTdePzRpSkhbSVxNTk9KW1xdXl9VZmdoaWprbG1ub2EQACAgAFAQYGAQMBAwUDBi8AARECIQMxQRJRYXGBkSITMvChsQTB0eHxQlIjYnIUkjOCQySisjRTRGNzwtKDk6NU4vIFFSUGFiY1ZEVVNnRls4TD03Xj80aUpIW0lcTU5PSltcXV5fVWZnaG/9oADAMBAAIRAxEAPwD6SUhEWX53r/xaYmcWIVt0J9v7/L2F92Zsk9oC/nX6fq/IdFH1JmUte/zKbgJSRKfVTFkyr2afcKXF1ufEfiJ9kvMPoL7+MRkNHk6vpYT4oScyzcI7/wAP6z9pidvlnH4odiPGPg+mJgix9Hf3PyX4ZM4+qiOLuJ/f5P1Z8sge0tD7+35fQ71ObwHHqD7SfyfluirHlnil4n7i/Uw0lKPz+n/N+RyxOXrJSxfCJ/F9bLGqntkCPwivFIjEiyBbGzd8QtyzRlGB9PQ9nB0OXpqn+IAx7X/0S/TTFj5j6w/Hfhszg6qPqeW7Gvt/zfsMh4j4n6tXpXU5WM+pwnLAiJqXb8ny4YzHSqrs+48+YYyfMal7Of397HG5U2cY9qJRt12gcSB+RH5o2g8yA+k/k5gsnHkxCXxCz2/ye/FgnHERIkzMSBrqPm6YRiEtDcvb+n+T1OlGxG2f/9k=",
+            "relation": "历史同案"
+          },
+          {
+            "name": "减天熊",
+            "type": 4,
+            "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YjE2ZWFkNGYtZGUyZC0wYTQ1LTllNTEtMDQwNjc4YjdmYmY3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjVCRURBMjQ2QjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjVCRURBMjQ1QjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAwNjIxOWJmLTkzZjEtZjY0ZS05YzYyLThhNThiOTMzZjMzOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpiMTZlYWQ0Zi1kZTJkLTBhNDUtOWU1MS0wNDA2NzhiN2ZiZjciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCAAuAC8DASIAAhEBAxEB/8QBGwAAAwEBAQEBAQEBAQAAAAAAAQACAwQFBgcICQoLAQEBAQEBAQEBAQEBAQAAAAAAAQIDBAUGBwgJCgsQAAICAQMCAwQHBgMDBgIBNQEAAhEDIRIxBEFRIhNhcTKBkbFCoQXRwRTwUiNyM2LhgvFDNJKishXSUyRzwmMGg5Pi8qNEVGQlNUUWJnQ2VWWzhMPTdePzRpSkhbSVxNTk9KW1xdXl9VZmdoaWprbG1ub2EQACAgAFAQYGAQMBAwUDBi8AARECIQMxQRJRYXGBkSITMvChsQTB0eHxQlIjYnIUkjOCQySisjRTRGNzwtKDk6NU4vIFFSUGFiY1ZEVVNnRls4TD03Xj80aUpIW0lcTU5PSltcXV5fVWZnaG/9oADAMBAAIRAxEAPwD6OcxAWXzet60dOPP8R4gP1L2fGdx44H7+1+M6rqPXzzl2uh7hw60IsTs/6xzZJabYj+kfq9nT/icQduXyf4hp9NPF0XQTz+a9sPre3qPwiEYGQJJc8jpxR7kctfFqD9r8/wA3ofB/Cc3qRliOuyvoL60DYMD2H3Onjic9HBMhWMgfw/o/EdH05zzo3tjrKv37v3ETcfk/K/hOTZklHx/Rli0PoOmn5doFAcaU3HKclxIP0aMRzgy07dm5ZwAT2Hd4nY8r8HhtzZh2FfWX27qY9oP6Pk/goMoZMp5nP9/rfXAuf9MT9/8Ase6/R5rajkGyz9k/cf8AN+S6AR9cx7kED3v2p9r4U4dGc145COS+ADRP0MeKNLBm0Jj7diTvQnIRI0l2Ph3tomuwP7/IszBnEixAVqRrKnnxOvLsZh+GmEMcow1EckgP0+59OMDGJ/iP1vN0QwAEYSCe57vc9Tluf//Z",
+            "relation": "同案"
+          },
+          {
+            "name": "张谷天",
+            "type": 5,
+            "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YjE2ZWFkNGYtZGUyZC0wYTQ1LTllNTEtMDQwNjc4YjdmYmY3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjcwN0MzQjg4QjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjcwN0MzQjg3QjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAwNjIxOWJmLTkzZjEtZjY0ZS05YzYyLThhNThiOTMzZjMzOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpiMTZlYWQ0Zi1kZTJkLTBhNDUtOWU1MS0wNDA2NzhiN2ZiZjciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCAAuAC8DASIAAhEBAxEB/8QBGwAAAwEBAQEBAQEBAQAAAAAAAQACAwQFBgcICQoLAQEBAQEBAQEBAQEBAQAAAAAAAQIDBAUGBwgJCgsQAAICAQMCAwQHBgMDBgIBNQEAAhEDIRIxBEFRIhNhcTKBkbFCoQXRwRTwUiNyM2LhgvFDNJKishXSUyRzwmMGg5Pi8qNEVGQlNUUWJnQ2VWWzhMPTdePzRpSkhbSVxNTk9KW1xdXl9VZmdoaWprbG1ub2EQACAgAFAQYGAQMBAwUDBi8AARECIQMxQRJRYXGBkSITMvChsQTB0eHxQlIjYnIUkjOCQySisjRTRGNzwtKDk6NU4vIFFSUGFiY1ZEVVNnRls4TD03Xj80aUpIW0lcTU5PSltcXV5fVWZnaG/9oADAMBAAIRAxEAPwD6SUhAWdAHxur/ABIwFx0H3u3W5d0tg4j9b4XWayAesca8tzg7crcFpuc2brcszzQa6f8AEMmM6k197pi/D5ZBuloEZehjCJrl5c3Op29tRofRdP111v1B+0+nYq+z8h+HyJxkHsX3Ony3jnA9omvoerUrkjjWzVuFjjmbkT4ly/ZxlyQJ4uj9Fu+aOyZHtTintkL8XpdTXA40arf1GpkTP0wKAHNF87LMzOg09z65nskT2p8oTFSp8B9JGPSDbuH+J78Zon3S+ouEICA970YY7iT4RkfufclFfUfObVsya9Tv6zBu88eRy+YAToH6F5KgSTjIB7+DmtnEQbvWrcz3mB0iYnmtXxyDOe2AfcznT+YPoOvy7vJjEDHykAXr4/PR83HHY9aeG5z0eO76mLpzDFIfakD9XC9OMQOh3S/fh7X0Wba0PNStU8HPQ//Z",
+            "relation": "同监"
+          },
+          {
+            "name": "铁手",
+            "type": 6,
+            "img": "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QN/aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0MiA3OS4xNjA5MjQsIDIwMTcvMDcvMTMtMDE6MDY6MzkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YjE2ZWFkNGYtZGUyZC0wYTQ1LTllNTEtMDQwNjc4YjdmYmY3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjcwN0MzQjg4QjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjcwN0MzQjg3QjA0QzExRTlBRUUwRDdCNTZCNUZFNEQ4IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAwNjIxOWJmLTkzZjEtZjY0ZS05YzYyLThhNThiOTMzZjMzOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpiMTZlYWQ0Zi1kZTJkLTBhNDUtOWU1MS0wNDA2NzhiN2ZiZjciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCAAuAC8DASIAAhEBAxEB/8QBGwAAAwEBAQEBAQEBAQAAAAAAAQACAwQFBgcICQoLAQEBAQEBAQEBAQEBAQAAAAAAAQIDBAUGBwgJCgsQAAICAQMCAwQHBgMDBgIBNQEAAhEDIRIxBEFRIhNhcTKBkbFCoQXRwRTwUiNyM2LhgvFDNJKishXSUyRzwmMGg5Pi8qNEVGQlNUUWJnQ2VWWzhMPTdePzRpSkhbSVxNTk9KW1xdXl9VZmdoaWprbG1ub2EQACAgAFAQYGAQMBAwUDBi8AARECIQMxQRJRYXGBkSITMvChsQTB0eHxQlIjYnIUkjOCQySisjRTRGNzwtKDk6NU4vIFFSUGFiY1ZEVVNnRls4TD03Xj80aUpIW0lcTU5PSltcXV5fVWZnaG/9oADAMBAAIRAxEAPwD6SUhAWdAHxur/ABIwFx0H3u3W5d0tg4j9b4XWayAesca8tzg7crcFpuc2brcszzQa6f8AEMmM6k197pi/D5ZBuloEZehjCJrl5c3Op29tRofRdP111v1B+0+nYq+z8h+HyJxkHsX3Ony3jnA9omvoerUrkjjWzVuFjjmbkT4ly/ZxlyQJ4uj9Fu+aOyZHtTintkL8XpdTXA40arf1GpkTP0wKAHNF87LMzOg09z65nskT2p8oTFSp8B9JGPSDbuH+J78Zon3S+ouEICA970YY7iT4RkfufclFfUfObVsya9Tv6zBu88eRy+YAToH6F5KgSTjIB7+DmtnEQbvWrcz3mB0iYnmtXxyDOe2AfcznT+YPoOvy7vJjEDHykAXr4/PR83HHY9aeG5z0eO76mLpzDFIfakD9XC9OMQOh3S/fh7X0Wba0PNStU8HPQ//Z",
+            "relation": "历史管教民警"
+          }
+        ]
+      },
+      "rb":{
+        "name": "诉讼情况",
+        "head": [
+          {
+            "name": ""
+          },
+          {
+            "name": "日期"
+          },
+          {
+            "name": ""
+          },
+          {
+            "name": "进展情况"
+          }
+        ],
+        "body": [
+          {
+            "time": "2017-10-21",
+            "dit": "",
+            "name": "刑事拘留"
+          },
+          {
+            "time": "2017-11-21",
+            "dit": "",
+            "name": "批准逮捕"
+          },
+          {
+            "time": "2017-12-24",
+            "dit": "",
+            "name": "起诉"
+          },
+          {
+            "time": "2018-2-21",
+            "dit": "",
+            "name": "一串"
+          },
+          {
+            "time": "2018-3-21",
+            "dit": "",
+            "name": "上诉"
+          },
+          {
+            "time": "2018-4-21",
+            "dit": "",
+            "name": "二串"
+          },
+          {
+            "time": "2018-11-21",
+            "dit": "",
+            "name": "判决"
+          },
+          {
+            "time": "2018-12-21",
+            "dit": "",
+            "name": "死刑复核"
+          },
+          {
+            "time": "2019-1-21",
+            "dit": "",
+            "name": "执行"
+          }
+        ]
+      },
+      "ctl":{
+        "name": "考核评分",
+        "value": 80,
+        "list": [
+          {
+            "name": 0
+          },
+          {
+            "name": 25
+          },
+          {
+            "name": 50
+          },
+          {
+            "name": 75
+          },
+          {
+            "name": 100
+          }
+        ]
+      },
+      "ctr":{
+        "name": "风险等级",
+        "value": "二级",
+        "type": 1,
+        "list": [
+          {
+            "name": "一级"
+          },
+          {
+            "name": "二级"
+          },
+          {
+            "name": "三级"
+          }
+        ]
+      },
+      "cb": [
+        {
+          "name": "涉恐人员",
+          "type": 1
+        },
+        {
+          "name": "涉恐人员",
+          "type": 0
+        },
+        {
+          "name": "涉恐人员",
+          "type": 0
+        },
+        {
+          "name": "涉恐人员",
+          "type": 0
+        },
+        {
+          "name": "涉恐人员",
+          "type": 1
+        },
+        {
+          "name": "涉恐人员",
+          "type": 0
+        }
+      ]
+    },
+    "collection": {
+      "lt": {
+        "name": "法治型",
+        "tlist": [
+          {
+            "name": "具有执法资格统计",
+            "list": [
+              {
+                "value": 75,
+                "col": "#eb6f49"
+              },
+              {
+                "value": 280,
+                "col": "#fdb628"
+              }
+            ]
+          },
+          {
+            "name": "参加执法培训统计",
+            "list": [
+              {
+                "value": 65,
+                "col": "#eb6f49"
+              },
+              {
+                "value": 280,
+                "col": "#fdb628"
+              }
+            ]
+          },
+          {
+            "name": "参加执法教育统计",
+            "list": [
+              {
+                "value": 82,
+                "col": "#eb6f49"
+              },
+              {
+                "value": 280,
+                "col": "#fdb628"
+              }
+            ]
+          }
+        ],
+        "clist": [
+          {
+            "name": "申请法律援助",
+            "value": 1252
+          },
+          {
+            "name": "转递投诉、控告、检举材料",
+            "value": 4000
+          },
+          {
+            "name": "转递申诉材料",
+            "value": 3600
+          },
+          {
+            "name": "转递上诉材料",
+            "value": 2400
+          }
+        ],
+        "blist": [
+          {
+            "name": "执法问题",
+            "value": 71,
+            "unit": "件"
+          },
+          {
+            "name": "看守所",
+            "value": 0.63,
+            "unit": "%"
+          },
+          {
+            "name": "拘留所",
+            "value": 0.71,
+            "unit": "%"
+          },
+          {
+            "name": "表扬通知",
+            "value": 174,
+            "unit": ""
+          },
+          {
+            "name": "整改通知",
+            "value": 60,
+            "unit": ""
+          },
+          {
+            "name": "检查通报",
+            "value": 4,
+            "unit": "件"
+          }
+        ]
+      },
+      "lb": {
+        "name": "服务型",
+        "min": 0,
+        "list": [
+          {
+            "name": "转递核实",
+            "value": 2262
+          },
+          {
+            "name": "转递核实",
+            "value": 1120
+          },
+          {
+            "name": "转从中胁",
+            "value": 2110
+          },
+          {
+            "name": "抓获违法",
+            "value": 1251
+          },
+          {
+            "name": "收缴枪支",
+            "value": 1020
+          },
+          {
+            "name": "收缴枪支",
+            "value": 1125
+          },
+          {
+            "name": "收缴枪支",
+            "value": 2162
+          },
+          {
+            "name": "收缴枪支",
+            "value": 1163
+          }
+        ],
+        "pieName": "依法未收押或未收拘入所",
+        "pie0": [
+          {
+            "name": "依法未收押",
+            "value": 123
+          },
+          {
+            "name": "xx",
+            "value": 245
+          }
+        ],
+        "pie1": [
+          {
+            "name": "未收拘入所",
+            "value": 245
+          },
+          {
+            "name": "xx",
+            "value": 123
+          }
+        ]
+      },
+      "rt": {
+        "name": "智慧型",
+        "list": [
+          {
+            "name": "信息化项目申报",
+            "value": 45
+          },
+          {
+            "name": "电子脚扣",
+            "value": 23
+          },
+          {
+            "name": "数据对接",
+            "value": 12
+          },
+          {
+            "name": "安防系统建设",
+            "value": 3
+          }
+        ],
+        "label": [
+          {
+            "name": "部署监控摄影机",
+            "value": 9632,
+            "unit": "台"
+          },
+          {
+            "name": "信息化建设投资",
+            "value": 1.2,
+            "unit": "亿"
+          },
+          {
+            "name": "信息化建设预算",
+            "value": 1.2,
+            "unit": "亿"
+          }
+        ]
+      },
+      "rb": {
+        "name": "廉洁型",
+        "lname": "全市在编警力",
+        "lvalue": "2384",
+        "rname": "平均年龄",
+        "rvalue": 48.7,
+        "llist": [
+          {
+            "name": "35岁以下",
+            "value": 884
+          },
+          {
+            "name": "35至50岁",
+            "value": 888
+          },
+          {
+            "name": "50岁以上",
+            "value": 612
+          }
+        ],
+        "rlist": [
+          {
+            "name": "廉政警示教育",
+            "value": 20
+          },
+          {
+            "name": "确定风险岗位",
+            "value": 12
+          },
+          {
+            "name": "梳理廉政风险点",
+            "value": 30
+          },
+          {
+            "name": "创新廉政风险防范机制",
+            "value": 25
+          },
+          {
+            "name": "诫勉谈话",
+            "value": 36
+          },
+          {
+            "name": "提醒谈话",
+            "value": 52
+          }
+        ]
+      },
+      "ct": {
+        "name": "安全型",
+        "list": [
+          {
+            "name": "一级风险人数",
+            "value": 3500
+          },
+          {
+            "name": "二级风险人数",
+            "value": 2200
+          },
+          {
+            "name": "三级风险人数",
+            "value": 800
+          },
+          {
+            "name": "被监管人员打架数",
+            "value": 2200
+          },
+          {
+            "name": "被监管人员突发疾病数",
+            "value": 1800
+          },
+          {
+            "name": "被监管人员企图自杀自伤数",
+            "value": 3500
+          },
+          {
+            "name": "被监管人员因病死亡人数",
+            "value": 3900
+          },
+          {
+            "name": "被监管人出所就医人数",
+            "value": 1800
+          },
+          {
+            "name": "看守所交付执执行人数",
+            "value": 1800
+          },
+          {
+            "name": "基础设施建设情况",
+            "value": 1800
+          }
+        ]
+      },
+      "cb": {
+        "name": "监所评分",
+        "list": [
+          {
+            "name": "北京市第一看守所",
+            "value": 90
+          },
+          {
+            "name": "北京市第二看守所",
+            "value": 88
+          },
+          {
+            "name": "北京市第三看守所",
+            "value": 70
+          },
+          {
+            "name": "北京市第六看守所",
+            "value": 72
+          },
+          {
+            "name": "北京市拘留所",
+            "value": 83
+          },
+          {
+            "name": "东城区看守所",
+            "value": 78
+          },
+          {
+            "name": "东城区拘留所",
+            "value": 91
+          },
+          {
+            "name": "西城区看守所",
+            "value": 87
+          },
+          {
+            "name": "朝阳区看守所",
+            "value": 73
+          },
+          {
+            "name": "朝阳区拘留所",
+            "value": 86
+          },
+          {
+            "name": "丰台区看守所",
+            "value": 75
+          },
+          {
+            "name": "石景山区看守所",
+            "value": 74
+          },
+          {
+            "name": "海淀区看守所",
+            "value": 81
+          },
+          {
+            "name": "海淀区拘留所",
+            "value": 83
+          },
+          {
+            "name": "门头沟区看守所",
+            "value": 89
+          },
+          {
+            "name": "房山区看守所",
+            "value": 76
+          },
+          {
+            "name": "房山区第二看守所",
+            "value": 72
+          },
+          {
+            "name": "房山区拘留所",
+            "value": 79
+          },
+          {
+            "name": "通州区看守所",
+            "value": 86
+          },
+          {
+            "name": "顺义区看守所",
+            "value": 84
+          },
+          {
+            "name": "昌平区看守所",
+            "value": 81
+          },
+          {
+            "name": "大兴区看守所",
+            "value": 93
+          },
+          {
+            "name": "平谷区看守所",
+            "value": 88
+          },
+          {
+            "name": "怀柔区看守所",
+            "value": 81
+          },
+          {
+            "name": "密云区看守所",
+            "value": 91
+          },
+          {
+            "name": "延庆区看守所",
+            "value": 90
+          },
+          {
+            "name": "北京收容教育所",
+            "value": 80
+          },
+          {
+            "name": "北京市公安局强制隔离戒毒所",
+            "value": 70
+          }
+        ]
+      }
+    },
+    "popCllection": {
+      "list0": {
+        "header": [
+          {
+            "name": "监所"
+          },
+          {
+            "name": "总队组织培训参加人数"
+          },
+          {
+            "name": "监所组织培训参加人数"
+          },
+          {
+            "name": "其他组织培训参加人数"
+          }
+        ],
+        "body": [
+          {
+            "name": "北京市第一看守所",
+            "value0": 0,
+            "value1": 96,
+            "value2": 103
+          },
+          {
+            "name": "北京市第三看守所",
+            "value0": 0,
+            "value1": 85,
+            "value2": 45
+          },
+          {
+            "name": "北京市第六看守所",
+            "value0": 1,
+            "value1": 23,
+            "value2": 56
+          },
+           {
+            "name": "东城区看守所",
+            "value0": 0,
+            "value1": 96,
+            "value2": 103
+          },
+          {
+            "name": "昌平区看守所",
+            "value0": 0,
+            "value1": 85,
+            "value2": 12
+          },
+          {
+            "name": "延庆区看守所",
+            "value0": 1,
+            "value1": 23,
+            "value2": 34
+          },
+           {
+            "name": "大兴区看守所",
+            "value0": 0,
+            "value1": 96,
+            "value2": 103
+          },
+          {
+            "name": "通州区看守所",
+            "value0": 0,
+            "value1": 85,
+            "value2": 34
+          },
+          {
+            "name": "石景山区看守所",
+            "value0": 1,
+            "value1": 23,
+            "value2": 43
+          },
+          {
+            "name": "顺义区看守所",
+            "value0": 1,
+            "value1": 23,
+            "value2": 25
+          }
+        ]
+      },
+      "list1": {
+        "header": [
+          {
+            "name": "监所",
+            "unit": ""
+          },
+          {
+            "name": "资金投入情况",
+            "unit": "（万元）"
+          },
+          {
+            "name": "“俩警”建设完成情况",
+            "unit": "（完成项目数）"
+          },
+          {
+            "name": "监室“挂点”消除完成情况",
+            "unit": "（是/否）"
+          },
+          {
+            "name": "监室安全玻璃改造完成情况",
+            "unit": "（是/否）"
+          }
+        ],
+        "body": [
+          {
+            "name": "北京市第一看守所",
+            "value0": 0,
+            "value1": 96,
+            "value2": "是",
+            "value3": "是"
+          },
+          {
+            "name": "昌平区看守所",
+            "value0": 0,
+            "value1": 85,
+            "value2": "是",
+            "value3": "是"
+          },
+          {
+            "name": "延庆区看守所",
+            "value0": 1,
+            "value1": 23,
+            "value2": "是",
+            "value3": "是"
+          },
+           {
+            "name": "东城区看守所",
+            "value0": 0,
+            "value1": 96,
+            "value2": "是",
+            "value3": "是"
+          },
+          {
+            "name": "北京市第三看守所",
+            "value0": 0,
+            "value1": 85,
+            "value2": "是",
+            "value3": "是"
+          },
+          {
+            "name": "延庆区看守所",
+            "value0": 1,
+            "value1": 23,
+            "value2": "是",
+            "value3": "是"
+          },
+           {
+            "name": "东城区看守所",
+            "value0": 0,
+            "value1": 96,
+            "value2": "是",
+            "value3": "是"
+          },
+          {
+            "name": "昌平区看守所",
+            "value0": 0,
+            "value1": 85,
+            "value2": "是",
+            "value3": "是"
+          },
+          {
+            "name": "北京市第六看守所",
+            "value0": 1,
+            "value1": 23,
+            "value2": "是",
+            "value3": "是"
+          },
+          {
+            "name": "大兴区看守所",
+            "value0": 1,
+            "value1": 23,
+            "value2": "是",
+            "value3": "是"
+          }
+        ]
+      },
+      "list2": {
+        "header": [
+          {
+            "name": "监所",
+            "unit": ""
+          },
+          {
+            "name": "投入资金开展信息化升级改造或建设项目情况",
+            "unit": "（是/否）"
+          },
+          {
+            "name": "监所开展信息化科技项目申报情况",
+            "unit": "（项目数）"
+          }
+        ],
+        "body": [
+          {
+            "name": "北京市第三看守所",
+            "value0": "是",
+            "value1": "全年7项"
+          },
+          {
+            "name": "朝阳区看守所",
+            "value0": "是",
+            "value1": "全年3项"
+          },
+          {
+            "name": "昌平区看守所",
+            "value0": "是",
+            "value1": "全年2项"
+          },
+            {
+            "name": "东城区看守所",
+            "value0": "是",
+            "value1": "全年7项"
+          },
+          {
+            "name": "北京市第一看守所",
+            "value0": "是",
+            "value1": "0"
+          },
+          {
+            "name": "昌平区看守所",
+            "value0": "是",
+            "value1": "0"
+          },
+            {
+            "name": "东城区看守所",
+            "value0": "是",
+            "value1": "全年7项"
+          },
+          {
+            "name": "朝阳区看守所",
+            "value0": "是",
+            "value1": "全年8项"
+          },
+          {
+            "name": "北京市第六看守所",
+            "value0": "是",
+            "value1": "全年9项"
+          },
+          {
+            "name": "大兴区看守所",
+            "value0": "是",
+            "value1": "0"
+          }
+        ]
+      },
+      "list3": {
+        "header": [
+          {
+            "name": "监所"
+          },
+          {
+            "name": "依法不予收押/建议停止执行拘留人数"
+          }
+        ],
+        "body": [
+          {
+            "name": "东城区看守所",
+            "value": 0
+          },
+          {
+            "name": "昌平区看守所",
+            "value": 5
+          },
+          {
+            "name": "房山区拘留所",
+            "value": 30
+          },
+              {
+            "name": "北京市第一看守所",
+            "value": 0
+          },
+          {
+            "name": "北京市第三看守所",
+            "value": 5
+          },
+          {
+            "name": "通州区拘留所",
+            "value": 30
+          },
+              {
+            "name": "大兴区看守所",
+            "value": 0
+          },
+          {
+            "name": "顺义区看守所",
+            "value": 5
+          },
+          {
+            "name": "大兴区拘留所",
+            "value": 30
+          },
+           {
+            "name": "西城区拘留所",
+            "value": 30
+          }
+        ]
+      },
+      "list4": {
+        "header": [
+          {
+            "name": "监所"
+          },
+          {
+            "name": "民警数量"
+          },
+          {
+            "name": "本月调入警力数"
+          },
+          {
+            "name": "本月调出警力数"
+          },
+          {
+            "name": "队伍平均年龄"
+          },
+          {
+            "name": "班子应配数"
+          },
+          {
+            "name": "班子实配数"
+          },
+          {
+            "name": "班子平均年龄"
+          }
+        ],
+        "body": [
+          {
+            "name": "东城区看守所",
+            "value": 76,
+            "value1": 0,
+            "value2": 0,
+            "value3": 49.4,
+            "value4": 4,
+            "value5": 4,
+            "value6": 47.7
+          },
+          {
+            "name": "西城区看守所",
+            "value": 95,
+            "value1": 0,
+            "value2": 0,
+            "value3": 43,
+            "value4": 4,
+            "value5": 6,
+            "value6": 46
+          },
+          {
+            "name": "北京市第一看守所",
+            "value": 34,
+            "value1": 0,
+            "value2": 0,
+            "value3": 51,
+            "value4": 5,
+            "value5": 5,
+            "value6": 45
+          },
+                {
+            "name": "北京市第三看守所",
+            "value": 76,
+            "value1": 0,
+            "value2": 0,
+            "value3": 49.4,
+            "value4": 4,
+            "value5": 4,
+            "value6": 47.7
+          },
+          {
+            "name": "昌平区看守所",
+            "value": 95,
+            "value1": 0,
+            "value2": 0,
+            "value3": 43,
+            "value4": 4,
+            "value5": 6,
+            "value6": 46
+          },
+          {
+            "name": "延庆区看守所",
+            "value": 34,
+            "value1": 0,
+            "value2": 0,
+            "value3": 51,
+            "value4": 5,
+            "value5": 5,
+            "value6": 45
+          },
+                {
+            "name": "大兴区看守所",
+            "value": 76,
+            "value1": 0,
+            "value2": 0,
+            "value3": 49.4,
+            "value4": 4,
+            "value5": 4,
+            "value6": 47.7
+          },
+          {
+            "name": "通州区看守所",
+            "value": 95,
+            "value1": 0,
+            "value2": 0,
+            "value3": 43,
+            "value4": 4,
+            "value5": 6,
+            "value6": 46
+          },
+          {
+            "name": "顺义区看守所",
+            "value": 34,
+            "value1": 0,
+            "value2": 0,
+            "value3": 51,
+            "value4": 5,
+            "value5": 5,
+            "value6": 45
+          },
+          {
+            "name": "石景山区看守所",
+            "value": 34,
+            "value1": 0,
+            "value2": 0,
+            "value3": 51,
+            "value4": 5,
+            "value5": 5,
+            "value6": 45
+          }
+        ]
+      }
+    }
+  }
+}

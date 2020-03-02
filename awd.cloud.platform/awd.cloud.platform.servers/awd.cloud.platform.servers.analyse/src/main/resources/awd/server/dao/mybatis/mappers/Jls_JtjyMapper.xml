@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_JtjyDao">
+
+    <select id="jtjyDt" parameterType="String" resultType="java.util.HashMap">
+        select
+              count(*) cs,
+              jyr
+                     from jtjy
+        <where>
+        1=1
+            <if test="starttime != null and starttime != ''">
+              and date_format(sj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+               and date_format(sj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+         GROUP BY jyr
+    </select>
+
+    <select id="jtjyTz" parameterType="String" resultType="java.util.HashMap">
+        select
+               sj,
+               cjrs,
+               jyr,
+               nr
+                   from jtjy
+
+        <where>
+            <if test="starttime != null and starttime != ''">
+                m.jcrq = #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and m.jcrq = #{endtime}
+            </if>
+            <if test="jyr != null and jyr != ''">
+                and jyr = #{jyr}
+            </if>
+            <if test="zw != null and zw != ''">
+                and zw = #{zw}
+            </if>
+            <if test="pzr != null and pzr != ''">
+                and pzr = #{pzr}
+            </if>
+
+        </where>
+    </select>
+
+</mapper>

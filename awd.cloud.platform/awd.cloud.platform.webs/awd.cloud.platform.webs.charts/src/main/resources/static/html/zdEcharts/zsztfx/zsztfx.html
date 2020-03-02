@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在所状态分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+<div id="zszt">
+    <div>
+        <div id="zsztfx" style="background:#ffffff"></div>
+        <table cellspacing="0" class="tableBar">
+            <div class='cs'>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;"></div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">北京市</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">东城区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">西城区</div style="width:80px;">
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">朝阳区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">丰台区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">石景山区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">海淀区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">门头沟区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">房山区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">通州区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8 ;margin-top:-7px;">顺义区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">昌平区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">大兴区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">平谷区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">怀柔区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">密云区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #b8b8b8;margin-top:-7px;">延庆区</div>
+            </div>
+            <tbody id='tbodyResult'></tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+
+var tbody = window.document.getElementById("tbodyResult")
+    $.ajax({
+        url: '/kssdp/select_kss_zszt',
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            var wj = '';
+            var yj = '';
+            var data = data.result
+            
+            for (var i=0;i< data.wj.length;i++) {   
+                wj += "<td style='width:90px;height:50px;text-align:center;border:1px solid #b8b8b8;'>" + data.wj[i] + "</td>";
+            } 
+            var strr = "<tr style='height:60px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #b8b8b8">已决</td>'+  wj + "</tr>"
+            for (var i=0;i< data.yj.length;i++) {   
+                yj += "<td style='width:90px;height:50px;text-align:center;border:1px solid #b8b8b8;'>" + data.yj[i] + "</td>";
+            }
+            var barr = "<tr style='height:60px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #b8b8b8">未决</td>' + yj + "</tr>"
+            tbody.innerHTML = strr + barr; 
+        },error(error){
+            console.log(error)
+        }
+    })
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/zdEcharts/zsztfx/zsztfx');
+</script>
+<style>
+    *{
+        padding:0;
+        margin:0; 
+    }
+    #zsztfx{
+        width:100%;
+        height:550px;
+    }
+    html, body {
+      position: relative;
+      height: 100%;
+      color:#fff;
+      background:#394056;
+    }
+    .tableBar{
+        margin-left: 70px;
+        width:1352px;
+        height:auto;
+        /* background:#ffffff; */
+    }
+    .cs{
+        height:40px;
+        display:flex;
+        font-size: 18px;
+        line-height:40px;
+        width:1350px;
+        margin-left: 70px;
+        border:1px solid #b8b8b8;
+        /* background:#ffffff; */
+    }
+    #tbodyResult{
+        height:auto;
+        width:1352px;
+        margin-left: 70px;
+        /* background:#ffffff; */
+    }
+</style>
+</body>
+</html>

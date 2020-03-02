@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.JyDao">
+
+    <select id="getJyCountByField" parameterType="String" resultType="Integer">
+        select count(*) count from jy
+        <where>
+            state='R2'
+            and swjy = "1"
+            and psbz = "1"
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+
+            <if test="value != null and value != ''">
+                and ${field} = #{value}
+            </if>
+        </where>
+
+    </select>
+    <select id="getJyCountByCsjylx"  resultType="Integer">
+        select count(jb.RYBH) from jbxx jb,jy
+        <where>
+            jb.RYBH=jy.RYBH
+            AND jy.state = 'R2'
+            AND jy.swjy = "1"
+            AND jy.psbz = "1"
+            <if test="jsbh!=null and jsbh!=''">
+                and jb.JSBH=#{jsbh}
+            </if>
+            <if test="jsh!=null and jsh!=''">
+                and jb.jsh=#{jsh}
+            </if>
+            <if test="value!=null and value!=''">
+                and ${field}=#{value}
+            </if>
+        </where>
+
+
+    </select>
+    
+    <select id="swjyCount" resultType="java.util.HashMap">
+    	select count(id) sl,jsbh from jbxx where crjbj = "09" and state="R8" GROUP BY jsbh
+    </select>
+    
+    <select id="snjyCount" resultType="java.util.HashMap">
+    	select count(jy.id) sl,jy.jsbh jsbh from jy jy left join jbxx j on jy.rybh = j.rybh where swjy="0" and j.state="R8" GROUP BY jy.jsbh
+    </select>
+
+</mapper>

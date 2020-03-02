@@ -1,0 +1,16 @@
+  <div id="content">
+            <!--轮换显示的横幅广告图片-->
+            <div class="banner" id="b04" style="width: 100%">
+                <ul id="scroll_img">
+                	<% for(app in lunbolist!){%>
+                    <li><a href="#" onclick='_iframe("${app.id}","${app.appcode}")'><img id="ImagePic" src="${app.photoURL}" width="100%" height="280px"/></a></li>
+                    <%}%>
+                </ul>
+                <a href="javascript:void(0);" class="unslider-arrow04 prev">
+                	<img class="arrow" id="al" src="./images/arrowl.png"  alt="prev" width="20" height="35"/>
+                </a>
+                <a href="javascript:void(0);" class="unslider-arrow04 next">
+                	<img class="arrow" id="ar" src="./images/arrowr.png" alt="next" width="20" height="37"/>
+                </a>
+            </div>
+  </div>

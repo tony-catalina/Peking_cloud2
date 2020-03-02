@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.DdgyDao">
+
+    <resultMap id="ddgyMapper" type="awd.cloud.platform.servers.analyse.model.kss.DsjPTModel">
+        <result property="jb" column="JB"/>
+        <result property="jsbh" column="JSBH"/>
+    </resultMap>
+
+
+    <!--大屏看守所单独关押情况-->
+    <select id="ddgy" resultType="java.util.HashMap">
+		 select count(id or null )  as "zy" FROM jbxx where JSBH=#{jsbh} and DDGY="1" and State = "R8"
+	</select>
+
+    <!--大屏拘留所单独关押情况-->
+    <select id="jls_ddgy" resultType="java.util.HashMap">
+		select count(id or null )  as "zy" FROM jbxx where JSBH=#{jsbh} and DDGY="1" and State = "R8"
+	</select>
+
+
+
+
+
+</mapper>
+
+

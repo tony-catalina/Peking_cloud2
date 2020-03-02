@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: ${hostname:awd-mis-platform-web}
+  cloud:   
+    inetutils:
+      preferred-networks: ${hostip:192.168.4.50}
+    config:
+      uri: ${config.serviceUrl:http://192.168.4.50:3000}
+      label: ${config.lable:awd-mis-servers-manager}
+      profile: ${config.profile:dev}
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true   
+
+app:
+  host: http://${spring.cloud.client.ipAddress}:${server.port}

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: awd.framework.expands:awd.framework.expands.redisclient:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/expands/awd.framework.expands.redisclient/1.0-SNAPSHOT/awd.framework.expands.redisclient-1.0-20200113.055615-23.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/expands/awd.framework.expands.redisclient/1.0-SNAPSHOT/awd.framework.expands.redisclient-1.0-20200113.055615-23-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/expands/awd.framework.expands.redisclient/1.0-SNAPSHOT/awd.framework.expands.redisclient-1.0-20200113.055615-23-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

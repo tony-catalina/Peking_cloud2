@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.JSJYDao">
+
+	<resultMap id="jjSYMapper" type="awd.cloud.platform.servers.analyse.model.kss.DsjPTModel">
+
+		<result property="jsbh" column="JSBH"/>
+	</resultMap>
+
+    <!--kss全市监所羁押分布-->
+    <select id="jSJY" resultType="java.util.HashMap">
+
+ select count(STATE ="R8" or null )  as "sl" from jbxx where JSBH=#{jsbh}
+    </select>
+
+    <!--jls全市监所羁押分布-->
+    <select id="jls_jSJY" resultType="java.util.HashMap">
+
+ select count(STATE ="R8" or null )  as "sl" from jbxx where JSBH=#{jsbh}
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
+

@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>北京市智慧监管平台（总队级）</title>
+  <link rel="stylesheet" href="../static/utils/pace/pace.min.css">
+  <link rel="stylesheet" href="../static/css/app.manage.css">
+  <script src="../static/utils/pace/pace.min.js"></script>
+  <script src="../static/utils/requirejs/require.min.js" data-main="./../static/config/rconfig"></script>
+</head>
+<body>
+<div class="dper-app font-18 bg-img-cover dper-full-h" data-hidden id="app">
+  <!-- 页头 -->
+  <div class="dper-head bg-img-full dper-overh">
+    <ul class="dper-menus dper-box dper-menus-left fl"></ul>
+    <div class="dper-time-ctt fr">
+      <p class="dper-time align-center malign-center-text">
+        <span class="dper-time-t co-0058 font-14">----年--月--日</span><br>
+        <span class="dper-time-b co-0058 font-24 dper-fw"> --:--:--</span>
+      </p>
+    </div>
+    <ul class="dper-menus dper-box dper-menus-right fr align-right"></ul>
+  </div>
+  <div class="content-box dper-box dper-por co-white dper-clear">
+    <div class="public-w left fl dper-full-h">
+      <div class="l-top">
+        <div class="child-header child-header-img bg-img-full dper-por">
+          <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+        </div>
+        <div class="child-cont dper-box">
+          <div class="inside-box dper-full-h" dper-v id="box0">
+            <div class="left-img dper-full-h fl dper-por">
+              <div class="prison-person-size bg-img-full"></div>
+              <div class="prison-msg prison-msg-img bg-img-full malign-center-bottom dper-full-w dper-cursor">
+                <i class="malign-center icon-msg icon-msg-img bg-img-full"></i>
+                <span class="malign-center-bottom font-14 co-ffc66c msg-write"></span>
+              </div>
+            </div>
+            <div class="right-list dper-full-h fr"></div>
+          </div>
+        </div>
+      </div>
+      <div class="l-center">
+        <div class="child-header child-header-img bg-img-full dper-por">
+          <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+        </div>
+        <div class="child-cont dper-box">
+          <div class="inside-box dper-full-h font-16" dper-v id="box1">
+            <div class="side-top">
+              <div class="head dper-por">
+                <i class="malign-center-left dper-full-h"></i>
+                <span class="malign-center-left font-18 dper-fw top-msg"></span>
+              </div>
+              <div class="body"></div>
+            </div>
+            <div class="side-bottom">
+              <div class="head dper-por">
+                <i class="malign-center-left dper-full-h"></i>
+                <span class="malign-center-left font-18 dper-fw bottom-msg"></span>
+              </div>
+              <div class="body"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="l-bottom">
+        <div class="child-header child-header-img bg-img-full dper-por">
+          <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+        </div>
+        <div class="child-cont" dper-v id="box2"></div>
+      </div>
+    </div>
+    <div class="public-w right fr dper-full-h">
+      <div class="r-top">
+        <div class="child-header child-header-img bg-img-full dper-por">
+          <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+        </div>
+        <div class="child-cont" dper-v id="box3"></div>
+      </div>
+      <div class="r-bottom">
+        <div class="child-header child-header-img bg-img-full dper-por">
+          <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+        </div>
+        <div class="child-cont" dper-v id="box4">
+          <div class="head font-18 dper-fw">
+            <div class="child-itm fl dper-full-h"></div>
+            <div class="child-itm fl dper-full-h dper-por"><span class="malign-center-text">时间</span></div>
+            <div class="child-itm fl dper-full-h"></div>
+            <div class="child-itm fl dper-full-h dper-por"><span class="malign-center-left">进展情况</span></div>
+          </div>
+          <div class="body font-16"></div>
+        </div>
+      </div>
+    </div>
+    <div class="center dper-full-h dper-por">
+      <div class="c-tl-gauge gauge-box malign-tl z-level-6">
+        <div class="gauge-chart dper-full-h dper-por" dper-v id="box5">
+          <div class="gauge-inside gauge-itm malign-center">
+            <div class="gauge-active malign-tl dper-full-w dper-full-h z-level-2"></div>
+            <div class="gauge-default-box malign-tl dper-full-w dper-full-h z-level-1"></div>
+            <div class="gauge-pointer gauge-pointer-img bg-img-full malign-center-bottom"></div>
+            <div class="gauge-bg gauge-bg-img bg-img-full malign-tl dper-full-w dper-full-h"></div>
+            <div class="number-box malign-tl dper-full-w dper-full-h"></div>
+            <div class="detail-msg malign-tr dper-box">
+              <span class="detail-num malign-center-text text-overflow-e font-24"></span>
+            </div>
+            <span class="detail-name malign-center-bottom font-20"></span>
+          </div>
+        </div>
+      </div>
+      <div class="c-tr-gauge gauge-box malign-tr z-level-6">
+        <div class="gauge-chart dper-full-h" dper-v id="box6">
+          <div class="gauge-inside gauge-itm malign-center">
+            <div class="gauge-active malign-tl dper-full-w dper-full-h z-level-2"></div>
+            <div class="gauge-default-box malign-tl dper-full-w dper-full-h z-level-1"></div>
+            <div class="gauge-pointer gauge-pointer-img bg-img-full malign-center-bottom"></div>
+            <div class="gauge-bg gauge-bg-img bg-img-full malign-tl dper-full-w dper-full-h"></div>
+            <div class="number-box malign-tl dper-full-w dper-full-h"></div>
+            <div class="detail-msg malign-tr dper-box">
+              <span class="detail-num malign-center-text text-overflow-e font-24"></span>
+            </div>
+            <span class="detail-name malign-center-bottom font-20"></span>
+          </div>
+        </div>
+      </div>
+      <div class="sex-body dper-full-h">
+        <div class="malign-tl dper-full-w dper-full-h z-level-2">
+          <div class="sex-cont sex-cont-img bg-img-full malign-center-top"></div>
+        </div>
+        <div class="legend-box dper-full-h z-level-5 font-16 dper-cursor" dper-v id="box7"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

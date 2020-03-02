@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_lscsDao">
+
+
+    <!-- 临时离所分析==上位机版本 -->
+    <select id="swj_lslsfxCount"  resultType="awd.cloud.platform.servers.analyse.vo.AnalysisJlsResultVO">
+        SELECT
+        j.dz,
+        j.jsbh,
+        COUNT( l.jsbh OR NULL ) AS "count"
+        FROM
+        lscs l
+        LEFT JOIN jls j ON l.JSBH = j.JSBH
+
+        <where>
+            l.STATE='R2'
+            <if test=" starttime !=null and starttime !='' ">
+                and date_format(l.CSSJ,'%Y-%m-%d') &gt;=date_format(#{starttime},'%Y-%m-%d')
+            </if>
+            <if test=" endtime !=null and endtime !='' ">
+                and date_format(l.CSSJ,'%Y-%m-%d') &lt;=date_format(#{endtime},'%Y-%m-%d')
+            </if>
+        </where>
+        GROUP BY dz , JLSMC
+    </select>
+
+
+    <!--临时出所昨日出所-->
+    <select id="lscsZrcs" resultType="java.util.HashMap">
+        select count(*) as zrcs from lscs
+        <where>
+            date_format(CSSJ,'%Y-%m-%d') = DATE_FORMAT(CURDATE()-1,'%Y-%m-%d')
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <!--临时出所昨日出所未归-->
+    <select id="lscsZrcswg" resultType="java.util.HashMap">
+        select count(*) as zrcswg from lscs
+        <where>
+            cssj is not NULL and  ISNULL(hssj) and date_format(CSSJ,'%Y-%m-%d') = DATE_FORMAT(CURDATE()-1,'%Y-%m-%d')
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+
+    <!--临时出所今日出所-->
+    <select id="lscsJrcs" resultType="java.util.HashMap">
+        select count(*) as jrcs from lscs
+        <where>
+            date_format(CSSJ,'%Y-%m-%d') = DATE_FORMAT(CURDATE(),'%Y-%m-%d')
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <!--临时出所今日出所未归-->
+    <select id="lscsJrcswg" resultType="java.util.HashMap">
+        select count(*) as jrcswg from lscs
+        <where>
+            cssj is not NULL and  ISNULL(hssj) and date_format(CSSJ,'%Y-%m-%d') = DATE_FORMAT(CURDATE(),'%Y-%m-%d')
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <!--临时出所本周出所-->
+    <select id="lscsBzcs" resultType="java.util.HashMap">
+        SELECT count(*) as bzcs FROM  lscs
+        <where>
+            YEARWEEK( date_format(CSSJ,'%Y-%m-%d' ) ) = YEARWEEK( SYSDATE())
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <!--临时出所本周出所未归-->
+    <select id="lscsBzcswg" resultType="java.util.HashMap">
+        SELECT count(*) as bzcswg FROM  lscs
+        <where>
+            cssj is not NULL and  ISNULL(hssj) and
+            YEARWEEK( date_format(CSSJ,'%Y-%m-%d' ) ) = YEARWEEK( SYSDATE())
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <!--临时出所本月出所-->
+    <select id="lscsBycs" resultType="java.util.HashMap">
+        SELECT count(*) as bycs FROM lscs
+        <where>
+            DATE_FORMAT( CSSJ, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' )
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <!--临时出所本月出所未归-->
+    <select id="lscsBycswg"  resultType="java.util.HashMap">
+        SELECT count(*)  as  bycswg FROM lscs
+        <where>
+            cssj is not NULL and  ISNULL(hssj) and  DATE_FORMAT( CSSJ, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' )
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

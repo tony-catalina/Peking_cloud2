@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_JbjlDao">
+
+    <select id="dpzbld" resultType="java.util.HashMap" parameterType="String">
+    		select jiebld "值班领导" from jbjl
+        <where>
+              state = 'R2' and date_format(createtime,'%Y-%m-%d') = date_format(now(),'%Y-%m-%d')
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+        order by createtime desc
+    </select>
+
+</mapper>

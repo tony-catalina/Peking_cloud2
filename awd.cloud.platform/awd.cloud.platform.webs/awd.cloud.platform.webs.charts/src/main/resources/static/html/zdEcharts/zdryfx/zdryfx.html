@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重点人员分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class='zdry'>
+            <div class="button">
+                <div id="changeBar">表格</div> 
+            </div>
+            <div  id="zdryfx"></div>
+            <div cellspacing="0" class="tableBar">
+                <div class="zdryTable">
+                    <div>重点人员分析</div>
+                </div>
+                <div class='cs'>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;"></div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">北京市</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">东城区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">西城区</div style="width:80px;">
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">朝阳区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">丰台区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">石景山区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">海淀区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">门头沟区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">房山区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">通州区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">顺义区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">昌平区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">大兴区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">平谷区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">怀柔区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">密云区</div>
+                    <div style="width:100px;text-align:center;border:1px solid #00bfb7;">延庆区</div>
+                </div>
+            <table style="width:1354px;height:50px;margin-left:70px;" cellspacing="0">
+                <tbody id='tbodyResult'></tbody>  
+            </table>
+            </div>
+    </div>
+<!-- <div  id="zdryfx"></div> -->
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+    var tbody = window.document.getElementById("tbodyResult")
+        $("#changeBar").on("click",function(){
+            if($(this).text()=="表格"){
+                $(this).text("图表");
+                //
+                $.ajax({
+                    url: '/kssqsfx/zdryCount',
+                    type: "get",
+                    dataType: "json",
+                    success: function (res) {
+                        var man = '';
+                        var woman = '';
+                        var unknown = '';
+                        var result='';
+                        var rest=[];
+                        var data = res.result
+                        // console.log(res,77777)
+                        console.log(data.man,66666)
+                        for(var i=0;i<data.man.length;i++)
+                        {
+                            rest[i]=data.man[i]+data.woman[i]+data.unknow[i];
+                        }
+                        console.log(rest,111111)
+                        for (var i=0;i< data.man.length;i++) {   
+                            man += "<td style='width:90px;height:50px;text-align:center;border:1px solid #00bfb7;'>" + data.man[i] + "</td>";
+                        } 
+                        var _man = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#fff;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #00bfb7">男生</td>'+  man + "</tr>"
+                        for (var i=0;i< data.woman.length;i++) {   
+                            woman += "<td style='width:90px;height:50px;text-align:center;border:1px solid #00bfb7;'>" + data.woman[i] + "</td>";
+                        }
+                        var _woman = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#fff;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #00bfb7">女生</td>' + woman + "</tr>"
+                        for (var i=0;i< data.unknow.length;i++) {   
+                            unknown += "<td style='width:90px;height:50px;text-align:center;border:1px solid #00bfb7;'>" + data.unknow[i] + "</td>";
+                        }
+                        var _unknown = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#fff;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #00bfb7">未说明</td>' + unknown + "</tr>"
+                        for (var i=0;i< data.man.length;i++) {   
+                            result += "<td style='width:90px;height:50px;text-align:center;border:1px solid #00bfb7;'>" + rest[i] + "</td>";
+                        }
+                        var _result = "<tr style='height:50px;width:1352px;margin-left: 70px;margin-top: -1px;color:#fff;'>" +'<td style="width:90px;height:50px;text-align:center;border:1px solid #00bfb7">重点人员人数</td>' + result + "</tr>"
+                        tbody.innerHTML = _man + _woman + _unknown+ _result; 
+                    },error(error){
+                        console.log(error)
+                    }
+                })
+                //
+                $('#zdryfx').css('visibility',"hidden")
+                $('.tableBar').css('visibility',"visible")
+            }else{
+                $(this).text("表格");
+                $('#zdryfx').css('visibility',"visible")
+                $('.tableBar').css('visibility',"hidden")
+            }
+        })
+    //
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/zdEcharts/zdryfx/zdryfx');
+</script>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    .zdry{
+        width:99%;
+        height:730px;
+        border:1px solid #344b58;
+        background:#344b58;
+    }
+    .button{
+        width:120px;
+        float:right;
+        margin-top:10px;
+        height:50px;
+        line-height:50px;
+        color:#fff;
+    }
+    #changeBar{
+        width:70px;
+        height:38px;
+        line-height:38px;
+        text-align:center;
+        background:#00bfb7;
+        border-radius: 13px;
+        cursor:pointer;
+    }
+    #zdryfx{
+        margin-top:60px;
+        width: 100%;
+        height: 642px;
+    }
+    .zdryTable{
+        width:1350px;
+        text-align:center;
+        height:50px;
+        border:1px solid #00bfb7;
+        font-size: 23px;
+        line-height:50px;
+        margin-left: 70px;
+        color:#fff;
+        border-top:2px solid #00bfb7;
+        border-left:2px solid #00bfb7;
+        border-right:2px solid #00bfb7;
+    }
+    .tableBar{
+        visibility: hidden;
+        width:100%;
+        height:600px;
+        color: #11183c;
+        position: fixed;
+        top:60px;
+        left:0;
+    }
+    .cs{
+        margin-top:-1px;
+        display:flex;
+        width:1354px;
+        height:40px;
+        line-height:40px;
+        margin-left: 70px;
+        border-top:1px solid #00bfb7;
+        color:#fff;
+    }
+    #tbodyResult{
+        width:1352px;
+        margin-left: 70px;
+        height:600px;
+    }
+</style>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jds.Jds_JbxxDao">
+
+
+    <!--出所人数分析查询=上位机-->
+    <select id="swj_csrsFX" resultType="java.util.LinkedHashMap">
+        SELECT
+        m.jsbh,
+        m.jsbhString,
+        m.dz,
+        IFNULL( sum( m.count ), 0 ) count,
+        IFNULL( sum( m.KTSL ), 0 ) KTSL,
+        IFNULL( sum( m.GJFBA ), 0 ) GJFBA,
+        IFNULL( sum( m.TQ ), 0 ) TQ,
+        IFNULL( sum( m.KB ), 0 ) KB,
+        IFNULL( sum( m.ZY ), 0 ) ZY,
+        IFNULL( sum( m.LD ), 0 ) LD,
+        IFNULL( sum( m.QT ), 0 ) QT
+        FROM
+        (
+        SELECT DISTINCT
+        a.jsbh AS jsbh,
+        a.JSMC AS jsbhString,
+        a.XZQH AS dz,
+        t.count count,
+        t.KTSL KTSL,
+        t.GJFBA GJFBA,
+        t.TQ TQ,
+        t.KB KB,
+        t.ZY ZY,
+        t.LD LD,
+        t.QT QT
+        FROM
+        jsgl a
+        LEFT JOIN (
+        SELECT
+        c.jsbh AS jsbh,
+        count( c.csyy ) AS count,
+        sum( CASE WHEN c.csyy = '1' THEN 1 ELSE 0 END ) AS KTSL,
+        sum( CASE WHEN c.csyy = '2' THEN 1 ELSE 0 END ) AS GJFBA,
+        sum( CASE WHEN c.csyy = '3' THEN 1 ELSE 0 END ) AS TQ,
+        sum( CASE WHEN c.csyy = '4' THEN 1 ELSE 0 END ) AS KB,
+        sum( CASE WHEN c.csyy = '5' THEN 1 ELSE 0 END ) AS ZY,
+        sum( CASE WHEN c.csyy = '6' THEN 1 ELSE 0 END ) AS LD,
+        sum( CASE WHEN c.csyy = '9' THEN 1 ELSE 0 END ) AS QT
+        FROM
+        csdj c,
+        jbxx b
+
+        <where>
+            b.RYBH=c.RYBH and b.STATE ='R2' and c.state='R2'
+            <if test="starttime != null and starttime != '' ">
+                and DATE_FORMAT(c.CSRQ,"%Y-%m-%d") &gt;  DATE_FORMAT(#{starttime},"%Y-%m-%d")
+            </if>
+
+            <if test="endtime != null and endtime != '' ">
+                and DATE_FORMAT(c.CSRQ,"%Y-%m-%d") &lt;  DATE_FORMAT(#{endtime},"%Y-%m-%d")
+            </if>
+        </where>
+        group by c.jsbh) t on a.jsbh = t.jsbh
+        order by a.jsbh) m
+        GROUP BY m.jsbh,m.jsbhString,m.dz
+    </select>
+
+<!--    上位机戒毒所在戒人数分析查询-->
+    <select id="swj_zjrsFX" resultType="java.util.HashMap">
+        select
+            m.jsbh,
+            m.jsbhString,
+            m.dz,
+            ifnull(count(m.jsbh),0)count
+            from(select distinct d.jsbh as jsbh,d.jsmc as jsbhString,d.xzqh as dz
+                     from jsgl d left join jbxx a on d.jsbh=a.jsbh
+        <where>
+                a.state = 'R8'
+            <if test="starttime != null and starttime != '' ">
+                and DATE_FORMAT(a.rsrq,"%Y-%m-%d") &gt;= DATE_FORMAT(#{starttime},"%Y-%m-%d")
+            </if>
+
+            <if test="endtime != null and endtime != '' ">
+                and DATE_FORMAT(a.rsrq,"%Y-%m-%d") &lt;=  DATE_FORMAT(#{endtime},"%Y-%m-%d")
+            </if>
+        </where>
+            )m
+            group by m.jsbh,m.jsbhString,m.dz
+    </select>
+
+
+    <!--上位机==戒毒所人员年龄分析-->
+    <select id="swjJdsRynlFx" resultType="java.util.HashMap">
+        SELECT m.jsbh,m.jsbhString,m.dz,IFNULL(sum(m.wcn), 0) wcn, IFNULL(sum(m.qn), 0) qn,
+        IFNULL(sum(m.zn), 0) zn,IFNULL(sum(m.zln), 0) zln
+        FROM (select distinct a.jsbh as jsbh, a.jsmc as jsbhString,a.xzqh as dz,t.wcn wcn,
+        t.qn qn,t.zn zn,t.zln zln
+        from jsgl a left join (select b.jsbh as jsbh ,
+        sum(case when(YEAR(date_format(#{endtime},'%Y-%m-%d'))-YEAR(date_format(b.csrq,'%Y-%m-%d')))&lt;18 or b.csrq is null then 1 else 0 end) as wcn,
+        sum(case when (YEAR(date_format(#{endtime},'%Y-%m-%d'))-YEAR(date_format(b.csrq,'%Y-%m-%d')))&gt;=18 and
+        (YEAR(date_format(#{endtime},'%Y-%m-%d'))-YEAR(date_format(b.csrq,'%Y-%m-%d')))&lt;25 then 1 else 0 end) as qn,
+        sum(case when (YEAR(date_format(#{endtime},'%Y-%m-%d'))-YEAR(date_format(b.csrq,'%Y-%m-%d')))&gt;=25  and
+        (YEAR(date_format(#{endtime},'%Y-%m-%d'))-YEAR(date_format(b.csrq,'%Y-%m-%d')))&lt;37 then 1 else 0 end) as zn,
+        sum(case when (YEAR(date_format(#{endtime},'%Y-%m-%d'))-YEAR(date_format(b.csrq,'%Y-%m-%d')))&gt;=37  then 1 else 0 end) as zln
+        from jbxx b
+        <where>
+            ((b.state='R7' and cssj >= date_format(#{endtime},'%Y-%m-%d')) or (b.state='R8' and cssj is null))
+            <if test="starttime != null and starttime != '' ">
+                and date_format(b.RSRQ,'%Y-%m-%d')  &gt;=date_format(#{starttime},'%Y-%m-%d')
+            </if>
+            <if test="endtime != null and endtime != '' ">
+                and date_format(b.RSRQ,'%Y-%m-%d') &lt;=date_format(#{endtime},'%Y-%m-%d')
+            </if>
+        </where>
+        group by b.jsbh) t on a.jsbh = t.jsbh
+        group by jsbh
+        order by a.jsbh) m
+        GROUP BY m.jsbh,m.jsbhString,m.dz
+    </select>
+
+<!--人员吸毒时间分析查询=上位机-->
+<select id="swj_xdsjFX" resultType="java.util.LinkedHashMap">
+        SELECT
+        m.jsbh,
+        m.jsbhString,
+        m.dz,
+        IFNULL( sum( m.one ), 0 ) one,
+        IFNULL( sum( m.two ), 0 ) two,
+        IFNULL( sum( m.three ), 0 ) three,
+        IFNULL( sum( m.four ), 0 ) four,
+        IFNULL( sum( m.five ), 0 ) five
+        FROM
+        (
+        SELECT DISTINCT
+        a.jsbh AS jsbh,
+        a.JSMC AS jsbhString,
+        a.XZQH AS dz,
+        t.one one,
+        t.two two,
+        t.three three,
+        t.four four,
+        t.five five
+        FROM
+        jsgl a
+        LEFT JOIN (
+        SELECT
+        b.jsbh AS jsbh,
+        sum(
+        CASE
+
+        WHEN b.JDKSRQ &lt;= DATE_ADD( b.SCXDSJ, INTERVAL 3 MONTH )
+        OR b.JDKSRQ IS NULL THEN
+        1 ELSE 0
+        END
+        ) AS one,
+        sum(
+        CASE
+
+        WHEN b.JDKSRQ &gt; DATE_ADD( b.SCXDSJ, INTERVAL 3 MONTH )
+        AND b.JDKSRQ &lt;= DATE_ADD( b.SCXDSJ, INTERVAL 6 MONTH ) THEN
+        1 ELSE 0
+        END
+        ) AS two,
+        sum(
+        CASE
+
+        WHEN b.JDKSRQ &gt; DATE_ADD( b.SCXDSJ, INTERVAL 6 MONTH )
+        AND b.JDKSRQ &lt;= DATE_ADD( b.SCXDSJ, INTERVAL 1 YEAR ) THEN
+        1 ELSE 0
+        END
+        ) AS three,
+        sum(
+        CASE
+
+        WHEN b.JDKSRQ &gt; DATE_ADD( b.SCXDSJ, INTERVAL 1 YEAR )
+        AND b.JDKSRQ &lt;= DATE_ADD( b.SCXDSJ, INTERVAL 3 YEAR ) THEN
+        1 ELSE 0
+        END
+        ) AS four,
+        sum( CASE WHEN b.JDKSRQ &gt; DATE_ADD( b.SCXDSJ, INTERVAL 3 YEAR ) THEN 1 ELSE 0 END ) AS five
+        FROM  jbxx b
+
+        <where>
+            b.STATE not in ('R3','R9')
+            <if test=" starttime !=null and starttime !='' ">
+                and date_format(b.JLKSRQ,'%Y-%m-%d')  &gt;=date_format(#{starttime},'%Y-%m-%d')
+            </if>
+            <if test=" endtime !=null and endtime !='' ">
+                and date_format(b.JLKSRQ,'%Y-%m-%d') &lt;=date_format(#{endtime},'%Y-%m-%d')
+            </if>
+        </where>
+        group by b.jsbh) t on a.jsbh = t.jsbh
+        order by a.jsbh) m
+        GROUP BY m.jsbh,m.jsbhString,m.dz
+    </select>
+</mapper>

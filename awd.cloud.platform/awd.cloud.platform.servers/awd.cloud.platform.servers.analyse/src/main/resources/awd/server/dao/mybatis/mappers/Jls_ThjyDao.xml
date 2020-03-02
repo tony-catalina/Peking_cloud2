@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_ThjyDao">
+
+    <select id="queryjlsThjyFx"  parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisJlsResultVO">
+        select
+        j.dz,
+        j.jsbh,
+        count(s.jsbh) as count
+        from jls j
+        left join thjy s
+        on j.jsbh = s.jsbh
+        <where>
+            s.state = 'R2'
+            <if test="starttime != null and starttime != ''">
+               
+                and date_format(s.createtime,'%Y-%m-%d') &gt;=date_format(#{starttime},'%Y-%m-%d')
+            </if>
+            <if test="endtime != null and endtime != ''">
+
+                and date_format(s.createtime,'%Y-%m-%d') &lt;=date_format(#{endtime},'%Y-%m-%d')
+            </if>
+        </where>
+        group by dz,jsbh
+    </select>
+
+
+</mapper>

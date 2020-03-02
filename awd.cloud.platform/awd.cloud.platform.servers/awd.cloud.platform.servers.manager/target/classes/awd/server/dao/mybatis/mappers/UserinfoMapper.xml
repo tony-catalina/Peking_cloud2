@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.mis.servers.dao.UserinfoDao">
+    <resultMap id="UserinfoResultMap" type="awd.mis.servers.entity.UserinfoEntity">
+        <result property="id" column="id" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="userid" column="userid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="usertype" column="usertype" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="jsbh" column="jsbh" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="loginname" column="loginname" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="loginpass" column="loginpass" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="sfzh" column="sfzh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="jh" column="jh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="email" column="email" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="realname" column="realname" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="glybz" column="glybz" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="spr" column="spr" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="spsj" column="spsj" javaType="java.util.Date" jdbcType="DATE"/>
+        <result property="spbz" column="spbz" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="state" column="state" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="creator" column="creator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="updator" column="updator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="xkid" column="xkid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+    </resultMap>
+    <resultMap id="LoninNameAndJsbh" type="java.lang.String">
+    </resultMap>
+    <resultMap id="UserinfoResultMapForOther" type="awd.mis.servers.model.UserInfoOther">
+        <result property="id" column="id" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="userid" column="userid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="usertype" column="usertype" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="jsbh" column="jsbh" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="loginname" column="loginname" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="loginpass" column="loginpass" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="sfzh" column="sfzh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="jh" column="jh" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="email" column="email" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="xm" column="realname" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="glybz" column="glybz" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="cardID" column="xkid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
+    </resultMap>
+    <resultMap id="UserRole" type="awd.mis.servers.entity.Userrole">
+        <result property="userid" column="userid" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="role_id" column="rolecode" javaType="java.lang.String" jdbcType="CHAR"/>
+    </resultMap>
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'UserinfoResultMap'"/>
+        <bind name="tableName" value="'USERINFO'"/>
+        <bind name="roleMapId" value="'UserRole'"/>
+        <bind name="roleTableName" value="'USERROLE'"/>
+    </sql>
+    <sql id="otherConfig">
+        <bind name="resultMapId" value="'UserinfoResultMapForOther'"/>
+        <bind name="tableName" value="'USERINFO'"/>
+        <bind name="roleMapId" value="'UserRole'"/>
+        <bind name="roleTableName" value="'USERROLE'"/>
+    </sql>
+    <sql id="buildRoleWhere">
+        ${@awd.framework.common.dao.mybatis.builder.SqlBuilder@current().buildWhere(roleMapId,roleTableName,#this['_parameter'].terms)}
+    </sql>
+    <sql id="buildRoleSelectField">
+        ${@awd.framework.common.dao.mybatis.builder.SqlBuilder@current().buildTableSelectFields(roleMapId,roleTableName,#this['_parameter'])}
+    </sql>
+    <select id="getUserRole"  resultType="awd.mis.servers.model.UserInfoOther" >
+        <include refid="otherConfig"/>
+        <trim>
+            select
+            <include refid="BasicMapper.buildSelectField"/>,userrole.`rolecode` as role_id,userinfo.`xkid` as cardID,userinfo.`realname` as xm
+            from  ${tableName} userinfo ,userrole userrole
+            <where>
+                <include refid="BasicMapper.buildWhere"/>
+                <include refid="buildRoleWhere"/>
+                and userinfo.id=userrole.userid
+            </where>
+            <include refid="BasicMapper.buildSortField"/>
+        </trim>
+    </select>
+    <select id="getUserRoleCount"  resultType="int" >
+        <include refid="otherConfig"/>
+        <trim>
+            select count(*)
+            from  ${tableName} userinfo ,userrole userrole
+            <where>
+                <include refid="BasicMapper.buildWhere"/>
+                <include refid="buildRoleWhere"/>
+                and userinfo.id=userrole.userid
+            </where>
+            <include refid="BasicMapper.buildSortField"/>
+        </trim>
+    </select>
+
+
+    <insert id="insert" parameterType="awd.mis.servers.entity.UserinfoEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from app where id =#{id}
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="UserinfoResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>
+
+    <select id="sequid" resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select>
+
+    <select id="findByNameAndPass" parameterType="String" resultMap="UserinfoResultMap">
+        select * from userinfo where jsbh=#{jsbh} and loginname=#{name} and loginpass=#{pwd} and state=#{state}
+    </select>
+
+    <select id="getUserByJsbhRole" parameterType="String" resultMap="UserinfoResultMap">
+        select * from userinfo u ,userrole r where u.id=r.USERID and r.ROLECODE=#{role} and u.state='R2' and
+        u.jsbh=#{jsbh}
+    </select>
+
+    <select id="getUserByJsbhsRoles" parameterType="String" resultMap="UserinfoResultMap">
+        select u.* from userinfo u ,userrole r where u.id=r.USERID and r.ROLECODE in (${roles}) and u.state='R2' and
+        u.jsbh in (${jsbhs})
+    </select>
+
+    <select id="getUserByJsbh" parameterType="String" resultType="java.util.HashMap">
+        select u.loginname , u.jsbh from userinfo u where u.state='R2' and u.jsbh = #{jsbh} or u.jsbh = #{zdbh}
+
+    </select>
+
+    <select id="getUserinfoDh" parameterType="String" resultType="java.util.HashMap">
+        select sjh from soa_kss.mjjbxx where jh=#{jh} and state='R2'
+    </select>
+</mapper>

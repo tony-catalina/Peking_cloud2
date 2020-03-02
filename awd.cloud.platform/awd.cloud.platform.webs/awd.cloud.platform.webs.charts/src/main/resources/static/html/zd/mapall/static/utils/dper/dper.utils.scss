@@ -1,0 +1,485 @@
+/* 欢迎使用 [ 千赞科技 ] 工具样式 */
+
+/***************************************************** -webkit-专区 ****************************************************/
+/**
+ * 文本选中背景色透明
+ * ps: 只针对 -webkit- 内核
+ */
+::selection {
+    background: none;
+}
+
+::-moz-selection {
+    background: none;
+}
+
+/**
+ * 以下标签选中时候阴影
+ * ps: 只针对 -webkit- 内核
+ */
+a, img, button, input, textarea, div, span {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-corner {
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(158, 158, 158, 0.52);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(158, 158, 158, 0.27);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: rgba(158, 158, 158, 0.67);
+}
+
+/* IE 滚动条样式 -- 颜色修改 */
+html {
+    scrollbar-arrow-color: rgb(0, 163, 204);
+    scrollbar-face-color: rgb(76, 118, 227);
+    scrollbar-highlight-color: rgb(3, 77, 165);
+    scrollbar-shadow-color: rgb(19, 84, 123);
+    scrollbar-track-color: rgb(15, 55, 121);
+}
+
+/* IE 下拉菜单样式修改 */
+select::-ms-expand { display: none; }
+
+/* 输入框提示语颜色 */
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #9099b7;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #9099b7;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #9099b7;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #9099b7;
+}
+
+/* 抗锯齿 */
+html, body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/****************************************************** common专区 *****************************************************/
+html, body {
+    font-family: "Microsoft YaHei UI", "Helvetica Neue", sans-serif;
+}
+
+/* 样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* a标签设置 */
+a {
+    text-decoration: none;
+}
+
+a img {
+    border: 0;
+}
+
+/* 无序列表 */
+ul, li, ol {
+    list-style: none;
+}
+
+/* 浮动 */
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* 清除浮动 */
+.dper-clear{
+    clear: both;
+    *zoom: 1;
+}
+.dper-clear:after {
+    content: ' ';
+    clear: both;
+    *zoom: 1;
+    display: block;
+    height: 0;
+}
+
+
+/*  文明本位置 */
+.align-center {
+    text-align: center !important;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+.align-left {
+    text-align: left !important;
+}
+
+/* 百分比垂直居中 */
+.malign-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.malign-center-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+/* 背景图片通用配置 */
+.bg-img {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+.bg-img-full {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+}
+
+/* 文字超出显示深省略号 */
+.text-overflow-e {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/*  图片自适应 */
+.response-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* 盒子 */
+.dper-box {
+    box-sizing: border-box;
+}
+
+/* 动画 */
+.dper-amt {
+    transition: all 0.2s;
+}
+.dper-amt-slow {
+    transition: all .5s;
+}
+
+/* 隐藏 */
+.dper-hide{
+    display: none !important;
+}
+
+/* 显示 */
+.dper-show {
+    display: block !important;
+}
+
+/* 超出隐藏 */
+.dper-overh{
+    overflow: hidden !important;
+}
+
+/* 字体加粗 bold */
+.dper-fw{
+    font-weight: bold;
+}
+
+/* 字体加粗 bolder */
+.dper-fwr{
+    font-weight: bolder;
+}
+
+/* 字体样式 斜体 */
+.dper-fit{
+    font-style: italic;
+}
+
+/* 字体样式 数字 */
+.dper-fnm {font-family: DperNum, "Microsoft YaHei UI", "Helvetica Neue", sans-serif;}
+
+/************************************************ vue-transition动画 ***************************************************/
+
+/* 渐显 */
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+.fade-move {
+    transition: transform 0.5s;
+}
+
+/* 向下渐现 */
+.fadeDown-enter,
+.fadeDown-leave-to {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+.fadeDown-enter-active,
+.fadeDown-leave-active {
+    transition: all .5s;
+}
+
+/* 向上渐现 */
+.fadeUp-enter,
+.fadeUp-leave-to {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.fadeUp-enter-active,
+.fadeUp-leave-active {
+    transition: all 1s cubic-bezier(0.68,-0.4, 0.57, 1.46);
+}
+.fadeUp-move {
+    transition: transform 0.5s;
+}
+
+/* 向左渐现 */
+.fadeLeft-enter,
+.fadeLeft-leave-to {
+    opacity: 0;
+    transform: translateX(50%);
+}
+
+.fadeLeft-enter-active,
+.fadeLeft-leave-active {
+    transition: all 1s cubic-bezier(0.68,-0.4, 0.57, 1.46);
+}
+
+.fadeLeft-move {
+    transition: transform 0.5s;
+}
+/* 向右渐现 */
+.fadeRight-enter,
+.fadeRight-leave-to {
+    opacity: 0;
+    transform: translateX(-50%);
+}
+
+.fadeRight-enter-active,
+.fadeRight-leave-active {
+    transition: all 1s cubic-bezier(0.68,-0.4, 0.57, 1.46);
+}
+
+.fadeRight-move {
+    transition: transform 0.5s;
+}
+
+/* 缩放进入 */
+.zoomIn-enter,
+.zoomIn-leave-to {
+    opacity: 0;
+    transform: scale(3) translateY(50%);
+}
+.zoomIn-enter-active,
+.zoomIn-leave-active {
+    transition: all .5s;
+}
+.zoomIn-move {
+    transition: transform 0.5s;
+}
+
+/**************************************************** 项目相关 *********************************************************/
+/* 字体 */
+.font-12 {font-size: 12px;}
+.font-14 {font-size: 14px;}
+.font-16 {font-size: 16px;}
+.font-18 {font-size: 18px;}
+.font-20 {font-size: 20px;}
+.font-22 {font-size: 22px;}
+.font-24 {font-size: 24px;}
+.font-28 {font-size: 28px;}
+.font-32 {font-size: 32px;}
+.font-38 {font-size: 38px;}
+.font-40 {font-size: 40px;}
+
+/* 颜色 */
+.co-black { color: #000;}
+.co-white { color: #fff;}
+.co-0058{ color: #0058f1;}
+.co-94e9 { color: #94e9ff; }
+.co-3dd4 { color: #3dd4fa; }
+.co-99ff { color: #99ffff; }
+.co-63ff { color: #63ffde; }
+.co-fbba { color: #fbba06; }
+.co-ff00 { color: #ff0000; }
+.co-f2f2 { color: #f2f2f2; }
+
+/* 文字阴影 */
+.co-blue-shadow {
+    color: #0ff;
+    font-weight: 400;
+    text-shadow: 0 0 5px rgba(34, 158, 250, 0.8), 0 0 10px rgba(34, 158, 2500, 0.8), 0 0 15px #000,
+    0 0 35px #2791fa, 0 0 40px #2791fa;
+}
+
+/* 水平渐变字体 */
+.co-blue-linearhor {
+    color: #36b3ff;
+    background: -webkit-linear-gradient(left, #50efff, #b2b1fc 50%, #1578fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 垂直渐变字体 */
+.co-blue-linearvtl {
+    color: #36b3ff;
+    background: linear-gradient(top, #50efff, #1578fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 1679px) {
+    .font-12 { font-size: 12px;}
+    .font-14 { font-size: 12px;}
+    .font-16 { font-size: 14px;}
+    .font-18 { font-size: 16px;}
+    .font-20 { font-size: 18px;}
+    .font-22 { font-size: 20px;}
+    .font-24 { font-size: 18px;}
+    .font-28 { font-size: 26px;}
+    .font-32 { font-size: 24px;}
+    .font-38 { font-size: 36px;}
+    .font-40 { font-size: 24px;}
+}
+
+@media screen and (max-width: 1439px) {
+    .font-12 { font-size: 12px;}
+    .font-14 { font-size: 12px;}
+    .font-16 { font-size: 14px;}
+    .font-18 { font-size: 16px;}
+    .font-20 { font-size: 16px;}
+    .font-22 { font-size: 18px;}
+    .font-24 { font-size: 18px;}
+    .font-28 { font-size: 24px;}
+    .font-32 { font-size: 20px;}
+    .font-38 { font-size: 32px;}
+    .font-40 { font-size: 28px;}
+}
+
+@media screen and (max-width: 1366px) {
+    .font-12 { font-size: 12px;}
+    .font-14 { font-size: 12px;}
+    .font-16 { font-size: 12px;}
+    .font-18 { font-size: 14px;}
+    .font-20 { font-size: 14px;}
+    .font-22 { font-size: 16px;}
+    .font-24 { font-size: 18px;}
+    .font-28 { font-size: 24px;}
+    .font-32 { font-size: 20px;}
+    .font-38 { font-size: 32px;}
+    .font-40 { font-size: 24px;}
+}
+
+@media screen and (max-width: 1219px) {
+    .font-12 { font-size: 12px;}
+    .font-14 { font-size: 12px;}
+    .font-16 { font-size: 12px;}
+    .font-18 { font-size: 14px;}
+    .font-20 { font-size: 14px;}
+    .font-22 { font-size: 16px;}
+    .font-24 { font-size: 16px;}
+    .font-28 { font-size: 16px;}
+    .font-32 { font-size: 18px;}
+    .font-38 { font-size: 26px;}
+}
+.malign-center-top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.malign-center-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.malign-center-left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.malign-center-right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.malign-tl {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.malign-tr {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.malign-bl {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.malign-br {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.dper-por {
+    position: relative;
+}

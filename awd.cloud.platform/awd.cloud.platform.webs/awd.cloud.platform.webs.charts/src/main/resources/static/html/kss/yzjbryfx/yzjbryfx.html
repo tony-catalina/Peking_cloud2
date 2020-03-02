@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>严重疾病人员分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class='yzjbry'>
+        <div>
+            <div id="yzjbryfx"></div>
+            <table cellspacing="0" class="tableBar">
+                <div class='cs'>
+                    <div style="width:140px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;"></div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">北京市</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">东城区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">西城区</div style="width:80px;">
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">朝阳区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">丰台区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">石景山区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">海淀区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">门头沟区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">房山区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">通州区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">顺义区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">昌平区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">大兴区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">平谷区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">怀柔区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">密云区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid #9d9d9d;margin-top:-7px;">延庆区</div>
+                </div>
+                <tbody id='tbodyResult'></tbody>
+            </table>
+        </div>
+    </div>
+<!-- <div id="yzjbryfx"></div> -->
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+    var tbody = window.document.getElementById("tbodyResult")
+    $.ajax({
+        url: '/kssqsfx/yzjbfxCount',
+        type: "get",
+        dataType: "json",
+        success: function (res) {
+            var str = '';
+            var bar = '';
+            var char = '';
+            var data = res.result
+            
+            // var result = res.result.value
+            for (var i=0;i< data.az.length;i++) {   
+                str += "<td style='width:100px;height:50px;text-align:center;border:1px solid #9d9d9d;'>" + data.az[i] + "</td>";
+            } 
+            var strr = "<tr style='height:50px;width:1370px;margin-left: 70px;'>" +'<td style="width:140px;height:50px;text-align:center;border:1px solid #9d9d9d">艾滋病人数</td>'+  str + "</tr>"
+            for (var i=0;i< data.zd.length;i++) {   
+                bar += "<td style='width:100px;height:50px;text-align:center;border:1px solid #9d9d9d;'>" + data.zd[i] + "</td>";
+            }
+            var barr = "<tr style='height:50px;width:1370px;margin-left: 70px;'>" +'<td style="width:140px;height:50px;text-align:center;border:1px solid #9d9d9d">重病号人数</td>' + bar + "</tr>"
+            for (var i=0;i< data.jsyc.length;i++) {   
+                char += "<td style='width:100px;height:50px;text-align:center;border:1px solid #9d9d9d;'>" + data.jsyc[i] + "</td>";
+            }
+            var charr = "<tr style='height:50px;width:1370px;margin-left: 70px;'>" +'<td style="width:140px;height:50px;text-align:center;border:1px solid #9d9d9d">精神异常人数</td>' + char + "</tr>"
+            
+            tbody.innerHTML = strr + barr + charr; 
+        },error(error){
+            console.log(error)
+        }
+    })
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/kss/yzjbryfx/yzjbryfx');
+</script>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    .yzjbry{
+        width:100%;
+        height:100%;
+    }
+    .tableBar{
+        margin-left: 70px;
+        width:1370px;
+        height:auto;
+    }
+    .cs{
+        height:40px;
+        display:flex;
+        font-size: 18px;
+        line-height:40px;
+        width: 1370px;
+        margin-left: 70px;
+        /* border:1px solid rgb(0, 136, 201); */
+    }
+    #tbodyResult{
+        height:auto;
+        width:1370px;
+        margin-left: 70px;
+        border:1px solid #9d9d9d;
+    }
+    #yzjbryfx{
+        width: 100%;
+        height: 530px;
+    }
+</style>
+</body>
+</html>

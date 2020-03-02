@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_ZbhdjDao">
+
+    <select id="zbhdjCount" resultType="java.util.HashMap" parameterType="String">
+   	select count(j.xb=1 or null) man,
+   	count(j.xb=2 or null) woman,
+   	count(j.rsxz=10 or null) xzjl,
+   	count(rsxz=11 or null) sfjl,
+   	count(rsxz=12 or null) zajl,
+   	count(rsxz=14 or null) lsjy,
+   	count(rsxz=15 or null) bszr,
+   	count(rsxz=16 or null) wszr,
+   	count(rsxz!=10 and rsxz!=11 and rsxz!=12 and rsxz!=14 and rsxz!=15 and rsxz!=16 or null) qt,
+   	count(j.whcd=90 or null) wm,
+   	sum(case when j.whcd &gt; 79 and j.whcd &lt; 90 then 1 else 0 end) xx,
+   	sum(case when j.whcd &gt; 69 and j.whcd &lt; 80 then 1 else 0 end) cz,
+  	 sum(case when j.whcd &gt; 59 and j.whcd &lt; 70 then 1 else 0 end) gz,
+   	count(j.whcd &lt; 60 or null) dz,
+   	COUNT(j.gj!=156 and j.gj!=158 or null) AS wgj,count(substring(j.hjd, 0, 3)=110 or null) bs,
+   	count(substring(j.hjd, 0, 3)!=110 or null) ws,
+   	count(x.id) djzrs,
+   	(select count(rybh) from jbxx where state="R8" and jsbh=#{jsbh} and bhlx="2") wjcrzs
+   	 from zbhgl x left join jbxx j on x.rybh = j.rybh 
+        <where>
+              x.state = 'R2' and j.state="R8"
+           <if test="starttime != null and starttime != ''">
+                and date_format(x.djsj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(x.djsj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and x.jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

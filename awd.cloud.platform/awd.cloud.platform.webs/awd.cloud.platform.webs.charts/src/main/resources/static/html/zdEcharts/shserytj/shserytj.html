@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>涉黑涉恶人员统计</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+<div id="shse">
+    <div>
+        <div id="shserytj" style="background:#ffffff"></div>
+        <table cellspacing="0" class="tableBar">
+            <div class='cs'>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;"></div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">北京市</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">东城区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">西城区</div style="width:80px;">
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">朝阳区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">丰台区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">石景山区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">海淀区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">门头沟区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">房山区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">通州区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">顺义区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">昌平区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">大兴区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">平谷区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">怀柔区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">密云区</div>
+                <div style="width:100px;text-align:center;line-height:50px;border:1px solid #fff;margin-top:-8px;">延庆区</div>
+            </div>
+            <tbody id='tbodyResult'></tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+var tbody = window.document.getElementById("tbodyResult")
+        $.ajax({
+            url: '/kssqsfx/shseCount',
+            type: "get",
+            dataType: "json",
+            success: function (res) {
+                console.log(res)
+                var data = res.result
+                var nan = '';
+                var nv = '';
+                var qt = '';
+                var zs = '';
+                var result=[];
+                for(var i=0;i<data.nan.length;i++){
+                    result[i]=data.nan[i]+data.nv[i]+data.qt[i];
+                }
+                for (var i=0;i< data.nan.length;i++) {   
+                    nan += "<td style='width:80px;height:50px;text-align:center;border:1px solid #fff;'>" + data.nan[i] + "</td>";
+                } 
+                var Nan = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #fff">男</td>'+  nan + "</tr>"
+                for (var i=0;i< data.nv.length;i++) {   
+                    nv += "<td style='width:80px;height:50px;text-align:center;border:1px solid #fff;'>" + data.nv[i] + "</td>";
+                }
+                var Nv = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #fff">女</td>' + nv + "</tr>"
+                
+                for (var i=0;i< data.qt.length;i++) {   
+                    qt += "<td style='width:80px;height:50px;text-align:center;border:1px solid #fff;'>" + data.qt[i] + "</td>";
+                }
+                var Qt = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #fff">其他</td>' + qt + "</tr>"
+                for (var i=0;i< data.nan.length;i++) {   
+                    zs += "<td style='width:100px;height:50px;text-align:center;border:1px solid #fff;'>" + result[i] + "</td>";
+                } 
+                var zsfx = "<tr style='height:50px;width:1351px;margin-left: 70px;'>" +'<td style="width:100px;height:50px;text-align:center;border:1px solid #00bfb7">总数</td>'+  zs + "</tr>"
+                
+                tbody.innerHTML = Nan + Nv + Qt + zsfx; 
+            },error(error){
+                console.log(error)
+            }
+        })
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/zdEcharts/shserytj/shserytj');
+</script>
+<style>
+    *{
+        padding:0;
+        margin:0; 
+    }
+    #shserytj{
+        width:100%;
+        height:480px;
+    }
+    html, body {
+      position: relative;
+      height: 100%;
+      background-color:#323a5e;
+    }
+    .tableBar{
+        margin-left: 71px;
+        width:1352px;
+        height:auto;
+        border:1px solid #fff;
+        margin-top: -1px;
+        background:#606c8a;
+    }
+    .cs{
+        height:40px;
+        display:flex;
+        font-size: 18px;
+        line-height:40px;
+        width:1352px;
+        margin-left: 70px;
+        border:1px solid #606c8a;
+        background:#606c8a;
+        color:#ffffff;
+    }
+    #tbodyResult{
+        height:auto;
+        width:1352px;
+        margin-left: 70px;
+        background:#606c8a;
+        color:#ffffff;
+    }
+</style>
+</body>
+</html>

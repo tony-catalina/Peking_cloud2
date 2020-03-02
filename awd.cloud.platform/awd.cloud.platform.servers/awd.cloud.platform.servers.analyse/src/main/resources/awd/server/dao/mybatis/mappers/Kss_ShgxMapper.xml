@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.ShgxDao">
+
+    <select id="queryShgxNum"  parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisResultVO">
+        select
+        k.dz,
+        k.jsbh,
+        count(s.jsbh) as count
+        from kss k
+        left join shgx s
+        on k.jsbh = s.jsbh
+        <where>
+            s.state = 'R2'
+            <if test="starttime != null and starttime != ''">
+                and s.createtime &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and s.createtime &lt;= #{endtime}
+            </if>
+        </where>
+        group by dz,kssmc
+    </select>
+    
+
+</mapper>

@@ -1,0 +1,26 @@
+.layui-table{
+    margin-left: 8%;
+    margin-top: 50px;
+}
+
+.layui-form{
+    margin-left: 8%;
+    margin-top: -20px;
+}
+
+p{
+    font-size: 20px;
+    color: #666666;
+    margin-left: 10%;
+    margin-top: 20px;
+}
+pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
+
+.layui-side-scroll::-webkit-scrollbar {
+    display: none;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>超期羁押情况分析</title>
+    <!-- <script src='../../../js/swiper.min.js'></script>
+    <link rel="stylesheet" href="../../../css/swiper.min.css"> -->
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class="cqjiqk">
+        <!-- <div id='secrchBar' style="cursor:pointer">查询</div> -->
+        <div style="background:#0e2147">
+            <div id="cqjyqkfx" style="background:#0e2147"></div>
+            <table cellspacing="0" class="tableBar">
+                <!-- <div class="cqjy">
+                    <div>超期羁押情况分析</div>
+                </div> -->
+                <div class='cs'>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;"></div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">北京市</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">东城区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">西城区</div style="width:80px;">
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">朝阳区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">丰台区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">石景山区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">海淀区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">门头沟区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">房山区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">通州区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">顺义区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">昌平区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">大兴区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">平谷区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">怀柔区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">密云区</div>
+                    <div style="width:100px;text-align:center;line-height:50px;border:1px solid rgb(0, 136, 201);margin-top:-7px;">延庆区</div>
+                </div>
+                <tbody id='tbodyResult'></tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <div id="cqjyqkfx"></div> -->
+</body>
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+    var tbody = window.document.getElementById("tbodyResult")
+        $.ajax({
+            url: '/kssqsfx/cqjyCount',
+            type: "get",
+            dataType: "json",
+            success: function (res) {
+                var str = '';
+                var bar = '';
+                var data = res.result
+                
+                // var result = res.result.value
+                for (var i=0;i< data.cqjy.length;i++) {   
+                    str += "<td style='width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.cqjy[i] + "</td>";
+                } 
+                var strr = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">超期羁押人数</td>'+  str + "</tr>"
+                for (var i=0;i< data.value.length;i++) {   
+                    bar += "<td style='width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201);'>" + data.value[i]*100+'%' + "</td>";
+                }
+                var barr = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid rgb(0, 136, 201)">超期羁押百分比</td>' + bar + "</tr>"
+                
+                tbody.innerHTML = strr + barr; 
+            },error(error){
+                console.log(error)
+            }
+        })
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/kss/cqjyqkfx/cqjyqkfx');
+    
+</script>
+<style>
+    html, body {
+      position: relative;
+      height: 100%;
+      color:#fff;
+    }
+    *{
+        padding:0;
+        margin:0;
+    }
+    .cqjiqk{
+        width:100%;
+        height:100%;
+        background:#0e2147;
+    }
+    .tableBar{
+        margin-left: 70px;
+        width:1352px;
+        height:auto;
+        background:#0e2147;
+    }
+    .cs{
+        height:40px;
+        display:flex;
+        font-size: 18px;
+        line-height:40px;
+        width: 1352px;
+        margin-left: 70px;
+        border:1px solid rgb(0, 136, 201);
+        background:#0e2147;
+    }
+    #tbodyResult{
+        height:auto;
+        width:1352px;
+        margin-left: 70px;
+        border:1px solid rgb(0, 136, 201);
+        background:#0e2147;
+    }
+    #cqjyqkfx{
+        width:100%;
+        height:550px;
+        background:#0e2147;
+    }
+</style>
+</html>

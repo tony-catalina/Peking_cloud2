@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_jshjDao">
+
+    <select id="jshjInfo" parameterType="String" resultType="java.util.HashMap">
+        select
+        k.dz,
+        k.JLSMC,
+        k.jsbh,
+        count(j.jsbh or null ) as count
+        from jls k
+        left join jshj j
+        on k.jsbh = j.jsbh
+        <where>
+
+            <if test="hjsj!=null and hjsj!=''">
+                and j.KSSJ &gt;= #{hjsj}
+            </if>
+            <if test="jssj!=null and jssj!=''">
+                and j.JSSJ &lt;= #{jssj}
+            </if>
+        </where>
+        group by dz,JLSMC
+    </select>
+
+
+
+    <select id="swj_jshj" parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisJlsResultVO">
+        select
+        k.dz,
+
+        k.jsbh,
+        count(j.jsbh or null ) as count
+        from jls k
+        left join jshj j
+        on k.jsbh = j.jsbh
+        <where>
+
+            <if test="hjsj!=null and hjsj!=''">
+
+                and date_format(j.KSSJ,'%Y-%m-%d') &gt;=date_format(#{hjsj},'%Y-%m-%d')
+            </if>
+            <if test="jssj!=null and jssj!=''">
+
+                and date_format(j.JSSJ,'%Y-%m-%d') &lt;=date_format(#{jssj},'%Y-%m-%d')
+            </if>
+        </where>
+        group by dz,JLSMC
+    </select>
+
+</mapper>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人员管理情况分析</title> 
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+    <div class='ryglqk'>
+        <div class="button">
+            <div id="changeBar">表格</div> 
+        </div>
+        <div id="ryglqkfx"></div>  
+        <div cellspacing="0" class="tableBar">
+            <div class="ryglqkTable">
+                <div>人员管理情况分析</div>
+            </div>
+            <div class='cs'>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b"></div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">北京市</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">东城区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">西城区</div style="width:80px;">
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">朝阳区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">丰台区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">石景山区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">海淀区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">门头沟区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">房山区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">通州区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">顺义区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">昌平区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">大兴区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">平谷区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">怀柔区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">密云区</div>
+                <div style="width:100px;text-align:center;border:1px solid #7d838b">延庆区</div>
+            </div>
+                <table style="width:1352px;height:50px;margin-left:70px;" cellspacing="0">
+                    <tbody id='tbodyResult'></tbody>  
+                </table>
+        </div>
+    </div>   
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+var tbody = window.document.getElementById("tbodyResult")
+    $("#changeBar").on("click",function(){
+        if($(this).text()=="表格"){
+            $(this).text("图表");
+            $.ajax({
+                url: '/kssdp/select_kss_rygl',
+                type: "get",
+                dataType: "json",
+                success: function (res) {
+                    console.log(res,789)
+                    var data = res.result;
+                    var jj = '';
+                    var jb = '';
+                    var ddgy = '';
+                    var ygry ='';
+                    var yzem ='';
+            for (var i=0;i< data.jj.length;i++) {   
+                jj += "<td style='width:80px;height:50px;text-align:center;border:1px solid #6e7d88;'>" + data.jj[i] + "</td>";
+            } 
+                var _jj = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #6e7d88">械具</td>'+  jj + "</tr>"
+            for (var i=0;i< data.jb.length;i++) {   
+                jb += "<td style='width:80px;height:50px;text-align:center;border:1px solid #6e7d88;'>" + data.jb[i] + "</td>";
+            }
+                var _jb = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #6e7d88">禁闭</td>' + jb + "</tr>"
+            for (var i=0;i< data.ddgy.length;i++) {   
+                ddgy += "<td style='width:80px;height:50px;text-align:center;border:1px solid #6e7d88;'>" + data.ddgy[i] + "</td>";
+            }
+                var _ddgy = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #6e7d88">单独关押</td>' + ddgy + "</tr>"
+            for (var i=0;i< data.ygry.length;i++) {   
+                ygry += "<td style='width:80px;height:50px;text-align:center;border:1px solid #6e7d88;'>" + data.ygry[i] + "</td>";
+            }
+                var _ygry = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #6e7d88">严管人员</td>' + ygry + "</tr>"
+            for (var i=0;i< data.yzem.length;i++) {   
+                yzem += "<td style='width:80px;height:50px;text-align:center;border:1px solid #6e7d88;'>" + data.yzem[i] + "</td>";
+            }
+                var _yzem = "<tr style='height:50px;width:1352px;margin-left: 70px;'>" +'<td style="width:80px;height:50px;text-align:center;border:1px solid #6e7d88">耳目</td>' + yzem + "</tr>"
+            
+                    tbody.innerHTML = _jj + _jb + _ddgy + _ygry + _yzem;
+                },error(error){
+                    console.log(error,123456)
+                }
+            })
+            $('#ryglqkfx').css('visibility',"hidden")
+            $('.tableBar').css('visibility',"visible")
+
+        }else{
+            $(this).text("表格");
+            $('#ryglqkfx').css('visibility',"visible")
+            $('.tableBar').css('visibility',"hidden")
+        }
+    })
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/zdEcharts/ryglqkfx/ryglqkfx');
+</script>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    #ryglqkfx{
+        margin-top:60px;
+        width: 100%;
+        height: 670px;
+    }
+    .ryglqk{
+        width:99.8%;
+        height:730px;
+        border:1px solid #fff;
+    }
+    .button{
+        width:120px;
+        float:right;
+        margin-top:10px;
+        height:50px;
+        line-height:50px;
+        color:#fff;
+    }
+    #changeBar{
+        width:70px;
+        height:38px;
+        line-height:38px;
+        text-align:center;
+        background:#5a99e0;
+        border-radius: 13px;
+        cursor:pointer;
+    }
+    .ryglqkTable{
+        width:1348px;
+        text-align:center;
+        height:50px;
+        color:#7d838b;
+        font-size: 23px;
+        line-height:50px;
+        margin-left: 70px;
+        border-top:2px solid #7d838b;
+        border-left:2px solid #7d838b;
+        border-right:2px solid #7d838b;
+    }
+    .tableBar{
+        visibility: hidden;
+        width:100%;
+        height:600px;
+        color: #7d838b;
+        position: fixed;
+        top:60px;
+        left:0;
+    }
+    .cs{
+        color:#7d838b;
+        display:flex;
+        width:1352px;
+        height:40px;
+        line-height:40px;
+        margin-left: 70px;
+        border-top:1px solid #7d838b;
+    }
+    #tbodyResult{
+        width:1352px;
+        margin-left: 70px;
+        height:600px;
+        color:#7d838b;
+    } 
+</style>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

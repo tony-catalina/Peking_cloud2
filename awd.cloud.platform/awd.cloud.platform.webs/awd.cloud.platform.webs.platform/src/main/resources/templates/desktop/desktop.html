@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="keywords" content="spring cloud,看守所,拘留所,戒毒所,安康医院,监管总队,南京安威德"/>
+    <meta name="generator" content="${config.CLOUD_NAME!}"/>
+    <meta name="author" content="306165699@qq.com"/>
+    <meta name="copyright" content="www.njawd.com"/>
+
+    <title>${config.CLOUD_DESC!}</title>
+    <script src="./js/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./js/lib/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./js/css/layui.css"/>
+    <link href="./images/common/favicon.ico" rel="Shortcut Icon"/>
+    <link href="./js/lib/picasa/style/style.css" rel="stylesheet"/>
+    <link href="./style/common.css" rel="stylesheet"/>
+    <link href="./style/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="./style/font-awesome/css/font-awesome-ie7.css"/>
+    <![endif]-->
+
+    <link rel="stylesheet" href="./style/skin/base/app_desktop.css"/>
+    <link rel="stylesheet" href="./style/skin/${userconfig.theme}.css" id='link_css_list'/>
+
+</head>
+<body style="overflow: hidden;" oncontextmenu="return core.contextmenu();" id="page_desktop">
+<div style="width: 100%;height: 100%;pointer-events: none;opacity:0;z-index:99999998;position: fixed;" id="winds"></div>
+<%include("../common/navbar.html"){}%>
+<%include("../desktop/desktopmain.html"){}%>
+<%include("../desktop/startbar.html"){}%>
+<%include("../desktop/menuwin.html"){}%>
+<input type="hidden" value="${userJh}" id="userJh"/>
+<script type="text/javascript" src="./js/lib/seajs/sea.js"></script>
+<%include("../user/common_js.html"){}%>
+
+<script type="text/javascript">
+    //socket 配置===================================
+    var msgs = '';
+    var c = 0;
+
+    function showLogin() {
+        console.log("秒", c++);
+    }
+
+    layui.use('layim', function (layim) {
+        WEB_SOCKET_SWF_LOCATION = "./js/swfobject.js";
+        WEB_SOCKET_DEBUG = true;
+        var lockReconnect = false;//避免重复连接
+        var userJh = $("#userJh").val();
+        var wsUrl = "ws://${config.web_host}/websocket/" + userJh;
+        var ws;
+        var tt;
+
+        function createWebSocket() {
+            try {
+                if ('WebSocket' in window) {
+                    console.log("当前浏览器支持websocket=========")
+                    ws = new WebSocket(wsUrl);
+                    init();
+                }
+                else {
+                    layer.msg("你的浏览器不支持websocket！");
+                }
+
+
+            } catch (e) {
+                console.log('catch');
+                reconnect(wsUrl);
+            }
+        }
+
+        function init() {
+            ws.onclose = function () {
+                console.log('链接关闭');
+                reconnect(wsUrl);
+            };
+            ws.onerror = function () {
+                console.log('发生异常了');
+                reconnect(wsUrl);
+            };
+            ws.onopen = function () {
+                //心跳检测重置
+                console.log("连接成功=========")
+                heartCheck.start();
+            };
+            ws.onmessage = function (event) {
+                //拿到任何消息都说明当前连接是正常的
+                console.log('接收到消息');
+                setMessageInnerHTML(event.data)
+                heartCheck.start();
+            }
+        }
+
+        function reconnect(url) {
+            if (lockReconnect) {
+                return;
+            }
+            ;
+            lockReconnect = true;
+            //没连接上会一直重连，设置延迟避免请求过多
+            tt && clearTimeout(tt);
+            tt = setTimeout(function () {
+                createWebSocket(url);
+                lockReconnect = false;
+            }, 4000);
+        }
+
+        //心跳检测
+        var heartCheck = {
+            timeout: 3000,
+            timeoutObj: null,
+            serverTimeoutObj: null,
+            start: function () {
+                console.log('心跳💞检测上线！！');
+                var self = this;
+                this.timeoutObj && clearTimeout(this.timeoutObj);
+                this.serverTimeoutObj && clearTimeout(this.serverTimeoutObj);
+                this.timeoutObj = setTimeout(function () {
+                    //这里发送一个心跳，后端收到后，返回一个心跳消息，
+                    console.log('发送一个心跳💓');
+                    ws.send("123456789");
+                    self.serverTimeoutObj = setTimeout(function () {
+                        console.log(111);
+                        console.log(ws);
+                        if (ws == null) {
+                            createWebSocket();
+                        }
+                    }, self.timeout);
+
+                }, this.timeout)
+            }
+        }
+        createWebSocket(wsUrl);
+
+        //setInterval("showLogin()", "1000");
+
+        //将消息显示在网页上
+        function setMessageInnerHTML(innerHTML) {
+            //反序列化
+            //var obj = JSON.parse(innerHTML);
+            console.log(innerHTML);
+            // msgs += innerHTML + "。<br/>";
+            // if (document.getElementById("mssg") == null) {
+            //     $("<div id='mssg' class=\"copyright dropdown-toggle\" style='padding: 0px'><i id='i' onclick=\"msgg()\"><img src=\"./images/common/msg.gif\"></i></div>").appendTo("#taskbar_right");
+            // }
+            // layim.getMessage({
+            //     username: innerHTML.split("&")[0]
+            //     , avatar: "./js/images/face/4.gif"
+            //     , id: innerHTML.split(":::")[0].split("&")[1]
+            //     , type: "friend"
+            //     , content: innerHTML.split(":::")[1]
+            //     , timestamp: new Date().getTime()
+            // });
+            layer.open({
+                type:1,
+                title:'紧急消息',
+                content:innerHTML,
+                offset:['58%','66%'],
+                area:['34%','38%'],
+            })
+        }
+
+        //基础配置
+        layim.config({
+            brief: false //简约模式，不显示主面板
+            , init: {
+                // mine: {
+                //     "username": G.user //我的昵称
+                //     , "id": G.user //我的ID
+                //     , "status": "online" //在线状态 online：在线、hide：隐身
+                //     , "remark": G.user //我的签名
+                //     , "avatar": "../../js/images/face//4.gif" //我的头像
+                // }
+                mine: {
+                    "id": 3,
+                    "username": G.user,
+                    "avatar": "js/images/face/0.gif",
+                    "sign": "我的签名",
+                    "status": "online"
+                },
+                friend: [{
+                    "id": 1,
+                    "groupname": "我的好友",
+                    "list": [{
+                        "id": 3,
+                        "username": "测试",
+                        "avatar": "js/images/face/1.gif",
+                        "sign": "我的签名",
+                        "status": "offline"
+                    }, {
+                        "id": 8,
+                        "username": "周八",
+                        "avatar": "js/images/face/2.gif",
+                        "sign": null,
+                        "status": "offline"
+                    }, {
+                        "id": 9,
+                        "username": "吴九",
+                        "avatar": "js/images/face/4.gif",
+                        "sign": null,
+                        "status": "offline"
+                    }]
+                }],
+                group: [{
+                    "id": 1,
+                    "groupname": "哈哈哈",
+                    "avatar": "js/images/face/10.gif",
+                    "members": null
+                }]
+            }
+           // ,msgbox: 'message' //消息盒子页面地址，若不开启，剔除该项即可
+
+        });
+        layim.on('tool(code)', function (insert) {
+            layer.prompt({
+                title: '插入代码'
+                , formType: 2
+                , shade: 0
+            }, function (text, index) {
+                layer.close(index);
+                insert('[pre class=layui-code]' + text + '[/pre]'); //将内容插入到编辑器
+            });
+        });
+
+        //监听layim建立就绪
+        layim.on('ready', function (res) {
+
+            layim.msgbox(2); //模拟消息盒子有新消息，实际使用时，一般是动态获得
+
+        });
+
+        //监听发送消息
+        layim.on('sendMessage', function (data) {
+            var To = data.to;
+            console.log(data);
+            if (To.type === 'friend') {
+                layim.setChatStatus('<span style="color:#FF5722;">对方正在输入。。。</span>');
+            }
+            websocket.send(JSON.stringify(data));
+            $.ajax({
+                type: "post",
+                url: "kss_process/send",    //请求发送到
+                data: {"msg": JSON.stringify(data)},
+                dataType: "json",        //返回数据形式为json
+                success: function (result) {
+
+                },
+                error: function (errorMsg) {
+                    $.messager.alert('提示', '发送失败', 'info');
+                }
+            });
+        });
+    });
+
+    function msgg() {
+        layer.msg(msgs, {
+            time: 200000, //200s后自动关闭
+            btn: ['知道了']
+        });
+        $("#mssg").remove();
+        msgs = '';    //当用户查看消息后置空消息容器
+    }
+
+</script>
+<script type="text/javascript">
+    G.this_path = G.my_desktop;
+    seajs.config({
+        base: "./js/",
+        preload: ["lib/jquery-1.8.0.min"],
+        map: [
+            [/^(.*\.(?:css|js))(.*)$/i, '$1$2?ver=' + G.version]
+        ]
+    });
+    seajs.use("app/src/desktop/main");
+</script>
+</body>
+<style type="text/css">
+
+</style>
+</html>

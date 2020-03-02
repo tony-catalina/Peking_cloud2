@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.JstzDao">
+    <select id="rqcxJ" parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisResultVO">
+        select
+        k.dz as dz,
+        k.jsbh as jsbh,
+        count(j.jsbh) as count
+        from kss k
+        LEFT JOIN jstz j
+        ON j.jsbh = k.jsbh
+        <where>
+            state='R2'
+            <if test="starttime!=null and starttime!=''">
+                and j.tzsj &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!=''">
+                and j.tzsj &lt;= #{endtime}
+            </if>
+        </where>
+        GROUP BY k.dz,k.jsbh
+    </select>
+    
+    
+   <select id="Jstzcount" parameterType="String" resultType="java.util.HashMap">
+    	select
+    	COUNT(yy=1 or null) AS dj,
+    	COUNT(yy=2 or null) AS ltqx,
+    	COUNT(yy=3 or null) AS jzls,
+    	COUNT(yy=4 or null) AS aqxy,
+    	COUNT(yy=5 or null) AS baxy,
+    	COUNT(yy=6 or null) AS zdb,
+    	COUNT(yy=7 or null) AS gdqm,
+    	COUNT(yy=8 or null) AS yj,
+    	COUNT(yy=0 or null) AS qt,
+        COUNT(*) AS yg from jstz
+    	 <where>
+            state='R2'
+            <if test="starttime!=null and starttime!=''">
+                and tzsj &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!=''">
+                and tzsj &lt;= #{endtime}
+            </if>
+             <if test="jsbh!=null and jsbh !=''">
+                 and jsbh=#{jsbh}
+             </if>
+        </where>
+    </select>
+	   <select id="JstzcountR" parameterType="String" resultType="java.util.HashMap">
+    	select count(*) yg from jstz
+    	 <where>
+            state='R3'
+            <if test="starttime!=null and starttime!=''">
+                and tzsj &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!=''">
+                and tzsj &lt;= #{endtime}
+            </if>
+            	<if test="jsbh!=null and jsbh !=''">
+                 and jsbh=#{jsbh}
+             </if>
+        </where>
+    </select>
+</mapper>

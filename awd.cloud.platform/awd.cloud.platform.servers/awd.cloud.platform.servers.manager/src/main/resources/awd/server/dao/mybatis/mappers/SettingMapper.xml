@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.mis.servers.dao.SettingDao">
+    <resultMap id="SettingResultMap" type="awd.mis.servers.entity.SettingEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="appcode" column="appcode" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="progroup" column="progroup" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="protype" column="protype" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="proname" column="proname" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="prolist" column="prolist" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="provalue" column="provalue" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="creator" column="creator" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>		
+		<result property="updator" column="updator" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>		
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'SettingResultMap'"/>
+        <bind name="tableName" value="'SETTING'"/>
+    </sql>
+
+    <insert id="insert" parameterType="awd.mis.servers.entity.SettingEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from app where id =#{id}
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="SettingResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>  
+    
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select> 
+    
+    <select id="getSetting" parameterType="String" resultMap="SettingResultMap">
+        select * from setting where 1=1
+        <if test="appcode!=null and appcode!=''">
+                and  appcode= #{appcode}
+        </if>
+        <if test="progroup!=null and progroup!=''">
+                and  progroup= #{progroup}
+        </if>       
+    </select> 
+    
+    
+</mapper>

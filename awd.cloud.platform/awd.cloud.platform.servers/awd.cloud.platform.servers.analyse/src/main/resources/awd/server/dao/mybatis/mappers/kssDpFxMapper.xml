@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.kssDpFxDao">
+
+
+<!--在押人员关押量分析分析-->
+
+    <!-- kss会见人数分析 : 家属会见、律师会见、提讯、总数    -->
+    <select id="kss_hjrs" resultType="java.util.LinkedHashMap">
+        select JSBH AS "jsbh", COUNT(CRJBJ="06" or null) as"jshj", COUNT(CRJBJ="04" or null) as "lshj", COUNT(CRJBJ="02"  or CRJBJ="03"  or null) as "tx", COUNT(CRJBJ="06" or CRJBJ="04" or CRJBJ="02"  or CRJBJ="03"  or null)as "all" from jbxx where STATE="R8"  GROUP BY JSBH
+
+    </select>
+
+    <!--kss在所状态 :   已决、未决-->
+    <select id="kss_zszt" resultType="java.util.LinkedHashMap">
+        select JSBH as "jsbh",COUNT(ZSZT="12"  or ZSZT="13"  or null) as "yj",COUNT( ZSZT="11" or null) as "wj" from jbxx where  STATE="R8" GROUP BY JSBH
+    </select>
+
+   <!-- kss人员管理情况分析 ： 械具、禁闭、单独关押、严管人员、耳目-->
+    <select id="kss_rygl" resultType="java.util.LinkedHashMap">
+        select JSBH as "jsbh",  COUNT(JJ="02" or null ) as"jj", COUNT(JB="02" or null) as "jb",  COUNT(DDGY="1" or null) as "ddgy",  COUNT(YGRY="02" or YGRY="04" or null) as "ygry",
+        COUNT(EMLX="02" or EMLX="01" or null) as "yzem"  from jbxx where STATE="R8" GROUP BY JSBH
+    </select>
+
+
+    <!--kss全省办案阶段分析-->
+    <select id="kss_qsbajd" resultType="java.util.LinkedHashMap">
+        SELECT
+        COUNT( BAHJ = "11" OR NULL ) AS "xsjl",
+        COUNT( BAHJ = "12" OR NULL ) AS "db",
+        COUNT( BAHJ = "13" OR NULL ) AS "gabhzc1",
+        COUNT( BAHJ = "14" OR NULL ) AS "gabhzc2",
+        COUNT( BAHJ = "21" OR NULL ) AS "scqs1",
+        COUNT( BAHJ = "22" OR NULL ) AS "scqs2",
+        COUNT( BAHJ = "23" OR NULL ) AS "scqs3",
+        COUNT( BAHJ = "24" OR NULL ) AS "jcbczc",
+        COUNT( BAHJ = "31" OR NULL ) AS "ys",
+        COUNT( BAHJ = "32" OR NULL ) AS "es",
+        COUNT( BAHJ = "33" OR NULL ) AS "fhcs",
+        COUNT( BAHJ = "34" OR NULL ) AS "sxfh",
+        COUNT( BAHJ = "35" OR NULL ) AS "dzx",
+        COUNT( ZSZT = "12" or ZSZT = "13" OR NULL ) AS "yj",
+        COUNT( BAHJ = "99" OR NULL ) AS "qt",
+        COUNT( BAHJ = "37" OR NULL ) AS "ysssq",
+        COUNT( BAHJ = "38" OR NULL ) AS "zs"
+        FROM
+        jbxx
+        WHERE
+        STATE = "R8"
+        and JSBH like #{jsbh}
+    </select>
+
+    <!--年度入所量比对-->
+    <select id="kss_ndrs" resultType="java.util.LinkedHashMap">
+        select JSBH as"jsbh", count(YEAR(RSRQ)=YEAR(NOW()) or null)as"jn" , COUNT(YEAR(RSRQ)=YEAR(DATE_SUB(NOW(),interval 1 year)) or null) as "qn"
+        from jbxx  GROUP BY JSBH
+    </select>
+
+    <!--kss风险情况分析-->
+    <select id="kss_fxdj" resultType="java.util.LinkedHashMap">
+        select JSBH as"jsbh", COUNT(WXDJ="1" or null) as "yj", COUNT(WXDJ="2" or null) as "ej", COUNT(WXDJ="3" or null) as "sj"
+        from jbxx where STATE="R8" GROUP BY JSBH
+    </select>
+
+    <!--吸毒人员分析 吸毒人数、百分比-->
+    <select id="kss_xdry" resultType="java.util.LinkedHashMap">
+        select   COUNT(AY or null ) as "ay", JSBH as "jsbh" from jbxx where STATE="R8" and locate('1463', AY) GROUP BY JSBH
+    </select>
+    <!--吸毒人员分析 吸毒人数、百分比==总人数-->
+    <select id="kss_xdry_all" resultType="java.util.LinkedHashMap">
+        select   COUNT(AY or null ) as "ay", JSBH as "jsbh" from jbxx where STATE="R8" and locate('1463', AY)
+    </select>
+
+
+<!--在押人员关押量分析分析-->
+   <select id="zyrygyl" resultType="java.util.HashMap">
+       SELECT count(xb=1 or null) as "man",count(xb=2 or null) as "woman",count(xb=0 or null) as "unknow",count(id) as "zs",jsbh
+       from jbxx
+       where STATE="R8" GROUP BY JSBH
+   </select>
+
+    <!--户籍地分析-->
+    <select id="hjdfx" resultType="java.util.HashMap">
+        SELECT count(HJD like "%11%" or null) as "bs",
+        count(HJD not like "%11%" or null) as "ws",
+        count(GJ not like "156" and GJ not like "158" and GJ not like "344" and GJ not like "446" or null) as "wg",
+        jsbh from jbxx where STATE="R8" GROUP BY JSBH
+    </select>
+
+    <!--年龄分析-->
+    <select id="nlfx" resultType="java.util.HashMap">
+        select count(YEAR(CURDATE()) -YEAR(CSRQ) &lt;  18 or null) as "sn",count(YEAR(CURDATE()) -YEAR(CSRQ) &gt; 18 and YEAR(CURDATE()) -YEAR(CSRQ) &lt;  25 or null) as "qn",count(YEAR(CURDATE()) -YEAR(CSRQ) &gt; 25 and YEAR(CURDATE()) -YEAR(CSRQ) &lt;  35 or null) as "zn",count(YEAR(CURDATE()) -YEAR(CSRQ) &gt; 35 or null) as "zln",jsbh
+        from jbxx where STATE="R8" GROUP BY jsbh
+    </select>
+
+    <!--文化程度分析-->
+    <select id="whcd" resultType="java.util.HashMap">
+        SELECT count(WHCD="87" or null) as "wm" ,
+        count(WHCD in (80,81,88,89) or null)as "xx",
+        count(WHCD in (60,61,62,63,68,68,70,71,72,73,78,79)or null)as "zx",
+        count(WHCD in (10,11,19,20,21,28,29,30,31,38,39) or null)as "dzys",jsbh
+        FROM jbxx WHERE STATE="R8"
+        GROUP BY jsbh
+    </select>
+
+    <!--严重疾病分析-->
+    <select id="yzjbfx" resultType="java.util.HashMap">
+        SELECT count(BHLX=2 or null) as "zdbh",
+        count(AZB=1 or null) as "azb",
+        count(JSYCBZ=1 or null) as "jsyc",JSBH as "jsbh"
+        from jbxx WHERE STATE="R8" GROUP BY JSBH
+    </select>
+
+    <!--身份分析-->
+    <select id="sffx" resultType="java.util.HashMap">
+        SELECT count(SF=01 or null )as "gjgwy",
+        count(SF=02 or null )as "qyglry",
+        count(SF=04 or null)as "gr",
+        count(sf=05 or null)as "nm",
+        count(sf=07 or null)as "zxxs",
+        count(sf=06 or null)as "gtgsry",
+        count(sf=08 or null)as "ltxry",
+        count(sf=09 or null)as "wyry",
+        count(sf=10 or null)as "jr",
+        count(sf=99 or null)as "qt",JSBH as "jsbh"
+        from jbxx WHERE STATE="R8" GROUP BY JSBH
+    </select>
+
+    <!--健康情况分析-->
+    <select id="jkqkfx" resultType="java.util.HashMap">
+        SELECT count(JKZK=1 or null) as "jkhlh",
+        count(JKZK=2 or null) as "ybhjr",
+        count(JKZK=3 or null) as "yb",
+        count(JKZK=4 or null) as "slqx",
+        count(JKZK=5 or null) as "cf",JSBH as "jsbh"
+        from jbxx WHERE STATE="R8" GROUP BY JSBH
+    </select>
+
+    <!--拒收人员分析-->
+    <select id="jsryfx" resultType="java.util.HashMap">
+        select count(JSLY !='' or null)as "js",count(JSLY !='' or null)/count(ID)*100 as "bfb",JSBH as "jsbh"
+        from jbxx
+        GROUP BY JSBH
+    </select>
+
+    <!--入所性质-->
+    <select id="rsxz" resultType="java.util.HashMap">
+        SELECT count(RSXZ=11 or null ) as "xsjl",
+        count(RSXZ=12 or null ) as "db",
+        count(RSXZ=13 or null ) as "lsjy",
+        count(RSXZ=14 or null ) as "wsszr",
+        count(RSXZ=15 or null ) as "bsszr",
+        count(RSXZ=16 or null ) as "ydjy",
+        count(RSXZ=31 or null ) as "qbhszdb",
+        count(RSXZ=32 or null ) as "jsjbzdb",
+        count(RSXZ=33 or null ) as "qxjwzx",
+        count(RSXZ=34 or null ) as "cxbwjy",
+        count(RSXZ=35 or null ) as "qxjs",
+        count(RSXZ=36 or null ) as "cxhx",
+        count(RSXZ=37 or null ) as "tpsh",
+        count(RSXZ=49 or null ) as "qtsh",
+        count(RSXZ in (51,52,53,54,59) or null ) as "tsws",
+        count(RSXZ in (99,29) or null ) as "qt"
+        from jbxx WHERE STATE="R8" and JSBH LIKE #{jsbh}
+    </select>
+
+    <!--案件类别分析-->
+    <select id="ajlb" resultType="java.util.HashMap">
+        SELECT count(AY=010000 or null)as "wfgjaq",
+        count(AY in(100000,080000,060197,050200) or null)as "jrwfzr",
+        count(AY=020000 or null)as "whggaq",
+        count(AY=070000 or null)as "whgfly",
+        count(AY=080000 or null)as "twhl",
+        count(AY=040000 or null)as "qfgmql",
+        count(AY=040200 or null)as "mzql",
+        count(AY=050000 or null)as "qfcc",
+        count(AY=060000 or null)as "fhshgl",
+        count(AY=030000 or null)as "phshzyjj",
+        count(AY=090000 or null)as "dz"
+        from jbxx WHERE JSBH LIKE #{jsbh}
+    </select>
+
+    <!--正常出所对比分析-->
+    <select id="zccs" resultType="java.util.HashMap">
+        select JSBH as"jsbh", count(YEAR(CSSJ)=YEAR(NOW()) or null)as"jn" , COUNT(YEAR(CSSJ)=YEAR(DATE_SUB(NOW(),interval 1 year))or null) as "qn"
+        from jbxx WHERE STATE="R8" GROUP BY JSBH
+    </select>
+
+    <!--临时出所分析-->
+    <select id="lscsfx" resultType="java.util.HashMap">
+        SELECT JSBH as "jsbh",count(LSCSYY=1 or null)as "ktsl" ,
+        count(LSCSYY=2 or null)as "gjfba" ,
+        count(LSCSYY=3 or null)as "tq" ,
+        count(LSCSYY=4 or null)as "kb" ,
+        count(LSCSYY=5 or null)as "zy" ,
+        count(LSCSYY=6 or null)as "ld" ,
+        count(LSCSYY=9 or null)as "qt" ,
+        count(LSCSYY=10 or null)as "swjy" ,
+        count(LSCSYY=11 or null)as "qjcs"
+        from jbxx WHERE STATE="R8" GROUP BY JSBH
+    </select>
+
+    <!--出所原因分析-->
+    <select id="csyyfx" resultType="java.util.HashMap">
+        SELECT count(CSYY in (01,02,03,04) or null) as "tfjy",
+        count(CSYY in (05,06,07,08) or null) as "sf",
+        count(CSYY=09 or null) as "qbhs",
+        count(CSYY=10 or null) as "jsjz",
+        count(CSYY=11 or null) as "zyjwzx",
+        count(CSYY=12 or null) as "bwjy",
+        count(CSYY=13 or null) as "js",
+        count(CSYY=14 or null) as "tp",
+        count(CSYY=15 or null) as "sw",
+        count(CSYY in(16,17,18) or null) as "zqts",
+        count(CSYY=19 or null) as "zxsx",
+        count(CSYY=99 or null) as "qt"
+        from jbxx WHERE jsbh like #{jsbh}
+    </select>
+
+    <!--深挖犯罪-->
+    <select id="swfz" resultType="java.util.HashMap">
+        SELECT jsbh,count(XSLX in("1","2") or null)as "tbjd",
+        count(XSLX="3" or null) as "jj",count(XSLX or null) as "zs"
+        from swfz WHERE STATE="R2" GROUP BY JSBH
+    </select>
+
+    <!--严重暴力犯罪-->
+    <select id="yzblfz" resultType="java.util.HashMap">
+        SELECT JSBH as "jsbh",count(AY in ("D02",101031600)or null)as"gysh",
+        count(AY =8860 or null)as"fmdp",
+        count(AY in (8636,8637,"D04",8631)or null)as"qj",
+        count(AY ="D00"or null)as"gysr",
+        count(AY in ("E00",20013,8676,8677,8678,8679,8680,8681,8682,8683,8684,8685,8686,8687,8688,8689)or null)as"qiangjie",
+        count(AY in ("B00",101011900,101011901,101011904,101011905)or null)as"fh",
+        count(AY =8600 or null)as"bz",
+        count(AY ="F51" or null)as"td"
+        from jbxx WHERE STATE="R8" GROUP BY JSBH
+    </select>
+
+    <!--涉黑涉恶案件分析-->
+    <select id="shsefx" resultType="java.util.HashMap">
+        SELECT count(AY="F1K" or null)as "hsh",
+        count(AY in("F1J",101012000) or null)as "xxzs",
+        count(AY in(101045700,302020100,302020200,302020300,302021500,302022400) or null)as "ksdc",
+        count(AY ="F1I" or null)as "jzdo",
+        count(AY in("E09",101032900) or null)as "qzls",
+        count(AY ="D08" or null)as "ffjj",
+        count(AY ="F80" or null)as "zzmy",
+        count(AY in ("C85",101032100) or null)as "qpjy",
+        count(AY ="F81" or null)as "qpmy",
+        count(AY in(101021000,101021002,101021004,101043900,101043901,101043902,702060010,702060040,702060041) or null)as "gyshcw"
+        from jbxx WHERE JSBH like #{jsbh} and STATE="R8"
+    </select>
+
+    <!--民警数量-->
+    <select id="mjsl" resultType="java.util.HashMap">
+        SELECT JSBH as "jsbh",count(jsbh or null)as "sl"
+        from mjjbxx where STATE="R2" GROUP BY JSBH
+    </select>
+
+    <!--民警性别分析-->
+    <select id="mjxbfx" resultType="java.util.HashMap">
+        SELECT JSBH as "jsbh",count(XB=1 or null)as "man",
+        count(XB=2 or null)as "woman",count(XB or null)as "zs"
+        from mjjbxx where STATE="R2" GROUP BY JSBH
+    </select>
+
+    <!--民警警衔分析-->
+    <select id="mjjxfx" resultType="java.util.HashMap">
+        SELECT count(jx=1 or null) as "zjj",
+        count(jx=2 or null) as "fzjj",
+        count(jx=3 or null) as "yjjj",
+        count(jx=4 or null) as "ejjj",
+        count(jx=5 or null) as "sjjj",
+        count(jx=6 or null) as "yjjd",
+        count(jx=7 or null) as "ejjd",
+        count(jx=8 or null) as "sjjd",
+        count(jx=9 or null) as "yjjs",
+        count(jx=10 or null) as "ejjs",
+        count(jx=11 or null) as "sjjs",
+        count(jx=12 or null) as "yjjy",
+        count(jx=13 or null) as "ejjy",
+        count(jx=14 or null) as "jxjy"
+        FROM mjjbxx where jsbh like #{jsbh}
+    </select>
+
+    <!--在职时长分析-->
+    <select id="zzscfx" resultType="java.util.HashMap">
+        SELECT JSBH as "jsbh",count(TIMESTAMPDIFF(MONTH,CJGZSJ, DATE_FORMAT(now(), "%Y-%m-%d")) &lt;3 or null)as "sgyyx",
+        count(TIMESTAMPDIFF(MONTH,CJGZSJ, DATE_FORMAT(now(), "%Y-%m-%d"))in (3,4,5,6)or null)as "sdlgy",
+        count(TIMESTAMPDIFF(MONTH,CJGZSJ, DATE_FORMAT(now(), "%Y-%m-%d"))in(6,7,8,9,10,11,12) or null)as "ldyn",
+        count(TIMESTAMPDIFF(YEAR,CJGZSJ, DATE_FORMAT(now(), '%Y-%m-%d')) in(1,2,3)or null)as "ydsn",
+        count(TIMESTAMPDIFF(YEAR,CJGZSJ, DATE_FORMAT(now(), '%Y-%m-%d')) &gt;3 or null)as "snys"
+        FROM mjjbxx GROUP BY JSBH
+    </select>
+    <!--民警学历分析-->
+    <select id="mjwhcd" resultType="java.util.HashMap">
+        SELECT count(XL="87" or null) as "wm" ,
+        count(XL in (80,81,88,89) or null)as "xx",
+        count(XL in (60,61,62,63,68,68,70,71,72,73,78,79)or null)as "zx",
+        count(XL in (10,11,19,20,21,28,29,30,31,38,39) or null)as "dzys",jsbh
+        FROM mjjbxx
+        GROUP BY jsbh
+    </select>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_QjcsDao">
+
+    <!--请假出所-->
+    <select id="qjcsYwdt" parameterType="String" resultType="java.util.HashMap">
+        select count(if(state='R2' and hssj is null,true,null))as qjls,
+        count(if(state='R2' and date_format(hssj,'%Y-%m-%d') &lt;= date_format(qjjssj,'%Y-%m-%d'),true,null))as yqhs,
+        count(if(state='R2' and (date_format(hssj,'%Y-%m-%d') &gt; date_format(qjjssj,'%Y-%m-%d') or
+            (hssj is null and date_format(NOW(),'%Y-%m-%d') &gt; date_format(qjjssj,'%Y-%m-%d'))),true,null))as hscq
+        from qjcs
+        <where>
+            1=1
+            <if test="starttime != null and starttime != ''">
+                and date_format(cssj,'%Y-%m-%d %H:%i:%s') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(cssj,'%Y-%m-%d %H:%i:%s') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

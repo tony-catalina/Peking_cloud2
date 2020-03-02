@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_EmDao">
+
+    <select id="emCount" resultType="java.util.HashMap" parameterType="String">
+    select count(e.bllx=1 or null) xem,count(e.bllx=1 and j.xb=1 or null) xman,
+    count(e.bllx=1 and j.xb=2 or null) xwoman,count(e.bllx=2 or null) lsem,
+    count(e.bllx=2 and j.xb=1 or null) lsman,count(e.bllx=2 and j.xb=2 or null) lswoman
+     from emdj e left join jbxx j on e.RYBH=j.RYBH
+        <where>
+              e.state = 'R2' and e.sldyj="1"
+           <if test="starttime != null and starttime != ''">
+                and date_format(e.createtime,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(e.createtime,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and e.jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+
+    <select id="queryEmdjNum" parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisJlsResultVO">
+        select
+        j.dz,
+        j.jsbh,
+        count(e.jsbh) as count
+        from jls j
+        LEFT JOIN emdj e
+        ON e.jsbh = j.jsbh
+        <where>
+            e.state='R2'
+            <if test="starttime!=null and starttime!=''">
+                and e.blsj &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!=''">
+                and e.blsj &lt;= #{endtime}
+            </if>
+        </where>
+        GROUP BY j.dz,j.jsbh
+    </select>
+
+</mapper>

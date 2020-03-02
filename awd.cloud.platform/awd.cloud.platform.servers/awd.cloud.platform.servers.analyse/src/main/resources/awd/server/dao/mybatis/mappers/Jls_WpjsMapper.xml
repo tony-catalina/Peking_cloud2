@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_WpjsDao">
+    
+     <select id="swzsCount" resultType="int" parameterType="String">
+     	 	select count(id or null) swzs from wpjs 
+        <where>
+              state = 'R2'
+           <if test="starttime != null and starttime != ''">
+                and date_format(swsj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(swsj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != '' and jsbh != null">
+                and jsbh = #{jsbh}
+            </if>
+        </where>
+    </select>
+     <select id="jszsCount" resultType="int" parameterType="String">
+     	select count(lqzt = 1 or null) from wpgl  
+   	<where>
+           state = 'R2'
+        <if test="starttime != null and starttime != ''">
+             and date_format(lqrq,'%Y-%m-%d') &gt;= #{starttime}
+         </if>
+         <if test="endtime != null and endtime != ''">
+             and date_format(lqrq,'%Y-%m-%d') &lt;= #{endtime}
+         </if>
+         <if test="jsbh != '' and jsbh != null">
+             and jsbh = #{jsbh}
+         </if>
+     </where> 
+	</select>
+	<select id="jrswCount" resultType="int" parameterType="String">
+     	select count(id)  from wpjs where date_format(swsj,"%Y-%m-%d")= date_format(now(),"%Y-%m-%d") and state="R2"
+   	<if test="jsbh != '' and jsbh != null">
+          and jsbh = #{jsbh}
+    </if>
+
+	</select>
+	<select id="jrjsCount" resultType="int" parameterType="String">
+     	select count(lqzt = 1 or null)  from wpgl where date_format(lqrq,"%Y-%m-%d")= date_format(now(),"%Y-%m-%d") and state="R2"
+   	<if test="jsbh != '' and jsbh != null">
+          and jsbh = #{jsbh}
+    </if>
+	</select>
+</mapper>

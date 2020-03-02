@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.XzpaDao">
+         <!--协助破案业务动态-->
+    <select id="xzpaYwdt" resultType="java.util.HashMap">
+        SELECT
+        count( IF ( state = 'R2' AND LX = '1', TRUE, NULL ) ) AS jj,
+        count( IF ( state = 'R2' AND LX = '2', TRUE, NULL ) ) AS tb,
+        count( IF ( state = 'R2' AND CZJG = '1', TRUE, NULL ) ) AS ycs,
+        IFNULL(sum(PHXSAJ),0) as phxsaj,
+        IFNULL(sum(ZZJEHJ),0) as je,
+        IFNULL(sum(WSZTS),0) as ztry,
+        IFNULL(sum(XSJLS)+SUM(DBRS),0)  as chry,
+        count(*) as zs
+        FROM
+        xzpa
+        <where>
+            <if test="starttime!=null and starttime!=''">
+                and  date_format(TBJURQ,'%Y-%m-%d' ) &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!=''">
+                and  date_format(TBJURQ,'%Y-%m-%d' ) &lt;= #{endtime}
+            </if>
+            <if test="jsbh!=null and jsbh !=''">
+                and jsbh=#{jsbh}
+            </if>
+        </where>
+    </select>
+
+</mapper>

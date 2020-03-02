@@ -1,0 +1,22 @@
+.layui-table td, .layui-table th, .layui-table-col-set, .layui-table-fixed-r, .layui-table-grid-down, .layui-table-page, .layui-table-tips-main, .layui-table-tool, .layui-table-total, .layui-table[lay-skin=line], .layui-table[lay-skin=row] {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(37, 45, 52, 0.69);
+    height: 30px;
+}
+.layui-table-box{
+    margin-left: 20%;
+
+}
+.mytable .layui-table-cell{
+    height:auto;
+    overflow:visible;
+    text-overflow:inherit;
+    white-space:normal;
+}
+.layui-layer-content{
+    display: none;
+}
+.layui-table-grid-down{
+    display: none;
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.ThjyDao">
+    <select id="rqcx" parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisResultVO">
+        select
+        k.dz,
+        k.jsbh,
+        count(t.jsbh) as count
+        from kss k
+        LEFT JOIN thjy t
+        ON t.jsbh = k.jsbh
+        <where>
+
+            <if test="kssj!=null and kssj!=''">
+                and t.kssj &gt;= #{kssj}
+            </if>
+            <if test="jssj!=null and jssj!=''">
+                and t.jssj &lt;= #{jssj}
+            </if>
+        </where>
+        GROUP BY dz,kssmc
+    </select>
+    <select id="getBzJsThrs" resultType="int">
+        SELECT
+        count(1)
+        FROM
+        thjy th,
+        jbxx jb
+        WHERE
+        jb.JSBH = #{jsbh}
+        AND jb.JSH = #{jsh}
+        AND jb.RYBH = th.RYBH
+        AND th.KSSJ &gt;= TIMESTAMP (CURRENT_DATE(), "00:00:00")
+        AND th.JSSJ &lt;= TIMESTAMP (CURRENT_DATE(), "23:59:59")
+    </select>
+</mapper>

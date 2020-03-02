@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.CfglDao">
+    <!--惩罚管理-->
+    <select id="cfglYwdt"  resultType="java.util.HashMap">
+        SELECT distinct
+        count( * ) AS zrs,
+        count( IF ( CFZL = "51", TRUE, NULL ) ) AS jg,
+        count( IF ( cfzl = "52", TRUE, NULL ) ) AS xj,
+        count( IF ( cfzl = "53", TRUE, NULL ) ) AS zljjhg,
+        count( IF ( cfzl = "54", TRUE, NULL ) ) AS jb,
+        count( IF ( cfzl = "55", TRUE, NULL ) ) AS jx,
+        count( IF ( cfzl = "56", TRUE, NULL ) ) AS yg,
+        count( IF ( cfzl = "59", TRUE, NULL ) ) AS qtcf
+        FROM
+        zyrycfjl z LEFT JOIN jbxx j
+        ON z.RYBH=j.RYBH
+        <where>
+            <if test="starttime != null and starttime != ''">
+                and date_format(z.CFKSRQ,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(z.CFJSRQ,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and z.jsbh = #{jsbh}
+            </if>
+            <if test="jsh != null and jsh != ''">
+                and j.jsh in (${jsh})
+            </if>
+        </where>
+    </select>
+</mapper>

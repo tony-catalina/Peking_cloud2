@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>户籍地分析</title>
+    <script src='../../../js/jquery.min.js'></script>
+</head>
+<body >
+<div id="hjdfx"></div>
+<script type="text/javascript" src="/js/seajs/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        base: "/js",
+        preload: ["jquery.min.js"],
+        map:[
+            [ /^(.*\.(?:css|js))(.*)$/i,'$1$2']
+        ]
+    });
+    seajs.use('awd/kss/hjdfx/hjdfx');
+</script>
+<style> 
+    *{
+        padding:0; 
+        margin:0;
+    }
+    #hjdfx{
+        width: 100%;
+        height: 730px;
+        /* background:#0f375f; */
+        /* border:1px solid #394056; */
+    }
+</style>
+</body>
+</html>

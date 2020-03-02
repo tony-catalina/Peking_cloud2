@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>北京市智慧监管平台（总队级）</title>
+  <link rel="stylesheet" href="../static/utils/pace/pace.min.css">
+  <link rel="stylesheet" href="../static/css/app.css">
+  <link rel="stylesheet" href="../static/utils/toastr/toastr.min.css">
+  <script src="../static/utils/pace/pace.min.js"></script>
+  <script src="./../static/utils/requirejs/require.min.js" data-main="./../static/config/rconfig"></script>
+  <style>
+    .content-box .left .box-bottom .child-cont .line-bottom {
+      height: 100%;
+      position: absolute;
+      top: 18px;
+      left: 0;
+      width: 100%;
+      background-color: rgba(11, 21, 81, 0.6);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dper-app font-18 bg-img-cover dper-full-h" data-hidden id="app">
+    <!-- 页头 -->
+    <div class="dper-head bg-img-full dper-overh">
+      <ul class="dper-menus dper-box dper-menus-left fl"></ul>
+      <div style="width: 20%;display: inline-block;margin-left: 217px;height: 50px;" class="kssName">
+      </div>
+      <div class="dper-time-ctt fr">
+        <p class="dper-time align-center malign-center-text">
+          <span class="dper-time-t co-0058 font-14">----年--月--日</span><br>
+          <span class="dper-time-b co-0058 font-24 dper-fw"> --:--:--</span>
+        </p>
+      </div>
+      <ul class="dper-menus dper-box dper-menus-right fr align-right"></ul>
+    </div>
+    <div class="content-box dper-box dper-por co-white">
+      <div class="left public-w public-w-left dper-full-h fl">
+        <div class="box-top font-14">
+          <div class="child-header child-header-img bg-img-full dper-por">
+            <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+          </div>
+          <div class="child-cont">
+            <div class="l-cont-top dper-box">
+
+              <div class="c-swiper-box" dper-v id="box0">
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="box-top-2 font-14">
+          <div class="child-header child-header-img bg-img-full dper-por">
+            <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+          </div>
+          <div class="child-cont">
+            <div class="l-cont-top dper-box" dper-v id="box1">
+              <!-- <div class="c-center dper-box" ></div> -->
+              <!-- <div class="c-swiper-box" dper-v id="box1">
+            </div> -->
+            </div>
+
+          </div>
+        </div>
+        <!-- <div class="box-top-3 font-14">
+        <div class="child-header child-header-img bg-img-full dper-por">
+          <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+        </div>
+        <div class="child-cont">
+          <div class="l-cont-top dper-box" dper-v id="box2">
+
+          </div>
+
+        </div>
+      </div> -->
+        <div class="box-top-2 font-14">
+          <div class="child-header child-header-img bg-img-full dper-por">
+            <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+          </div>
+          <div class="child-cont">
+            <div class="l-cont-top dper-box">
+
+              <div class="c-swiper-box" dper-v id="box2">
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- <div class="box-top-3 font-14">
+        <div class="child-header child-header-img bg-img-full dper-por">
+          <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+        </div>
+        <div class="child-cont">
+          <div class="l-cont-top dper-box" dper-v id="box11">
+          </div>
+
+        </div>
+      </div> -->
+        <div class="box-top-2 font-14">
+          <div class="child-header child-header-img bg-img-full dper-por">
+            <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+          </div>
+          <div class="child-cont">
+            <div class="l-cont-top dper-box">
+
+              <div class="c-swiper-box" dper-v id="box12">
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="box-top-3 font-14">
+          <div class="child-header child-header-img bg-img-full dper-por">
+            <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+          </div>
+          <div class="child-cont">
+            <div class="l-cont-top dper-box">
+
+              <div class="c-swiper-box" dper-v id="box13">
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="box-bottom">
+          <div class="child-cont">
+            <div class="child-header child-header-img bg-img-full dper-por">
+              <span class="malign-center-left co-blue-head font-24 dper-fw la-title box-3-title"></span>
+            </div>
+            <div class="line-bottom" dper-v id="box3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="right public-w public-w-right dper-full-h fr">
+        <div class="box-top fr">
+          <div class="child-header child-header-img bg-img-full dper-por">
+            <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+          </div>
+          <div class="child-cont">
+            <div class="pie-box dper-por" dper-v id="box4">
+              <div class="pie-chart dper-por z-level-4 dper-full-h"></div>
+              <div class="legend-box malign-tl dper-full-w dper-full-h z-level-2"></div>
+            </div>
+            <div class="progress-bar-box dper-box">
+              <div class="progress-cont-box" dper-v id="box5"></div>
+            </div>
+          </div>
+        </div>
+        <div class="box-center fr">
+          <div class="child-header child-header-img bg-img-full dper-por">
+            <span class="malign-center-left co-blue-head font-24 dper-fw la-title"></span>
+          </div>
+          <div class="child-cont" dper-v id="box6"></div>
+        </div>
+        <div class="box-bottom dper-full-w fr dper-por">
+          <div class="child-cont box-7-out">
+            <div class="child-header child-header-img bg-img-full dper-por">
+              <span class="malign-center-left co-blue-head font-24 dper-fw la-title box-7-title"></span>
+            </div>
+            <div class="line-bottom" dper-v id="box7"></div>
+          </div>
+        </div>
+      </div>
+      <div class="center malign-center-top">
+        <div class="c-top" dper-v id="box8"></div>
+        <div class="c-center dper-box" dper-v id="box9"></div>
+        <div class="c-bottom" dper-v id="box10"></div>
+      </div>
+    </div>
+    <div class="mask hid">
+      <div id="pop">
+      </div>
+      <div class="back">&nbsp;&nbsp;&nbsp;&nbsp;返回</div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  localStorage.getItem("idjsbhxf")
+  localStorage.getItem("idjsbhxfname")
+  var strify = localStorage.getItem("idjsbhxf")
+  var strifyname = localStorage.getItem("idjsbhxfname")
+  window.onload = function () {
+    var url = ''
+    $.ajax({
+      url: "/getusers",
+      data: {
+        "jsbh": strify
+      },
+      success: function (reult) {
+        console.log('sss'+ reult)
+        if (reult.jsbh == "110000114") {
+          localStorage.setItem("idjsbhxf", reult.jsbh),
+          localStorage.setItem("kssName", '北京第一看守所')
+        } else if (reult.jsbh == "110000112") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '北京第二看守所')
+        } else if (reult.jsbh == "110000113") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '北京第三看守所')
+        } else if (reult.jsbh == "110000116") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '北京第六看守所')
+        } else if (reult.jsbh == "110101111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '北京第六看守所')
+        } else if (reult.jsbh == "110102111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '西城区看守所')
+        } else if (reult.jsbh == "110105111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '朝阳区看守所')
+        } else if (reult.jsbh == "110106111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '丰台区看守所')
+        } else if (reult.jsbh == "110107111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '石景山区看守所')
+        } else if (reult.jsbh == "110108111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '海淀区看守所')
+        } else if (reult.jsbh == "110109111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '门头沟区看守所')
+        } else if (reult.jsbh == "110111111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '房山区看守所')
+        } else if (reult.jsbh == "110111112") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '房山区第二看守所')
+        } else if (reult.jsbh == "110112111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '通州区看守所')
+        } else if (reult.jsbh == "110113111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '顺义区看守所')
+        } else if (reult.jsbh == "110221111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '昌平区看守所')
+        } else if (reult.jsbh == "110224111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '太兴区看守所')
+        } else if (reult.jsbh == "110226111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '平谷区看守所')
+        } else if (reult.jsbh == "110227111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '怀柔区看守所')
+        } else if (reult.jsbh == "110228111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '密云区看守所')
+        } else if (reult.jsbh == "110229111") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '延庆区看守所')
+        } else if (reult.jsbh == "110000121") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '北京市拘留所')
+        } else if (reult.jsbh == "110101121") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '东城区拘留所')
+        } else if (reult.jsbh == "110105121") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '朝阳区拘留所')
+        } else if (reult.jsbh == "110111121") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '房山区拘留所')
+        } else if (reult.jsbh == "130000030") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '北京第六看守所')
+        } else if (reult.jsbh == "110121141") {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+          localStorage.setItem("kssName", '北京第六看守所')
+        } else {
+          localStorage.setItem("idjsbhxf", reult.jsbh)
+        }
+        var kss=localStorage.getItem("kssName")
+        $(".kssName").append(
+          '<span style="font-size:30px;margin-left:60px;font-weight:bold;color:#ffffff;display：block";>' + kss + '</span>'
+          )
+      }
+    })
+  }
+  
+  
+</script>

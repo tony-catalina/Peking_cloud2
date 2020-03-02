@@ -1,0 +1,292 @@
+package awd.cloud.platform.controller.kss;
+
+import awd.bj.manager.model.DictionaryModel;
+import awd.cloud.platform.api.KssServerApis;
+import awd.cloud.platform.api.KssService;
+import awd.cloud.platform.api.ManagerService;
+import awd.cloud.platform.model.kss.Kss_CrjjcModel;
+import awd.cloud.platform.model.manager.Manager_DictionaryModel;
+import awd.cloud.platform.service.PublicService;
+import awd.cloud.platform.utils.*;
+import awd.framework.common.utils.OpenAPI;
+import awd.framework.common.utils.StringUtils;
+import com.alibaba.fastjson.JSON;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@RestController
+@RefreshScope
+@RequestMapping("/v4/kss/kss_dictionary")
+@Api(tags = "kss-dictionary",description = "dictionary")
+public class Kss_DictionaryController extends PublicService{
+    @Autowired
+    private ManagerService managerService;
+
+    /**
+     * @api {get} /v4/kss/kss_dictionary/getDictionary 字典项查询
+     * @apiVersion 0.4.0
+     * @apiName getDictionary
+     * @apiGroup g_kss
+     * @apiPermission any
+     * @apiDescription 字典项查询.
+     *
+
+     * @apiParam {String} appcode 											应用代码(必填)
+     * @apiParam {String} jsbh 												监所编号(必填;最大字段长度：9)
+     * @apiParam {String} json 												查询参数集
+     *
+     *
+     * @apiSuccess {String}id         				                        id
+     * @apiSuccess {String}jslx                                             监管类型
+     * @apiSuccess {String}jslxString                                       监管类型（已转换）
+     * @apiSuccess {String}fieldname                                        字典类型
+     * @apiSuccess {String}fieldnameString                                  字典类型（已转换）
+     * @apiSuccess {String}code                                             代码
+     * @apiSuccess {String}content                                          内容
+     * @apiSuccess {String}py                                               拼音
+     * @apiSuccess {String}isgb                                             是否是国标
+     * @apiSuccess {String}isgbString                                       是否是国标(已转换)
+     * @apiSuccess {String}sypl                                             使用频率
+     * @apiSuccess {String}editable                                         是否可编辑
+     * @apiSuccess {String}editableString                                   是否可编辑（已转换）
+     * @apiSuccess {String}creator                                          创建者
+     * @apiSuccess {String}createtime                                       创建时间
+     * @apiSuccess {String}updator                                          更新人
+     * @apiSuccess {String}updatetime                                       更新时间
+
+     *
+     * @apiSuccess {String}message                                           返回信息
+     * @apiSuccess {String}result                                            返回结果
+     * @apiSuccess {String}total                                             返回总数
+     * @apiSuccess {String}data                                              返回数据
+     * @apiSuccess {String}status                                            返回状态
+     * @apiSuccess {String}timestamp                                         时间戳
+     *
+     * @apiSuccessExample {json} 返回 (成功):
+     *      HTTP/1.1 200 OK
+     *{
+     *   "message": "查询成功",
+     *   "result": {
+     *     "total": 1,
+     *     "data": [
+     *       {
+     *         "creator": "管理员",
+     *         "createtime": "2018-03-31 00:00:00",
+     *         "code": "0",
+     *         "jslx": "0",
+     *         "isgbString": "是",
+     *         "editable": "0",
+     *         "py": "WZDXB",
+     *         "jslxString": "监管业务指导部门",
+     *         "content": "未知的性别",
+     *         "fieldname": "XB",
+     *         "isgb": "1",
+     *         "sypl": 0,
+     *         "editableString": "否",
+     *         "updator": "null",
+     *         "id": "1001236",
+     *         "updatetime": "null",
+     *         "fieldnameString": "性别"
+     *       }
+     *     ],
+     *     "page": "1"
+     *   },
+     *   "status": 200,
+     *   "timestamp": 1576826568061
+     * }
+     *
+     * @apiUse QueryError
+     *
+     * @apiExample 请求参数:
+     *    appcode:"应用代码（必填）",
+     *    jsbh:"监所编号(必填; 最大字段长度：9)",
+     *   json:{
+     *          “node”:""
+     *        }
+
+     */
+    @OpenAPI
+    @ApiOperation("字典项查询")
+    @GetMapping("/getDictionary")
+    @HystrixCommand
+    @ApiResponses({@ApiResponse(code = 200, message = "查询成功"), @ApiResponse(code = 401, message = "未授权"),
+            @ApiResponse(code = 403, message = "无权限"), @ApiResponse(code = 404, message = "数据不存在")})
+    public ResponseMessage<Map<String, Object>> getDictionary(HttpServletRequest request, @RequestParam(name = "appcode")String appcode, @RequestParam(name = "jsbh")String jsbh, String json) {
+
+        String interfaceId = "/v4/kss/kss_dictionary/getDictionary";
+        String state = request.getParameter("state");
+        //通过校验获取查询参数
+        try {
+            ResponseMessage<Map<String, Object>> maps = this.userAuthorizatio(request, json, interfaceId);
+            if (maps.getStatus() != 200) {
+                return ResponseMessage.error(maps.getMessage());
+            }
+            // 领取状态(WPLQZT)
+            //查询参数
+            QueryParam param = new QueryParam();
+            String node ="";
+            if (!StringUtils.isNullOrEmpty(maps.getResult().get("node"))){
+                node = (String)maps.getResult().get("node");
+            }
+
+            System.err.println("node" + node);
+
+            ResponseMessage<List<DictionaryModel>> result= managerService.getByNode(node);
+            System.err.println("result--" + JSON.toJSONString(result));
+
+            //封装需要的数据
+            Map<String, Object> maplist = new HashMap<String, Object>();
+            maplist.put("entity", result.getResult());
+            maplist.put("interfaceId", interfaceId);
+            maplist.put("total",result.getResult().size());
+            maplist.put("page", request.getParameter("page"));
+
+            System.err.println("result" + JSON.toJSONString(maplist));
+
+            ResponseMessage<Map<String, Object>> list = this.kfzdShow(maplist);
+            if (list.getStatus() == 200) {
+                list.setMessage("查询成功");
+                if (list.getResult() == null) {
+                    list.setMessage("未查询数据");
+                }
+            }
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseMessage.error("查询失败！");
+        }
+    }
+
+    /**
+     * @api {get} /v4/kss/kss_dictionary/getDictionary 字典项查询
+     * @apiVersion 0.4.0
+     * @apiName getDictionary
+     * @apiGroup g_kss
+     * @apiPermission any
+     * @apiDescription 字典项查询.
+     *
+
+     * @apiParam {String} appcode 											应用代码(必填)
+     * @apiParam {String} jsbh 												监所编号(必填;最大字段长度：9)
+     * @apiParam {String} json 												查询参数集
+     *
+     *
+     * @apiSuccess {String}fieldname         				                字段名
+     * @apiSuccess {String}code                                             代码
+     * @apiSuccess {String}jslx                                             监所类型
+     * @apiSuccess {String}id                                               id
+     * @apiSuccess {String}jslxString                                       监所类型（已转换）
+     * @apiSuccess {String}content                                          内容
+     * @apiSuccess {String}fieldnameString                                  字段名(已转换)
+     *
+     * @apiSuccess {String}message                                           返回信息
+     * @apiSuccess {String}result                                            返回结果
+     * @apiSuccess {String}total                                             返回总数
+     * @apiSuccess {String}data                                              返回数据
+     * @apiSuccess {String}status                                            返回状态
+     * @apiSuccess {String}timestamp                                         时间戳
+     *
+     * @apiSuccessExample {json} 返回 (成功):
+     *      HTTP/1.1 200 OK
+     *{
+     *   "message": "查询成功",
+     *   "result": {
+     *     "total": 1,
+     *     "data": [
+     *       {
+     *         "fieldname": "BADW",
+     *         "code": "310112050900",
+     *         "jslx": "1",
+     *         "id": "31000000000000000100083",
+     *         "jslxString": "看守所",
+     *         "content": "北京市公安局闵行分局刑侦支队六队",
+     *         "fieldnameString": "办案单位"
+     *       }
+     *     ],
+     *     "page": "1"
+     *   },
+     *   "status": 200,
+     *   "timestamp": 1576826568061
+     * }
+     *
+     * @apiUse QueryError
+     *
+     * @apiExample 请求参数:
+     *    appcode:"应用代码（必填）",
+     *    jsbh:"监所编号(必填; 最大字段长度：9)",
+     *   json:{
+     *          “fieldname”:"字段名(必填;)",
+     *          "page":"页数",
+     *          "pageSize":"一页数据数量"
+     *        }
+
+     */
+    @OpenAPI
+    @ApiOperation("字典项分页查询")
+    @PostMapping("/getDictionaryPage")
+    @HystrixCommand
+    @ApiResponses({@ApiResponse(code = 200, message = "查询成功"), @ApiResponse(code = 401, message = "未授权"),
+            @ApiResponse(code = 403, message = "无权限"), @ApiResponse(code = 404, message = "数据不存在")})
+    public ResponseMessage<Map<String, Object>> getDictionaryPage(HttpServletRequest request, @RequestParam(name = "appcode")String appcode, @RequestParam(name = "jsbh")String jsbh, String json) {
+
+        String interfaceId = "/v4/kss/kss_dictionary/getDictionaryPage";
+        String state = request.getParameter("state");
+        //通过校验获取查询参数
+        try {
+            ResponseMessage<Map<String, Object>> maps = this.userAuthorizatio(request, json, interfaceId);
+            if (maps.getStatus() != 200) {
+                return ResponseMessage.error(maps.getMessage());
+            }
+            //查询参数
+            QueryParam param = new QueryParam();
+
+            if(!StringUtils.isNullOrEmpty(maps.getResult().get("fieldname"))) {
+                param.and("fieldname", TermType.eq, maps.getResult().get("fieldname"));
+            }else {
+                return ResponseMessage.error("fieldname不可为空");
+            }
+
+            if(!StringUtils.isNullOrEmpty(maps.getResult().get("rybh"))) {
+                param.and("rybh", TermType.eq, maps.getResult().get("rybh"));
+            }
+            DefaultQueryParam.addDefaultQueryParam(request, param, state);
+            System.err.println("param--"+JSON.toJSONString(param));
+
+            ResponseMessage<PagerResult<Map<String, Object>>> result= managerService.getDictionaryPage(param);
+            System.err.println("result--" + JSON.toJSONString(result));
+
+            //封装需要的数据
+            Map<String, Object> maplist = new HashMap<String, Object>();
+            maplist.put("entity", result.getResult().getData());
+            maplist.put("interfaceId", interfaceId);
+            maplist.put("total",  result.getResult().getTotal());
+            maplist.put("page",  request.getParameter("page"));
+
+            System.err.println("result" + JSON.toJSONString(maplist));
+
+            ResponseMessage<Map<String, Object>> list = this.kfzdShow(maplist);
+            if (list.getStatus() == 200) {
+                list.setMessage("查询成功");
+                if (list.getResult() == null) {
+                    list.setMessage("未查询数据");
+                }
+            }
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseMessage.error("查询失败！");
+        }
+    }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>监管应用云平台接口文档</title>
+    <link rel="stylesheet" href="./layui-v2.4.5/layui/css/layui.css">
+    <link rel="stylesheet" href="./layui-v2.4.5/css/api.css">	
+</head>
+<body class="layui-layout-body">
+	<div class="layui-layout layui-layout-admin">
+	    <div class="layui-header">
+	        <div><a class="layui-logo" href="/">监管应用云平台接口文档</a></div>
+	        <!-- 头部区域（可配合layui已有的水平导航） -->
+	    </div>
+	    <div class="layui-side " style="width: 260px;">
+	        <div class="layui-side-scroll" style="width: 260px;" >
+	            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+	            <ul class="layui-nav layui-nav-tree" lay-filter="test" style="width: 250px;" id="navtree">
+	            	<li class="layui-nav-item ">
+	                    <a class="manager" href="javascript:;" apiurl="${apiurl}/api/manager/index.html" >基础数据接口</a>
+	                </li>
+	                <li class="layui-nav-item ">
+	                    <a class="author" href="javascript:;" apiurl="${apiurl}/api/author/index.html">权限管理接口</a>
+	                </li>
+	                <li class="layui-nav-item ">
+	                    <a class="kss" href="javascript:;" apiurl="${apiurl}/api/kss/index.html">看守所业务接口</a>
+	                </li>
+	                <li class="layui-nav-item ">
+	                    <a class="jls" href="javascript:;" apiurl="${apiurl}/api/jls/index.html">拘留所业务接口</a>	                    
+	                </li>
+	                <li class="layui-nav-item ">
+	                    <a class="jds" href="javascript:;" apiurl="${apiurl}/api/jds/index.html">戒毒所业务接口</a>
+	                </li>
+	                <li class="layui-nav-item ">
+	                    <a class="sjs" href="javascript:;" apiurl="${apiurl}/api/sjs/index.html">戒毒所业务接口</a>
+	                </li>
+	                <li class="layui-nav-item ">
+	                    <a class="akyy" href="javascript:;" apiurl="${apiurl}/api/akyy/index.html">安康医院业务接口</a>
+	                </li>
+	                <li class="layui-nav-item ">
+	                    <a class="logs" href="javascript:;" apiurl="${apiurl}/api/logs/index.html">日志消息业务接口</a>	                    
+	                </li>
+	                <li class="layui-nav-item ">
+	                    <a class="finger" href="javascript:;" apiurl="${apiurl}/api/finger/index.html">指纹业务接口</a>	                    
+	                </li>
+	                <li class="layui-nav-item ">
+	                    <a class="public" href="javascript:;" apiurl="${apiurl}/api/public/index.html">公共业务接口</a>	                    
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	    <div class="layui-body" style="background-color: #f5f5f5;margin-left: 50px;" >
+	        <!-- 内容主体区域 -->
+	        <div style="padding: 15px;">
+	            <div id="sy" class="layui-hide all">
+	                <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+	                    <legend>项目</legend>
+	                </fieldset>
+	                <table class="layui-table"lay-skin="line" style="width: 800px;">
+	                    <colgroup>
+	                        <col width="100">
+	                        <col width="100">
+	                        <col>
+	                    </colgroup>
+	                    <thead>
+	                    <tr>
+	                        <th>项目名称</th>
+	                        <th>项目简称</th>
+	                    </tr>
+	                    </thead>
+	                    <tbody >
+	                        <tr >
+	                            <td>看守所</td>
+	                            <td>kss</td>
+	                        </tr>
+	                        <tr >
+	                            <td>拘留所</td>
+	                            <td>jls</td>
+	                        </tr>
+	                        <tr >
+	                            <td>戒毒所</td>
+	                            <td>jds</td>
+	                        </tr>
+	                        <tr >
+	                            <td>安康医院</td>
+	                            <td>akyy</td>
+	                        </tr>
+	                    </tbody>
+	                </table>
+	            </div>	
+	            <div id="ywmk" class="all " style="opacity : 0.9;">
+	                <iframe id="apishow" src="${apiurl}/api/manager/index.html" frameborder="0" height="1000" width="100%"></iframe>
+	            </div>
+	
+	        </div>
+	    </div>
+	    <div class="layui-footer" style="margin-left: 50px;">
+	        <!-- 底部固定区域 -->
+	
+	    </div>
+	</div>
+	<script src="./layui-v2.4.5/js/jquery.min.js"></script>
+	<script src="./layui-v2.4.5/layui/layui.js"></script>		
+	<script>
+    //JavaScript代码区域
+    layui.config({
+	  base: '/layui-v2.4.5/js/', //假设这是你存放拓展模块的根目录
+	}).extend({ //设定模块别名
+	   main: 'main' ,
+	});
+    
+    layui.use(['element', 'jquery','main'], function () {
+        var element = layui.element, $ = layui.jquery,main=layui.main;
+        main.init();
+    });
+</script>
+</body>
+</html>

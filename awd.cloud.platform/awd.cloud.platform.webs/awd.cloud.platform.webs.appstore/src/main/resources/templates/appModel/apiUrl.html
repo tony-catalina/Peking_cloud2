@@ -1,0 +1,141 @@
+<div class="modal fade" id="apiSpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"   >
+    <div class="modal-dialog modal-lg" role="document" aglin="center" style="width: 71%;height: 75%">
+        <div class="modal-content" style="margin-top:108px;height:100%" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="model-title" id="deleteApp">Api审批</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+<table style="text-align: center;height: auto"
+       class="table table-hover table-bordered" id="apiUrl">
+    <thead>
+    <tr>
+        <th width="18.5%" height="30px">序号</th>
+        <th class="hidden-xs" width="18.5%" height="30px" data-field="interfaceName">接口名称</th>
+        <th class="hidden-xs" width="18.5%" height="30px" data-field="interfaceId">接口地址</th>
+        <th class="hidden-xs" width="18.5%" height="30px" data-field="interfaceDescription">接口描述</th>
+        <th class="hidden-xs" width="18.5%" height="30px" data-field="method">请求方式</th>
+    </tr>
+    </thead>
+</table>
+<script>
+    function searchapiurl(appcode){
+        $("#apiUrl").bootstrapTable({
+            min_width:200,
+            url: "/getApiUrl?appcode="+appcode,       //请求后台的URL（*）
+            method: 'get',                      //请求方式（*）
+            toolbar: '#toolbar',              //工具按钮用哪个容器
+            striped: true,                      //是否显示行间隔色
+            cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            pagination: true,                   //是否显示分页（*）
+            sortable: true,                     //是否启用排序
+            sortOrder: "asc",                   //排序方式
+            sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+            pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+            pageSize: 10,                     //每页的记录行数（*）
+            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+            search: false,                      //是否显示表格搜索
+            strictSearch: true,
+            showColumns: false,                  //是否显示所有的列（选择显示的列）
+            showRefresh: false,               //是否显示刷新按钮
+            singleSelect: true,				//开启行单选
+            minimumCountColumns: 2,             //最少允许的列数
+            clickToSelect: true,                //是否启用点击选中行
+            // height: 50,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+            uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+            showToggle: false,                   //是否显示详细视图和列表视图的切换按钮
+            cardView: false,                    //是否显示详细视图
+            detailView: false,                  //是否显示父子表
+            //得到查询的参数
+            queryParams : function (params) {
+                //这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+                var temp = {
+                    rows: params.limit,                         //页面大小
+                    page: (params.offset / params.limit) + 1,   //页码
+                    sort: params.sort,      //排序列名
+                    sortOrder: params.order //排位命令（desc，asc）
+                };
+                return temp;
+            },
+            responseHandler: function(res) {
+                return {
+                    "total": res.result.total,//总页数
+                    "rows": res.result.data
+                };
+            },
+            columns: [{
+                checkbox: false ,
+                visible: false                  //是否显示复选框
+            }, {
+                title: '行号',
+                align: 'center',
+                valign: 'bottom',
+                formatter: function(value, row, index) {
+                    var pageSize = $('#apiUrl').bootstrapTable('getOptions').pageSize;     //通过table的#id 得到每页多少条
+                    var pageNumber = $('#apiUrl').bootstrapTable('getOptions').pageNumber; //通过table的#id 得到当前第几页
+                    return pageSize * (pageNumber - 1) + index + 1;    // 返回每条的序号： 每页条数 *（当前页 - 1 ）+ 序号
+                }
+
+            },
+                {
+                    field: 'interfaceName',
+                    title: '接口名称',
+                    sortable: true,
+                    align: 'center',
+                },{
+                    field: 'interfaceId',
+                    title: '接口地址',
+                    sortable: true,
+                    align: 'center',
+                },{
+                    field: 'interfaceDescription',
+                    title: '接口描述',
+                    sortable: true,
+                    align: 'center',
+                },{
+                    field: 'method',
+                    title: '请求方式',
+                    sortable: true,
+                    align: 'center',
+                }],
+            onLoadSuccess: function () {
+                $('.pagination-info').css("display","none");
+                $('.page-list').css("display","none");
+                $('.pull-right').css("margin-top","-20px");
+                // var that = this.elem.next();
+                // res.data.forEach(function (item, index) {
+                //         //console.log(item.empName);item表示每列显示的数据
+                //         if (item.method == "GET") {
+                //             var tr = that.find(".bootstrap-table tbody tr[data-index='" + index + "']").css("background-color", "#e7f0f7");
+                //         } else if (item.method == "POST") {
+                //             var tr = that.find(".layui-table-box tbody tr[data-index='" + index + "']").css("background-color", "#e7f6ec");
+                //         }else if (item.method == "PUT") {
+                //             var tr = that.find(".layui-table-box tbody tr[data-index='" + index + "']").css("background-color", "#f9f2e9");
+                //         }else if (item.method == "DELETE") {
+                //             var tr = that.find(".layui-table-box tbody tr[data-index='" + index + "']").css("background-color", "#f5e8e8");
+                //         }else if (item.method == "PATCH") {
+                //             var tr = that.find(".layui-table-box tbody tr[data-index='" + index + "']").css("background-color", "#fce9e3");
+                //
+                //         }
+            },
+            onLoadError: function () {
+                showTips("数据加载失败！");
+            },
+            onDblClickRow: function (row, $element) {
+                var id = row.ID;
+                EditViewById(id, 'view');
+            },formatNoMatches: function () {
+                return '暂无数据';
+            },
+
+        });
+    }
+</script>
+
+

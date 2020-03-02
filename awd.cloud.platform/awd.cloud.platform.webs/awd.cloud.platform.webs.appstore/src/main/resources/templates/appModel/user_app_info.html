@@ -1,0 +1,266 @@
+<html>
+<head>
+<title>应用详情</title>
+<link rel="stylesheet" type="text/css"	href="./css/appModel.css"/>
+<link href="./style/bootstrap/bootstrap.min.css"	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+<link rel="stylesheet" type="text/css" href="./css/comment.css"/>
+<link rel="stylesheet" type="text/css" href="./css/hover-effects.css"/>
+<link rel="stylesheet" type="text/css" href="./style/css/loginDialog.css" />
+<link href="./style/css/zzc/zzcstyle.css" rel="stylesheet"	type="text/css" />
+<link href="./style/bootstrap/bootstrap.min.css"	rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript" src="../src/kkpager.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../src/kkpager_orange.css" />
+	
+<script src="./js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="./js/jquery.flexText.js"></script>
+<script type="text/javascript" src="./js/jquery.raty.min.js"></script>
+
+</head>
+<body>
+<input id="userName" type="hidden" value="${userName}"/>
+<input id="appcode" type="hidden" value="${app.appcode}"/>
+	<div>
+		<div>
+			<div style="float: left;">
+				<h1>${app.name!"收押前台"}</h1>
+				<span class="e-f-Me">由南京安威德科技有限公司提供</span> 
+				<label> 
+					<span class='glyphicon glyphicon-star'></span> 
+					<span class='glyphicon glyphicon-star'></span> 
+					<span class='glyphicon glyphicon-star'></span> 
+					<span class='glyphicon glyphicon-star'></span> 
+					<span class='glyphicon glyphicon-star'></span>
+					(2019)
+					<span style="height: 15px; width: 1px; display: inline; border-left: 1px dotted #a6a6a6; margin: 0 10px; vertical-align: middle;"></span>
+					<a href="#">${app.zoneString!"看守所"}</a>
+				</label>
+			</div>
+			<div style='float: left; width: 50%; text-align: right'>
+				<button type="submit" class="btn btn-primary btn-lg">
+					<span aria-hidden="true" class="glyphicon glyphicon-del"></span>
+					应用卸载
+				</button>
+			</div>
+		</div>
+		<ul id="tabs">
+			<li><a href="#" name="#tab1">概述</a></li>
+			<li><a href="#" name="#tab2">评论</a></li>
+			<li><a href="#" name="#tab3">相关</a></li>
+		</ul>
+		<div id="contents" style="background-color: #f5f5f5">
+			<div id="tab1">
+				<!-- 概述 -->
+	    		<% include("/appModel/appinfo.html"){}%>
+			</div>
+			<div id="tab2">
+				<!-- 评论-->
+				<% include("/appModel/pinglun.html"){}%>
+			</div>
+			<div id="tab3">
+				<!-- 评论-->
+				<% include("/appModel/xgapp.html"){}%>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" >
+	function searchAPP() {
+		var zone = ${app.zone}
+	    $.ajax({
+	        url: "apps",// 跳转到 action
+	        data: {
+	        	"namelike" : "",
+	    		"rolename" : "",
+	        	'zone':zone,
+	        },
+	        type: 'post',
+	        cache: false,
+	        async: false,
+	        success: function (result) {
+	        	var data = result.result.data;
+	            $("#xgapps").children('div').remove();
+	            var ulEle;
+	            var num =10;
+	            if(data.length<10) 
+	            	num=data.length;
+	            for (var i = 0; i < num ; i++) {
+	                if (i % 4 == 0) {
+	                    ulEle = $("<ul></ul>").appendTo($("#xgapps"));
+	                }
+	                var app = data[i];    
+	                var id = app['id'];
+						
+	                var appEle = $('<ul>'
+	                +'<li class="port-0">'
+	                +'<div class="port-1 effect-1" >'
+	                +'<div class="image-box">'
+	                +'<img src="images/1.jpg" alt="Image-1">'
+	                +'</div>'
+	                +'<div class="text-desc">'
+	                +'<h4 style="text-align:left;margin-left: 40px;margin-bottom: 10px;">'+ app['name'] +'</h4>'
+	                +'<label style="margin-top: 10px;margin-bottom: 10px;margin-right: 50px;">'
+	               	+'★★★★☆  (1775)'
+	                +'</label>'
+	                +'<button type="submit" class="btn btn-primary " style=" margin-right: 30px;margin-top: 10px;"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> 添加至桌面</button>'
+	                +'</div>'
+	                +'</div>'
+	                +'</li>'
+	                +'</ul>').appendTo(ulEle);               
+	            }
+	        }
+	    });
+	}
+	<!--textarea限制字数-->
+	function keyUP(t){
+        var len = $(t).val().length;
+        if(len > 139){
+            $(t).val($(t).val().substring(0,140));
+        }
+    }
+		//评论分页
+	function getPlList(appcode) {
+		var pageIndex = 0;
+		var pageSize = 4;
+	    $.ajax({
+	       type: 'POST',
+	       url: '/getAppPl', 
+	       data: {
+	      	 'appcode':appcode,
+	      	 'pageIndex':pageIndex,
+	      	 "pageSize":pageSize,
+	       },
+	       cache: false,
+	       async: false,
+	       success: function (data) {
+	      	var totalRecords = data.result.total;
+		      var totalPage;
+		      if(totalRecords % pageSize == 0){
+		      	totalPage = Math.floor(totalRecords/pageSize);
+		      }else{
+		      	totalPage = Math.floor(totalRecords/pageSize) + 1;
+		      } 
+	          init_pl_kkpager(appcode,pageIndex,pageSize,totalPage,totalRecords);
+	          
+	          sortPlList(data.result.data);
+	       }
+
+	    }); 
+	}
+	
+	var init_pl_kkpager = function(appcode,pageIndex,pageSize,totalPage,totalRecords){
+		//生成分页组件
+		kkpager.generPageHtml({
+			pno : 1,
+			//总页码
+			total : totalPage,
+			//总数据条数
+			totalRecords : totalRecords,
+			mode : 'click',//默认值是link，可选link或者click
+			click : function(click_page){
+				// do something
+				//手动选中按钮
+				this.selectPage(click_page);
+				//return false;
+				var querydata = {
+					"appcode":appcode,
+		    		"pageIndex" : click_page - 1,
+		    		"pageSize":pageSize,
+		    	}
+		       $.ajax({
+		            url: "/getAppPl",// 跳转到 action
+		            data: querydata,
+		            type: 'post',
+		            cache: false,
+		            async: false,
+		            success: function (data) {
+		            	sortPlList(data.result.data);
+		            }
+		        }); 
+			}
+		},true);
+	}
+	
+	var sortPlList = function(list){
+		$("#app_pinglun ul>li").remove();
+		$("#app_pinglun").empty();
+		var ulEle;
+	    for(var i=0;i < list.length;i++){
+	        ulEle = $("<ul></ul>").appendTo($("#app_pinglun"));
+	        var content = list[i].content;
+	        var plr = list[i].plr;
+	        var plsjString = list[i].plsjString;
+	        var id = list[i].id;
+	        var oHtml = '<div class="comment-show-con clearfix">' +
+	        				'<div class="comment-show-con-list pull-left clearfix" style="height:30px;width:600px;">' +
+	        					'<div class="clearfix">'+
+	        						'<a href="#" class="comment-size-name">'
+	        							+ plr +
+	        						'</a>'+
+	        						'<span class="my-pl-con" style="padding:0 10;">'
+	        							+ plsjString +
+	        						'</span><br>'+
+	        						'<strong class="my-pl-con">&nbsp;'
+	        							+ content +
+	        						'</strong>'+
+	        					'</div> '+
+	        					/* '<div class="date-dz"> '+
+	        						'<div class="date-dz-right pull-right comment-pl-block" style="top:-40px">'+
+	        							'<a href="javascript:;" class="removeBlock" plid="'+id+'">删除</a> '+
+	        						'</div>'+
+	        					'</div>'+ */
+	        					'<div class="hf-list-con"></div>'+
+	        				'</div>'+
+	        			'</div>';
+	        var pl_Ele = $(oHtml).appendTo(ulEle);
+	        //bindAction();
+	    }
+	}
+	
+	var removePl = function(){
+		//不写删除了
+	}
+	
+	 $(document).ready(function () {
+		 $(function() {
+			 //发表评论
+			 $('#sendPlDiv').on('click',function(){
+				 var plContext = $('#plContext').val();
+				 var data = {
+						 "appcode" : $('#appcode').val(),
+						 "plr" : $('#userName').val(),
+						 "plsj" : new Date(),
+						 "content" : plContext,
+				 }
+				 $.ajax({
+			            url: "/savePl",// 跳转到 action
+			            data: data,
+			            type: 'post',
+			            //cache: false,
+			            async: false,
+			            success: function (data) {
+			            	if(data.status == 200){
+			            		getPlList($('#appcode').val());
+			            		$('#plContext').val("");
+			            	}
+			            }
+			        }); 
+			 })
+		 });
+		 <!--textarea高度自适应-->
+		 $(function () {
+		        $('.content').flexText();
+		 }); 
+		 <!--点击评论创建评论条-->	
+			
+		 //searchAPP();
+		 getPlList($('#appcode').val());
+	 });
+	
+	
+	</script>
+  	<script src="./js/appModel.js"></script>
+</body>
+</html>

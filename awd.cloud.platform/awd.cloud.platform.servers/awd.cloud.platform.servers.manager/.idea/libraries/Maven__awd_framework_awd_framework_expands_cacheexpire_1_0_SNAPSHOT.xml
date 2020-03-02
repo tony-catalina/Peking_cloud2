@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: awd.framework:awd.framework.expands.cacheexpire:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/awd.framework.expands.cacheexpire/1.0-SNAPSHOT/awd.framework.expands.cacheexpire-1.0-20200113.055548-13.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/awd.framework.expands.cacheexpire/1.0-SNAPSHOT/awd.framework.expands.cacheexpire-1.0-20200113.055548-13-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/awd/framework/awd.framework.expands.cacheexpire/1.0-SNAPSHOT/awd.framework.expands.cacheexpire-1.0-20200113.055548-13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

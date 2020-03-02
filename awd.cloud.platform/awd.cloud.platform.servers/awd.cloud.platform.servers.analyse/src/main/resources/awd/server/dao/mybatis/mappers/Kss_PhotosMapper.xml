@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.PhotosDao">
+    
+    <select id="getRyPhoto" resultType="String">
+        select PHOTOURL as url from photos
+        <where>
+            jsbh = #{jsbh}
+            and rybh = #{rybh}
+            and type = '1'
+            and state = 'R2'
+        </where>
+    </select>
+</mapper>

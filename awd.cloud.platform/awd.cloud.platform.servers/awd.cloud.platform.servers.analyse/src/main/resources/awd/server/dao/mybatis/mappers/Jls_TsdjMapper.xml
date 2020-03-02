@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.jls.Jls_TsdjDao">
+
+    <select id="queryTsdjNum"  parameterType="String" resultType="awd.cloud.platform.servers.analyse.vo.AnalysisJlsResultVO">
+        select
+        j.dz,
+        j.jsbh,
+        count(t.jsbh) as count
+        from jls j
+        left join tsdj t
+        on j.jsbh = t.jsbh
+        <where>
+            t.state = 'R2'
+            <if test="kssj!=null and kssj!=''">
+                and t.kssj &gt;= #{kssj}
+            </if>
+            <if test="jssj!=null and jssj!=''">
+                and t.jssj &lt;= #{jssj}
+            </if>
+        </where>
+        group by dz,jsbh
+    </select>
+
+</mapper>

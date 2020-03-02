@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.JlglDao">
+    <!--奖励管理业务动态-->
+    <select id="jlglYwdt" resultType="java.util.HashMap">
+        SELECT
+        count( * ) AS zrs,
+        count( IF ( JLLX = "11", TRUE, NULL ) ) AS wzjl,
+        count( IF ( JLLX = "12", TRUE, NULL ) ) AS jx,
+        count( IF ( JLLX = "13", TRUE, NULL ) ) AS lg,
+        count( IF ( JLLX = "14", TRUE, NULL ) ) AS ldjjgzfz,
+        count( IF ( JLLX = "19", TRUE, NULL ) ) AS qtjl
+        FROM
+        zyryjljl z LEFT JOIN jbxx j
+        on z.RYBH = j.RYBH
+        <where>
+            <if test="starttime != null and starttime != ''">
+                and date_format(z.zxsj,'%Y-%m-%d') &gt;= #{starttime}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and date_format(z.zxsj,'%Y-%m-%d') &lt;= #{endtime}
+            </if>
+            <if test="jsbh != null and jsbh != ''">
+                and z.jsbh = #{jsbh}
+            </if>
+            <if test="jsh != null and jsh != ''">
+                and j.jsh in (${jsh})
+            </if>
+        </where>
+    </select>
+</mapper>

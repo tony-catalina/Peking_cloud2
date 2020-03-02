@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.mis.servers.dao.ClassficDao">
+    <resultMap id="ClassficResultMap" type="awd.mis.servers.entity.ClassficEntity">
+		<result property="id" column="id" javaType="java.lang.String" jdbcType="CHAR"/>		
+		<result property="lx" column="lx" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="parentid" column="parentid" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="classid" column="classid" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="name" column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="creator" column="creator" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="createtime" column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>		
+		<result property="updator" column="updator" javaType="java.lang.String" jdbcType="VARCHAR"/>		
+		<result property="updatetime" column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>		
+    </resultMap>
+
+    <!--用于动态生成sql所需的配置-->
+    <sql id="config">
+        <bind name="resultMapId" value="'ClassficResultMap'"/>
+        <bind name="tableName" value="'CLASSFIC'"/>
+    </sql>
+
+    <insert id="insert" parameterType="awd.mis.servers.entity.ClassficEntity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildInsertSql"/>
+    </insert>
+
+    <delete id="deleteByPk" parameterType="String">
+        delete from app where id =#{id}
+    </delete>
+
+    <delete id="delete" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildDeleteSql"/>
+    </delete>
+
+    <update id="update" parameterType="awd.framework.common.entity.Entity">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildUpdateSql"/>
+    </update>
+
+    <select id="query" parameterType="awd.framework.common.entity.Entity" resultMap="ClassficResultMap">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildSelectSql"/>
+    </select>
+
+    <select id="count" parameterType="awd.framework.common.entity.Entity" resultType="int">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildTotalSql"/>
+    </select>  
+    
+    <select id="sequid"  resultType="String">
+        <include refid="config"/>
+        <include refid="BasicMapper.buildIdSqlMysql"/>
+    </select> 
+     
+    <select id="selectChildNode"  resultType="String"  resultMap="ClassficResultMap">
+        <include refid="config"/>
+        select * from Classfic where parentid=#{parentid} and lx=#{lx}
+    </select>   
+    
+    <select id="selectByClassID"  resultType="String"  resultMap="ClassficResultMap">
+        <include refid="config"/>
+        select * from Classfic where classid=#{classid}
+    </select>    
+    
+    <select id="selectByParentIdandName"  resultType="String" resultMap="ClassficResultMap">
+        <include refid="config"/>
+        select * from Classfic where parentid=#{parentid} and name=#{name}
+    </select>   
+    
+    
+</mapper>

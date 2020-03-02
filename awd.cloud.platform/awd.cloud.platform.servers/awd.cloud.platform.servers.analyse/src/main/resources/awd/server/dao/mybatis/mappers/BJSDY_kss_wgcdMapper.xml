@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="awd.cloud.platform.servers.analyse.dao.kss.BJSDY_kss_wgcdDao">
+    
+    <resultMap id="wgcdMapper" type="awd.cloud.platform.servers.analyse.model.kss.BJSDY_kssModel">
+        <result property="jsbh" column="JSBH"/>
+    </resultMap>
+
+
+    <!--被监管人员违规程度分析-->
+    <select id="qdwgCount" resultType="java.util.HashMap">
+       select count(( WGLX = 3)or null) person,count(( WGLX = 3)or null)/count(id)*100 deci
+        from wgsjcl
+        where JSBH=#{jsbh}
+    </select>
+    <select id="ybwgCount" resultType="java.util.HashMap">
+        select count(( WGLX = 2)or null) person,count(( WGLX = 2)or null)/count(id)*100 deci
+        from wgsjcl
+       where JSBH=#{jsbh}
+    </select>
+    <select id="zdwgCount" resultType="java.util.HashMap">
+        select count(( WGLX = 1)or null) person,count(( WGLX = 1)or null)/count(id)*100 deci
+        from wgsjcl
+       where JSBH=#{jsbh}
+    </select>
+
+</mapper>
